@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Matrix风格网格图案 - 蓝色版本 -->
+    <pattern id="matrixGridBlue" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#00bfff" stroke-width="0.5" opacity="0.4"/>
+    </pattern>
+    
+    <!-- 数字雨效果图案 - 蓝色版本 -->
+    <pattern id="digitalRainBlue" width="15" height="30" patternUnits="userSpaceOnUse">
+      <text x="7" y="15" font-family="monospace" font-size="8" fill="#00bfff" opacity="0.3">1</text>
+      <text x="7" y="25" font-family="monospace" font-size="8" fill="#00bfff" opacity="0.2">0</text>
+    </pattern>
+    
+    <!-- 发光效果滤镜 - 蓝色版本 -->
+    <filter id="glowBlue" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <!-- 扫描线效果 - 蓝色版本 -->
+    <pattern id="scanLinesBlue" width="100%" height="2" patternUnits="userSpaceOnUse">
+      <rect width="100%" height="1" fill="#00bfff" opacity="0.1"/>
+    </pattern>
+  </defs>
+  
+  <!-- 背景 -->
+  <rect width="1024" height="1024" fill="#000011"/>
+  
+  <!-- Matrix网格背景 -->
+  <rect x="50" y="50" width="924" height="924" fill="url(#matrixGridBlue)"/>
+  
+  <!-- 数字雨背景 -->
+  <rect x="100" y="100" width="824" height="824" fill="url(#digitalRainBlue)" opacity="0.3"/>
+  
+  <!-- 扫描线效果 -->
+  <rect x="0" y="0" width="1024" height="1024" fill="url(#scanLinesBlue)"/>
+  
+  <!-- 主圆形 - Matrix风格 -->
+  <circle cx="512" cy="512" r="400" fill="none" stroke="#00bfff" stroke-width="6" filter="url(#glowBlue)"/>
+  
+  <!-- 内部装饰圆环 -->
+  <circle cx="512" cy="512" r="300" fill="none" stroke="#00bfff" stroke-width="3" opacity="0.8" filter="url(#glowBlue)"/>
+  <circle cx="512" cy="512" r="200" fill="none" stroke="#00bfff" stroke-width="2" opacity="0.6" filter="url(#glowBlue)"/>
+  <circle cx="512" cy="512" r="100" fill="none" stroke="#00bfff" stroke-width="1" opacity="0.4" filter="url(#glowBlue)"/>
+  
+  <!-- ZHIFU 文字 - 字母I的几何中心位于圆的中心点 -->
+  <text x="512" y="580" font-family="monospace, Arial, sans-serif" font-size="180" font-weight="bold" text-anchor="middle" fill="#00bfff" filter="url(#glowBlue)">T</text>
+  
+  <!-- Tech 文字 - 在ZHIFU下方，增加距离 -->
+  <!-- <text x="512" y="870" font-family="monospace, Arial, sans-serif" font-size="60" font-weight="300" text-anchor="middle" fill="#ffffff" opacity="0.6" filter="url(#glowBlue)">Tech</text> -->
+  
+  <!-- Matrix风格装饰元素 -->
+  <rect x="300" y="300" width="424" height="3" fill="#00bfff" opacity="0.9" filter="url(#glowBlue)"/>
+  <rect x="300" y="721" width="424" height="3" fill="#00bfff" opacity="0.9" filter="url(#glowBlue)"/>
+  <rect x="300" y="300" width="3" height="424" fill="#00bfff" opacity="0.9" filter="url(#glowBlue)"/>
+  <rect x="721" y="300" width="3" height="424" fill="#00bfff" opacity="0.9" filter="url(#glowBlue)"/>
+  
+  <!-- Matrix风格角落装饰 -->
+  <polygon points="300,300 320,300 300,320" fill="#00bfff" opacity="0.8" filter="url(#glowBlue)"/>
+  <polygon points="724,300 704,300 724,320" fill="#00bfff" opacity="0.8" filter="url(#glowBlue)"/>
+  <polygon points="300,724 320,724 300,704" fill="#00bfff" opacity="0.8" filter="url(#glowBlue)"/>
+  <polygon points="724,724 704,724 724,704" fill="#00bfff" opacity="0.8" filter="url(#glowBlue)"/>
+  
+  <!-- 中心Matrix代码装饰 -->
+  <text x="512" y="460" font-family="monospace" font-size="12" fill="#00bfff" text-anchor="middle" opacity="0.6">01001000</text>
+  <text x="512" y="680" font-family="monospace" font-size="12" fill="#00bfff" text-anchor="middle" opacity="0.6">01110100</text>
+  
+  <!-- 动态扫描线效果 -->
+  <line x1="0" y1="200" x2="1024" y2="200" stroke="#00bfff" stroke-width="2" opacity="0.6" filter="url(#glowBlue)">
+    <animate attributeName="y1" values="0;1024;0" dur="3s" repeatCount="indefinite"/>
+    <animate attributeName="y2" values="0;1024;0" dur="3s" repeatCount="indefinite"/>
+  </line>
+  
+  <!-- 闪烁的装饰点 -->
+  <circle cx="400" cy="400" r="4" fill="#00bfff" opacity="0.8" filter="url(#glowBlue)">
+    <animate attributeName="opacity" values="0.2;1;0.2" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="624" cy="400" r="4" fill="#00bfff" opacity="0.8" filter="url(#glowBlue)">
+    <animate attributeName="opacity" values="0.2;1;0.2" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="400" cy="624" r="4" fill="#00bfff" opacity="0.8" filter="url(#glowBlue)">
+    <animate attributeName="opacity" values="0.2;1;0.2" dur="1.8s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="624" cy="624" r="4" fill="#00bfff" opacity="0.8" filter="url(#glowBlue)">
+    <animate attributeName="opacity" values="0.2;1;0.2" dur="2.2s" repeatCount="indefinite"/>
+  </circle>
+</svg>
