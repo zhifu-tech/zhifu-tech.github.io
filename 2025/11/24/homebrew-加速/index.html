@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon.svg" color="#222">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="google-site-verification" content="5AUIVYTbHIAuz-eQtxSfZbWW5eg9_EVZMSQycIuXrG0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inconsolata:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhifu-tech.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.25.0","exturl":true,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="Homebrew 是什么以及如何在中国大陆加速使用 Homebrew">
+<meta property="og:type" content="article">
+<meta property="og:title" content="工具: Homebrew 加速指南">
+<meta property="og:url" content="https://zhifu-tech.github.io/2025/11/24/homebrew-%E5%8A%A0%E9%80%9F/index.html">
+<meta property="og:site_name" content="Zhifu-Tech">
+<meta property="og:description" content="Homebrew 是什么以及如何在中国大陆加速使用 Homebrew">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-11-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-11-23T16:00:00.000Z">
+<meta property="article:author" content="zhifu(geo)">
+<meta property="article:tag" content="Homebrew">
+<meta property="article:tag" content="Mac">
+<meta property="article:tag" content="工具">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zhifu-tech.github.io/2025/11/24/homebrew-%E5%8A%A0%E9%80%9F/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhifu-tech.github.io/2025/11/24/homebrew-%E5%8A%A0%E9%80%9F/","path":"2025/11/24/homebrew-加速/","title":"工具: Homebrew 加速指南"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>工具: Homebrew 加速指南 | Zhifu-Tech</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-43861RVV8R"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-43861RVV8R","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+  <script class="next-config" data-name="wavedrom" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.5.0/wavedrom.min.js","integrity":"sha256-INLAoJc6quTNfiMWkGZniYO2cxE8mHpddnLow1m6RFs="}}</script>
+  <script class="next-config" data-name="wavedrom_skin" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.5.0/skins/default.js","integrity":"sha256-fduc/Zszk5ezWws2uInY/ALWVmIrmV6VTgXbsYSReFI="}}</script>
+  <script src="/js/third-party/tags/wavedrom.js" defer></script>
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zhifu-Tech" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zhifu-Tech</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">技术分享与创新实践</p>
+      <img class="custom-logo-image" src="/images/zhifu-tech-logo.svg" alt="Zhifu-Tech">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">63</span></a></li><li class="menu-item menu-item-app-dashboard"><span class="exturl" data-url="aHR0cHM6Ly9zaXRlLWRhc2hib2FyZC56aGlmdS50ZWNoLw=="><i class="fa fa-tachometer-alt fa-fw"></i>APP - 仪表板</span></li><li class="menu-item menu-item-app-book-excerpt-generator"><span class="exturl" data-url="aHR0cHM6Ly9ib29rLWV4Y2VycHQuemhpZnUudGVjaC8="><i class="fa fa-book-open fa-fw"></i>APP - 书摘卡片生成器</span></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">101</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%96-%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">📖 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-Homebrew%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">什么是 Homebrew？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E7%89%B9%E7%82%B9"><span class="nav-number">1.2.</span> <span class="nav-text">核心特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Homebrew-%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86"><span class="nav-number">1.3.</span> <span class="nav-text">Homebrew 组成部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">1.4.</span> <span class="nav-text">基本使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%9A%80-%E5%8A%A0%E9%80%9F%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">🚀 加速方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9A%E4%BD%BF%E7%94%A8%E5%9B%BD%E5%86%85%E9%95%9C%E5%83%8F%E6%BA%90%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">方法一：使用国内镜像源（推荐）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-1%EF%BC%9A%E4%B8%B4%E6%97%B6%E8%AE%BE%E7%BD%AE%E9%95%9C%E5%83%8F%E6%BA%90%EF%BC%88%E6%B5%8B%E8%AF%95%E7%94%A8%EF%BC%89"><span class="nav-number">2.1.1.</span> <span class="nav-text">步骤 1：临时设置镜像源（测试用）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-2%EF%BC%9A%E6%B0%B8%E4%B9%85%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F"><span class="nav-number">2.1.2.</span> <span class="nav-text">步骤 2：永久配置环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%AA%A4-3%EF%BC%9A%E6%9B%B4%E6%96%B0%E7%8E%B0%E6%9C%89%E5%AE%89%E8%A3%85%E7%9A%84%E4%BB%93%E5%BA%93%E5%9C%B0%E5%9D%80"><span class="nav-number">2.1.3.</span> <span class="nav-text">步骤 3：更新现有安装的仓库地址</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-A%EF%BC%9A%E5%AE%89%E5%85%A8%E6%9B%B4%E6%96%B0%EF%BC%88%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="nav-number">2.1.4.</span> <span class="nav-text">方法 A：安全更新（推荐）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%96%B9%E6%B3%95-B%EF%BC%9A%E7%9B%B4%E6%8E%A5%E6%9B%B4%E6%96%B0%EF%BC%88%E7%AE%80%E5%8D%95%E4%BD%86%E5%8F%AF%E8%83%BD%E6%8A%A5%E9%94%99%EF%BC%89"><span class="nav-number">2.1.5.</span> <span class="nav-text">方法 B：直接更新（简单但可能报错）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9A%E4%BD%BF%E7%94%A8%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC"><span class="nav-number">2.2.</span> <span class="nav-text">方法二：使用一键安装脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%84%9A%E6%9C%AC%E5%8A%9F%E8%83%BD"><span class="nav-number">2.2.1.</span> <span class="nav-text">脚本功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">2.2.2.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%84%9A%E6%9C%AC%E4%BC%98%E5%8A%BF"><span class="nav-number">2.2.3.</span> <span class="nav-text">脚本优势</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%89%EF%BC%9A%E4%BD%BF%E7%94%A8%E4%BB%A3%E7%90%86"><span class="nav-number">2.3.</span> <span class="nav-text">方法三：使用代理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E5%9B%9B%EF%BC%9A%E4%BD%BF%E7%94%A8-Homebrew-%E5%AE%98%E6%96%B9%E4%B8%AD%E5%9B%BD%E9%95%9C%E5%83%8F"><span class="nav-number">2.4.</span> <span class="nav-text">方法四：使用 Homebrew 官方中国镜像</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%8A-%E5%8A%A0%E9%80%9F%E6%95%88%E6%9E%9C%E5%AF%B9%E6%AF%94"><span class="nav-number">3.</span> <span class="nav-text">📊 加速效果对比</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E5%9C%BA%E6%99%AF%EF%BC%9A%E5%AE%89%E8%A3%85-Node-js%EF%BC%88%E4%BC%B0%E7%AE%97%E5%80%BC%EF%BC%89"><span class="nav-number">3.1.</span> <span class="nav-text">测试场景：安装 Node.js（估算值）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E5%91%BD%E4%BB%A4"><span class="nav-number">3.2.</span> <span class="nav-text">测试命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%94%84-%E6%81%A2%E5%A4%8D%E9%BB%98%E8%AE%A4%E6%BA%90"><span class="nav-number">4.</span> <span class="nav-text">🔄 恢复默认源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9A%A0%EF%B8%8F-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">5.</span> <span class="nav-text">⚠️ 注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%94%97-%E9%87%8D%E8%A6%81%E8%B5%84%E6%BA%90%E9%93%BE%E6%8E%A5"><span class="nav-number">6.</span> <span class="nav-text">🔗 重要资源链接</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%98%E6%96%B9%E8%B5%84%E6%BA%90"><span class="nav-number">6.1.</span> <span class="nav-text">官方资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%95%9C%E5%83%8F%E6%BA%90"><span class="nav-number">6.2.</span> <span class="nav-text">镜像源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%BD%E5%86%85%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC"><span class="nav-number">6.3.</span> <span class="nav-text">国内安装脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E5%B7%A5%E5%85%B7"><span class="nav-number">6.4.</span> <span class="nav-text">相关工具</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%9D-%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97"><span class="nav-number">7.</span> <span class="nav-text">📝 更新日志</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zhifu(geo)"
+      src="/images/zhifu-tech-logo.svg">
+  <p class="site-author-name" itemprop="name">zhifu(geo)</p>
+  <div class="site-description" itemprop="description">分享前沿技术、开发经验和行业洞察</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">101</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3poaWZ1LXRlY2gvemhpZnUtdGVjaA==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zhifu-tech&#x2F;zhifu-tech"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS96aGlmdS10ZWNo" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;zhifu-tech"><i class="fab fa-zhihu fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVkYW8uY24vYm91Z2h0" title="Dedao → https:&#x2F;&#x2F;www.dedao.cn&#x2F;bought"><i class="fa fa-book fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhifu-tech.github.io/2025/11/24/homebrew-%E5%8A%A0%E9%80%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/zhifu-tech-logo.svg">
+      <meta itemprop="name" content="zhifu(geo)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhifu-Tech">
+      <meta itemprop="description" content="分享前沿技术、开发经验和行业洞察">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="工具: Homebrew 加速指南 | Zhifu-Tech">
+      <meta itemprop="description" content="Homebrew 是什么以及如何在中国大陆加速使用 Homebrew">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          工具: Homebrew 加速指南<span class="exturl post-edit-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvdGhlbWUtbmV4dC1kb2NzL2VkaXQvbWFzdGVyL3NvdXJjZS9fcG9zdHMvaG9tZWJyZXct5Yqg6YCfLm1k" title="编辑"><i class="fa fa-pen-nib"></i></span>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-11-24 00:00:00" itemprop="dateCreated datePublished" datetime="2025-11-24T00:00:00+08:00">2025-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">Homebrew 是什么以及如何在中国大陆加速使用 Homebrew</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+
+
+<h2 id="📖-简介"><a href="#📖-简介" class="headerlink" title="📖 简介"></a>📖 简介</h2><h3 id="什么是-Homebrew？"><a href="#什么是-Homebrew？" class="headerlink" title="什么是 Homebrew？"></a>什么是 Homebrew？</h3><p>Homebrew 是 macOS（和 Linux）上最流行的包管理器，被称为&quot;macOS 缺失的包管理器&quot;（<span class="exturl" data-url="aHR0cHM6Ly9icmV3LnNoLw==">官网<i class="fa fa-external-link-alt"></i></span>）。</p>
+<h3 id="核心特点"><a href="#核心特点" class="headerlink" title="核心特点"></a>核心特点</h3><ul>
+<li><strong>简单易用</strong>：通过命令行即可安装、更新、卸载软件</li>
+<li><strong>开源免费</strong>：完全开源，社区驱动</li>
+<li><strong>依赖管理</strong>：自动处理软件依赖关系</li>
+<li><strong>广泛支持</strong>：支持大量软件包（formulae）和应用程序（casks），覆盖主流开发工具和应用</li>
+</ul>
+<h3 id="Homebrew-组成部分"><a href="#Homebrew-组成部分" class="headerlink" title="Homebrew 组成部分"></a>Homebrew 组成部分</h3><p>Homebrew 由以下几个核心组件组成：</p>
+<table>
+<thead>
+<tr>
+<th>组件</th>
+<th>说明</th>
+<th>链接</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>brew</strong></td>
+<td>Homebrew 源代码仓库，包含核心命令和逻辑</td>
+<td><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0hvbWVicmV3L2JyZXc=">GitHub<i class="fa fa-external-link-alt"></i></span></td>
+</tr>
+<tr>
+<td><strong>homebrew-core</strong></td>
+<td>Homebrew 核心源，包含通过源码编译安装的软件包（formulae）</td>
+<td><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0hvbWVicmV3L2hvbWVicmV3LWNvcmU=">GitHub<i class="fa fa-external-link-alt"></i></span></td>
+</tr>
+<tr>
+<td><strong>homebrew-cask</strong></td>
+<td>提供 macOS 应用和大型二进制文件的安装，通过下载预编译的应用包安装</td>
+<td><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0hvbWVicmV3L2hvbWVicmV3LWNhc2s=">GitHub<i class="fa fa-external-link-alt"></i></span></td>
+</tr>
+<tr>
+<td><strong>homebrew-bottles</strong></td>
+<td>预编译二进制软件包，加速软件安装过程（无需从源码编译）</td>
+<td><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmJyZXcuc2gvQm90dGxlcw==">文档<i class="fa fa-external-link-alt"></i></span></td>
+</tr>
+</tbody></table>
+<p><strong>术语说明</strong>：</p>
+<ul>
+<li><strong>formulae</strong>：通过源码编译安装的软件包，通常体积较小，安装时间较长</li>
+<li><strong>casks</strong>：预编译的 macOS 应用程序，直接下载安装，通常体积较大但安装快速</li>
+<li><strong>bottles</strong>：预编译的二进制包，用于加速 formulae 的安装，避免每次从源码编译</li>
+</ul>
+<h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 安装软件包</span></span><br><span class="line">brew install &lt;package&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新 Homebrew 本身</span></span><br><span class="line">brew update</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新所有已安装的软件包</span></span><br><span class="line">brew upgrade</span><br><span class="line"></span><br><span class="line"><span class="comment"># 搜索软件包</span></span><br><span class="line">brew search &lt;keyword&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看已安装的软件包</span></span><br><span class="line">brew list</span><br></pre></td></tr></table></figure>
+
+<h2 id="🚀-加速方法"><a href="#🚀-加速方法" class="headerlink" title="🚀 加速方法"></a>🚀 加速方法</h2><p>由于网络环境限制，在中国大陆使用 Homebrew 时可能会遇到下载速度慢、连接超时等问题。以下是几种有效的加速方法，按推荐程度排序：</p>
+<h3 id="方法一：使用国内镜像源（推荐）"><a href="#方法一：使用国内镜像源（推荐）" class="headerlink" title="方法一：使用国内镜像源（推荐）"></a>方法一：使用国内镜像源（推荐）</h3><p>这是最常用且最稳定的加速方法，通过配置环境变量和更新仓库地址来使用国内镜像源。</p>
+<h4 id="步骤-1：临时设置镜像源（测试用）"><a href="#步骤-1：临时设置镜像源（测试用）" class="headerlink" title="步骤 1：临时设置镜像源（测试用）"></a>步骤 1：临时设置镜像源（测试用）</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用清华大学镜像源</span></span><br><span class="line"><span class="built_in">export</span> HOMEBREW_BREW_GIT_REMOTE=<span class="string">&quot;https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git&quot;</span></span><br><span class="line"><span class="built_in">export</span> HOMEBREW_CORE_GIT_REMOTE=<span class="string">&quot;https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git&quot;</span></span><br><span class="line"><span class="built_in">export</span> HOMEBREW_BOTTLE_DOMAIN=<span class="string">&quot;https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles&quot;</span></span><br><span class="line"><span class="built_in">export</span> HOMEBREW_API_DOMAIN=<span class="string">&quot;https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者使用阿里云镜像源</span></span><br><span class="line"><span class="comment"># export HOMEBREW_BREW_GIT_REMOTE=&quot;https://mirrors.aliyun.com/homebrew/brew.git&quot;</span></span><br><span class="line"><span class="comment"># export HOMEBREW_CORE_GIT_REMOTE=&quot;https://mirrors.aliyun.com/homebrew/homebrew-core.git&quot;</span></span><br><span class="line"><span class="comment"># export HOMEBREW_BOTTLE_DOMAIN=&quot;https://mirrors.aliyun.com/homebrew-bottles&quot;</span></span><br><span class="line"><span class="comment"># export HOMEBREW_API_DOMAIN=&quot;https://mirrors.aliyun.com/homebrew-bottles/api&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者使用中科大镜像源</span></span><br><span class="line"><span class="comment"># export HOMEBREW_BREW_GIT_REMOTE=&quot;https://mirrors.ustc.edu.cn/brew.git&quot;</span></span><br><span class="line"><span class="comment"># export HOMEBREW_CORE_GIT_REMOTE=&quot;https://mirrors.ustc.edu.cn/homebrew-core.git&quot;</span></span><br><span class="line"><span class="comment"># export HOMEBREW_BOTTLE_DOMAIN=&quot;https://mirrors.ustc.edu.cn/homebrew-bottles&quot;</span></span><br><span class="line"><span class="comment"># export HOMEBREW_API_DOMAIN=&quot;https://mirrors.ustc.edu.cn/homebrew-bottles/api&quot;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>💡 <strong>说明</strong>：<code>HOMEBREW_API_DOMAIN</code> 用于加速 <code>brew search</code> 命令，该命令会从 <code>formulae.brew.sh/api/formula.jws.json</code> 下载软件包信息。配置此环境变量后，<code>brew search</code> 将使用镜像源加速。</p>
+</blockquote>
+<h4 id="步骤-2：永久配置环境变量"><a href="#步骤-2：永久配置环境变量" class="headerlink" title="步骤 2：永久配置环境变量"></a>步骤 2：永久配置环境变量</h4><p>将环境变量添加到 shell 配置文件中，使配置在每次打开终端时自动生效：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 对于 zsh（macOS 默认）</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export HOMEBREW_BREW_GIT_REMOTE=&quot;https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git&quot;&#x27;</span> &gt;&gt; ~/.zshrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export HOMEBREW_CORE_GIT_REMOTE=&quot;https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git&quot;&#x27;</span> &gt;&gt; ~/.zshrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export HOMEBREW_BOTTLE_DOMAIN=&quot;https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles&quot;&#x27;</span> &gt;&gt; ~/.zshrc</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;export HOMEBREW_API_DOMAIN=&quot;https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles/api&quot;&#x27;</span> &gt;&gt; ~/.zshrc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 重新加载配置</span></span><br><span class="line"><span class="built_in">source</span> ~/.zshrc</span><br></pre></td></tr></table></figure>
+
+<p><strong>环境变量说明</strong>：</p>
+<ul>
+<li><code>HOMEBREW_BREW_GIT_REMOTE</code>：Homebrew 核心仓库镜像地址</li>
+<li><code>HOMEBREW_CORE_GIT_REMOTE</code>：Homebrew Core 仓库镜像地址</li>
+<li><code>HOMEBREW_BOTTLE_DOMAIN</code>：预编译二进制包（bottles）镜像地址</li>
+<li><code>HOMEBREW_API_DOMAIN</code>：API 镜像地址，用于加速 <code>brew search</code> 命令（Homebrew 4.0+）</li>
+</ul>
+<p><strong>作用说明</strong>：设置环境变量后，Homebrew 在运行时（如 <code>brew update</code>、<code>brew install</code>、<code>brew search</code>）会优先使用环境变量指定的镜像源。</p>
+<h4 id="步骤-3：更新现有安装的仓库地址"><a href="#步骤-3：更新现有安装的仓库地址" class="headerlink" title="步骤 3：更新现有安装的仓库地址"></a>步骤 3：更新现有安装的仓库地址</h4><blockquote>
+<p>💡 <strong>重要</strong>：如果你已经安装了 Homebrew，除了设置环境变量（步骤 2），还需要更新已存在仓库的 git remote 地址，这样已克隆的仓库也会使用镜像源。</p>
+</blockquote>
+<p><strong>两种方法的区别</strong>：</p>
+<ul>
+<li><strong>环境变量（步骤 2）</strong>：告诉 Homebrew 运行时使用哪个源，优先级高</li>
+<li><strong>git remote（步骤 3）</strong>：直接修改已存在仓库的远程地址，确保已克隆的仓库也指向镜像源</li>
+</ul>
+<p><strong>建议</strong>：已安装 Homebrew 的用户应该<strong>同时执行步骤 2 和步骤 3</strong>，以确保完全切换到镜像源。</p>
+<h4 id="方法-A：安全更新（推荐）"><a href="#方法-A：安全更新（推荐）" class="headerlink" title="方法 A：安全更新（推荐）"></a>方法 A：安全更新（推荐）</h4><p>自动检查仓库是否存在，避免错误信息：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更新 brew 仓库（必须）</span></span><br><span class="line">git -C <span class="string">&quot;<span class="subst">$(brew --repo)</span>&quot;</span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新 core 仓库（必须）</span></span><br><span class="line">git -C <span class="string">&quot;<span class="subst">$(brew --repo homebrew/core)</span>&quot;</span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新 cask 仓库（仅当已安装 cask 时）</span></span><br><span class="line"><span class="keyword">if</span> [ -d <span class="string">&quot;<span class="subst">$(brew --repo homebrew/cask)</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">  git -C <span class="string">&quot;<span class="subst">$(brew --repo homebrew/cask)</span>&quot;</span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新 cask-fonts 仓库（仅当已安装 cask-fonts 时）</span></span><br><span class="line"><span class="keyword">if</span> [ -d <span class="string">&quot;<span class="subst">$(brew --repo homebrew/cask-fonts)</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">  git -C <span class="string">&quot;<span class="subst">$(brew --repo homebrew/cask-fonts)</span>&quot;</span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask-fonts.git</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新 cask-versions 仓库（仅当已安装 cask-versions 时）</span></span><br><span class="line"><span class="keyword">if</span> [ -d <span class="string">&quot;<span class="subst">$(brew --repo homebrew/cask-versions)</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">  git -C <span class="string">&quot;<span class="subst">$(brew --repo homebrew/cask-versions)</span>&quot;</span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask-versions.git</span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="方法-B：直接更新（简单但可能报错）"><a href="#方法-B：直接更新（简单但可能报错）" class="headerlink" title="方法 B：直接更新（简单但可能报错）"></a>方法 B：直接更新（简单但可能报错）</h4><p>如果某些 tap 未安装，执行时会报错 <code>No such file or directory</code>，这是正常的，可以忽略：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 更新 brew 仓库</span></span><br><span class="line">git -C <span class="string">&quot;<span class="subst">$(brew --repo)</span>&quot;</span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新 core 仓库</span></span><br><span class="line">git -C <span class="string">&quot;<span class="subst">$(brew --repo homebrew/core)</span>&quot;</span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新 cask 仓库（如果使用）</span></span><br><span class="line">git -C <span class="string">&quot;<span class="subst">$(brew --repo homebrew/cask)</span>&quot;</span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新 cask-fonts 仓库（如果使用）</span></span><br><span class="line">git -C <span class="string">&quot;<span class="subst">$(brew --repo homebrew/cask-fonts)</span>&quot;</span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask-fonts.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 更新 cask-versions 仓库（如果使用）</span></span><br><span class="line">git -C <span class="string">&quot;<span class="subst">$(brew --repo homebrew/cask-versions)</span>&quot;</span> remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask-versions.git</span><br></pre></td></tr></table></figure>
+
+<p><strong>检查已安装的 tap</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看所有已安装的 tap</span></span><br><span class="line">brew tap</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查特定 tap 是否存在</span></span><br><span class="line">brew tap | grep -q <span class="string">&quot;homebrew/cask&quot;</span> &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;cask 已安装&quot;</span> || <span class="built_in">echo</span> <span class="string">&quot;cask 未安装&quot;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>⚠️ <strong>说明</strong>：</p>
+<ul>
+<li><code>brew</code> 和 <code>homebrew/core</code> 是必须的，其他 tap（cask、cask-fonts、cask-versions）只有在安装过相关软件后才会存在</li>
+<li>如果遇到 <code>No such file or directory</code> 错误，说明该 tap 未安装，可以忽略</li>
+<li>推荐使用方法 A，它会自动检查仓库是否存在再更新，避免错误信息</li>
+</ul>
+</blockquote>
+<h3 id="方法二：使用一键安装脚本"><a href="#方法二：使用一键安装脚本" class="headerlink" title="方法二：使用一键安装脚本"></a>方法二：使用一键安装脚本</h3><p>适合首次安装 Homebrew 的用户，脚本会自动配置国内镜像源。</p>
+<h4 id="脚本功能"><a href="#脚本功能" class="headerlink" title="脚本功能"></a>脚本功能</h4><ol>
+<li><p><strong>自动配置国内镜像源</strong></p>
+<ul>
+<li>将 Homebrew 核心仓库默认指向清华大学镜像</li>
+<li>将 Core 仓库默认指向中科大镜像</li>
+<li>将 Cask 仓库默认指向中科大镜像</li>
+<li>设置 Bottle 下载域名为中科大镜像</li>
+</ul>
+</li>
+<li><p><strong>自动检测系统环境</strong></p>
+<ul>
+<li>检测操作系统类型（macOS&#x2F;Linux）</li>
+<li>检测 CPU 架构（Intel&#x2F;Apple Silicon）</li>
+<li>根据架构自动选择安装路径（Intel: <code>/usr/local</code>，Apple Silicon: <code>/opt/homebrew</code>）</li>
+</ul>
+</li>
+<li><p><strong>执行完整安装流程</strong></p>
+<ul>
+<li>克隆 Homebrew 仓库到指定目录</li>
+<li>创建必要的目录结构</li>
+<li>设置正确的文件权限</li>
+<li>配置环境变量（自动添加到 shell 配置文件）</li>
+</ul>
+</li>
+<li><p><strong>权限和依赖检查</strong></p>
+<ul>
+<li>检查是否有 sudo 权限</li>
+<li>检查是否已安装必要的命令行工具</li>
+<li>检查系统版本兼容性</li>
+</ul>
+</li>
+</ol>
+<h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h4><p><strong>首次安装 Homebrew</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用一键安装脚本（自动使用国内镜像源）</span></span><br><span class="line">/bin/bash -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://gitee.com/ineo6/homebrew-install/raw/master/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>如果已经安装了 Homebrew</strong>：</p>
+<blockquote>
+<p>⚠️ <strong>重要说明</strong>：这个脚本主要用于<strong>首次安装</strong> Homebrew。如果已经安装了 Homebrew，建议使用&quot;方法一&quot;重新配置镜像源，无需重新安装。</p>
+</blockquote>
+<p>如果确实需要重新安装，可以：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 先卸载现有 Homebrew（使用 Gitee 镜像）</span></span><br><span class="line">/bin/bash -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://gitee.com/ineo6/homebrew-install/raw/master/uninstall.sh)</span>&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 然后使用一键安装脚本重新安装</span></span><br><span class="line">/bin/bash -c <span class="string">&quot;<span class="subst">$(curl -fsSL https://gitee.com/ineo6/homebrew-install/raw/master/install.sh)</span>&quot;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>⚠️ <strong>警告</strong>：完全重新安装会删除所有已安装的软件包，需要重新安装所有软件。建议先备份软件包列表：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 备份已安装的软件包列表</span></span><br><span class="line">brew list &gt; brew_packages.txt</span><br><span class="line">brew list --cask &gt; brew_casks.txt</span><br></pre></td></tr></table></figure></blockquote>
+<h4 id="脚本优势"><a href="#脚本优势" class="headerlink" title="脚本优势"></a>脚本优势</h4><ul>
+<li>✅ <strong>开箱即用</strong>：无需手动配置镜像源，安装后即可快速使用</li>
+<li>✅ <strong>自动化程度高</strong>：自动处理所有配置步骤，减少人工操作</li>
+<li>✅ <strong>适合新手</strong>：无需了解 Homebrew 内部结构即可完成安装</li>
+<li>✅ <strong>国内优化</strong>：默认使用国内镜像，相比官方源通常下载速度更快</li>
+</ul>
+<h3 id="方法三：使用代理"><a href="#方法三：使用代理" class="headerlink" title="方法三：使用代理"></a>方法三：使用代理</h3><p>如果你有可用的代理服务，可以通过设置代理来加速：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置代理（替换为你的代理地址和端口）</span></span><br><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">&quot;http://127.0.0.1:7890&quot;</span></span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="string">&quot;http://127.0.0.1:7890&quot;</span></span><br><span class="line"><span class="built_in">export</span> all_proxy=<span class="string">&quot;socks5://127.0.0.1:7890&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者仅针对 Homebrew 设置 Bottle 镜像</span></span><br><span class="line"><span class="built_in">export</span> HOMEBREW_BOTTLE_DOMAIN=<span class="string">&quot;https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="方法四：使用-Homebrew-官方中国镜像"><a href="#方法四：使用-Homebrew-官方中国镜像" class="headerlink" title="方法四：使用 Homebrew 官方中国镜像"></a>方法四：使用 Homebrew 官方中国镜像</h3><p>Homebrew 官方也提供了中国镜像（北京外国语大学镜像）：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用官方中国镜像</span></span><br><span class="line"><span class="built_in">export</span> HOMEBREW_BREW_GIT_REMOTE=<span class="string">&quot;https://mirrors.bfsu.edu.cn/git/homebrew/brew.git&quot;</span></span><br><span class="line"><span class="built_in">export</span> HOMEBREW_CORE_GIT_REMOTE=<span class="string">&quot;https://mirrors.bfsu.edu.cn/git/homebrew/homebrew-core.git&quot;</span></span><br><span class="line"><span class="built_in">export</span> HOMEBREW_BOTTLE_DOMAIN=<span class="string">&quot;https://mirrors.bfsu.edu.cn/homebrew-bottles&quot;</span></span><br><span class="line"><span class="built_in">export</span> HOMEBREW_API_DOMAIN=<span class="string">&quot;https://mirrors.bfsu.edu.cn/homebrew-bottles/api&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="📊-加速效果对比"><a href="#📊-加速效果对比" class="headerlink" title="📊 加速效果对比"></a>📊 加速效果对比</h2><blockquote>
+<p>⚠️ <strong>说明</strong>：以下数据为经验估算值，实际效果会因网络环境、时间段、镜像源负载等因素而有所不同。建议根据实际情况选择最适合的加速方法。</p>
+</blockquote>
+<h3 id="测试场景：安装-Node-js（估算值）"><a href="#测试场景：安装-Node-js（估算值）" class="headerlink" title="测试场景：安装 Node.js（估算值）"></a>测试场景：安装 Node.js（估算值）</h3><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>下载速度（估算）</th>
+<th>安装时间（估算）</th>
+<th>成功率（估算）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>默认源（无加速）</td>
+<td>50-200 KB&#x2F;s</td>
+<td>5-15 分钟</td>
+<td>60-70%</td>
+</tr>
+<tr>
+<td>清华镜像源</td>
+<td>5-20 MB&#x2F;s</td>
+<td>30 秒-2 分钟</td>
+<td>95%+</td>
+</tr>
+<tr>
+<td>阿里云镜像源</td>
+<td>3-15 MB&#x2F;s</td>
+<td>1-3 分钟</td>
+<td>90%+</td>
+</tr>
+<tr>
+<td>中科大镜像源</td>
+<td>2-10 MB&#x2F;s</td>
+<td>1-3 分钟</td>
+<td>90%+</td>
+</tr>
+<tr>
+<td>使用代理</td>
+<td>取决于代理速度</td>
+<td>1-5 分钟</td>
+<td>80-90%</td>
+</tr>
+</tbody></table>
+<p><strong>影响因素</strong>：</p>
+<ul>
+<li>网络带宽和稳定性</li>
+<li>访问时间段（高峰期可能较慢）</li>
+<li>镜像源服务器负载</li>
+<li>地理位置（距离镜像源服务器的远近）</li>
+<li>软件包大小（大型软件包差异更明显）</li>
+</ul>
+<h3 id="测试命令"><a href="#测试命令" class="headerlink" title="测试命令"></a>测试命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 测试下载速度（安装一个常用软件包）</span></span><br><span class="line"><span class="keyword">time</span> brew install node</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者测试更新速度</span></span><br><span class="line"><span class="keyword">time</span> brew update</span><br></pre></td></tr></table></figure>
+
+<h2 id="🔄-恢复默认源"><a href="#🔄-恢复默认源" class="headerlink" title="🔄 恢复默认源"></a>🔄 恢复默认源</h2><p>如果需要恢复使用官方源：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 恢复 brew 仓库</span></span><br><span class="line">git -C <span class="string">&quot;<span class="subst">$(brew --repo)</span>&quot;</span> remote set-url origin https://github.com/Homebrew/brew.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 恢复 core 仓库</span></span><br><span class="line">git -C <span class="string">&quot;<span class="subst">$(brew --repo homebrew/core)</span>&quot;</span> remote set-url origin https://github.com/Homebrew/homebrew-core.git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 恢复 cask 仓库（如果存在）</span></span><br><span class="line"><span class="keyword">if</span> [ -d <span class="string">&quot;<span class="subst">$(brew --repo homebrew/cask)</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line">  git -C <span class="string">&quot;<span class="subst">$(brew --repo homebrew/cask)</span>&quot;</span> remote set-url origin https://github.com/Homebrew/homebrew-cask.git</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 清除环境变量（从 ~/.zshrc 或 ~/.bash_profile 中删除相关 export 语句）</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="⚠️-注意事项"><a href="#⚠️-注意事项" class="headerlink" title="⚠️ 注意事项"></a>⚠️ 注意事项</h2><ol>
+<li><strong>镜像同步延迟</strong>：国内镜像通常存在数小时到一天的同步延迟（具体时间因镜像源而异），某些最新软件包可能暂时不可用</li>
+<li><strong>镜像源选择</strong>：根据社区反馈，清华大学和阿里云镜像通常更新相对更及时，但实际效果可能因网络环境而异</li>
+<li><strong>混合使用</strong>：可以同时配置镜像源和代理，提高成功率</li>
+<li><strong>定期更新</strong>：建议定期执行 <code>brew update</code> 保持软件包列表最新</li>
+<li><strong>故障排查</strong>：如果遇到问题，可以尝试切换不同的镜像源</li>
+<li><strong>Homebrew 4.0+ API 加速</strong>：Homebrew 4.0 版本引入了 JSON API（<code>formula.jws.json</code>），<code>brew search</code> 命令会使用此 API。配置 <code>HOMEBREW_API_DOMAIN</code> 环境变量可以加速 <code>brew search</code> 命令</li>
+</ol>
+<h2 id="🔗-重要资源链接"><a href="#🔗-重要资源链接" class="headerlink" title="🔗 重要资源链接"></a>🔗 重要资源链接</h2><h3 id="官方资源"><a href="#官方资源" class="headerlink" title="官方资源"></a>官方资源</h3><ul>
+<li><strong><span class="exturl" data-url="aHR0cHM6Ly9icmV3LnNoLw==">Homebrew 官网<i class="fa fa-external-link-alt"></i></span></strong></li>
+<li><strong><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmJyZXcuc2gv">Homebrew 文档<i class="fa fa-external-link-alt"></i></span></strong></li>
+<li><strong><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0hvbWVicmV3L2JyZXc=">Homebrew GitHub<i class="fa fa-external-link-alt"></i></span></strong></li>
+<li><strong><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0hvbWVicmV3L2hvbWVicmV3LWNvcmU=">Homebrew Core<i class="fa fa-external-link-alt"></i></span></strong></li>
+</ul>
+<h3 id="镜像源"><a href="#镜像源" class="headerlink" title="镜像源"></a>镜像源</h3><ul>
+<li><strong><span class="exturl" data-url="aHR0cHM6Ly9taXJyb3JzLnR1bmEudHNpbmdodWEuZWR1LmNuL2hlbHAvaG9tZWJyZXcv">清华大学镜像<i class="fa fa-external-link-alt"></i></span></strong></li>
+<li><strong><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIuYWxpeXVuLmNvbS9taXJyb3IvaG9tZWJyZXc=">阿里云镜像<i class="fa fa-external-link-alt"></i></span></strong></li>
+<li><strong><span class="exturl" data-url="aHR0cHM6Ly9taXJyb3JzLnVzdGMuZWR1LmNuL2hlbHAvaG9tZWJyZXcuaHRtbA==">中科大镜像<i class="fa fa-external-link-alt"></i></span></strong></li>
+<li><strong><span class="exturl" data-url="aHR0cHM6Ly9taXJyb3JzLmJmc3UuZWR1LmNuL2hlbHAvaG9tZWJyZXcv">北京外国语大学镜像<i class="fa fa-external-link-alt"></i></span></strong></li>
+</ul>
+<h3 id="国内安装脚本"><a href="#国内安装脚本" class="headerlink" title="国内安装脚本"></a>国内安装脚本</h3><ul>
+<li><strong><span class="exturl" data-url="aHR0cHM6Ly9naXRlZS5jb20vaW5lbzYvaG9tZWJyZXctaW5zdGFsbA==">Gitee 一键安装<i class="fa fa-external-link-alt"></i></span></strong></li>
+<li><strong><span class="exturl" data-url="aHR0cHM6Ly9icmV3LmlkYXllci5jb20vZ3VpZGU=">Homebrew 中文网<i class="fa fa-external-link-alt"></i></span></strong></li>
+</ul>
+<h3 id="相关工具"><a href="#相关工具" class="headerlink" title="相关工具"></a>相关工具</h3><ul>
+<li><strong><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0hvbWVicmV3L2hvbWVicmV3LWNhc2s=">Homebrew Cask<i class="fa fa-external-link-alt"></i></span></strong>（用于安装 macOS 应用程序）</li>
+<li><strong><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0hvbWVicmV3L2hvbWVicmV3LXNlcnZpY2Vz">Homebrew Services<i class="fa fa-external-link-alt"></i></span></strong>（管理后台服务）</li>
+</ul>
+<h2 id="📝-更新日志"><a href="#📝-更新日志" class="headerlink" title="📝 更新日志"></a>📝 更新日志</h2><ul>
+<li><strong>2025-11-24</strong>：<ul>
+<li>添加一键安装脚本的详细功能分析</li>
+<li>优化更新现有安装的说明，添加错误处理方法（检查 tap 是否存在）</li>
+<li>添加检查已安装 tap 的方法</li>
+<li>添加已安装 Homebrew 时使用一键安装脚本的说明和替代方案</li>
+<li>优化文档结构和格式，提升可读性</li>
+<li>添加 <code>HOMEBREW_API_DOMAIN</code> 配置，加速 <code>brew search</code> 命令（Homebrew 4.0+）</li>
+</ul>
+</li>
+<li><strong>2025-11-20</strong>：初始版本，包含基本加速方法和资源链接</li>
+</ul>
+<hr>
+<blockquote>
+<p>💡 <strong>提示</strong>：本文档将持续更新，如有新的优化方法或镜像源，会及时补充。</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag"># 工具</a>
+              <a href="/tags/Mac/" rel="tag"># Mac</a>
+              <a href="/tags/Homebrew/" rel="tag"># Homebrew</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/11/24/katana-%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6/" rel="prev" title="工具: Katana - 下一代爬虫和蜘蛛框架">
+                  <i class="fa fa-angle-left"></i> 工具: Katana - 下一代爬虫和蜘蛛框架
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/11/24/%E5%BF%AB%E5%88%80%E5%B9%BF%E6%92%AD%E7%AB%99-682-GetDraft/" rel="next" title="笔记: 快刀广播站-682-GetDraft">
+                  笔记: 快刀广播站-682-GetDraft <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2025 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Zhifu-Tech</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL3poaWZ1LXRlY2gvemhpZnUtdGVjaA==" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon.svg" color="#222">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="google-site-verification" content="5AUIVYTbHIAuz-eQtxSfZbWW5eg9_EVZMSQycIuXrG0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inconsolata:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhifu-tech.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.25.0","exturl":true,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="记录从 ChatGPT 获取的关于 Kotlin Multiplatform 中 js 和 wasmJs 目标的核心区别、能力对比、使用场景和实际项目建议，以及 WASM 的本质定位、2025 年真实现状和工程视角的完整分析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="KMP js vs wasmJs 核心区别">
+<meta property="og:url" content="https://zhifu-tech.github.io/2025/12/24/KMP-js-vs-wasmJs-%E5%8C%BA%E5%88%AB/index.html">
+<meta property="og:site_name" content="Zhifu-Tech">
+<meta property="og:description" content="记录从 ChatGPT 获取的关于 Kotlin Multiplatform 中 js 和 wasmJs 目标的核心区别、能力对比、使用场景和实际项目建议，以及 WASM 的本质定位、2025 年真实现状和工程视角的完整分析">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-24T02:49:34.000Z">
+<meta property="article:modified_time" content="2025-12-24T03:05:47.000Z">
+<meta property="article:author" content="zhifu(geo)">
+<meta property="article:tag" content="ChatGPT">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="KMP">
+<meta property="article:tag" content="Kotlin Multiplatform">
+<meta property="article:tag" content="WebAssembly">
+<meta property="article:tag" content="技术笔记">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zhifu-tech.github.io/2025/12/24/KMP-js-vs-wasmJs-%E5%8C%BA%E5%88%AB/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhifu-tech.github.io/2025/12/24/KMP-js-vs-wasmJs-%E5%8C%BA%E5%88%AB/","path":"2025/12/24/KMP-js-vs-wasmJs-区别/","title":"KMP js vs wasmJs 核心区别"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>KMP js vs wasmJs 核心区别 | Zhifu-Tech</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-43861RVV8R"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-43861RVV8R","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+  <script class="next-config" data-name="wavedrom" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.5.0/wavedrom.min.js","integrity":"sha256-INLAoJc6quTNfiMWkGZniYO2cxE8mHpddnLow1m6RFs="}}</script>
+  <script class="next-config" data-name="wavedrom_skin" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.5.0/skins/default.js","integrity":"sha256-fduc/Zszk5ezWws2uInY/ALWVmIrmV6VTgXbsYSReFI="}}</script>
+  <script src="/js/third-party/tags/wavedrom.js" defer></script>
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zhifu-Tech" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zhifu-Tech</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">技术分享与创新实践</p>
+      <img class="custom-logo-image" src="/images/zhifu-tech-logo.svg" alt="Zhifu-Tech">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">63</span></a></li><li class="menu-item menu-item-app-dashboard"><span class="exturl" data-url="aHR0cHM6Ly9zaXRlLWRhc2hib2FyZC56aGlmdS50ZWNoLw=="><i class="fa fa-tachometer-alt fa-fw"></i>APP - 仪表板</span></li><li class="menu-item menu-item-app-book-excerpt-generator"><span class="exturl" data-url="aHR0cHM6Ly9ib29rLWV4Y2VycHQuemhpZnUudGVjaC8="><i class="fa fa-book-open fa-fw"></i>APP - 书摘卡片生成器</span></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">101</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#KMP-js-vs-wasmJs-%E6%A0%B8%E5%BF%83%E5%8C%BA%E5%88%AB"><span class="nav-number">1.</span> <span class="nav-text">KMP js vs wasmJs 核心区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%9C%80%E6%A0%B8%E5%BF%83%E7%9A%84%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%8C%BA%E5%88%AB%EF%BC%88%E5%85%88%E7%BB%99%E7%BB%93%E8%AE%BA%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">一、最核心的一句话区别（先给结论）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E6%9C%AC%E8%B4%A8%E5%B7%AE%E5%BC%82%EF%BC%88%E5%8E%9F%E7%90%86%E5%B1%82%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">二、本质差异（原理层）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E8%83%BD%E5%8A%9B-%E7%94%9F%E6%80%81%E5%AF%B9%E6%AF%94%EF%BC%88%E9%9D%9E%E5%B8%B8%E5%85%B3%E9%94%AE%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">三、能力 &amp; 生态对比（非常关键）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%EF%B8%8F%E2%83%A3-%E4%B8%8E-JS-Web-API-%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="nav-number">1.3.1.</span> <span class="nav-text">1️⃣ 与 JS &#x2F; Web API 的关系</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#js"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#wasmJs"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">wasmJs</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%EF%B8%8F%E2%83%A3-Worker-npm-%E7%94%9F%E6%80%81"><span class="nav-number">1.3.2.</span> <span class="nav-text">2️⃣ Worker &#x2F; npm &#x2F; 生态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%EF%B8%8F%E2%83%A3-%E6%80%A7%E8%83%BD"><span class="nav-number">1.3.3.</span> <span class="nav-text">3️⃣ 性能</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81Compose-Multiplatform-%E4%B8%8B%E7%9A%84%E7%8E%B0%E5%AE%9E%E6%83%85%E5%86%B5%EF%BC%88%E9%9D%9E%E5%B8%B8%E9%87%8D%E8%A6%81%EF%BC%89"><span class="nav-number">1.4.</span> <span class="nav-text">四、Compose Multiplatform 下的现实情况（非常重要）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Compose-Web-%E5%AE%9E%E9%99%85%E7%94%A8%E7%9A%84%E6%98%AF%EF%BC%9A"><span class="nav-number">1.4.1.</span> <span class="nav-text">Compose Web 实际用的是：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E8%AF%A5%E9%80%89%E5%93%AA%E4%B8%AA%EF%BC%9F%EF%BC%88%E5%86%B3%E7%AD%96%E8%A1%A8%EF%BC%89"><span class="nav-number">1.5.</span> <span class="nav-text">五、什么时候该选哪个？（决策表）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%9C%85-%E9%80%89-js-%E7%9A%84%E6%83%85%E5%86%B5%EF%BC%88%E4%BD%A0%E7%8E%B0%E5%9C%A8%E5%B0%B1%E6%98%AF%EF%BC%89"><span class="nav-number">1.5.1.</span> <span class="nav-text">✅ 选 js 的情况（你现在就是）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%A7%AA-%E9%80%89-wasmJs-%E7%9A%84%E6%83%85%E5%86%B5"><span class="nav-number">1.5.2.</span> <span class="nav-text">🧪 选 wasmJs 的情况</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88-KMP-%E9%BB%98%E8%AE%A4-%E4%B8%A4%E4%B8%AA%E9%83%BD%E7%BB%99%E4%BD%A0-%EF%BC%9F"><span class="nav-number">1.6.</span> <span class="nav-text">六、为什么 KMP 默认&quot;两个都给你&quot;？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E7%BB%99%E4%BD%A0%E4%B8%80%E4%B8%AA%E9%9D%9E%E5%B8%B8%E5%AE%9E%E9%99%85%E7%9A%84%E5%BB%BA%E8%AE%AE%EF%BC%88%E7%BB%93%E5%90%88%E4%BD%A0%E8%B8%A9%E8%BF%87%E7%9A%84%E5%9D%91%EF%BC%89"><span class="nav-number">1.7.</span> <span class="nav-text">七、给你一个非常实际的建议（结合你踩过的坑）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%9C%85-%E5%A6%82%E6%9E%9C%E4%BD%A0%E7%8E%B0%E5%9C%A8%EF%BC%9A"><span class="nav-number">1.7.1.</span> <span class="nav-text">✅ 如果你现在：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%F0%9F%91%89-%E7%9B%B4%E6%8E%A5%E5%81%9A%E8%BF%99%E4%BB%B6%E4%BA%8B%EF%BC%9A"><span class="nav-number">1.7.2.</span> <span class="nav-text">👉 直接做这件事：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E4%B8%80%E5%8F%A5%E8%AF%9D%E7%BB%88%E6%9E%81%E6%80%BB%E7%BB%93%EF%BC%88%E9%80%81%E4%BD%A0%EF%BC%89"><span class="nav-number">1.8.</span> <span class="nav-text">八、一句话终极总结（送你）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%9D%E3%80%81WASM-%E7%9A%84%E6%9C%AC%E8%B4%A8%E5%AE%9A%E4%BD%8D%EF%BC%88%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3%EF%BC%89"><span class="nav-number">1.9.</span> <span class="nav-text">九、WASM 的本质定位（深入理解）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81WASM-%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F%EF%BC%88%E4%B8%80%E5%8F%A5%E8%AF%9D%E5%AE%9A%E4%B9%89%EF%BC%89"><span class="nav-number">1.9.1.</span> <span class="nav-text">一、WASM 到底是什么？（一句话定义）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%B8%80%E4%B8%AA%E5%85%B3%E9%94%AE%E7%B1%BB%E6%AF%94%EF%BC%88%E9%9D%9E%E5%B8%B8%E9%87%8D%E8%A6%81%EF%BC%89"><span class="nav-number">1.9.2.</span> <span class="nav-text">二、一个关键类比（非常重要）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#WASM-%E2%89%88-JVM-%E5%AD%97%E8%8A%82%E7%A0%81-%E2%89%88-LLVM-IR"><span class="nav-number">1.9.2.1.</span> <span class="nav-text">WASM ≈ JVM 字节码 ≈ LLVM IR</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81WASM-%E4%B8%8D%E6%98%AF%E7%94%A8%E6%9D%A5%E5%B9%B2%E4%BB%80%E4%B9%88%E7%9A%84%EF%BC%88%E5%BF%85%E9%A1%BB%E6%BE%84%E6%B8%85%EF%BC%89"><span class="nav-number">1.9.3.</span> <span class="nav-text">三、WASM 不是用来干什么的（必须澄清）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%9D%8C-WASM-%E2%89%A0-Web-UI-%E6%8A%80%E6%9C%AF"><span class="nav-number">1.9.3.1.</span> <span class="nav-text">❌ WASM ≠ Web UI 技术</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%9D%8C-WASM-%E2%89%A0-JavaScript-2-0"><span class="nav-number">1.9.3.2.</span> <span class="nav-text">❌ WASM ≠ JavaScript 2.0</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81WASM-%E7%9C%9F%E6%AD%A3%E8%A7%A3%E5%86%B3%E7%9A%84%E6%98%AF%E4%BB%80%E4%B9%88%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="nav-number">1.9.4.</span> <span class="nav-text">四、WASM 真正解决的是什么问题？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%EF%B8%8F%E2%83%A3-%E6%8A%8A-%E5%8E%9F%E7%94%9F%E8%AE%A1%E7%AE%97%E8%83%BD%E5%8A%9B-%E5%B8%A6%E8%BF%9B-Web"><span class="nav-number">1.9.4.1.</span> <span class="nav-text">1️⃣ 把&quot;原生计算能力&quot;带进 Web</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%EF%B8%8F%E2%83%A3-%E5%AE%89%E5%85%A8%E6%B2%99%E7%AE%B1%E9%87%8C%E7%9A%84-%E5%8E%9F%E7%94%9F%E4%BB%A3%E7%A0%81"><span class="nav-number">1.9.4.2.</span> <span class="nav-text">2️⃣ 安全沙箱里的&quot;原生代码&quot;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%EF%B8%8F%E2%83%A3-%E8%B7%A8%E5%B9%B3%E5%8F%B0%E5%88%86%E5%8F%91-%E8%AE%A1%E7%AE%97%E6%A8%A1%E5%9D%97"><span class="nav-number">1.9.4.3.</span> <span class="nav-text">3️⃣ 跨平台分发&quot;计算模块&quot;</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81WASM-%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%9E%B6%E6%9E%84%E4%BD%8D%E7%BD%AE%EF%BC%88%E5%BE%88%E9%87%8D%E8%A6%81%EF%BC%89"><span class="nav-number">1.9.5.</span> <span class="nav-text">五、WASM 的正确架构位置（很重要）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E5%88%86%E5%B1%82%E6%A8%A1%E5%9E%8B"><span class="nav-number">1.9.5.1.</span> <span class="nav-text">正确分层模型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88-WASM-%E4%BC%9A%E8%A2%AB%E4%B8%A5%E9%87%8D%E8%AF%AF%E8%A7%A3%EF%BC%9F"><span class="nav-number">1.9.6.</span> <span class="nav-text">六、为什么 WASM 会被严重误解？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1%EF%B8%8F%E2%83%A3-%E5%AE%A3%E4%BC%A0%E5%8F%A3%E5%BE%84%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">1.9.6.1.</span> <span class="nav-text">1️⃣ 宣传口径的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%EF%B8%8F%E2%83%A3-Kotlin-Compose-wasm-%E7%9A%84%E8%AF%AF%E5%AF%BC%E6%80%A7%E7%BB%84%E5%90%88"><span class="nav-number">1.9.6.2.</span> <span class="nav-text">2️⃣ Kotlin &#x2F; Compose &#x2F; wasm 的误导性组合</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E7%BB%93%E5%90%88%E4%BD%A0%E5%BD%93%E5%89%8D%E9%A1%B9%E7%9B%AE%EF%BC%8CWASM-%E7%9A%84-%E7%9C%9F%E5%AE%9E%E8%BA%AB%E4%BB%BD"><span class="nav-number">1.9.7.</span> <span class="nav-text">七、结合你当前项目，WASM 的&quot;真实身份&quot;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E6%9C%AA%E6%9D%A5-WASM-%E4%BC%9A%E4%B8%8D%E4%BC%9A-%E7%BB%9F%E6%B2%BB-Web-%EF%BC%9F"><span class="nav-number">1.9.8.</span> <span class="nav-text">八、未来 WASM 会不会&quot;统治 Web&quot;？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%93%E8%AE%BA%EF%BC%9A%E4%B8%8D%E4%BC%9A"><span class="nav-number">1.9.8.1.</span> <span class="nav-text">结论：不会</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B9%9D%E3%80%81%E4%B8%80%E5%8F%A5-%E5%B7%A5%E7%A8%8B%E5%B8%88%E7%BA%A7%E6%80%BB%E7%BB%93"><span class="nav-number">1.9.9.</span> <span class="nav-text">九、一句&quot;工程师级总结&quot;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E3%80%81WASM-%E5%9C%A8-2025-%E5%B9%B4%E7%9A%84%E7%9C%9F%E5%AE%9E%E7%8E%B0%E7%8A%B6%EF%BC%88%E5%B7%A5%E7%A8%8B%E8%A7%86%E8%A7%92%EF%BC%89"><span class="nav-number">1.10.</span> <span class="nav-text">十、WASM 在 2025 年的真实现状（工程视角）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E5%8F%A5%E8%AF%9D%E7%BB%93%E8%AE%BA%EF%BC%88%E5%85%88%E7%BB%99%E4%BD%A0-%E5%B7%A5%E7%A8%8B%E8%A7%86%E8%A7%92-%E7%9A%84%E7%AD%94%E6%A1%88%EF%BC%89"><span class="nav-number">1.10.1.</span> <span class="nav-text">一句话结论（先给你&quot;工程视角&quot;的答案）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81WASM-%E5%88%B0-2025-%E5%B9%B4%E7%9A%84%E7%9C%9F%E5%AE%9E%E7%8E%B0%E7%8A%B6%EF%BC%88%E5%86%B7%E9%9D%99%E7%89%88%EF%BC%89"><span class="nav-number">1.10.2.</span> <span class="nav-text">一、WASM 到 2025 年的真实现状（冷静版）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%9C%94-%E5%B7%B2%E7%BB%8F-%E6%88%90%E7%86%9F-%E7%9A%84%E9%83%A8%E5%88%86"><span class="nav-number">1.10.2.1.</span> <span class="nav-text">✔ 已经&quot;成熟&quot;的部分</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1%EF%B8%8F%E2%83%A3-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%94%AF%E6%8C%81%EF%BC%88%E6%B2%A1%E9%97%AE%E9%A2%98%E4%BA%86%EF%BC%89"><span class="nav-number">1.10.2.1.1.</span> <span class="nav-text">1️⃣ 浏览器支持（没问题了）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2%EF%B8%8F%E2%83%A3-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8A%BF%EF%BC%88%E7%9C%9F%E5%AE%9E%E5%AD%98%E5%9C%A8%EF%BC%89"><span class="nav-number">1.10.2.1.2.</span> <span class="nav-text">2️⃣ 性能优势（真实存在）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3%EF%B8%8F%E2%83%A3-%E8%AF%AD%E8%A8%80%E7%94%9F%E6%80%81%EF%BC%88%E5%BA%95%E5%B1%82%EF%BC%89"><span class="nav-number">1.10.2.1.3.</span> <span class="nav-text">3️⃣ 语言生态（底层）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%BD%86%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%A0%E5%9C%A8-KMP-%E9%87%8C%E6%84%9F%E8%A7%89-wasm%E3%80%8C%E5%A4%84%E5%A4%84%E6%98%AF%E5%9D%91%E3%80%8D%EF%BC%9F"><span class="nav-number">1.10.3.</span> <span class="nav-text">二、但为什么你在 KMP 里感觉 wasm「处处是坑」？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%BD%93%E5%89%8D-WASM-%E7%9A%84%E4%B8%89%E5%A4%A7%E7%A1%AC%E4%BC%A4%EF%BC%88%E5%B7%A5%E7%A8%8B%E8%A7%86%E8%A7%92%EF%BC%89"><span class="nav-number">1.10.4.</span> <span class="nav-text">三、当前 WASM 的三大硬伤（工程视角）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%9D%8C-1%EF%B8%8F%E2%83%A3-%E6%B2%A1%E6%9C%89-%E7%9C%9F%E5%AE%9E%E7%9A%84-Web-API-%E8%AE%BF%E9%97%AE%E8%83%BD%E5%8A%9B"><span class="nav-number">1.10.4.1.</span> <span class="nav-text">❌ 1️⃣ 没有&quot;真实的 Web API 访问能力&quot;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%9D%8C-2%EF%B8%8F%E2%83%A3-%E7%94%9F%E6%80%81%E6%98%AF-%E7%A2%8E%E7%9A%84"><span class="nav-number">1.10.4.2.</span> <span class="nav-text">❌ 2️⃣ 生态是&quot;碎的&quot;</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%9D%8C-3%EF%B8%8F%E2%83%A3-%E5%BA%94%E7%94%A8%E6%A1%86%E6%9E%B6%E5%87%A0%E4%B9%8E%E4%B8%8D%E5%8F%AF%E7%94%A8"><span class="nav-number">1.10.4.3.</span> <span class="nav-text">❌ 3️⃣ 应用框架几乎不可用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81Kotlin-Compose-WASM-%E7%9A%84%E7%9C%9F%E5%AE%9E%E6%83%85%E5%86%B5%EF%BC%88%E5%BE%88%E9%87%8D%E8%A6%81%EF%BC%89"><span class="nav-number">1.10.5.</span> <span class="nav-text">四、Kotlin &#x2F; Compose &#x2F; WASM 的真实情况（很重要）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Kotlin-Wasm-%E7%8E%B0%E5%9C%A8%E5%A4%84%E4%BA%8E%E4%BB%80%E4%B9%88%E9%98%B6%E6%AE%B5%EF%BC%9F"><span class="nav-number">1.10.5.1.</span> <span class="nav-text">Kotlin&#x2F;Wasm 现在处于什么阶段？</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E9%82%A3-WASM-%E5%88%B0%E5%BA%95-%E8%AF%A5%E7%94%A8%E5%9C%A8%E5%93%AA-%EF%BC%9F%EF%BC%88%E6%AD%A3%E7%A1%AE%E5%A7%BF%E5%8A%BF%EF%BC%89"><span class="nav-number">1.10.6.</span> <span class="nav-text">五、那 WASM 到底&quot;该用在哪&quot;？（正确姿势）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E2%9C%85-%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%EF%BC%88%E4%B8%9A%E7%95%8C%E5%85%B1%E8%AF%86%EF%BC%89"><span class="nav-number">1.10.6.1.</span> <span class="nav-text">✅ 最佳实践（业界共识）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%9E%E9%99%85%E6%A1%88%E4%BE%8B"><span class="nav-number">1.10.6.2.</span> <span class="nav-text">实际案例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E4%BD%A0%E7%8E%B0%E5%9C%A8%E7%9A%84%E9%A1%B9%E7%9B%AE%E8%AF%A5%E4%B8%8D%E8%AF%A5%E7%94%A8-wasm%EF%BC%9F"><span class="nav-number">1.10.7.</span> <span class="nav-text">六、你现在的项目该不该用 wasm？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AE%E4%BD%A0%E5%89%8D%E9%9D%A2%E7%9A%84%E5%86%85%E5%AE%B9%EF%BC%88sqljs-Worker-Compose-Web%EF%BC%89%EF%BC%9A"><span class="nav-number">1.10.7.1.</span> <span class="nav-text">根据你前面的内容（sqljs &#x2F; Worker &#x2F; Compose Web）：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E6%9C%AA%E6%9D%A5%E4%BC%9A%E4%B8%8D%E4%BC%9A-%E7%BF%BB%E7%9B%98-%EF%BC%9F"><span class="nav-number">1.10.8.</span> <span class="nav-text">七、未来会不会&quot;翻盘&quot;？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BC%9A%EF%BC%8C%E4%BD%86%E4%B8%8D%E6%98%AF%E7%8E%B0%E5%9C%A8"><span class="nav-number">1.10.8.1.</span> <span class="nav-text">会，但不是现在</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E7%BB%99%E4%BD%A0%E4%B8%80%E4%B8%AA-%E7%8E%B0%E5%AE%9E%E5%B7%A5%E7%A8%8B%E7%BB%93%E8%AE%BA"><span class="nav-number">1.10.9.</span> <span class="nav-text">八、给你一个&quot;现实工程结论&quot;</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B9%9D%E3%80%81%E6%9C%80%E5%90%8E%E9%80%81%E4%BD%A0%E4%B8%80%E5%8F%A5-%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%A7%86%E8%A7%92%E9%87%91%E5%8F%A5"><span class="nav-number">1.10.10.</span> <span class="nav-text">九、最后送你一句&quot;工程师视角金句&quot;</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%92%A1-%E6%80%9D%E8%80%83"><span class="nav-number">1.11.</span> <span class="nav-text">💡 思考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%94%97-%E7%9B%B8%E5%85%B3%E9%93%BE%E6%8E%A5"><span class="nav-number">1.12.</span> <span class="nav-text">🔗 相关链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%8B-%E8%A1%8C%E5%8A%A8%E6%B8%85%E5%8D%95"><span class="nav-number">1.13.</span> <span class="nav-text">📋 行动清单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%9A-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">1.14.</span> <span class="nav-text">📚 参考资料</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zhifu(geo)"
+      src="/images/zhifu-tech-logo.svg">
+  <p class="site-author-name" itemprop="name">zhifu(geo)</p>
+  <div class="site-description" itemprop="description">分享前沿技术、开发经验和行业洞察</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">101</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3poaWZ1LXRlY2gvemhpZnUtdGVjaA==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zhifu-tech&#x2F;zhifu-tech"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS96aGlmdS10ZWNo" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;zhifu-tech"><i class="fab fa-zhihu fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVkYW8uY24vYm91Z2h0" title="Dedao → https:&#x2F;&#x2F;www.dedao.cn&#x2F;bought"><i class="fa fa-book fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhifu-tech.github.io/2025/12/24/KMP-js-vs-wasmJs-%E5%8C%BA%E5%88%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/zhifu-tech-logo.svg">
+      <meta itemprop="name" content="zhifu(geo)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhifu-Tech">
+      <meta itemprop="description" content="分享前沿技术、开发经验和行业洞察">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="KMP js vs wasmJs 核心区别 | Zhifu-Tech">
+      <meta itemprop="description" content="记录从 ChatGPT 获取的关于 Kotlin Multiplatform 中 js 和 wasmJs 目标的核心区别、能力对比、使用场景和实际项目建议，以及 WASM 的本质定位、2025 年真实现状和工程视角的完整分析">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          KMP js vs wasmJs 核心区别<span class="exturl post-edit-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvdGhlbWUtbmV4dC1kb2NzL2VkaXQvbWFzdGVyL3NvdXJjZS9fcG9zdHMvS01QLWpzLXZzLXdhc21Kcy3ljLrliKsubWQ=" title="编辑"><i class="fa fa-pen-nib"></i></span>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-12-24 10:49:34" itemprop="dateCreated datePublished" datetime="2025-12-24T10:49:34+08:00">2025-12-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">记录从 ChatGPT 获取的关于 Kotlin Multiplatform 中 js 和 wasmJs 目标的核心区别、能力对比、使用场景和实际项目建议，以及 WASM 的本质定位、2025 年真实现状和工程视角的完整分析</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+
+
+<h1 id="KMP-js-vs-wasmJs-核心区别"><a href="#KMP-js-vs-wasmJs-核心区别" class="headerlink" title="KMP js vs wasmJs 核心区别"></a>KMP js vs wasmJs 核心区别</h1><blockquote>
+<p>来源：ChatGPT<br>这是一个<strong>非常关键、而且在 KMP 项目里经常被混淆的问题</strong>。本文用「<strong>本质区别 → 能力对比 → 什么时候选 → 实际项目建议</strong>」四个层次来讲解清楚。</p>
+</blockquote>
+<hr>
+<h2 id="一、最核心的一句话区别（先给结论）"><a href="#一、最核心的一句话区别（先给结论）" class="headerlink" title="一、最核心的一句话区别（先给结论）"></a>一、最核心的一句话区别（先给结论）</h2><blockquote>
+<p><strong><code>js</code> 是&quot;直接跑在 JavaScript 里的 Kotlin&quot;</strong><br><strong><code>wasmJs</code> 是&quot;编译成 WebAssembly、再通过 JS 启动的 Kotlin&quot;</strong></p>
+</blockquote>
+<p>两者都能在浏览器跑，但 <strong>技术路线完全不同</strong>。</p>
+<hr>
+<h2 id="二、本质差异（原理层）"><a href="#二、本质差异（原理层）" class="headerlink" title="二、本质差异（原理层）"></a>二、本质差异（原理层）</h2><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>js</th>
+<th>wasmJs</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>编译产物</td>
+<td>JavaScript</td>
+<td>WebAssembly（<code>.wasm</code>）+ JS glue</td>
+</tr>
+<tr>
+<td>执行引擎</td>
+<td>JS 引擎</td>
+<td>WASM VM（由 JS 启动）</td>
+</tr>
+<tr>
+<td>与 JS 互操作</td>
+<td>⭐⭐⭐⭐⭐（原生）</td>
+<td>⭐⭐（有边界成本）</td>
+</tr>
+<tr>
+<td>启动方式</td>
+<td>直接加载 JS</td>
+<td>JS 加载 + WASM 初始化</td>
+</tr>
+<tr>
+<td>技术成熟度</td>
+<td><strong>成熟稳定</strong></td>
+<td><strong>仍在快速演进</strong></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="三、能力-生态对比（非常关键）"><a href="#三、能力-生态对比（非常关键）" class="headerlink" title="三、能力 &amp; 生态对比（非常关键）"></a>三、能力 &amp; 生态对比（非常关键）</h2><h3 id="1️⃣-与-JS-Web-API-的关系"><a href="#1️⃣-与-JS-Web-API-的关系" class="headerlink" title="1️⃣ 与 JS &#x2F; Web API 的关系"></a>1️⃣ 与 JS &#x2F; Web API 的关系</h3><h4 id="js"><a href="#js" class="headerlink" title="js"></a><code>js</code></h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">js(<span class="string">&quot;window.alert(&#x27;hi&#x27;)&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>✔ 直接、无成本</li>
+<li>✔ 所有 Web API 都能用</li>
+<li>✔ Worker &#x2F; DOM &#x2F; Canvas &#x2F; IndexedDB 完全友好</li>
+</ul>
+<h4 id="wasmJs"><a href="#wasmJs" class="headerlink" title="wasmJs"></a><code>wasmJs</code></h4><ul>
+<li>❌ 不能随便 <code>js(&quot;...&quot;)</code></li>
+<li>❌ Worker &#x2F; DOM 要通过桥接</li>
+<li>❌ import.meta.url、npm 包支持很有限</li>
+</ul>
+<p>👉 <strong>只要你依赖 Web API、npm、Worker，js 完胜</strong></p>
+<hr>
+<h3 id="2️⃣-Worker-npm-生态"><a href="#2️⃣-Worker-npm-生态" class="headerlink" title="2️⃣ Worker &#x2F; npm &#x2F; 生态"></a>2️⃣ Worker &#x2F; npm &#x2F; 生态</h3><table>
+<thead>
+<tr>
+<th>能力</th>
+<th>js</th>
+<th>wasmJs</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Web Worker</td>
+<td>✅ 完整支持</td>
+<td>⚠️ 受限</td>
+</tr>
+<tr>
+<td>npm 包</td>
+<td>✅ 原生支持</td>
+<td>❌ 基本不可用</td>
+</tr>
+<tr>
+<td>Vite &#x2F; Webpack</td>
+<td>✅ 成熟</td>
+<td>⚠️ 实验</td>
+</tr>
+<tr>
+<td>import.meta.url</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>sqljs &#x2F; sqlite</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+</tbody></table>
+<p>👉 你前面踩的坑，<strong>90% 都是 wasmJs 的限制导致的</strong></p>
+<hr>
+<h3 id="3️⃣-性能"><a href="#3️⃣-性能" class="headerlink" title="3️⃣ 性能"></a>3️⃣ 性能</h3><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>js</th>
+<th>wasmJs</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UI &#x2F; DOM</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐</td>
+</tr>
+<tr>
+<td>IO &#x2F; Web API</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐</td>
+</tr>
+<tr>
+<td>纯计算</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+</tbody></table>
+<p>👉 wasmJs <strong>只在重计算场景有优势</strong></p>
+<hr>
+<h2 id="四、Compose-Multiplatform-下的现实情况（非常重要）"><a href="#四、Compose-Multiplatform-下的现实情况（非常重要）" class="headerlink" title="四、Compose Multiplatform 下的现实情况（非常重要）"></a>四、Compose Multiplatform 下的现实情况（非常重要）</h2><h3 id="Compose-Web-实际用的是："><a href="#Compose-Web-实际用的是：" class="headerlink" title="Compose Web 实际用的是："></a>Compose Web 实际用的是：</h3><table>
+<thead>
+<tr>
+<th>目标</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>js</code></td>
+<td>✅ <strong>主力、推荐</strong></td>
+</tr>
+<tr>
+<td><code>wasmJs</code></td>
+<td>⚠️ <strong>实验性 &#x2F; 探索中</strong></td>
+</tr>
+</tbody></table>
+<p>JetBrains 官方态度（总结）：</p>
+<blockquote>
+<p><strong>业务型 Web 应用：用 js</strong><br><strong>探索 WASM &#x2F; 未来技术：试 wasmJs</strong></p>
+</blockquote>
+<hr>
+<h2 id="五、什么时候该选哪个？（决策表）"><a href="#五、什么时候该选哪个？（决策表）" class="headerlink" title="五、什么时候该选哪个？（决策表）"></a>五、什么时候该选哪个？（决策表）</h2><h3 id="✅-选-js-的情况（你现在就是）"><a href="#✅-选-js-的情况（你现在就是）" class="headerlink" title="✅ 选 js 的情况（你现在就是）"></a>✅ 选 <code>js</code> 的情况（你现在就是）</h3><ul>
+<li>使用 Compose Web</li>
+<li>使用 SQLDelight &#x2F; sqljs</li>
+<li>使用 Web Worker</li>
+<li>使用 npm 包</li>
+<li>需要快速稳定交付</li>
+</ul>
+<p>👉 <strong>90% Web KMP 项目都该选 js</strong></p>
+<hr>
+<h3 id="🧪-选-wasmJs-的情况"><a href="#🧪-选-wasmJs-的情况" class="headerlink" title="🧪 选 wasmJs 的情况"></a>🧪 选 <code>wasmJs</code> 的情况</h3><ul>
+<li>纯 Kotlin 计算逻辑</li>
+<li>不依赖 DOM &#x2F; Worker &#x2F; npm</li>
+<li>游戏引擎 &#x2F; 算法 &#x2F; 模型计算</li>
+<li>技术探索 &#x2F; 原型</li>
+</ul>
+<p>👉 <strong>极少数项目</strong></p>
+<hr>
+<h2 id="六、为什么-KMP-默认-两个都给你-？"><a href="#六、为什么-KMP-默认-两个都给你-？" class="headerlink" title="六、为什么 KMP 默认&quot;两个都给你&quot;？"></a>六、为什么 KMP 默认&quot;两个都给你&quot;？</h2><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">kotlin &#123;</span><br><span class="line">    js &#123; browser() &#125;</span><br><span class="line">    wasmJs &#123; browser() &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>原因只有一个：</p>
+<blockquote>
+<p><strong>JetBrains 在为未来铺路，但你现在不一定要用</strong></p>
+</blockquote>
+<hr>
+<h2 id="七、给你一个非常实际的建议（结合你踩过的坑）"><a href="#七、给你一个非常实际的建议（结合你踩过的坑）" class="headerlink" title="七、给你一个非常实际的建议（结合你踩过的坑）"></a>七、给你一个非常实际的建议（结合你踩过的坑）</h2><h3 id="✅-如果你现在："><a href="#✅-如果你现在：" class="headerlink" title="✅ 如果你现在："></a>✅ 如果你现在：</h3><ul>
+<li>遇到 <code>import.meta.url</code></li>
+<li>遇到 Worker 报错</li>
+<li>遇到 npm 无法解析</li>
+<li>遇到 wasmJsTest 构建失败</li>
+</ul>
+<h3 id="👉-直接做这件事："><a href="#👉-直接做这件事：" class="headerlink" title="👉 直接做这件事："></a>👉 直接做这件事：</h3><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">kotlin &#123;</span><br><span class="line">    js &#123;</span><br><span class="line">        browser()</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// wasmJs 先删掉</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>等 <strong>将来 wasmJs 真正成熟</strong> 再加回来。</p>
+<hr>
+<h2 id="八、一句话终极总结（送你）"><a href="#八、一句话终极总结（送你）" class="headerlink" title="八、一句话终极总结（送你）"></a>八、一句话终极总结（送你）</h2><blockquote>
+<p><strong>js &#x3D; 今天能用来赚钱的 Web</strong><br><strong>wasmJs &#x3D; 明天可能很牛的 Web</strong></p>
+</blockquote>
+<hr>
+<h2 id="九、WASM-的本质定位（深入理解）"><a href="#九、WASM-的本质定位（深入理解）" class="headerlink" title="九、WASM 的本质定位（深入理解）"></a>九、WASM 的本质定位（深入理解）</h2><blockquote>
+<p>来源：ChatGPT<br>这是个<strong>本质性的问题</strong>。如果只把 WASM 当成&quot;跑得快的 JS&quot;，那基本一定会踩坑。<br>本文用 <strong>「它是什么 → 它不是什么 → 它解决什么问题 → 为什么会被误解」</strong> 四步，把 <strong>WASM 的真实定位</strong>讲清楚。</p>
+</blockquote>
+<hr>
+<h3 id="一、WASM-到底是什么？（一句话定义）"><a href="#一、WASM-到底是什么？（一句话定义）" class="headerlink" title="一、WASM 到底是什么？（一句话定义）"></a>一、WASM 到底是什么？（一句话定义）</h3><blockquote>
+<p><strong>WASM（WebAssembly）是一种&quot;可移植的、沙箱化的、接近原生性能的低级执行格式&quot;</strong></p>
+</blockquote>
+<p>拆开看这句话：</p>
+<ul>
+<li><strong>可移植</strong>：一次编译，多平台运行</li>
+<li><strong>沙箱化</strong>：安全、不能随意访问系统</li>
+<li><strong>低级</strong>：接近机器指令，不是高级语言</li>
+<li><strong>执行格式</strong>：不是语言，是目标格式（像 JVM bytecode）</li>
+</ul>
+<p>👉 <strong>它不是一门语言，而是&quot;目标平台&quot;</strong></p>
+<hr>
+<h3 id="二、一个关键类比（非常重要）"><a href="#二、一个关键类比（非常重要）" class="headerlink" title="二、一个关键类比（非常重要）"></a>二、一个关键类比（非常重要）</h3><h4 id="WASM-≈-JVM-字节码-≈-LLVM-IR"><a href="#WASM-≈-JVM-字节码-≈-LLVM-IR" class="headerlink" title="WASM ≈ JVM 字节码 ≈ LLVM IR"></a>WASM ≈ JVM 字节码 ≈ LLVM IR</h4><table>
+<thead>
+<tr>
+<th>对象</th>
+<th>角色</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Kotlin</td>
+<td>Java</td>
+</tr>
+<tr>
+<td>Rust &#x2F; C++</td>
+<td>C</td>
+</tr>
+<tr>
+<td>WASM</td>
+<td>JVM Bytecode</td>
+</tr>
+</tbody></table>
+<p>👉 <strong>WASM 是&quot;编译目标&quot;，不是&quot;开发体验&quot;</strong></p>
+<hr>
+<h3 id="三、WASM-不是用来干什么的（必须澄清）"><a href="#三、WASM-不是用来干什么的（必须澄清）" class="headerlink" title="三、WASM 不是用来干什么的（必须澄清）"></a>三、WASM 不是用来干什么的（必须澄清）</h3><h4 id="❌-WASM-≠-Web-UI-技术"><a href="#❌-WASM-≠-Web-UI-技术" class="headerlink" title="❌ WASM ≠ Web UI 技术"></a>❌ WASM ≠ Web UI 技术</h4><ul>
+<li>不能直接操作 DOM</li>
+<li>不能直接调用 Web API</li>
+<li>没有 UI 框架生态</li>
+<li>不适合业务逻辑层</li>
+</ul>
+<p>👉 <strong>WASM 不是 React &#x2F; Vue &#x2F; Compose 的替代品</strong></p>
+<hr>
+<h4 id="❌-WASM-≠-JavaScript-2-0"><a href="#❌-WASM-≠-JavaScript-2-0" class="headerlink" title="❌ WASM ≠ JavaScript 2.0"></a>❌ WASM ≠ JavaScript 2.0</h4><ul>
+<li>不具备 JS 的动态能力</li>
+<li>不适合 IO &#x2F; 事件驱动</li>
+<li>需要 JS 做胶水层</li>
+</ul>
+<p>👉 <strong>JS 是 WASM 的宿主，不是对手</strong></p>
+<hr>
+<h3 id="四、WASM-真正解决的是什么问题？"><a href="#四、WASM-真正解决的是什么问题？" class="headerlink" title="四、WASM 真正解决的是什么问题？"></a>四、WASM 真正解决的是什么问题？</h3><h4 id="1️⃣-把-原生计算能力-带进-Web"><a href="#1️⃣-把-原生计算能力-带进-Web" class="headerlink" title="1️⃣ 把&quot;原生计算能力&quot;带进 Web"></a>1️⃣ 把&quot;原生计算能力&quot;带进 Web</h4><p>过去：</p>
+<ul>
+<li>浏览器只能跑 JS</li>
+<li>C&#x2F;C++ 算法没法复用</li>
+</ul>
+<p>现在：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">C / C++ / Rust</span><br><span class="line">        ↓</span><br><span class="line">      WASM</span><br><span class="line">        ↓</span><br><span class="line">    Browser / Node</span><br></pre></td></tr></table></figure>
+
+<p>👉 <strong>Web 获得了&quot;原生级计算能力&quot;</strong></p>
+<hr>
+<h4 id="2️⃣-安全沙箱里的-原生代码"><a href="#2️⃣-安全沙箱里的-原生代码" class="headerlink" title="2️⃣ 安全沙箱里的&quot;原生代码&quot;"></a>2️⃣ 安全沙箱里的&quot;原生代码&quot;</h4><p>WASM 特性：</p>
+<ul>
+<li>无指针越界</li>
+<li>无任意系统调用</li>
+<li>内存安全（可验证）</li>
+</ul>
+<p>👉 <strong>浏览器敢跑 WASM 的原因</strong></p>
+<hr>
+<h4 id="3️⃣-跨平台分发-计算模块"><a href="#3️⃣-跨平台分发-计算模块" class="headerlink" title="3️⃣ 跨平台分发&quot;计算模块&quot;"></a>3️⃣ 跨平台分发&quot;计算模块&quot;</h4><p>同一个 WASM 模块可以跑在：</p>
+<ul>
+<li>浏览器</li>
+<li>Node.js</li>
+<li>Serverless Edge</li>
+<li>WASI Runtime</li>
+</ul>
+<p>👉 <strong>WASM 是&quot;计算模块的 USB 接口&quot;</strong></p>
+<hr>
+<h3 id="五、WASM-的正确架构位置（很重要）"><a href="#五、WASM-的正确架构位置（很重要）" class="headerlink" title="五、WASM 的正确架构位置（很重要）"></a>五、WASM 的正确架构位置（很重要）</h3><h4 id="正确分层模型"><a href="#正确分层模型" class="headerlink" title="正确分层模型"></a>正确分层模型</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">┌───────────────┐</span><br><span class="line">│   UI / Web    │  ← JS / HTML / CSS</span><br><span class="line">├───────────────┤</span><br><span class="line">│ Business Logic│  ← JS / Kotlin JS</span><br><span class="line">├───────────────┤</span><br><span class="line">│ Compute Core  │  ← WASM</span><br><span class="line">├───────────────┤</span><br><span class="line">│ Runtime       │  ← Browser / Node</span><br><span class="line">└───────────────┘</span><br></pre></td></tr></table></figure>
+
+<p>👉 <strong>WASM 应该在&quot;最底层&quot;</strong></p>
+<hr>
+<h3 id="六、为什么-WASM-会被严重误解？"><a href="#六、为什么-WASM-会被严重误解？" class="headerlink" title="六、为什么 WASM 会被严重误解？"></a>六、为什么 WASM 会被严重误解？</h3><h4 id="1️⃣-宣传口径的问题"><a href="#1️⃣-宣传口径的问题" class="headerlink" title="1️⃣ 宣传口径的问题"></a>1️⃣ 宣传口径的问题</h4><ul>
+<li>&quot;Web 的未来&quot;</li>
+<li>&quot;替代 JS&quot;</li>
+<li>&quot;一次编写，到处运行&quot;</li>
+</ul>
+<p>👉 <strong>营销大于工程现实</strong></p>
+<hr>
+<h4 id="2️⃣-Kotlin-Compose-wasm-的误导性组合"><a href="#2️⃣-Kotlin-Compose-wasm-的误导性组合" class="headerlink" title="2️⃣ Kotlin &#x2F; Compose &#x2F; wasm 的误导性组合"></a>2️⃣ Kotlin &#x2F; Compose &#x2F; wasm 的误导性组合</h4><p>很多人误以为：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Kotlin + WASM = Kotlin Web App</span><br></pre></td></tr></table></figure>
+
+<p>现实是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Kotlin/WASM = Kotlin 计算模块</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="七、结合你当前项目，WASM-的-真实身份"><a href="#七、结合你当前项目，WASM-的-真实身份" class="headerlink" title="七、结合你当前项目，WASM 的&quot;真实身份&quot;"></a>七、结合你当前项目，WASM 的&quot;真实身份&quot;</h3><p>你现在的场景：</p>
+<ul>
+<li>Compose Web</li>
+<li>SQLDelight</li>
+<li>Web Worker</li>
+<li>npm 包</li>
+</ul>
+<p>👉 在这个系统里：</p>
+<table>
+<thead>
+<tr>
+<th>技术</th>
+<th>角色</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>JS</td>
+<td>宿主 &amp; 控制</td>
+</tr>
+<tr>
+<td>Compose Web</td>
+<td>UI</td>
+</tr>
+<tr>
+<td>sqljs</td>
+<td>数据层</td>
+</tr>
+<tr>
+<td>Worker</td>
+<td>并发</td>
+</tr>
+<tr>
+<td><strong>WASM</strong></td>
+<td>❌ 多余</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="八、未来-WASM-会不会-统治-Web-？"><a href="#八、未来-WASM-会不会-统治-Web-？" class="headerlink" title="八、未来 WASM 会不会&quot;统治 Web&quot;？"></a>八、未来 WASM 会不会&quot;统治 Web&quot;？</h3><h4 id="结论：不会"><a href="#结论：不会" class="headerlink" title="结论：不会"></a>结论：不会</h4><p>但它会：</p>
+<ul>
+<li>成为 <strong>Web 的 C &#x2F; Rust</strong></li>
+<li>成为 <strong>浏览器里的计算加速卡</strong></li>
+<li>成为 <strong>Serverless &#x2F; Edge 的基础设施</strong></li>
+</ul>
+<p>👉 <strong>不是应用层，而是基础设施层</strong></p>
+<hr>
+<h3 id="九、一句-工程师级总结"><a href="#九、一句-工程师级总结" class="headerlink" title="九、一句&quot;工程师级总结&quot;"></a>九、一句&quot;工程师级总结&quot;</h3><blockquote>
+<p><strong>WASM 是 Web 的&quot;CPU 扩展卡&quot;，不是&quot;操作系统&quot;</strong></p>
+</blockquote>
+<hr>
+<h2 id="十、WASM-在-2025-年的真实现状（工程视角）"><a href="#十、WASM-在-2025-年的真实现状（工程视角）" class="headerlink" title="十、WASM 在 2025 年的真实现状（工程视角）"></a>十、WASM 在 2025 年的真实现状（工程视角）</h2><blockquote>
+<p>来源：ChatGPT<br>这是个<strong>非常好的问题</strong>，而且你现在正好站在一个&quot;被 wasm 各种宣传包围、但又被真实工程问题折磨&quot;的节点上 😄<br>本文不讲概念，<strong>只讲现状、能不能用、什么时候该用</strong>。</p>
+</blockquote>
+<hr>
+<h3 id="一句话结论（先给你-工程视角-的答案）"><a href="#一句话结论（先给你-工程视角-的答案）" class="headerlink" title="一句话结论（先给你&quot;工程视角&quot;的答案）"></a>一句话结论（先给你&quot;工程视角&quot;的答案）</h3><blockquote>
+<p><strong>WASM 现在是：底层能力已经很强，但&quot;应用层生态还没跟上&quot;</strong><br>👉 <strong>适合&quot;计算内核&quot;，不适合&quot;业务 Web 应用&quot;</strong></p>
+</blockquote>
+<hr>
+<h3 id="一、WASM-到-2025-年的真实现状（冷静版）"><a href="#一、WASM-到-2025-年的真实现状（冷静版）" class="headerlink" title="一、WASM 到 2025 年的真实现状（冷静版）"></a>一、WASM 到 2025 年的真实现状（冷静版）</h3><h4 id="✔-已经-成熟-的部分"><a href="#✔-已经-成熟-的部分" class="headerlink" title="✔ 已经&quot;成熟&quot;的部分"></a>✔ 已经&quot;成熟&quot;的部分</h4><h5 id="1️⃣-浏览器支持（没问题了）"><a href="#1️⃣-浏览器支持（没问题了）" class="headerlink" title="1️⃣ 浏览器支持（没问题了）"></a>1️⃣ 浏览器支持（没问题了）</h5><ul>
+<li>Chrome &#x2F; Firefox &#x2F; Safari 全支持</li>
+<li>WASM 性能稳定</li>
+<li>启动时间不断改善</li>
+</ul>
+<p>👉 <strong>&quot;能跑&quot;这件事早就解决了</strong></p>
+<hr>
+<h5 id="2️⃣-性能优势（真实存在）"><a href="#2️⃣-性能优势（真实存在）" class="headerlink" title="2️⃣ 性能优势（真实存在）"></a>2️⃣ 性能优势（真实存在）</h5><p>WASM 在这些场景<strong>明显强于 JS</strong>：</p>
+<ul>
+<li>数值计算</li>
+<li>图像 &#x2F; 音频处理</li>
+<li>加密 &#x2F; 压缩</li>
+<li>物理模拟</li>
+<li>AI &#x2F; ML 推理（非 GPU）</li>
+</ul>
+<p>👉 <strong>&quot;算得快&quot;是真的</strong></p>
+<hr>
+<h5 id="3️⃣-语言生态（底层）"><a href="#3️⃣-语言生态（底层）" class="headerlink" title="3️⃣ 语言生态（底层）"></a>3️⃣ 语言生态（底层）</h5><table>
+<thead>
+<tr>
+<th>语言</th>
+<th>成熟度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Rust → WASM</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>C &#x2F; C++</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>Zig</td>
+<td>⭐⭐⭐</td>
+</tr>
+<tr>
+<td>Kotlin&#x2F;Wasm</td>
+<td>⭐⭐（快速演进）</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="二、但为什么你在-KMP-里感觉-wasm「处处是坑」？"><a href="#二、但为什么你在-KMP-里感觉-wasm「处处是坑」？" class="headerlink" title="二、但为什么你在 KMP 里感觉 wasm「处处是坑」？"></a>二、但为什么你在 KMP 里感觉 wasm「处处是坑」？</h3><p>因为 <strong>WASM 的&quot;上层能力&quot;非常不成熟</strong>。</p>
+<hr>
+<h3 id="三、当前-WASM-的三大硬伤（工程视角）"><a href="#三、当前-WASM-的三大硬伤（工程视角）" class="headerlink" title="三、当前 WASM 的三大硬伤（工程视角）"></a>三、当前 WASM 的三大硬伤（工程视角）</h3><h4 id="❌-1️⃣-没有-真实的-Web-API-访问能力"><a href="#❌-1️⃣-没有-真实的-Web-API-访问能力" class="headerlink" title="❌ 1️⃣ 没有&quot;真实的 Web API 访问能力&quot;"></a>❌ 1️⃣ 没有&quot;真实的 Web API 访问能力&quot;</h4><p>WASM：</p>
+<ul>
+<li>❌ 不能直接访问 DOM</li>
+<li>❌ 不能直接用 Web Worker</li>
+<li>❌ 不能直接 import npm</li>
+<li>❌ 不能直接 <code>import.meta.url</code></li>
+</ul>
+<p>必须：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">WASM → JS glue → 浏览器 API</span><br></pre></td></tr></table></figure>
+
+<p>👉 <strong>桥接成本高、复杂、不稳定</strong></p>
+<hr>
+<h4 id="❌-2️⃣-生态是-碎的"><a href="#❌-2️⃣-生态是-碎的" class="headerlink" title="❌ 2️⃣ 生态是&quot;碎的&quot;"></a>❌ 2️⃣ 生态是&quot;碎的&quot;</h4><ul>
+<li>WASI（非浏览器）</li>
+<li>WASM in browser</li>
+<li>WASM + JS bundler</li>
+<li>WASM + Node</li>
+<li>WASM + Edge runtime</li>
+</ul>
+<p>👉 <strong>每个场景一套规则</strong></p>
+<hr>
+<h4 id="❌-3️⃣-应用框架几乎不可用"><a href="#❌-3️⃣-应用框架几乎不可用" class="headerlink" title="❌ 3️⃣ 应用框架几乎不可用"></a>❌ 3️⃣ 应用框架几乎不可用</h4><table>
+<thead>
+<tr>
+<th>框架</th>
+<th>WASM 状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>React</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Vue</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Compose Web</td>
+<td>⚠️ 实验</td>
+</tr>
+<tr>
+<td>SQL &#x2F; IndexedDB</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Worker &#x2F; ServiceWorker</td>
+<td>❌</td>
+</tr>
+</tbody></table>
+<p>👉 <strong>WASM 不适合&quot;业务 UI&quot;</strong></p>
+<hr>
+<h3 id="四、Kotlin-Compose-WASM-的真实情况（很重要）"><a href="#四、Kotlin-Compose-WASM-的真实情况（很重要）" class="headerlink" title="四、Kotlin &#x2F; Compose &#x2F; WASM 的真实情况（很重要）"></a>四、Kotlin &#x2F; Compose &#x2F; WASM 的真实情况（很重要）</h3><h4 id="Kotlin-Wasm-现在处于什么阶段？"><a href="#Kotlin-Wasm-现在处于什么阶段？" class="headerlink" title="Kotlin&#x2F;Wasm 现在处于什么阶段？"></a>Kotlin&#x2F;Wasm 现在处于什么阶段？</h4><blockquote>
+<p><strong>Alpha &#x2F; 技术预览 &#x2F; API 不稳定</strong></p>
+</blockquote>
+<p>你已经亲身体验到了：</p>
+<ul>
+<li>wasmJsTest 各种奇怪错误</li>
+<li>Web Worker 完全不通</li>
+<li>npm 包无法解析</li>
+<li>import.meta.url 直接炸</li>
+</ul>
+<p>👉 <strong>这不是你能力问题，是生态没准备好</strong></p>
+<hr>
+<h3 id="五、那-WASM-到底-该用在哪-？（正确姿势）"><a href="#五、那-WASM-到底-该用在哪-？（正确姿势）" class="headerlink" title="五、那 WASM 到底&quot;该用在哪&quot;？（正确姿势）"></a>五、那 WASM 到底&quot;该用在哪&quot;？（正确姿势）</h3><h4 id="✅-最佳实践（业界共识）"><a href="#✅-最佳实践（业界共识）" class="headerlink" title="✅ 最佳实践（业界共识）"></a>✅ 最佳实践（业界共识）</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">UI / 业务逻辑 → JS</span><br><span class="line">重计算模块 → WASM</span><br></pre></td></tr></table></figure>
+
+<h4 id="实际案例"><a href="#实际案例" class="headerlink" title="实际案例"></a>实际案例</h4><table>
+<thead>
+<tr>
+<th>产品</th>
+<th>WASM 用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Figma</td>
+<td>图形计算</td>
+</tr>
+<tr>
+<td>Photoshop Web</td>
+<td>图像处理</td>
+</tr>
+<tr>
+<td>Google Earth</td>
+<td>地理计算</td>
+</tr>
+<tr>
+<td>AutoCAD Web</td>
+<td>几何计算</td>
+</tr>
+<tr>
+<td>TensorFlow.js</td>
+<td>内核</td>
+</tr>
+</tbody></table>
+<p>👉 <strong>没有一家用 WASM 写整个 Web App</strong></p>
+<hr>
+<h3 id="六、你现在的项目该不该用-wasm？"><a href="#六、你现在的项目该不该用-wasm？" class="headerlink" title="六、你现在的项目该不该用 wasm？"></a>六、你现在的项目该不该用 wasm？</h3><h4 id="根据你前面的内容（sqljs-Worker-Compose-Web）："><a href="#根据你前面的内容（sqljs-Worker-Compose-Web）：" class="headerlink" title="根据你前面的内容（sqljs &#x2F; Worker &#x2F; Compose Web）："></a>根据你前面的内容（sqljs &#x2F; Worker &#x2F; Compose Web）：</h4><blockquote>
+<p>❌ <strong>现在不该用 wasmJs</strong></p>
+</blockquote>
+<p>理由：</p>
+<ul>
+<li>依赖 Worker</li>
+<li>依赖 npm</li>
+<li>依赖 import.meta.url</li>
+<li>属于标准业务 Web App</li>
+</ul>
+<hr>
+<h3 id="七、未来会不会-翻盘-？"><a href="#七、未来会不会-翻盘-？" class="headerlink" title="七、未来会不会&quot;翻盘&quot;？"></a>七、未来会不会&quot;翻盘&quot;？</h3><h4 id="会，但不是现在"><a href="#会，但不是现在" class="headerlink" title="会，但不是现在"></a>会，但不是现在</h4><p>未来关键技术：</p>
+<table>
+<thead>
+<tr>
+<th>技术</th>
+<th>状态</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>WASM GC</td>
+<td>推进中</td>
+</tr>
+<tr>
+<td>WASM Component Model</td>
+<td>推进中</td>
+</tr>
+<tr>
+<td>Direct DOM access</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>WASI for Web</td>
+<td>❌</td>
+</tr>
+</tbody></table>
+<p>👉 <strong>至少还要 2–3 年</strong></p>
+<hr>
+<h3 id="八、给你一个-现实工程结论"><a href="#八、给你一个-现实工程结论" class="headerlink" title="八、给你一个&quot;现实工程结论&quot;"></a>八、给你一个&quot;现实工程结论&quot;</h3><blockquote>
+<p><strong>2025 年：</strong></p>
+<ul>
+<li>Web App：<strong>JS</strong></li>
+<li>KMP Web：<strong>js target</strong></li>
+<li>WASM：<strong>只做计算插件</strong></li>
+<li>Compose + wasm：<strong>别碰生产</strong></li>
+</ul>
+</blockquote>
+<hr>
+<h3 id="九、最后送你一句-工程师视角金句"><a href="#九、最后送你一句-工程师视角金句" class="headerlink" title="九、最后送你一句&quot;工程师视角金句&quot;"></a>九、最后送你一句&quot;工程师视角金句&quot;</h3><blockquote>
+<p><strong>WASM 不是 JS 的替代品，而是 C&#x2F;C++ 的继任者</strong></p>
+</blockquote>
+<hr>
+<h2 id="💡-思考"><a href="#💡-思考" class="headerlink" title="💡 思考"></a>💡 思考</h2><ul>
+<li>对于业务型 Web 应用，应该优先选择 <code>js</code> 目标</li>
+<li><code>wasmJs</code> 目前更适合纯计算场景或技术探索</li>
+<li>遇到构建问题时，可以考虑先移除 <code>wasmJs</code> 配置</li>
+<li><strong>WASM 的本质是&quot;计算模块的 USB 接口&quot;，不是 Web UI 技术</strong></li>
+<li><strong>WASM 是基础设施层，不是应用层</strong>，应该放在架构的最底层</li>
+<li><strong>JS 是 WASM 的宿主，不是对手</strong>，两者应该配合使用而非替代</li>
+<li>理解 WASM 的真实定位有助于避免技术选型上的误区</li>
+<li><strong>2025 年的现实：WASM 底层能力已成熟，但应用层生态还没跟上</strong></li>
+<li><strong>WASM 适合做计算内核，不适合做业务 Web 应用</strong></li>
+<li><strong>Kotlin&#x2F;Wasm 目前处于 Alpha 阶段，API 不稳定，不适合生产环境</strong></li>
+<li><strong>业界最佳实践：UI&#x2F;业务逻辑用 JS，重计算模块用 WASM</strong></li>
+<li><strong>WASM 不是 JS 的替代品，而是 C&#x2F;C++ 的继任者</strong></li>
+</ul>
+<h2 id="🔗-相关链接"><a href="#🔗-相关链接" class="headerlink" title="🔗 相关链接"></a>🔗 相关链接</h2><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9rb3RsaW5sYW5nLm9yZy9kb2NzL211bHRpcGxhdGZvcm0uaHRtbA==">Kotlin Multiplatform 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuamV0YnJhaW5zLmNvbS9scC9jb21wb3NlLW11bHRpcGxhdGZvcm0v">Compose Multiplatform 文档<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<h2 id="📋-行动清单"><a href="#📋-行动清单" class="headerlink" title="📋 行动清单"></a>📋 行动清单</h2><ul>
+<li><input disabled="" type="checkbox"> 检查当前项目中的 KMP 配置</li>
+<li><input disabled="" type="checkbox"> 评估是否需要 <code>wasmJs</code> 目标</li>
+<li><input disabled="" type="checkbox"> 如果遇到构建问题，考虑移除 <code>wasmJs</code> 配置</li>
+</ul>
+<h2 id="📚-参考资料"><a href="#📚-参考资料" class="headerlink" title="📚 参考资料"></a>📚 参考资料</h2><ul>
+<li>ChatGPT 对话记录</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Kotlin-Multiplatform/" rel="tag"># Kotlin Multiplatform</a>
+              <a href="/tags/KMP/" rel="tag"># KMP</a>
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/tags/WebAssembly/" rel="tag"># WebAssembly</a>
+              <a href="/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" rel="tag"># 技术笔记</a>
+              <a href="/tags/ChatGPT/" rel="tag"># ChatGPT</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/12/18/my-hub-app-naming-summary/" rel="prev" title="笔记: My Hub App 命名总结与品牌阐释">
+                  <i class="fa fa-angle-left"></i> 笔记: My Hub App 命名总结与品牌阐释
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2026/03/18/marble-promotes/" rel="next" title="笔记: Marble 提示词">
+                  笔记: Marble 提示词 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2025 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Zhifu-Tech</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL3poaWZ1LXRlY2gvemhpZnUtdGVjaA==" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+</body>
+</html>

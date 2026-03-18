@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon.svg" color="#222">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="google-site-verification" content="5AUIVYTbHIAuz-eQtxSfZbWW5eg9_EVZMSQycIuXrG0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inconsolata:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhifu-tech.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.25.0","exturl":true,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="书摘卡片生成器 - 一个简单易用的书摘卡片生成工具，可以快速生成精美的书摘图片">
+<meta property="og:type" content="article">
+<meta property="og:title" content="笔记: APP 书摘卡片生成器">
+<meta property="og:url" content="https://zhifu-tech.github.io/2025/11/24/book-excerpt-generator/index.html">
+<meta property="og:site_name" content="Zhifu-Tech">
+<meta property="og:description" content="书摘卡片生成器 - 一个简单易用的书摘卡片生成工具，可以快速生成精美的书摘图片">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhifu-tech/app-book-excerpt-generator/main/screenshots/desktop.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhifu-tech/app-book-excerpt-generator/main/screenshots/mobile-1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zhifu-tech/app-book-excerpt-generator/main/screenshots/mobile-2.png">
+<meta property="article:published_time" content="2025-11-24T15:50:00.000Z">
+<meta property="article:modified_time" content="2025-11-26T09:50:00.000Z">
+<meta property="article:author" content="zhifu(geo)">
+<meta property="article:tag" content="Web应用">
+<meta property="article:tag" content="书摘">
+<meta property="article:tag" content="前端开发">
+<meta property="article:tag" content="图片生成">
+<meta property="article:tag" content="工具">
+<meta property="article:tag" content="笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zhifu-tech/app-book-excerpt-generator/main/screenshots/desktop.png">
+
+
+<link rel="canonical" href="https://zhifu-tech.github.io/2025/11/24/book-excerpt-generator/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhifu-tech.github.io/2025/11/24/book-excerpt-generator/","path":"2025/11/24/book-excerpt-generator/","title":"笔记: APP 书摘卡片生成器"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>笔记: APP 书摘卡片生成器 | Zhifu-Tech</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-43861RVV8R"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-43861RVV8R","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+  <script class="next-config" data-name="wavedrom" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.5.0/wavedrom.min.js","integrity":"sha256-INLAoJc6quTNfiMWkGZniYO2cxE8mHpddnLow1m6RFs="}}</script>
+  <script class="next-config" data-name="wavedrom_skin" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.5.0/skins/default.js","integrity":"sha256-fduc/Zszk5ezWws2uInY/ALWVmIrmV6VTgXbsYSReFI="}}</script>
+  <script src="/js/third-party/tags/wavedrom.js" defer></script>
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zhifu-Tech" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zhifu-Tech</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">技术分享与创新实践</p>
+      <img class="custom-logo-image" src="/images/zhifu-tech-logo.svg" alt="Zhifu-Tech">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">63</span></a></li><li class="menu-item menu-item-app-dashboard"><span class="exturl" data-url="aHR0cHM6Ly9zaXRlLWRhc2hib2FyZC56aGlmdS50ZWNoLw=="><i class="fa fa-tachometer-alt fa-fw"></i>APP - 仪表板</span></li><li class="menu-item menu-item-app-book-excerpt-generator"><span class="exturl" data-url="aHR0cHM6Ly9ib29rLWV4Y2VycHQuemhpZnUudGVjaC8="><i class="fa fa-book-open fa-fw"></i>APP - 书摘卡片生成器</span></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">101</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%96-%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">📖 项目介绍</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B9%A6%E6%91%98%E5%8D%A1%E7%89%87%E7%94%9F%E6%88%90%E5%99%A8"><span class="nav-number"></span> <span class="nav-text">书摘卡片生成器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%84%E8%A7%88%E6%88%AA%E5%9B%BE"><span class="nav-number">1.</span> <span class="nav-text">预览截图</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A1%8C%E9%9D%A2%E7%AB%AF%E9%A2%84%E8%A7%88"><span class="nav-number">1.1.</span> <span class="nav-text">桌面端预览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%A2%84%E8%A7%88"><span class="nav-number">1.2.</span> <span class="nav-text">移动端预览</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E7%89%B9%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">功能特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="nav-number">4.</span> <span class="nav-text">技术栈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF%E6%9C%8D%E5%8A%A1"><span class="nav-number">5.</span> <span class="nav-text">后端服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E7%BB%84%E4%BB%B6%E8%AF%B4%E6%98%8E"><span class="nav-number">6.</span> <span class="nav-text">核心组件说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%BB%9F%E4%B8%80%E7%AE%A1%E7%90%86%E8%84%9A%E6%9C%AC-run-sh"><span class="nav-number">6.1.</span> <span class="nav-text">1. 统一管理脚本 (run.sh)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%89%8D%E7%AB%AF%E5%BA%94%E7%94%A8-app"><span class="nav-number">6.2.</span> <span class="nav-text">2. 前端应用 (app)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%90%8E%E7%AB%AF%E6%9C%8D%E5%8A%A1-server"><span class="nav-number">6.3.</span> <span class="nav-text">3. 后端服务 (server)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E8%A7%84%E8%8C%83"><span class="nav-number">7.</span> <span class="nav-text">开发规范</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84"><span class="nav-number">8.</span> <span class="nav-text">文件结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="nav-number">9.</span> <span class="nav-text">架构设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E8%AF%B4%E6%98%8E"><span class="nav-number">9.1.</span> <span class="nav-text">模块说明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%89%8D%E7%AB%AF-app"><span class="nav-number">9.1.1.</span> <span class="nav-text">前端 (app)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%90%8E%E7%AB%AF-server"><span class="nav-number">9.1.2.</span> <span class="nav-text">后端 (server)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%A1%E7%90%86%E8%84%9A%E6%9C%AC-run-sh"><span class="nav-number">9.2.</span> <span class="nav-text">管理脚本 (run.sh)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="nav-number">9.3.</span> <span class="nav-text">核心设计原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%A9%E7%95%A5%E5%9B%BE%E7%8A%B6%E6%80%81%E7%AE%A1%E7%90%86"><span class="nav-number">9.4.</span> <span class="nav-text">缩略图状态管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="nav-number">9.5.</span> <span class="nav-text">性能优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E7%AB%AF%E7%89%B9%E6%80%A7"><span class="nav-number">9.6.</span> <span class="nav-text">移动端特性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E6%94%AF%E6%8C%81"><span class="nav-number">10.</span> <span class="nav-text">浏览器支持</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97"><span class="nav-number">11.</span> <span class="nav-text">开发指南</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E8%AE%BE%E7%BD%AE"><span class="nav-number">11.1.</span> <span class="nav-text">开发环境设置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96"><span class="nav-number">11.1.1.</span> <span class="nav-text">1. 安装依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E4%BB%A3%E7%A0%81%E6%A3%80%E6%9F%A5"><span class="nav-number">11.1.2.</span> <span class="nav-text">2. 代码检查</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E4%BB%A3%E7%A0%81%E6%A0%BC%E5%BC%8F%E5%8C%96"><span class="nav-number">11.1.3.</span> <span class="nav-text">3. 代码格式化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E6%9C%AC%E5%9C%B0%E5%BC%80%E5%8F%91"><span class="nav-number">11.1.4.</span> <span class="nav-text">4. 本地开发</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83"><span class="nav-number">11.2.</span> <span class="nav-text">代码规范</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="nav-number">11.2.1.</span> <span class="nav-text">1. 命名规范</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%96%87%E4%BB%B6%E7%BB%84%E7%BB%87"><span class="nav-number">11.2.2.</span> <span class="nav-text">2. 文件组织</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E6%B3%A8%E9%87%8A%E8%A7%84%E8%8C%83"><span class="nav-number">11.2.3.</span> <span class="nav-text">3. 注释规范</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E7%B1%BB%E5%9E%8B%E5%AE%9A%E4%B9%89"><span class="nav-number">11.2.4.</span> <span class="nav-text">4. 类型定义</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86"><span class="nav-number">11.3.</span> <span class="nav-text">日志管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AD%90%E6%97%A5%E5%BF%97%E5%99%A8"><span class="nav-number">11.3.1.</span> <span class="nav-text">创建子日志器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E9%87%8F%E7%AE%A1%E7%90%86"><span class="nav-number">11.4.</span> <span class="nav-text">常量管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86"><span class="nav-number">11.5.</span> <span class="nav-text">错误处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E6%96%B0%E5%8A%9F%E8%83%BD"><span class="nav-number">11.6.</span> <span class="nav-text">添加新功能</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%88%9B%E5%BB%BA%E6%96%B0%E6%A8%A1%E5%9D%97"><span class="nav-number">11.6.1.</span> <span class="nav-text">1. 创建新模块</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%B7%BB%E5%8A%A0%E6%96%B0%E5%B8%B8%E9%87%8F"><span class="nav-number">11.6.2.</span> <span class="nav-text">2. 添加新常量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E6%B7%BB%E5%8A%A0%E6%96%B0%E7%B1%BB%E5%9E%8B"><span class="nav-number">11.6.3.</span> <span class="nav-text">3. 添加新类型</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="nav-number">11.7.</span> <span class="nav-text">测试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%8B%E5%8A%A8%E6%B5%8B%E8%AF%95%E6%B8%85%E5%8D%95"><span class="nav-number">11.7.1.</span> <span class="nav-text">手动测试清单</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7"><span class="nav-number">11.7.2.</span> <span class="nav-text">浏览器兼容性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96-1"><span class="nav-number">11.8.</span> <span class="nav-text">性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E9%98%B2%E6%8A%96%E5%92%8C%E8%8A%82%E6%B5%81"><span class="nav-number">11.8.1.</span> <span class="nav-text">1. 防抖和节流</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-DOM-%E6%93%8D%E4%BD%9C%E4%BC%98%E5%8C%96"><span class="nav-number">11.8.2.</span> <span class="nav-text">2. DOM 操作优化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%9B%BE%E7%89%87%E5%AF%BC%E5%87%BA%E4%BC%98%E5%8C%96"><span class="nav-number">11.8.3.</span> <span class="nav-text">3. 图片导出优化</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E5%BB%BA%E8%AE%AE"><span class="nav-number">11.9.</span> <span class="nav-text">生产环境建议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E4%BC%98%E5%8C%96%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89"><span class="nav-number">11.9.1.</span> <span class="nav-text">构建优化（可选）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="nav-number">11.10.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%A8%A1%E5%9D%97%E5%AF%BC%E5%85%A5%E9%94%99%E8%AF%AF"><span class="nav-number">11.10.1.</span> <span class="nav-text">1. 模块导入错误</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E7%B1%BB%E5%9E%8B%E9%94%99%E8%AF%AF"><span class="nav-number">11.10.2.</span> <span class="nav-text">2. 类型错误</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E6%97%A5%E5%BF%97%E4%B8%8D%E6%98%BE%E7%A4%BA"><span class="nav-number">11.10.3.</span> <span class="nav-text">3. 日志不显示</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E8%B4%A8%E9%87%8F"><span class="nav-number">11.11.</span> <span class="nav-text">代码质量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2"><span class="nav-number">12.</span> <span class="nav-text">部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%9F%E4%B8%80%E7%AE%A1%E7%90%86%E8%84%9A%E6%9C%AC"><span class="nav-number">12.1.</span> <span class="nav-text">统一管理脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E7%A4%BA%E4%BE%8B"><span class="nav-number">12.2.</span> <span class="nav-text">常用命令示例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E9%83%A8%E7%BD%B2%E5%89%8D%E7%AB%AF"><span class="nav-number">12.3.</span> <span class="nav-text">快速部署前端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E8%AF%B4%E6%98%8E"><span class="nav-number">12.4.</span> <span class="nav-text">部署说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A3%80%E6%9F%A5%E9%83%A8%E7%BD%B2%E7%8A%B6%E6%80%81"><span class="nav-number">12.5.</span> <span class="nav-text">检查部署状态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%B8%E5%8F%AF%E8%AF%81"><span class="nav-number">13.</span> <span class="nav-text">许可证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%92%A1-%E6%80%9D%E8%80%83"><span class="nav-number">14.</span> <span class="nav-text">💡 思考</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E8%AE%A1%E4%BA%AE%E7%82%B9"><span class="nav-number">14.1.</span> <span class="nav-text">设计亮点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E5%AE%9E%E7%8E%B0"><span class="nav-number">14.2.</span> <span class="nav-text">技术实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%AF%E6%94%B9%E8%BF%9B%E6%96%B9%E5%90%91"><span class="nav-number">14.3.</span> <span class="nav-text">可改进方向</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%94%97-%E7%9B%B8%E5%85%B3%E9%93%BE%E6%8E%A5"><span class="nav-number">15.</span> <span class="nav-text">🔗 相关链接</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%8B-%E8%A1%8C%E5%8A%A8%E6%B8%85%E5%8D%95"><span class="nav-number">16.</span> <span class="nav-text">📋 行动清单</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%9A-%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">17.</span> <span class="nav-text">📚 参考资料</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%8F%B7%EF%B8%8F-%E6%A0%87%E7%AD%BE"><span class="nav-number">18.</span> <span class="nav-text">🏷️ 标签</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zhifu(geo)"
+      src="/images/zhifu-tech-logo.svg">
+  <p class="site-author-name" itemprop="name">zhifu(geo)</p>
+  <div class="site-description" itemprop="description">分享前沿技术、开发经验和行业洞察</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">101</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3poaWZ1LXRlY2gvemhpZnUtdGVjaA==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zhifu-tech&#x2F;zhifu-tech"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS96aGlmdS10ZWNo" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;zhifu-tech"><i class="fab fa-zhihu fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVkYW8uY24vYm91Z2h0" title="Dedao → https:&#x2F;&#x2F;www.dedao.cn&#x2F;bought"><i class="fa fa-book fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhifu-tech.github.io/2025/11/24/book-excerpt-generator/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/zhifu-tech-logo.svg">
+      <meta itemprop="name" content="zhifu(geo)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhifu-Tech">
+      <meta itemprop="description" content="分享前沿技术、开发经验和行业洞察">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="笔记: APP 书摘卡片生成器 | Zhifu-Tech">
+      <meta itemprop="description" content="书摘卡片生成器 - 一个简单易用的书摘卡片生成工具，可以快速生成精美的书摘图片">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          笔记: APP 书摘卡片生成器<span class="exturl post-edit-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvdGhlbWUtbmV4dC1kb2NzL2VkaXQvbWFzdGVyL3NvdXJjZS9fcG9zdHMvYm9vay1leGNlcnB0LWdlbmVyYXRvci5tZA==" title="编辑"><i class="fa fa-pen-nib"></i></span>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-11-24 23:50:00" itemprop="dateCreated datePublished" datetime="2025-11-24T23:50:00+08:00">2025-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">书摘卡片生成器 - 一个简单易用的书摘卡片生成工具，可以快速生成精美的书摘图片</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+
+    <div class="source-link-container">
+        <div class="source-link-wrapper">
+            <span class="source-label">📖 来源：</span>
+            <a href="https://github.com/zhifu-tech/book-excerpt-generator?tab=readme-ov-file" target="_blank" rel="noopener noreferrer" class="source-link">
+                书摘卡片生成器 点击查看原文
+            </a>
+        </div>
+    </div>
+
+<blockquote>
+<p><strong>项目类型</strong>：Web 应用<br><strong>开发时间</strong>：2025-11-24<br><strong>技术栈</strong>：HTML5, CSS3, JavaScript, html2canvas<br><strong>在线体验</strong>：<a target="_blank" rel="noopener" href="https://book-excerpt.zhifu.tech/"><strong>点击使用</strong></a></p>
+</blockquote>
+<h2 id="📖-项目介绍"><a href="#📖-项目介绍" class="headerlink" title="📖 项目介绍"></a>📖 项目介绍</h2><p>书摘卡片生成器是一个简单易用的 Web 应用，可以帮助用户快速生成精美的书摘图片。支持多种主题、字体、布局方式，完美适配桌面端和移动端。</p>
+<h1 id="书摘卡片生成器"><a href="#书摘卡片生成器" class="headerlink" title="书摘卡片生成器"></a>书摘卡片生成器</h1><p>一个简单易用的书摘卡片生成工具，可以快速生成精美的书摘图片。</p>
+<p><span class="exturl" data-url="aHR0cHM6Ly9ib29rLWV4Y2VycHQuemhpZnUudGVjaC8=">点击体验<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="预览截图"><a href="#预览截图" class="headerlink" title="预览截图"></a>预览截图</h2><h3 id="桌面端预览"><a href="#桌面端预览" class="headerlink" title="桌面端预览"></a>桌面端预览</h3><p><img src="https://raw.githubusercontent.com/zhifu-tech/app-book-excerpt-generator/main/screenshots/desktop.png" alt="桌面端预览" loading="lazy"></p>
+<h3 id="移动端预览"><a href="#移动端预览" class="headerlink" title="移动端预览"></a>移动端预览</h3><p><img src="https://raw.githubusercontent.com/zhifu-tech/app-book-excerpt-generator/main/screenshots/mobile-1.png" alt="移动端预览 - 编辑界面" loading="lazy"></p>
+<p><img src="https://raw.githubusercontent.com/zhifu-tech/app-book-excerpt-generator/main/screenshots/mobile-2.png" alt="移动端预览 - 全屏预览" loading="lazy"></p>
+<h2 id="功能特性"><a href="#功能特性" class="headerlink" title="功能特性"></a>功能特性</h2><ul>
+<li>📝 <strong>实时预览</strong>：输入内容后实时预览效果</li>
+<li>🎨 <strong>多种主题</strong>：内置 10+ 精美主题，包括纯色和渐变背景</li>
+<li>🔤 <strong>字体选择</strong>：支持多种中文字体，包括宋体、毛笔字体、行书字体等</li>
+<li>🎯 <strong>布局切换</strong>：支持横排和竖排两种布局方式</li>
+<li>📱 <strong>响应式设计</strong>：完美适配桌面端和移动端</li>
+<li>💾 <strong>一键导出</strong>：支持导出为高清 PNG 图片</li>
+<li>🎨 <strong>自定义样式</strong>：可调整字体大小、颜色、卡片宽度等</li>
+</ul>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><ol>
+<li><p>在输入框中填写：</p>
+<ul>
+<li><strong>摘录内容</strong>：要展示的文字内容</li>
+<li><strong>书名&#x2F;出处</strong>：书籍名称或来源</li>
+<li><strong>作者</strong>：作者姓名</li>
+<li><strong>印章落款</strong>：印章文字（最多4字）</li>
+</ul>
+</li>
+<li><p>自定义样式：</p>
+<ul>
+<li>选择主题背景</li>
+<li>选择字体和字号</li>
+<li>选择字体颜色</li>
+<li>调整卡片宽度</li>
+<li>切换横排&#x2F;竖排布局</li>
+</ul>
+</li>
+<li><p>预览和导出：</p>
+<ul>
+<li>在预览区域实时查看效果</li>
+<li>点击&quot;保���&quot;按钮导出为 PNG 图片</li>
+</ul>
+</li>
+</ol>
+<h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><ul>
+<li><strong>HTML5</strong> - 语义化标记</li>
+<li><strong>CSS3</strong> - 使用 CSS 变量和 Flexbox，响应式设计</li>
+<li><strong>JavaScript (ES6+)</strong> - 模块化架构，使用 ES6 模块</li>
+<li><strong>html2canvas</strong> - 用于图片导出</li>
+<li><strong>JSDoc</strong> - 类型注释和文档生成</li>
+<li><strong>ESLint</strong> - 代码质量检查</li>
+<li><strong>Prettier</strong> - 代码格式化</li>
+</ul>
+<h2 id="后端服务"><a href="#后端服务" class="headerlink" title="后端服务"></a>后端服务</h2><p>本项目包含配套的后端服务，位于 <code>server/</code> 目录下，以支持：</p>
+<ul>
+<li>动态配置加载（主题、字体、颜色等）</li>
+<li>配置信息的保存和同步</li>
+</ul>
+<p>如果未连接到服务器，前端应用将自动回退到使用内置的默认配置。</p>
+<h2 id="核心组件说明"><a href="#核心组件说明" class="headerlink" title="核心组件说明"></a>核心组件说明</h2><h3 id="1-统一管理脚本-run-sh"><a href="#1-统一管理脚本-run-sh" class="headerlink" title="1. 统一管理脚本 (run.sh)"></a>1. 统一管理脚本 (run.sh)</h3><p>位于根目录的 <code>run.sh</code> 是管理整个项目的唯一入口。它封装了：</p>
+<ul>
+<li>前端和后端的部署流程（支持 Docker 和 PM2）</li>
+<li>远程服务器的状态检查</li>
+<li>Nginx 配置的自动化更新</li>
+<li>数据同步工具</li>
+</ul>
+<h3 id="2-前端应用-app"><a href="#2-前端应用-app" class="headerlink" title="2. 前端应用 (app)"></a>2. 前端应用 (app)</h3><p>前端采用纯原生 JavaScript 开发，使用 ES6 模块化方案。</p>
+<ul>
+<li><strong>PreviewProcessor</strong>: 核心逻辑，确保在实时预览、导出图片和移动端预览时保持视觉一致。</li>
+<li><strong>State Management</strong>: 使用单一状态机管理应用数据。</li>
+</ul>
+<h3 id="3-后端服务-server"><a href="#3-后端服务-server" class="headerlink" title="3. 后端服务 (server)"></a>3. 后端服务 (server)</h3><p>后端使用 Node.js + Express 架构。</p>
+<ul>
+<li><strong>Dynamic Config</strong>: 支持动态加载和更新主题、字体等配置，无需重新发布前端。</li>
+<li><strong>Persistence</strong>: 简单的 JSON 文件存储，方便备份和同步。</li>
+</ul>
+<h2 id="开发规范"><a href="#开发规范" class="headerlink" title="开发规范"></a>开发规范</h2><ul>
+<li><strong>前后端解耦</strong>: 前端通过 API 与后端通信，支持离线降级到默认配置。</li>
+<li><strong>脚本驱动</strong>: 所有的管理和部署操作都应通过 <code>run.sh</code> 完成，避免手动操作服务器。</li>
+<li><strong>环境一致性</strong>: 使用 Docker 确保开发、测试和生产环境的一致性。</li>
+</ul>
+<h2 id="文件结构"><a href="#文件结构" class="headerlink" title="文件结构"></a>文件结构</h2><pre><code class="language-sh">book-excerpt-generator/
+├── app/                        # 前端应用
+│   ├── index.html              # 主页面
+│   ├── style.css               # 样式文件
+│   ├── js/                     # JavaScript 模块
+│   ├── scripts/                # 前端 Nginx 配置与 SSL
+│   ├── package.json           # 前端依赖配置
+│   └── Dockerfile             # 前端 Docker 镜像
+├── server/                     # 后端服务
+│   ├── server.js               # 服务器入口
+│   ├── src/                    # 后端源代码
+│   ├── scripts/                # 后端 Nginx 配置与 SSL
+│   ├── data/                   # 后端数据目录
+│   ├── package.json           # 后端依赖配置
+│   └── Dockerfile             # 后端 Docker 镜像
+├── docs/                       # 项目文档
+├── screenshots/                # 预览截图
+├── scripts/                    # 统用工具脚本 (run.sh 依赖)
+│   ├── nginx-utils.sh         # Nginx 处理工具
+│   └── ssh-utils.sh           # SSH 连接工具
+├── run.sh                      # 唯一管理脚本 (v2.1+)
+└── README.md                   # 项目说明
+</code></pre>
+<h2 id="架构设计"><a href="#架构设计" class="headerlink" title="架构设计"></a>架构设计</h2><h3 id="模块说明"><a href="#模块说明" class="headerlink" title="模块说明"></a>模块说明</h3><p>本项目采用前后端分离架构，统一由根目录的 <code>run.sh</code> 进行管理。</p>
+<h4 id="前端-app"><a href="#前端-app" class="headerlink" title="前端 (app)"></a>前端 (app)</h4><ul>
+<li><strong>核心逻辑</strong>：基于 ES6 模块，使用 <code>PreviewProcessor</code> 统一处理各种场景的预览</li>
+<li><strong>状态管理</strong>：使用 <code>AppState</code> 进行全局状态管理</li>
+<li><strong>性能优化</strong>：通过 <code>DOMManager</code> Proxy 机制实现 DOM 按需加载</li>
+</ul>
+<h4 id="后端-server"><a href="#后端-server" class="headerlink" title="后端 (server)"></a>后端 (server)</h4><ul>
+<li><strong>核心框架</strong>：Express.js</li>
+<li><strong>部署方式</strong>：支持 PM2 和 Docker 两种部署方式</li>
+<li><strong>功能说明</strong>：提供动态配置加载和持久化存储</li>
+</ul>
+<h3 id="管理脚本-run-sh"><a href="#管理脚本-run-sh" class="headerlink" title="管理脚本 (run.sh)"></a>管理脚本 (run.sh)</h3><p><code>run.sh</code> 是本项目的统一管理入口，支持以下功能：</p>
+<ul>
+<li>前端部署（Docker）</li>
+<li>后端部署（PM2&#x2F;Docker）</li>
+<li>Nginx 配置更新</li>
+<li>数据备份与同步</li>
+</ul>
+<p>使用方法：</p>
+<pre><code class="language-bash">./run.sh [module] [command]
+</code></pre>
+<p>详情请运行 <code>./run.sh help</code> 查看。</p>
+<h3 id="核心设计原则"><a href="#核心设计原则" class="headerlink" title="核心设计原则"></a>核心设计原则</h3><ol>
+<li><strong>统一处理原则</strong>：所有预览场景（桌面预览、移动预览、缩略图、导出）都使用 <code>PreviewProcessor</code> 统一处理，确保视觉一致性</li>
+<li><strong>单一数据源</strong>：所有预览都基于同一个 DOM 元素（<code>#card-preview</code>），避免数据不一致</li>
+<li><strong>状态管理统一</strong>：所有缩略图状态变化都通过 <code>ThumbnailManager</code> 的方法</li>
+<li><strong>性能优化</strong>：使用防抖、节流等技术优化频繁更新操作</li>
+<li><strong>响应式设计</strong>：缩略图自适应高度，移动预览支持全屏动画</li>
+</ol>
+<h3 id="缩略图状态管理"><a href="#缩略图状态管理" class="headerlink" title="缩略图状态管理"></a>缩略图状态管理</h3><p>所有缩略图状态操作都通过 <code>ThumbnailManager</code> 的统一接口：</p>
+<ul>
+<li><strong>getThumbnailState()</strong> - 获取当前状态（优先返回已保存的状态）</li>
+<li><strong>createThumbnailState()</strong> - 创建新状态（支持自定义选项）</li>
+<li><strong>updateThumbnailState()</strong> - 更新状态（可选择是否立即应用到 DOM）</li>
+<li><strong>applyThumbnailState()</strong> - 应用状态到 DOM</li>
+<li><strong>getThumbnailPosition()</strong> - 获取位置信息（兼容方法）</li>
+</ul>
+<p>状态保存在 <code>previewArea._thumbnailState</code>，但只能通过 <code>ThumbnailManager</code> 的方法访问和修改。</p>
+<h3 id="性能优化"><a href="#性能优化" class="headerlink" title="性能优化"></a>性能优化</h3><ol>
+<li><p><strong>防抖（Debounce）</strong></p>
+<ul>
+<li>缩略图更新：300ms 延迟</li>
+<li>避免频繁的 html2canvas 调用</li>
+</ul>
+</li>
+<li><p><strong>节流（Throttle）</strong></p>
+<ul>
+<li>滚动事件处理</li>
+<li>窗口大小调整</li>
+</ul>
+</li>
+<li><p><strong>DOM 按需加载</strong></p>
+<ul>
+<li><code>DOMManager</code> 使用 Proxy 实现按需加载 DOM 元素</li>
+<li>减少初始加载时间</li>
+</ul>
+</li>
+<li><p><strong>像素对齐优化</strong></p>
+<ul>
+<li>所有位置计算使用 <code>Math.round()</code> 确保整数像素</li>
+<li>避免亚像素渲染导致的抖动</li>
+<li>Transform 中的 <code>translateY()</code> 值进行像素对齐</li>
+</ul>
+</li>
+<li><p><strong>硬件加速</strong></p>
+<ul>
+<li>使用 <code>transform</code> 和 <code>opacity</code>（GPU 加速）</li>
+<li>避免 <code>left/top</code> 重排</li>
+</ul>
+</li>
+</ol>
+<h3 id="移动端特性"><a href="#移动端特性" class="headerlink" title="移动端特性"></a>移动端特性</h3><ol>
+<li><p><strong>缩略图预览</strong></p>
+<ul>
+<li>固定宽度，自适应高度</li>
+<li>使用 DOM 缩放（<code>transform: scale(0.4)</code>）而非 html2canvas，确保清晰度</li>
+<li>位置在下载按钮上方</li>
+</ul>
+</li>
+<li><p><strong>全屏预览</strong></p>
+<ul>
+<li>平滑的打开&#x2F;关闭动画</li>
+<li>支持点击预览区域关闭</li>
+<li>支持 ESC 键关闭</li>
+</ul>
+</li>
+<li><p><strong>滚动动画</strong></p>
+<ul>
+<li>滚动时缩略图平滑移动到右上角</li>
+<li>使用 <code>translateY</code> 实现垂直移动</li>
+<li>保持缩放比例不变</li>
+</ul>
+</li>
+</ol>
+<h2 id="浏览器支持"><a href="#浏览器支持" class="headerlink" title="浏览器支持"></a>浏览器支持</h2><ul>
+<li>Chrome&#x2F;Edge（推荐）</li>
+<li>Firefox</li>
+<li>Safari</li>
+<li>移动端浏览器</li>
+</ul>
+<p><strong>注意</strong>：使用 ES6 模块 (<code>import/export</code>)，需要支持 ES6 模块的现代浏览器。如果需要在旧浏览器运行，需要使用构建工具（如 Webpack、Vite、Rollup）打包。</p>
+<h2 id="开发指南"><a href="#开发指南" class="headerlink" title="开发指南"></a>开发指南</h2><h3 id="开发环境设置"><a href="#开发环境设置" class="headerlink" title="开发环境设置"></a>开发环境设置</h3><h4 id="1-安装依赖"><a href="#1-安装依赖" class="headerlink" title="1. 安装依赖"></a>1. 安装依赖</h4><pre><code class="language-bash">npm install
+</code></pre>
+<h4 id="2-代码检查"><a href="#2-代码检查" class="headerlink" title="2. 代码检查"></a>2. 代码检查</h4><pre><code class="language-bash"># 检查代码规范
+npm run lint
+
+# 自动修复代码规范问题
+npm run lint:fix
+</code></pre>
+<h4 id="3-代码格式化"><a href="#3-代码格式化" class="headerlink" title="3. 代码格式化"></a>3. 代码格式化</h4><pre><code class="language-bash"># 格式化代码
+npm run format
+
+# 检查代码格式
+npm run format:check
+</code></pre>
+<h4 id="4-本地开发"><a href="#4-本地开发" class="headerlink" title="4. 本地开发"></a>4. 本地开发</h4><p>由于项目使用 ES6 模块，需要本地服务器运行：</p>
+<pre><code class="language-bash"># 使用 Python
+python -m http.server 8000
+
+# 或使用 Node.js
+npx serve .
+
+# 或使用 VS Code Live Server 扩展
+</code></pre>
+<p>访问 <code>http://localhost:8000</code></p>
+<h3 id="代码规范"><a href="#代码规范" class="headerlink" title="代码规范"></a>代码规范</h3><h4 id="1-命名规范"><a href="#1-命名规范" class="headerlink" title="1. 命名规范"></a>1. 命名规范</h4><ul>
+<li><strong>类名</strong>：使用 PascalCase，如 <code>BookExcerptApp</code></li>
+<li><strong>函数&#x2F;方法名</strong>：使用 camelCase，如 <code>formatDate</code></li>
+<li><strong>常量</strong>：使用 UPPER_SNAKE_CASE，如 <code>LAYOUT_TYPES</code></li>
+<li><strong>私有方法</strong>：使用下划线前缀，如 <code>_showError</code></li>
+</ul>
+<h4 id="2-文件组织"><a href="#2-文件组织" class="headerlink" title="2. 文件组织"></a>2. 文件组织</h4><ul>
+<li><strong>模块化</strong>：每个文件一个主要功能</li>
+<li><strong>职责单一</strong>：每个类&#x2F;函数只做一件事</li>
+<li><strong>依赖清晰</strong>：明确模块间的依赖关系</li>
+</ul>
+<h4 id="3-注释规范"><a href="#3-注释规范" class="headerlink" title="3. 注释规范"></a>3. 注释规范</h4><p>使用 JSDoc 格式注释，为所有公共方法添加注释：</p>
+<pre><code class="language-javascript">/**
+ * 格式化日期为 YYYY.MM.DD 格式
+ * @param {Date} [date=new Date()] - 要格式化的日期对象
+ * @returns {string} 格式化后的日期字符串
+ */
+formatDate(date = new Date()) {
+  // ...
+}
+</code></pre>
+<h4 id="4-类型定义"><a href="#4-类型定义" class="headerlink" title="4. 类型定义"></a>4. 类型定义</h4><p>使用 JSDoc 类型定义，类型定义在 <code>js/types/index.js</code>：</p>
+<pre><code class="language-javascript">/**
+ * @typedef {Object} Theme
+ * @property {string} id - 主题ID
+ * @property {string} [color] - 背景颜色
+ */
+</code></pre>
+<h3 id="日志管理"><a href="#日志管理" class="headerlink" title="日志管理"></a>日志管理</h3><p>项目使用统一的日志管理器 <code>logger</code>：</p>
+<pre><code class="language-javascript">import { logger } from &quot;./utils/logger.js&quot;;
+
+// 调试日志（仅开发环境）
+logger.debug(&quot;调试信息&quot;);
+
+// 信息日志（仅开发环境）
+logger.info(&quot;信息&quot;);
+
+// 警告日志（所有环境）
+logger.warn(&quot;警告&quot;);
+
+// 错误日志（所有环境）
+logger.error(&quot;错误&quot;);
+</code></pre>
+<h4 id="创建子日志器"><a href="#创建子日志器" class="headerlink" title="创建子日志器"></a>创建子日志器</h4><pre><code class="language-javascript">const childLogger = logger.createChild(&quot;ModuleName&quot;);
+childLogger.info(&quot;模块日志&quot;);
+</code></pre>
+<h3 id="常量管理"><a href="#常量管理" class="headerlink" title="常量管理"></a>常量管理</h3><p>所有常量定义在 <code>js/constants/index.js</code>：</p>
+<pre><code class="language-javascript">import { APP_CONFIG, LAYOUT_TYPES } from &quot;./constants/index.js&quot;;
+</code></pre>
+<h3 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h3><p>使用 <code>logger.error()</code> 记录错误，并向用户显示友好的错误消息：</p>
+<pre><code class="language-javascript">try {
+  // 操作
+} catch (error) {
+  logger.error(&quot;操作失败:&quot;, error);
+  alert(&quot;操作失败，请重试&quot;);
+}
+</code></pre>
+<h3 id="添加新功能"><a href="#添加新功能" class="headerlink" title="添加新功能"></a>添加新功能</h3><h4 id="1-创建新模块"><a href="#1-创建新模块" class="headerlink" title="1. 创建新模块"></a>1. 创建新模块</h4><ol>
+<li>在 <code>js/</code> 目录创建新文件</li>
+<li>使用 JSDoc 添加类型注释</li>
+<li>导出类或函数</li>
+<li>在 <code>app.js</code> 中集成</li>
+</ol>
+<h4 id="2-添加新常量"><a href="#2-添加新常量" class="headerlink" title="2. 添加新常量"></a>2. 添加新常量</h4><p>在 <code>js/constants/index.js</code> 中添加：</p>
+<pre><code class="language-javascript">export const NEW_CONSTANT = {
+  VALUE1: &quot;value1&quot;,
+  VALUE2: &quot;value2&quot;,
+};
+</code></pre>
+<h4 id="3-添加新类型"><a href="#3-添加新类型" class="headerlink" title="3. 添加新类型"></a>3. 添加新类型</h4><p>在 <code>js/types/index.js</code> 中添加：</p>
+<pre><code class="language-javascript">/**
+ * @typedef {Object} NewType
+ * @property {string} id - ID
+ * @property {number} value - 值
+ */
+</code></pre>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><h4 id="手动测试清单"><a href="#手动测试清单" class="headerlink" title="手动测试清单"></a>手动测试清单</h4><ul>
+<li><input disabled="" type="checkbox"> 桌面端功能正常</li>
+<li><input disabled="" type="checkbox"> 移动端功能正常</li>
+<li><input disabled="" type="checkbox"> 图片导出功能正常</li>
+<li><input disabled="" type="checkbox"> 配置加载功能正常</li>
+<li><input disabled="" type="checkbox"> 错误处理正常</li>
+</ul>
+<h4 id="浏览器兼容性"><a href="#浏览器兼容性" class="headerlink" title="浏览器兼容性"></a>浏览器兼容性</h4><ul>
+<li>Chrome&#x2F;Edge（推荐）</li>
+<li>Firefox</li>
+<li>Safari</li>
+<li>移动��浏览器</li>
+</ul>
+<h3 id="性能优化-1"><a href="#性能优化-1" class="headerlink" title="性能优化"></a>性能优化</h3><h4 id="1-防抖和节流"><a href="#1-防抖和节流" class="headerlink" title="1. 防抖和节流"></a>1. 防抖和节流</h4><p>使用 <code>Utils.debounce()</code> 和 <code>Utils.throttle()</code> 优化频繁操作：</p>
+<pre><code class="language-javascript">const debouncedUpdate = Utils.debounce(() =&gt; {
+  updatePreview();
+}, 300);
+</code></pre>
+<h4 id="2-DOM-操作优化"><a href="#2-DOM-操作优化" class="headerlink" title="2. DOM 操作优化"></a>2. DOM 操作优化</h4><ul>
+<li>使用 <code>DOMManager</code> 统一管理 DOM 元素</li>
+<li>批量更新 DOM，减少重排重绘</li>
+<li>使用 <code>transform</code> 和 <code>opacity</code> 实现动画（GPU 加速）</li>
+</ul>
+<h4 id="3-图片导出优化"><a href="#3-图片导出优化" class="headerlink" title="3. 图片导出优化"></a>3. 图片导出优化</h4><ul>
+<li>使用 <code>html2canvas</code> 的 <code>scale</code> 选项提高质量</li>
+<li>移动端使用临时容器避免父元素影响</li>
+<li>合理设置 <code>backgroundColor</code> 选项</li>
+</ul>
+<h3 id="生产环境建议"><a href="#生产环境建议" class="headerlink" title="生产环境建议"></a>生产环境建议</h3><ol>
+<li>确保所有代码已格式化</li>
+<li>运行 <code>npm run lint</code> 检查代码</li>
+<li>测试所有功能</li>
+<li>提交代码</li>
+</ol>
+<h4 id="构建优化（可选）"><a href="#构建优化（可选）" class="headerlink" title="构建优化（可选）"></a>构建优化（可选）</h4><p>如果需要进一步优化，可以考虑：</p>
+<ul>
+<li>使用 Vite&#x2F;Webpack 打包</li>
+<li>代码压缩和混淆</li>
+<li>资源优化（图片、字体）</li>
+</ul>
+<h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><h4 id="1-模块导入错误"><a href="#1-模块导入错误" class="headerlink" title="1. 模块导入错误"></a>1. 模块导入错误</h4><p>确保使用正确的路径和文件扩展名：</p>
+<pre><code class="language-javascript">import { Utils } from &quot;./utils.js&quot;; // ✅
+import { Utils } from &quot;./utils&quot;; // ❌
+</code></pre>
+<h4 id="2-类型错误"><a href="#2-类型错误" class="headerlink" title="2. 类型错误"></a>2. 类型错误</h4><p>确保类型定义正确导入：</p>
+<pre><code class="language-javascript">/**
+ * @typedef {import(&#39;./types/index.js&#39;).Theme} Theme
+ */
+</code></pre>
+<h4 id="3-日志不显示"><a href="#3-日志不显示" class="headerlink" title="3. 日志不显示"></a>3. 日志不显示</h4><p>检查是否为开发环境，<code>logger.debug()</code> 和 <code>logger.info()</code> 仅在开发环境显示。</p>
+<h3 id="代码质量"><a href="#代码质量" class="headerlink" title="代码质量"></a>代码质量</h3><p>项目采用专业的前端��程化实践：</p>
+<ol>
+<li><strong>JSDoc 类型注释</strong>：完整的类型定义和方法注释，提升 IDE 支持和代码可维护性</li>
+<li><strong>模块化架构</strong>：清晰的模块划分，职责单一，易于维护和扩展</li>
+<li><strong>常量管理</strong>：统一的常量定义，避免魔法字符串，提供类型安全</li>
+<li><strong>日志管理</strong>：统一的日志输出接口，支持不同环境下的日志级别控制</li>
+<li><strong>错误处理</strong>：统一的错误处理机制，提升健壮性</li>
+<li><strong>代码规范</strong>：ESLint + Prettier 确保代码风格一致</li>
+<li><strong>类型安全</strong>：JSDoc 类型系统提供编译时类型检查</li>
+</ol>
+<h2 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h2><h3 id="统一管理脚本"><a href="#统一管理脚本" class="headerlink" title="统一管理脚本"></a>统一管理脚本</h3><p>项目使用根目录下的 <code>run.sh</code> 脚本管理所有部署和管理操作：</p>
+<pre><code class="language-bash">chmod +x run.sh
+./run.sh [module] [command] [options]
+</code></pre>
+<h3 id="常用命令示例"><a href="#常用命令示例" class="headerlink" title="常用命令示例"></a>常用命令示例</h3><ul>
+<li><code>app docker-deploy</code> - 部署前端应用到服务器</li>
+<li><code>app update-nginx</code> - 更新前端 Nginx 配置文件</li>
+<li><code>server deploy</code> - 使用 PM2 部署后端服务</li>
+<li><code>server status</code> - 检查后端状态</li>
+<li><code>help</code> - 显示帮助信息</li>
+</ul>
+<h3 id="快速部署前端"><a href="#快速部署前端" class="headerlink" title="快速部署前端"></a>快速部署前端</h3><pre><code class="language-bash">./run.sh app docker-deploy
+</code></pre>
+<h3 id="部署说明"><a href="#部署说明" class="headerlink" title="部署说明"></a>部署说明</h3><p>详细的部署指南请参考 <a href="./docs/DEPLOY.md">docs&#x2F;DEPLOY.md</a></p>
+<p><strong>⚠️ 部署后使改动生效</strong>: 部署完成后，由于浏览器缓存，可能需要强制刷新浏览器（<code>Ctrl+Shift+R</code> 或 <code>Cmd+Shift+R</code>）才能看到最新改动。</p>
+<p><strong>部署信息</strong>:</p>
+<ul>
+<li>服务器地址: 8.138.183.116</li>
+<li>前端部署目录: <code>/var/www/html/book-excerpt-generator</code></li>
+<li>访问地址: <code>https://book-excerpt.zhifu.tech</code></li>
+</ul>
+<h3 id="检查部署状态"><a href="#检查部署状态" class="headerlink" title="检查部署状态"></a>检查部署状态</h3><pre><code class="language-bash">./run.sh app check
+./run.sh server status
+</code></pre>
+<h2 id="许可证"><a href="#许可证" class="headerlink" title="许可证"></a>许可证</h2><p>MIT License</p>
+
+
+<h2 id="💡-思考"><a href="#💡-思考" class="headerlink" title="💡 思考"></a>💡 思考</h2><h3 id="设计亮点"><a href="#设计亮点" class="headerlink" title="设计亮点"></a>设计亮点</h3><ol>
+<li><p><strong>统一的预览系统</strong>：桌面预览、移动预览、缩略图预览都基于同一个 DOM 元素，通过 <code>PreviewProcessor</code> 统一处理，确保体验一致。</p>
+</li>
+<li><p><strong>响应式设计</strong>：完美适配桌面端和移动端，移动端支持全屏预览和缩略图预览两种模式。</p>
+</li>
+<li><p><strong>性能优化</strong>：</p>
+<ul>
+<li>使用防抖（debounce）处理缩略图更新</li>
+<li>使用节流（throttle）处理滚动事件</li>
+<li>延迟渲染优化首次加载体验</li>
+</ul>
+</li>
+<li><p><strong>用户体验优化</strong>：</p>
+<ul>
+<li>实时预览，无需等待</li>
+<li>平滑的动画过渡</li>
+<li>直观的操作界面</li>
+</ul>
+</li>
+</ol>
+<h3 id="技术实现"><a href="#技术实现" class="headerlink" title="技术实现"></a>技术实现</h3><ul>
+<li><strong>模块化架构</strong>：使用 ES6+ 类实现模块化，代码结构清晰</li>
+<li><strong>统一处理</strong>：<code>PreviewProcessor</code> 类统一处理所有预览的样式和布局</li>
+<li><strong>Canvas 渲染</strong>：使用 html2canvas 实现图片导出功能</li>
+</ul>
+<h3 id="可改进方向"><a href="#可改进方向" class="headerlink" title="可改进方向"></a>可改进方向</h3><ol>
+<li><p><strong>功能扩展</strong>：</p>
+<ul>
+<li>支持更多字体选择</li>
+<li>支持自定义主题</li>
+<li>支持批量生成</li>
+<li>支持导出为 SVG 格式</li>
+</ul>
+</li>
+<li><p><strong>性能优化</strong>：</p>
+<ul>
+<li>图片懒加载</li>
+<li>虚拟滚动（如果内容很长）</li>
+<li>Web Worker 处理图片生成</li>
+</ul>
+</li>
+<li><p><strong>用户体验</strong>：</p>
+<ul>
+<li>保存历史记录</li>
+<li>模板功能</li>
+<li>分享功能</li>
+</ul>
+</li>
+</ol>
+<h2 id="🔗-相关链接"><a href="#🔗-相关链接" class="headerlink" title="🔗 相关链接"></a>🔗 相关链接</h2><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ib29rLWV4Y2VycHQuemhpZnUudGVjaC8=">在线使用<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3poaWZ1LXRlY2gvemhpZnUtdGVjaC90cmVlL21haW4vc291cmNlL2FwcHMvYm9vay1leGNlcnB0LWdlbmVyYXRvcg==">GitHub 仓库<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9odG1sMmNhbnZhcy5oZXJ0emVuLmNvbS8=">html2canvas 文档<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<h2 id="📋-行动清单"><a href="#📋-行动清单" class="headerlink" title="📋 行动清单"></a>📋 行动清单</h2><ul>
+<li><input checked="" disabled="" type="checkbox"> 完成桌面端预览功能</li>
+<li><input checked="" disabled="" type="checkbox"> 完成移动端预览功能</li>
+<li><input checked="" disabled="" type="checkbox"> 完成缩略图预览功能</li>
+<li><input checked="" disabled="" type="checkbox"> 统一预览处理逻辑</li>
+<li><input checked="" disabled="" type="checkbox"> 优化响应式设计</li>
+<li><input checked="" disabled="" type="checkbox"> 添加 README 文档</li>
+<li><input disabled="" type="checkbox"> 添加更多主题选项</li>
+<li><input disabled="" type="checkbox"> 支持自定义主题</li>
+<li><input disabled="" type="checkbox"> 添加模板功能</li>
+<li><input disabled="" type="checkbox"> 优化移动端体验</li>
+</ul>
+<h2 id="📚-参考资料"><a href="#📚-参考资料" class="headerlink" title="📚 参考资料"></a>📚 参考资料</h2><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">Hexo 文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25pa2xhc3ZoL2h0bWwyY2FudmFz">html2canvas GitHub<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NTL1VzaW5nX0NTU19jdXN0b21fcHJvcGVydGllcw==">CSS 变量使用指南<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIubW96aWxsYS5vcmcvemgtQ04vZG9jcy9XZWIvQ1NTL0NTU19GbGV4aWJsZV9Cb3hfTGF5b3V0">Flexbox 布局指南<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<h2 id="🏷️-标签"><a href="#🏷️-标签" class="headerlink" title="🏷️ 标签"></a>🏷️ 标签</h2><p><code>#工具</code> <code>#书摘</code> <code>#Web应用</code> <code>#前端开发</code> <code>#图片生成</code></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%AC%94%E8%AE%B0/" rel="tag"># 笔记</a>
+              <a href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag"># 工具</a>
+              <a href="/tags/%E4%B9%A6%E6%91%98/" rel="tag"># 书摘</a>
+              <a href="/tags/Web%E5%BA%94%E7%94%A8/" rel="tag"># Web应用</a>
+              <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag"># 前端开发</a>
+              <a href="/tags/%E5%9B%BE%E7%89%87%E7%94%9F%E6%88%90/" rel="tag"># 图片生成</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/11/24/google-antigravity-%E6%8C%87%E5%8D%97/" rel="prev" title="工具: Google Antigravity 指南">
+                  <i class="fa fa-angle-left"></i> 工具: Google Antigravity 指南
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/12/10/nginx-guide/" rel="next" title="Nginx 使用指南 - 配置文件作用与生效机制">
+                  Nginx 使用指南 - 配置文件作用与生效机制 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2025 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Zhifu-Tech</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL3poaWZ1LXRlY2gvemhpZnUtdGVjaA==" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+</body>
+</html>

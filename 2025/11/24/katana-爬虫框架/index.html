@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon.svg" color="#222">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="google-site-verification" content="5AUIVYTbHIAuz-eQtxSfZbWW5eg9_EVZMSQycIuXrG0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inconsolata:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhifu-tech.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.25.0","exturl":true,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="Katana 是 ProjectDiscovery 开发的下一代爬虫和蜘蛛框架，支持标准和无头模式、JavaScript 解析、自动表单填充等功能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="工具: Katana - 下一代爬虫和蜘蛛框架">
+<meta property="og:url" content="https://zhifu-tech.github.io/2025/11/24/katana-%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6/index.html">
+<meta property="og:site_name" content="Zhifu-Tech">
+<meta property="og:description" content="Katana 是 ProjectDiscovery 开发的下一代爬虫和蜘蛛框架，支持标准和无头模式、JavaScript 解析、自动表单填充等功能">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-11-23T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-11-23T16:00:00.000Z">
+<meta property="article:author" content="zhifu(geo)">
+<meta property="article:tag" content="Web Scraping">
+<meta property="article:tag" content="安全工具">
+<meta property="article:tag" content="工具">
+<meta property="article:tag" content="爬虫">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zhifu-tech.github.io/2025/11/24/katana-%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhifu-tech.github.io/2025/11/24/katana-%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6/","path":"2025/11/24/katana-爬虫框架/","title":"工具: Katana - 下一代爬虫和蜘蛛框架"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>工具: Katana - 下一代爬虫和蜘蛛框架 | Zhifu-Tech</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-43861RVV8R"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-43861RVV8R","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+  <script class="next-config" data-name="wavedrom" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.5.0/wavedrom.min.js","integrity":"sha256-INLAoJc6quTNfiMWkGZniYO2cxE8mHpddnLow1m6RFs="}}</script>
+  <script class="next-config" data-name="wavedrom_skin" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.5.0/skins/default.js","integrity":"sha256-fduc/Zszk5ezWws2uInY/ALWVmIrmV6VTgXbsYSReFI="}}</script>
+  <script src="/js/third-party/tags/wavedrom.js" defer></script>
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zhifu-Tech" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zhifu-Tech</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">技术分享与创新实践</p>
+      <img class="custom-logo-image" src="/images/zhifu-tech-logo.svg" alt="Zhifu-Tech">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">63</span></a></li><li class="menu-item menu-item-app-dashboard"><span class="exturl" data-url="aHR0cHM6Ly9zaXRlLWRhc2hib2FyZC56aGlmdS50ZWNoLw=="><i class="fa fa-tachometer-alt fa-fw"></i>APP - 仪表板</span></li><li class="menu-item menu-item-app-book-excerpt-generator"><span class="exturl" data-url="aHR0cHM6Ly9ib29rLWV4Y2VycHQuemhpZnUudGVjaC8="><i class="fa fa-book-open fa-fw"></i>APP - 书摘卡片生成器</span></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">101</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%96-%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">📖 简介</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E4%BF%A1%E6%81%AF"><span class="nav-number">1.1.</span> <span class="nav-text">项目信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E7%89%B9%E7%82%B9"><span class="nav-number">1.2.</span> <span class="nav-text">核心特点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%9A%80-%E5%AE%89%E8%A3%85"><span class="nav-number">2.</span> <span class="nav-text">🚀 安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%96-%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">📖 基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E5%91%BD%E4%BB%A4"><span class="nav-number">3.1.</span> <span class="nav-text">基础命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%8F%82%E6%95%B0"><span class="nav-number">3.2.</span> <span class="nav-text">常用参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8C%83%E5%9B%B4%E5%92%8C%E8%BF%87%E6%BB%A4"><span class="nav-number">3.3.</span> <span class="nav-text">范围和过滤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%8E%AF-%E9%AB%98%E7%BA%A7%E5%8A%9F%E8%83%BD"><span class="nav-number">4.</span> <span class="nav-text">🎯 高级功能</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E5%A4%B4%E6%A8%A1%E5%BC%8F%EF%BC%88JavaScript-%E6%B8%B2%E6%9F%93%EF%BC%89"><span class="nav-number">4.1.</span> <span class="nav-text">无头模式（JavaScript 渲染）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E8%A1%A8%E5%8D%95%E5%A1%AB%E5%85%85"><span class="nav-number">4.2.</span> <span class="nav-text">自动表单填充</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%93%8D%E5%BA%94"><span class="nav-number">4.3.</span> <span class="nav-text">存储响应</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%AF%B7%E6%B1%82%E5%A4%B4"><span class="nav-number">4.4.</span> <span class="nav-text">自定义请求头</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%8A-%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">5.</span> <span class="nav-text">📊 输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F%E7%B1%BB%E5%9E%8B"><span class="nav-number">5.1.</span> <span class="nav-text">格式类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E5%AD%97%E6%AE%B5"><span class="nav-number">5.2.</span> <span class="nav-text">输出字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%92%E9%99%A4%E5%AD%97%E6%AE%B5"><span class="nav-number">5.3.</span> <span class="nav-text">排除字段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E7%A4%BA%E4%BE%8B"><span class="nav-number">5.4.</span> <span class="nav-text">输出示例</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%92%A1-%E5%AE%9E%E6%88%98%E7%A4%BA%E4%BE%8B"><span class="nav-number">6.</span> <span class="nav-text">💡 实战示例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-1%EF%BC%9A%E5%9F%BA%E7%A1%80%E7%88%AC%E5%8F%96"><span class="nav-number">6.1.</span> <span class="nav-text">示例 1：基础爬取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-2%EF%BC%9A%E5%8F%91%E7%8E%B0-API-%E7%AB%AF%E7%82%B9"><span class="nav-number">6.2.</span> <span class="nav-text">示例 2：发现 API 端点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-3%EF%BC%9A%E5%AE%8C%E6%95%B4%E9%85%8D%E7%BD%AE%EF%BC%88%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%EF%BC%89"><span class="nav-number">6.3.</span> <span class="nav-text">示例 3：完整配置（生产环境）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-4%EF%BC%9A%E6%97%A0%E5%A4%B4%E6%A8%A1%E5%BC%8F%EF%BC%88JavaScript-%E6%B8%B2%E6%9F%93%EF%BC%89"><span class="nav-number">6.4.</span> <span class="nav-text">示例 4：无头模式（JavaScript 渲染）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-5%EF%BC%9A%E5%BF%AB%E9%80%9F%E6%B5%8B%E8%AF%95"><span class="nav-number">6.5.</span> <span class="nav-text">示例 5：快速测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B-6%EF%BC%9A%E5%8F%AA%E6%8A%93%E5%8F%96%E5%8D%95%E4%B8%AA%E7%AB%AF%E7%82%B9"><span class="nav-number">6.6.</span> <span class="nav-text">示例 6：只抓取单个端点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%9A-%E4%BD%9C%E4%B8%BA%E5%BA%93%E4%BD%BF%E7%94%A8"><span class="nav-number">7.</span> <span class="nav-text">📚 作为库使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E2%9A%A0%EF%B8%8F-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">8.</span> <span class="nav-text">⚠️ 注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%94%97-%E7%9B%B8%E5%85%B3%E8%B5%84%E6%BA%90"><span class="nav-number">9.</span> <span class="nav-text">🔗 相关资源</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%98%E6%96%B9%E8%B5%84%E6%BA%90"><span class="nav-number">9.1.</span> <span class="nav-text">官方资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ProjectDiscovery-%E5%85%B6%E4%BB%96%E5%B7%A5%E5%85%B7"><span class="nav-number">9.2.</span> <span class="nav-text">ProjectDiscovery 其他工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BE%E5%8C%BA"><span class="nav-number">9.3.</span> <span class="nav-text">社区</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%9D-%E6%9B%B4%E6%96%B0%E6%97%A5%E5%BF%97"><span class="nav-number">10.</span> <span class="nav-text">📝 更新日志</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zhifu(geo)"
+      src="/images/zhifu-tech-logo.svg">
+  <p class="site-author-name" itemprop="name">zhifu(geo)</p>
+  <div class="site-description" itemprop="description">分享前沿技术、开发经验和行业洞察</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">101</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3poaWZ1LXRlY2gvemhpZnUtdGVjaA==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zhifu-tech&#x2F;zhifu-tech"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS96aGlmdS10ZWNo" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;zhifu-tech"><i class="fab fa-zhihu fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVkYW8uY24vYm91Z2h0" title="Dedao → https:&#x2F;&#x2F;www.dedao.cn&#x2F;bought"><i class="fa fa-book fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhifu-tech.github.io/2025/11/24/katana-%E7%88%AC%E8%99%AB%E6%A1%86%E6%9E%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/zhifu-tech-logo.svg">
+      <meta itemprop="name" content="zhifu(geo)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhifu-Tech">
+      <meta itemprop="description" content="分享前沿技术、开发经验和行业洞察">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="工具: Katana - 下一代爬虫和蜘蛛框架 | Zhifu-Tech">
+      <meta itemprop="description" content="Katana 是 ProjectDiscovery 开发的下一代爬虫和蜘蛛框架，支持标准和无头模式、JavaScript 解析、自动表单填充等功能">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          工具: Katana - 下一代爬虫和蜘蛛框架<span class="exturl post-edit-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvdGhlbWUtbmV4dC1kb2NzL2VkaXQvbWFzdGVyL3NvdXJjZS9fcG9zdHMva2F0YW5hLeeIrOiZq+ahhuaeti5tZA==" title="编辑"><i class="fa fa-pen-nib"></i></span>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-11-24 00:00:00" itemprop="dateCreated datePublished" datetime="2025-11-24T00:00:00+08:00">2025-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">Katana 是 ProjectDiscovery 开发的下一代爬虫和蜘蛛框架，支持标准和无头模式、JavaScript 解析、自动表单填充等功能</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+
+    <div class="source-link-container">
+        <div class="source-link-wrapper">
+            <span class="source-label">📖 来源：</span>
+            <a href="https://github.com/projectdiscovery/katana" target="_blank" rel="noopener noreferrer" class="source-link">
+                GitHub - projectdiscovery/katana 点击查看原文
+            </a>
+        </div>
+    </div>
+
+<h2 id="📖-简介"><a href="#📖-简介" class="headerlink" title="📖 简介"></a>📖 简介</h2><p><strong>Katana</strong> 是由 <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Byb2plY3RkaXNjb3Zlcnk=">ProjectDiscovery<i class="fa fa-external-link-alt"></i></span> 开发的下一代爬虫和蜘蛛框架，专为快速、可配置的网页爬取而设计。</p>
+<h3 id="项目信息"><a href="#项目信息" class="headerlink" title="项目信息"></a>项目信息</h3><ul>
+<li><strong>GitHub</strong>: <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Byb2plY3RkaXNjb3Zlcnkva2F0YW5h">projectdiscovery&#x2F;katana<i class="fa fa-external-link-alt"></i></span></li>
+<li><strong>许可证</strong>: MIT License</li>
+<li><strong>语言</strong>: Go</li>
+</ul>
+<h3 id="核心特点"><a href="#核心特点" class="headerlink" title="核心特点"></a>核心特点</h3><ul>
+<li>✅ <strong>快速且完全可配置</strong>：高性能的网页爬取引擎</li>
+<li>✅ <strong>标准和无头模式</strong>：支持标准 HTTP 请求和无头浏览器模式</li>
+<li>✅ <strong>JavaScript 解析&#x2F;爬取</strong>：能够解析和执行 JavaScript，发现动态内容</li>
+<li>✅ <strong>自定义自动表单填充</strong>：自动填充表单字段，发现隐藏端点</li>
+<li>✅ <strong>范围控制</strong>：精确控制爬取范围，避免越界访问</li>
+<li>✅ <strong>多种输出格式</strong>：支持 JSON、JSONL 等多种输出格式</li>
+</ul>
+<h2 id="🚀-安装"><a href="#🚀-安装" class="headerlink" title="🚀 安装"></a>🚀 安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Homebrew（macOS/Linux）</span></span><br><span class="line">brew install katana</span><br><span class="line"></span><br><span class="line"><span class="comment"># Docker</span></span><br><span class="line">docker pull projectdiscovery/katana:latest</span><br><span class="line"></span><br><span class="line"><span class="comment"># 从源码编译</span></span><br><span class="line">go install -v github.com/projectdiscovery/katana/cmd/katana@latest</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或从 GitHub Releases 下载预编译二进制文件</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="📖-基本使用"><a href="#📖-基本使用" class="headerlink" title="📖 基本使用"></a>📖 基本使用</h2><h3 id="基础命令"><a href="#基础命令" class="headerlink" title="基础命令"></a>基础命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 爬取单个 URL</span></span><br><span class="line">katana -u https://example.com</span><br><span class="line"></span><br><span class="line"><span class="comment"># 从文件读取多个 URL</span></span><br><span class="line">katana -list urls.txt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出 JSONL 格式并保存到文件</span></span><br><span class="line">katana -u https://example.com -jsonl -o results.jsonl</span><br></pre></td></tr></table></figure>
+
+<h3 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h3><table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+<th>示例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>-u</code></td>
+<td>目标 URL</td>
+<td><code>-u https://example.com</code></td>
+</tr>
+<tr>
+<td><code>-list</code></td>
+<td>从文件读取 URL 列表</td>
+<td><code>-list urls.txt</code></td>
+</tr>
+<tr>
+<td><code>-d</code></td>
+<td>最大爬取深度</td>
+<td><code>-d 3</code></td>
+</tr>
+<tr>
+<td><code>-c</code></td>
+<td>并发数</td>
+<td><code>-c 10</code></td>
+</tr>
+<tr>
+<td><code>-timeout</code></td>
+<td>超时时间（秒）</td>
+<td><code>-timeout 10</code></td>
+</tr>
+<tr>
+<td><code>-delay</code></td>
+<td>请求延迟（秒）</td>
+<td><code>-delay 1</code></td>
+</tr>
+<tr>
+<td><code>-rate-limit</code></td>
+<td>速率限制（每秒请求数）</td>
+<td><code>-rate-limit 150</code></td>
+</tr>
+<tr>
+<td><code>-fs</code></td>
+<td>范围字段（dn&#x2F;rdn&#x2F;fqdn）</td>
+<td><code>-fs rdn</code></td>
+</tr>
+<tr>
+<td><code>-cs</code></td>
+<td>爬取范围（正则）</td>
+<td><code>-cs &quot;example.com&quot;</code></td>
+</tr>
+<tr>
+<td><code>-no-scope</code></td>
+<td>无范围限制</td>
+<td><code>-no-scope</code></td>
+</tr>
+<tr>
+<td><code>-mr</code></td>
+<td>匹配正则（仅输出匹配）</td>
+<td><code>-mr &quot;.*api.*&quot;</code></td>
+</tr>
+<tr>
+<td><code>-fr</code></td>
+<td>过滤正则（排除匹配）</td>
+<td><code>-fr &quot;.*css.*&quot;</code></td>
+</tr>
+<tr>
+<td><code>-ef</code></td>
+<td>排除扩展名</td>
+<td><code>-ef png,css,js</code></td>
+</tr>
+<tr>
+<td><code>-em</code></td>
+<td>匹配扩展名</td>
+<td><code>-em php,html,js</code></td>
+</tr>
+<tr>
+<td><code>-e</code></td>
+<td>排除主机</td>
+<td><code>-e cdn,private-ips</code></td>
+</tr>
+<tr>
+<td><code>-jsonl</code></td>
+<td>JSONL 格式输出</td>
+<td><code>-jsonl</code></td>
+</tr>
+<tr>
+<td><code>-silent</code></td>
+<td>静默模式（只输出 URL）</td>
+<td><code>-silent</code></td>
+</tr>
+<tr>
+<td><code>-o</code></td>
+<td>输出到文件</td>
+<td><code>-o results.jsonl</code></td>
+</tr>
+<tr>
+<td><code>-sr</code></td>
+<td>存储 HTTP 请求&#x2F;响应</td>
+<td><code>-sr</code></td>
+</tr>
+<tr>
+<td><code>-srd</code></td>
+<td>存储响应目录</td>
+<td><code>-srd ./responses</code></td>
+</tr>
+<tr>
+<td><code>-hl</code></td>
+<td>启用无头模式</td>
+<td><code>-hl</code></td>
+</tr>
+<tr>
+<td><code>-aff</code></td>
+<td>自动表单填充</td>
+<td><code>-aff</code></td>
+</tr>
+<tr>
+<td><code>-fc</code></td>
+<td>表单配置文件</td>
+<td><code>-fc forms.json</code></td>
+</tr>
+<tr>
+<td><code>-H</code></td>
+<td>自定义请求头</td>
+<td><code>-H &quot;Cookie: session=abc123&quot;</code></td>
+</tr>
+</tbody></table>
+<h3 id="范围和过滤"><a href="#范围和过滤" class="headerlink" title="范围和过滤"></a>范围和过滤</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置范围字段（rdn=根域名，fqdn=完整域名）</span></span><br><span class="line">katana -u https://example.com -fs rdn</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置爬取范围（正则表达式）</span></span><br><span class="line">katana -u https://example.com -cs <span class="string">&quot;example.com&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 无范围限制（爬取所有发现的链接）</span></span><br><span class="line">katana -u https://example.com -no-scope</span><br><span class="line"></span><br><span class="line"><span class="comment"># 仅输出匹配正则的 URL</span></span><br><span class="line">katana -u https://example.com -mr <span class="string">&quot;.*api.*&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 排除匹配正则的 URL</span></span><br><span class="line">katana -u https://example.com -fr <span class="string">&quot;.*css.*&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 排除特定扩展名</span></span><br><span class="line">katana -u https://example.com -ef png,css,js</span><br><span class="line"></span><br><span class="line"><span class="comment"># 仅匹配特定扩展名</span></span><br><span class="line">katana -u https://example.com -em php,html,js</span><br><span class="line"></span><br><span class="line"><span class="comment"># 排除主机（CDN、私有 IP 等）</span></span><br><span class="line">katana -u https://example.com -e cdn,private-ips</span><br></pre></td></tr></table></figure>
+
+<h2 id="🎯-高级功能"><a href="#🎯-高级功能" class="headerlink" title="🎯 高级功能"></a>🎯 高级功能</h2><h3 id="无头模式（JavaScript-渲染）"><a href="#无头模式（JavaScript-渲染）" class="headerlink" title="无头模式（JavaScript 渲染）"></a>无头模式（JavaScript 渲染）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启用无头浏览器模式</span></span><br><span class="line">katana -u https://example.com -hl -d 2 -c 3</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用系统 Chrome（而非 katana 安装的）</span></span><br><span class="line">katana -u https://example.com -hl -sc</span><br><span class="line"></span><br><span class="line"><span class="comment"># 显示浏览器窗口</span></span><br><span class="line">katana -u https://example.com -hl -sb</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提取 XHR 请求</span></span><br><span class="line">katana -u https://example.com -hl -xhr</span><br></pre></td></tr></table></figure>
+
+<h3 id="自动表单填充"><a href="#自动表单填充" class="headerlink" title="自动表单填充"></a>自动表单填充</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启用自动表单填充</span></span><br><span class="line">katana -u https://example.com -aff</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用自定义表单配置</span></span><br><span class="line">katana -u https://example.com -aff -<span class="built_in">fc</span> forms.json</span><br><span class="line"></span><br><span class="line"><span class="comment"># 提取表单元素到 JSONL 输出</span></span><br><span class="line">katana -u https://example.com -fx</span><br></pre></td></tr></table></figure>
+
+<h3 id="存储响应"><a href="#存储响应" class="headerlink" title="存储响应"></a>存储响应</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 存储 HTTP 请求和响应到文件（默认目录：katana_response）</span></span><br><span class="line">katana -u https://example.com -sr</span><br><span class="line"></span><br><span class="line"><span class="comment"># 存储到自定义目录</span></span><br><span class="line">katana -u https://example.com -sr -srd ./responses</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>⚠️ <strong>注意</strong>：<code>-sr</code> 选项不支持无头模式。</p>
+</blockquote>
+<h3 id="自定义请求头"><a href="#自定义请求头" class="headerlink" title="自定义请求头"></a>自定义请求头</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置自定义请求头（格式：header:value）</span></span><br><span class="line">katana -u https://example.com -H <span class="string">&quot;User-Agent: Custom-Agent/1.0&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置 Cookie</span></span><br><span class="line">katana -u https://example.com -H <span class="string">&quot;Cookie: session=abc123&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置多个请求头</span></span><br><span class="line">katana -u https://example.com -H <span class="string">&quot;Authorization: Bearer token123&quot;</span> -H <span class="string">&quot;X-API-Key: key123&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 从文件读取请求头</span></span><br><span class="line">katana -u https://example.com -H headers.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="📊-输出格式"><a href="#📊-输出格式" class="headerlink" title="📊 输出格式"></a>📊 输出格式</h2><h3 id="格式类型"><a href="#格式类型" class="headerlink" title="格式类型"></a>格式类型</h3><table>
+<thead>
+<tr>
+<th>格式</th>
+<th>参数</th>
+<th>说明</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>纯文本</td>
+<td>默认</td>
+<td>每行一个 URL</td>
+<td>快速查看 URL 列表</td>
+</tr>
+<tr>
+<td>JSONL</td>
+<td><code>-jsonl</code></td>
+<td>每行一个 JSON 对象</td>
+<td>程序处理、流式处理（推荐）</td>
+</tr>
+<tr>
+<td>自定义</td>
+<td><code>-ot</code></td>
+<td>自定义输出模板</td>
+<td>需要特定格式输出</td>
+</tr>
+</tbody></table>
+<h3 id="输出字段"><a href="#输出字段" class="headerlink" title="输出字段"></a>输出字段</h3><p><strong>查看所有可用字段</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">katana -list-output-fields</span><br></pre></td></tr></table></figure>
+
+<p><strong>常用输出字段</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>timestamp</code></td>
+<td>请求时间戳（ISO 8601 格式）</td>
+</tr>
+<tr>
+<td><code>request.method</code></td>
+<td>HTTP 请求方法</td>
+</tr>
+<tr>
+<td><code>request.url</code></td>
+<td>完整的请求 URL</td>
+</tr>
+<tr>
+<td><code>response.status-code</code></td>
+<td>HTTP 响应状态码</td>
+</tr>
+<tr>
+<td><code>response.content-type</code></td>
+<td>响应内容类型</td>
+</tr>
+<tr>
+<td><code>body</code></td>
+<td>响应体内容（HTML&#x2F;文本）</td>
+</tr>
+<tr>
+<td><code>technologies</code></td>
+<td>检测到的技术栈（数组）</td>
+</tr>
+<tr>
+<td><code>raw</code></td>
+<td>原始 HTTP 响应</td>
+</tr>
+</tbody></table>
+<h3 id="排除字段"><a href="#排除字段" class="headerlink" title="排除字段"></a>排除字段</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 排除原始请求/响应（减少输出大小）</span></span><br><span class="line">katana -u https://example.com -jsonl -or</span><br><span class="line"></span><br><span class="line"><span class="comment"># 排除响应体（减少输出大小）</span></span><br><span class="line">katana -u https://example.com -jsonl -ob</span><br><span class="line"></span><br><span class="line"><span class="comment"># 同时排除原始请求和响应体</span></span><br><span class="line">katana -u https://example.com -jsonl -or -ob</span><br></pre></td></tr></table></figure>
+
+<h3 id="输出示例"><a href="#输出示例" class="headerlink" title="输出示例"></a>输出示例</h3><p><strong>纯文本输出</strong>：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">https://example.com</span><br><span class="line">https://example.com/about</span><br><span class="line">https://example.com/contact</span><br></pre></td></tr></table></figure>
+
+<p><strong>JSONL 输出</strong>（格式化后）：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;timestamp&quot;</span><span class="punctuation">:</span> <span class="string">&quot;2023-03-20T10:53:58.123456Z&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;request&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;method&quot;</span><span class="punctuation">:</span> <span class="string">&quot;GET&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;url&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://example.com&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;response&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;status-code&quot;</span><span class="punctuation">:</span> <span class="number">200</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;content-type&quot;</span><span class="punctuation">:</span> <span class="string">&quot;text/html; charset=UTF-8&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;technologies&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span><span class="string">&quot;Azure&quot;</span><span class="punctuation">,</span> <span class="string">&quot;Amazon ECS&quot;</span><span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>💡 <strong>提示</strong>：使用 <code>jq</code> 工具可以美化 JSONL 输出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">katana -u https://example.com -jsonl | jq .</span><br></pre></td></tr></table></figure></blockquote>
+<h2 id="💡-实战示例"><a href="#💡-实战示例" class="headerlink" title="💡 实战示例"></a>💡 实战示例</h2><h3 id="示例-1：基础爬取"><a href="#示例-1：基础爬取" class="headerlink" title="示例 1：基础爬取"></a>示例 1：基础爬取</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 爬取网站，深度为 2，并发数为 5</span></span><br><span class="line">katana -u https://example.com -d 2 -c 5 -<span class="built_in">timeout</span> 10 -silent</span><br></pre></td></tr></table></figure>
+
+<h3 id="示例-2：发现-API-端点"><a href="#示例-2：发现-API-端点" class="headerlink" title="示例 2：发现 API 端点"></a>示例 2：发现 API 端点</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 仅输出包含 api 的 URL，输出 JSONL 格式</span></span><br><span class="line">katana -u https://example.com -d 3 -c 10 -mr <span class="string">&quot;.*api.*&quot;</span> -jsonl -o api_endpoints.jsonl</span><br></pre></td></tr></table></figure>
+
+<h3 id="示例-3：完整配置（生产环境）"><a href="#示例-3：完整配置（生产环境）" class="headerlink" title="示例 3：完整配置（生产环境）"></a>示例 3：完整配置（生产环境）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">katana \</span><br><span class="line">  -u https://example.com \</span><br><span class="line">  -d 3 \</span><br><span class="line">  -c 10 \</span><br><span class="line">  -<span class="built_in">timeout</span> 15 \</span><br><span class="line">  -delay 1 \</span><br><span class="line">  -rate-limit 100 \</span><br><span class="line">  -fs rdn \</span><br><span class="line">  -ef png,css,js,jpg,gif,svg \</span><br><span class="line">  -jsonl \</span><br><span class="line">  -o crawl_results.jsonl</span><br></pre></td></tr></table></figure>
+
+<h3 id="示例-4：无头模式（JavaScript-渲染）"><a href="#示例-4：无头模式（JavaScript-渲染）" class="headerlink" title="示例 4：无头模式（JavaScript 渲染）"></a>示例 4：无头模式（JavaScript 渲染）</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启用无头浏览器模式，支持 JavaScript 渲染</span></span><br><span class="line">katana -u https://example.com -hl -d 2 -c 3 -jsonl</span><br></pre></td></tr></table></figure>
+
+<h3 id="示例-5：快速测试"><a href="#示例-5：快速测试" class="headerlink" title="示例 5：快速测试"></a>示例 5：快速测试</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 验证安装是否正常</span></span><br><span class="line">katana -u https://example.com -d 1 -silent</span><br></pre></td></tr></table></figure>
+
+<h3 id="示例-6：只抓取单个端点"><a href="#示例-6：只抓取单个端点" class="headerlink" title="示例 6：只抓取单个端点"></a>示例 6：只抓取单个端点</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 只抓取 gitee.com 的根 URL，不爬取其他链接</span></span><br><span class="line">katana -u https://gitee.com -d 1 -fs fqdn -mr <span class="string">&quot;^https://gitee.com$&quot;</span> -silent</span><br></pre></td></tr></table></figure>
+
+<p><strong>说明</strong>：</p>
+<ul>
+<li><code>-d 1</code>：深度为 1，只爬取初始 URL 及其直接链接</li>
+<li><code>-fs fqdn</code>：使用完整域名作为范围字段</li>
+<li><code>-mr &quot;^https://gitee.com$&quot;</code>：只输出完全匹配 <code>https://gitee.com</code> 的 URL（正则表达式）</li>
+<li><code>-silent</code>：静默模式，只输出 URL</li>
+</ul>
+<p><strong>输出</strong>：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://gitee.com</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>💡 <strong>提示</strong>：使用 <code>-mr</code> 参数可以精确控制输出的 URL，正则表达式 <code>^</code> 表示开头，<code>$</code> 表示结尾，确保完全匹配。</p>
+</blockquote>
+<h2 id="📚-作为库使用"><a href="#📚-作为库使用" class="headerlink" title="📚 作为库使用"></a>📚 作为库使用</h2><p>Katana 可以作为 Go 库在代码中使用：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">&quot;math&quot;</span></span><br><span class="line">    <span class="string">&quot;github.com/projectdiscovery/gologger&quot;</span></span><br><span class="line">    <span class="string">&quot;github.com/projectdiscovery/katana/pkg/engine/standard&quot;</span></span><br><span class="line">    <span class="string">&quot;github.com/projectdiscovery/katana/pkg/output&quot;</span></span><br><span class="line">    <span class="string">&quot;github.com/projectdiscovery/katana/pkg/types&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    options := &amp;types.Options&#123;</span><br><span class="line">        MaxDepth:     <span class="number">3</span>,</span><br><span class="line">        FieldScope:   <span class="string">&quot;rdn&quot;</span>,</span><br><span class="line">        BodyReadSize: math.MaxInt,</span><br><span class="line">        Timeout:      <span class="number">10</span>,</span><br><span class="line">        Concurrency:  <span class="number">10</span>,</span><br><span class="line">        RateLimit:    <span class="number">150</span>,</span><br><span class="line">        Strategy:     <span class="string">&quot;depth-first&quot;</span>,</span><br><span class="line">        OnResult: <span class="function"><span class="keyword">func</span><span class="params">(result output.Result)</span></span> &#123;</span><br><span class="line">            gologger.Info().Msg(result.Request.URL)</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    crawlerOptions, _ := types.NewCrawlerOptions(options)</span><br><span class="line">    <span class="keyword">defer</span> crawlerOptions.Close()</span><br><span class="line"></span><br><span class="line">    crawler, _ := standard.New(crawlerOptions)</span><br><span class="line">    <span class="keyword">defer</span> crawler.Close()</span><br><span class="line"></span><br><span class="line">    crawler.Crawl(<span class="string">&quot;https://example.com&quot;</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="⚠️-注意事项"><a href="#⚠️-注意事项" class="headerlink" title="⚠️ 注意事项"></a>⚠️ 注意事项</h2><ol>
+<li><strong>遵守 robots.txt</strong>：Katana 默认会遵守网站的 robots.txt 规则</li>
+<li><strong>速率限制</strong>：建议设置合理的速率限制（<code>-rate-limit</code>），避免对目标网站造成压力</li>
+<li><strong>范围控制</strong>：使用 <code>-fs</code> 或 <code>-cs</code> 选项限制爬取范围，避免越界访问</li>
+<li><strong>无头模式限制</strong>：<code>-sr</code> 选项不支持无头模式</li>
+<li><strong>法律合规</strong>：确保在合法授权的情况下使用爬虫工具</li>
+<li><strong>参数说明</strong>：使用 <code>katana -h</code> 查看完整的参数列表和说明</li>
+</ol>
+<h2 id="🔗-相关资源"><a href="#🔗-相关资源" class="headerlink" title="🔗 相关资源"></a>🔗 相关资源</h2><h3 id="官方资源"><a href="#官方资源" class="headerlink" title="官方资源"></a>官方资源</h3><ul>
+<li><strong><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Byb2plY3RkaXNjb3Zlcnkva2F0YW5h">GitHub 仓库<i class="fa fa-external-link-alt"></i></span></strong></li>
+<li><strong><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Byb2plY3RkaXNjb3Zlcnkva2F0YW5hI3JlYWRtZQ==">项目文档<i class="fa fa-external-link-alt"></i></span></strong></li>
+<li><strong><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Byb2plY3RkaXNjb3Zlcnkva2F0YW5hL2Rpc2N1c3Npb25z">问题反馈<i class="fa fa-external-link-alt"></i></span></strong></li>
+</ul>
+<h3 id="ProjectDiscovery-其他工具"><a href="#ProjectDiscovery-其他工具" class="headerlink" title="ProjectDiscovery 其他工具"></a>ProjectDiscovery 其他工具</h3><ul>
+<li><strong><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Byb2plY3RkaXNjb3ZlcnkvbnVjbGVp">Nuclei<i class="fa fa-external-link-alt"></i></span></strong> - 漏洞扫描器</li>
+<li><strong><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Byb2plY3RkaXNjb3Zlcnkvc3ViZmluZGVy">Subfinder<i class="fa fa-external-link-alt"></i></span></strong> - 子域名发现工具</li>
+<li><strong><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3Byb2plY3RkaXNjb3ZlcnkvaHR0cHg=">Httpx<i class="fa fa-external-link-alt"></i></span></strong> - HTTP 探测工具</li>
+</ul>
+<h3 id="社区"><a href="#社区" class="headerlink" title="社区"></a>社区</h3><ul>
+<li><strong><span class="exturl" data-url="aHR0cHM6Ly9kaXNjb3JkLmdnL3Byb2plY3RkaXNjb3Zlcnk=">Discord<i class="fa fa-external-link-alt"></i></span></strong> - 加入 Discord 社区</li>
+</ul>
+<h2 id="📝-更新日志"><a href="#📝-更新日志" class="headerlink" title="📝 更新日志"></a>📝 更新日志</h2><ul>
+<li><strong>2025-11-24</strong>：<ul>
+<li>初始版本，包含基本介绍、安装、使用方法和示例</li>
+<li>整理和简化文档结构，提升可读性</li>
+<li>根据 <code>katana -h</code> 实际输出校对并修正所有参数，删除不存在的参数（如 <code>-include</code>、<code>-json</code>、<code>-scope</code>），更新为正确的参数（如 <code>-mr</code>、<code>-fr</code>、<code>-cs</code>、<code>-fs</code>、<code>-hl</code>、<code>-aff</code>、<code>-sr</code> 等）</li>
+<li>添加示例：只抓取单个端点的使用方法</li>
+</ul>
+</li>
+</ul>
+<hr>
+<blockquote>
+<p>💡 <strong>提示</strong>：本文档将持续更新，如有新的功能或使用方法，会及时补充。</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag"># 工具</a>
+              <a href="/tags/%E7%88%AC%E8%99%AB/" rel="tag"># 爬虫</a>
+              <a href="/tags/Web-Scraping/" rel="tag"># Web Scraping</a>
+              <a href="/tags/%E5%AE%89%E5%85%A8%E5%B7%A5%E5%85%B7/" rel="tag"># 安全工具</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/11/23/%E5%BF%AB%E5%88%80%E5%B9%BF%E6%92%AD%E7%AB%99-677-%E8%87%B3%E9%AB%98%E6%97%A0%E4%B8%8A/" rel="prev" title="笔记: 快刀广播站-677-至高无上">
+                  <i class="fa fa-angle-left"></i> 笔记: 快刀广播站-677-至高无上
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/11/24/homebrew-%E5%8A%A0%E9%80%9F/" rel="next" title="工具: Homebrew 加速指南">
+                  工具: Homebrew 加速指南 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2025 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Zhifu-Tech</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL3poaWZ1LXRlY2gvemhpZnUtdGVjaA==" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+</body>
+</html>

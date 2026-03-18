@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon.svg" color="#222">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="google-site-verification" content="5AUIVYTbHIAuz-eQtxSfZbWW5eg9_EVZMSQycIuXrG0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inconsolata:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhifu-tech.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.25.0","exturl":true,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="说明本文档记录 Marble 3D 场景生成的提示词示例，包含：  Promotes-input: 用户输入的原始提示词（简洁版本） 提示词-输入: 原始提示词的中文翻译 Promotes-handled: Marble 处理后的详细提示词（加粗关键短语，便于学习英语表达） 提示词-处理的: 处理后提示词的中文翻译  World   Rustic Cabin Living Room(乡村小屋客厅)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="笔记: Marble 提示词">
+<meta property="og:url" content="https://zhifu-tech.github.io/2026/03/18/marble-promotes/index.html">
+<meta property="og:site_name" content="Zhifu-Tech">
+<meta property="og:description" content="说明本文档记录 Marble 3D 场景生成的提示词示例，包含：  Promotes-input: 用户输入的原始提示词（简洁版本） 提示词-输入: 原始提示词的中文翻译 Promotes-handled: Marble 处理后的详细提示词（加粗关键短语，便于学习英语表达） 提示词-处理的: 处理后提示词的中文翻译  World   Rustic Cabin Living Room(乡村小屋客厅)">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-03-18T01:14:28.629Z">
+<meta property="article:modified_time" content="2026-03-18T01:14:28.629Z">
+<meta property="article:author" content="zhifu(geo)">
+<meta property="article:tag" content="Marble">
+<meta property="article:tag" content="提示词">
+<meta property="article:tag" content="英语学习">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zhifu-tech.github.io/2026/03/18/marble-promotes/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhifu-tech.github.io/2026/03/18/marble-promotes/","path":"2026/03/18/marble-promotes/","title":"笔记: Marble 提示词"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>笔记: Marble 提示词 | Zhifu-Tech</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-43861RVV8R"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-43861RVV8R","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+  <script class="next-config" data-name="wavedrom" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.5.0/wavedrom.min.js","integrity":"sha256-INLAoJc6quTNfiMWkGZniYO2cxE8mHpddnLow1m6RFs="}}</script>
+  <script class="next-config" data-name="wavedrom_skin" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.5.0/skins/default.js","integrity":"sha256-fduc/Zszk5ezWws2uInY/ALWVmIrmV6VTgXbsYSReFI="}}</script>
+  <script src="/js/third-party/tags/wavedrom.js" defer></script>
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zhifu-Tech" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zhifu-Tech</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">技术分享与创新实践</p>
+      <img class="custom-logo-image" src="/images/zhifu-tech-logo.svg" alt="Zhifu-Tech">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">63</span></a></li><li class="menu-item menu-item-app-dashboard"><span class="exturl" data-url="aHR0cHM6Ly9zaXRlLWRhc2hib2FyZC56aGlmdS50ZWNoLw=="><i class="fa fa-tachometer-alt fa-fw"></i>APP - 仪表板</span></li><li class="menu-item menu-item-app-book-excerpt-generator"><span class="exturl" data-url="aHR0cHM6Ly9ib29rLWV4Y2VycHQuemhpZnUudGVjaC8="><i class="fa fa-book-open fa-fw"></i>APP - 书摘卡片生成器</span></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">101</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#World"><span class="nav-number">2.</span> <span class="nav-text">World</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zhifu(geo)"
+      src="/images/zhifu-tech-logo.svg">
+  <p class="site-author-name" itemprop="name">zhifu(geo)</p>
+  <div class="site-description" itemprop="description">分享前沿技术、开发经验和行业洞察</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">101</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3poaWZ1LXRlY2gvemhpZnUtdGVjaA==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zhifu-tech&#x2F;zhifu-tech"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS96aGlmdS10ZWNo" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;zhifu-tech"><i class="fab fa-zhihu fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVkYW8uY24vYm91Z2h0" title="Dedao → https:&#x2F;&#x2F;www.dedao.cn&#x2F;bought"><i class="fa fa-book fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhifu-tech.github.io/2026/03/18/marble-promotes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/zhifu-tech-logo.svg">
+      <meta itemprop="name" content="zhifu(geo)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhifu-Tech">
+      <meta itemprop="description" content="分享前沿技术、开发经验和行业洞察">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="笔记: Marble 提示词 | Zhifu-Tech">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          笔记: Marble 提示词<span class="exturl post-edit-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvdGhlbWUtbmV4dC1kb2NzL2VkaXQvbWFzdGVyL3NvdXJjZS9fcG9zdHMvbWFyYmxlLXByb21vdGVzLm1k" title="编辑"><i class="fa fa-pen-nib"></i></span>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-03-18 09:14:28" itemprop="dateCreated datePublished" datetime="2026-03-18T09:14:28+08:00">2026-03-18</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+
+
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>本文档记录 Marble 3D 场景生成的提示词示例，包含：</p>
+<ul>
+<li><strong>Promotes-input</strong>: 用户输入的原始提示词（简洁版本）</li>
+<li><strong>提示词-输入</strong>: 原始提示词的中文翻译</li>
+<li><strong>Promotes-handled</strong>: Marble 处理后的详细提示词（加粗关键短语，便于学习英语表达）</li>
+<li><strong>提示词-处理的</strong>: 处理后提示词的中文翻译</li>
+</ul>
+<h2 id="World"><a href="#World" class="headerlink" title="World"></a>World</h2><div class="marble-entry-container" style="background-image: url('https://cdn.marble.worldlabs.ai/8ff7d8e7-d0cd-4187-831f-6442ead8cd97/811caa2d-23ab-49fb-aabb-7971a2d12c5f_dust_mpi/thumbnail_960.webp'); background-size: cover; background-position: center top; background-repeat: no-repeat; padding: 20px; border-radius: 8px; margin-bottom: 30px; position: relative; min-height: 400px">
+<div class="marble-entry-content" style="background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(1px); -webkit-backdrop-filter: blur(1px); padding: 20px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1); color: #fff">
+<ol>
+<li><span class="exturl" data-url="aHR0cHM6Ly9tYXJibGUud29ybGRsYWJzLmFpL3dvcmxkLzhmZjdkOGU3LWQwY2QtNDE4Ny04MzFmLTY0NDJlYWQ4Y2Q5Nw==">Rustic Cabin Living Room(乡村小屋客厅)<i class="fa fa-external-link-alt"></i></span><ul>
+<li><p>Promotes-input: A cozy medieval-style study with a roaring fireplace, warm candlelight, and shelves of old books framed by tall, latticed windows.</p>
+</li>
+<li><p>提示词-输入: 乡村小屋客厅。舒适的中世纪风格书房，配有熊熊燃烧的壁炉、温暖的烛光和摆满旧书的书架，四周环绕着高大的格子窗。</p>
+</li>
+<li><p>Promotes-handled: <strong>The scene is a</strong> warm, inviting cabin living room, <strong>rendered in a realistic style</strong> that <strong>evokes a sense of cozy comfort and rustic charm</strong>. The overall tone is serene and welcoming, perfect for a winter retreat. A grand stone fireplace, constructed from rough-hewn, multi-toned river rocks, dominates one wall, its hearth glowing with a warm, flickering fire that casts dancing shadows across the room. Above the mantelpiece, a large, rustic wooden beam spans the width of the fireplace. A plush, dark brown leather sofa, deeply cushioned and inviting, is positioned centrally, facing the fireplace, suggesting a focal point for relaxation. Overhead, exposed wooden beams, dark and substantial, crisscross the ceiling, adding to the cabin&#39;s authentic aesthetic. Large, expansive windows line another wall, offering a breathtaking panoramic view of a snow-covered forest, where tall pine trees stand cloaked in white, and the ground is blanketed in pristine snow. The floor is made of wide-plank, dark hardwood, polished to a soft sheen. A thick, woven rug with earthy tones lies before the sofa, adding texture and warmth. The fireplace is the central feature of the room, with the leather sofa directly in front of it. The wooden beams are integrated into the ceiling structure, running parallel and perpendicular to each other. The large windows are situated on the wall adjacent to the fireplace, providing a clear view of the snowy forest outside.</p>
+</li>
+<li><p>提示词-处理的: <strong>场景是一个</strong>温暖、舒适的小木屋客厅，采用写实风格，营造出舒适温馨和质朴魅力。整体色调宁静而温馨，适合作为冬日避世之所。一座宏伟的石制壁炉占据一面墙，由粗糙的多色调河石砌成，炉膛中跳动着温暖的火光，在房间内投下舞动的阴影。壁炉上方，一根粗犷的木制横梁横跨整个壁炉宽度。一张深棕色真皮沙发，厚实柔软，居中摆放，面向壁炉，成为休憩的焦点。头顶上方，深色粗壮的裸露木梁在屋顶纵横交错，增添了小木屋的质朴感。另一面墙上是宽敞的大窗，展现雪覆森林的广阔全景，高大的松树披着白色，地面覆盖着纯净的雪。地板由宽板深色硬木制成，抛光至柔和光泽。沙发前铺着一块厚实的编织地毯，色调质朴，增加质感和温暖。壁炉是房间的中心，真皮沙发正对壁炉。木梁融入天花板结构，相互平行和垂直。大窗位于壁炉相邻的墙上，清晰呈现窗外雪覆森林的景色。</p>
+</li>
+</ul>
+</li>
+</ol>
+
+</div>
+</div>
+
+<div class="marble-entry-container" style="background-image: url('https://cdn.marble.worldlabs.ai/50749aca-b7e6-4741-b5ea-4c92e0f97289/1b72af01-6e49-4baf-a10e-8913173e7a5c_dust_mpi/thumbnail_960.webp'); background-size: cover; background-position: center top; background-repeat: no-repeat; padding: 20px; border-radius: 8px; margin-bottom: 30px; position: relative; min-height: 400px">
+<div class="marble-entry-content" style="background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(1px); -webkit-backdrop-filter: blur(1px); padding: 20px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1); color: #fff">
+<ol start="2">
+<li><span class="exturl" data-url="aHR0cHM6Ly9tYXJibGUud29ybGRsYWJzLmFpL3dvcmxkLzUwNzQ5YWNhLWI3ZTYtNDc0MS1iNWVhLTRjOTJlMGY5NzI4OQ==">Serene Japanese Garden Retreat(宁静的日本花园静修处)<i class="fa fa-external-link-alt"></i></span><ul>
+<li><p>Promotes-input: A peaceful Japanese-style garden with a wooden deck overlooking a pond lined with stepping stones and lush flowers.</p>
+</li>
+<li><p>提示词-输入: 一个宁静的日式花园，带有俯瞰池塘的木制平台，池塘边缘铺有踏石和繁茂的花朵。</p>
+</li>
+<li><p>Promotes-handled: <strong>The scene is a</strong> tranquil Japanese-style garden, <strong>rendered with a high degree of realism</strong>, <strong>exuding a sense of peace and natural harmony</strong>. A wooden deck of a traditional Japanese house extends gracefully over a serene pond, its surface reflecting the verdant surroundings. Smooth, round stepping stones emerge from the dark water, forming a path across the pond to a lush, green landscape beyond. The pond&#39;s edge is adorned with vibrant pink and red azaleas, their blossoms contrasting beautifully with the rich greenery. Towering trees with mature trunks provide a canopy of dappled sunlight, creating an ethereal glow throughout the garden. The wooden deck, crafted from light-colored planks, is supported by sturdy pillars and features delicate shoji screens, hinting at the interior of the traditional house. The garden&#39;s design incorporates meticulously placed rocks and various shrubs, enhancing its natural aesthetic and creating visual depth. The stepping stones lead deeper into the garden, inviting contemplation and a connection with nature. Beyond the visible expanse, the garden continues to unfold, revealing more secluded nooks and carefully cultivated plant arrangements, maintaining the consistent aesthetic. The house itself extends further to the sides, with more sliding doors and perhaps a veranda offering additional views of the garden.</p>
+</li>
+<li><p>提示词-处理的: <strong>场景是一个</strong>宁静的日式花园，高度写实，呈现平和与自然和谐。传统日式房屋的木制平台优雅地延伸至宁静的池塘上方，水面倒映着周围的绿意。光滑的圆形踏石从深色水中露出，形成一条横跨池塘的小径，通向远处葱郁的绿色景观。池塘边缘点缀着鲜艳的粉色和红色杜鹃花，花朵与浓郁的绿色形成对比。高大的树木树干粗壮，树冠投下斑驳的阳光，在花园中营造出空灵的光影。木制平台由浅色木板制成，由坚固的支柱支撑，配有精致的障子屏风，暗示着传统房屋的内部。花园设计包含精心布置的岩石和各种灌木，增强自然美感并营造视觉深度。踏石通向花园深处，引人沉思并与自然连接。在可见范围之外，花园继续展开，露出更多僻静的角落和精心培育的植物布置，保持一致的审美。房屋本身向两侧延伸，有更多推拉门，或许还有可欣赏花园景色的廊台。</p>
+</li>
+</ul>
+</li>
+</ol>
+
+</div>
+</div>
+
+<div class="marble-entry-container" style="background-image: url('https://cdn.marble.worldlabs.ai/27d958c0-633a-4a1f-9655-0f28ae5de2f0/37b3a98f-a4ad-4184-8126-e08953bdb74d_dust_mpi/thumbnail_960.webp'); background-size: cover; background-position: center top; background-repeat: no-repeat; padding: 20px; border-radius: 8px; margin-bottom: 30px; position: relative; min-height: 400px">
+<div class="marble-entry-content" style="background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(1px); -webkit-backdrop-filter: blur(1px); padding: 20px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1); color: #fff">
+<ol start="3">
+<li><span class="exturl" data-url="aHR0cHM6Ly9tYXJibGUud29ybGRsYWJzLmFpL3dvcmxkLzI3ZDk1OGMwLTYzM2EtNGExZi05NjU1LTBmMjhhZTVkZTJmMA==">Futuristic Spaceship Bedroom(未来主义飞船卧室)<i class="fa fa-external-link-alt"></i></span><ul>
+<li><p>Promotes-input: A cozy futuristic bedroom inside a spacecraft, featuring a large round window overlooking a planet, warm yellow bedding, and soft ambient lighting among metallic walls and cables.</p>
+</li>
+<li><p>提示词-输入: 太空飞船内一个舒适的未来主义卧室，配有大圆窗可俯瞰行星，温暖的黄色床品，以及金属墙壁和电缆间的柔和环境光。</p>
+</li>
+<li><p>Promotes-handled: <strong>The scene is a</strong> cozy futuristic bedroom inside a spacecraft, <strong>rendered in a realistic, detailed drawing style</strong>, <strong><em>evoking a sense of</em></strong> tranquil isolation and wonder. The room is characterized by metallic walls adorned with various cables and panels, indicative of a functional yet comfortable living space in orbit. A large, round window dominates the space, offering a panoramic view of a distant planet, its curvature a striking presence against the black expanse of space. Below the window, a built-in bench provides a comfortable spot for contemplation or additional seating, decorated with a potted lavender plant and other green foliage. A bed with warm yellow bedding is centrally placed, bathed in a soft, ethereal light streaming from the window, creating a comforting glow. On one side of the bed, a nightstand holds a lamp emitting a gentle light, complementing the ambient illumination of the room. The metallic surfaces and technical details suggest advanced engineering, yet the soft furnishings and plants introduce a human touch. Various technological screens and displays are integrated into the walls, subtly indicating the room&#39;s advanced capabilities without being overtly distracting. The floor features subtle paneling, consistent with the spacecraft&#39;s interior design, extending throughout the entire chamber. The bed is oriented to face the large circular window, maximizing the celestial view. The nightstand with the lamp is positioned directly beside the bed, near the headboard. The integrated screens and panels are distributed along the walls, providing functional interfaces without interrupting the serene atmosphere. The built-in bench below the window stretches across the room&#39;s width, acting as a direct extension of the window frame.</p>
+</li>
+<li><p>提示词-处理的: <strong>场景是一个</strong>舒适的未来主义卧室，位于太空飞船内，采用写实、细致的绘画风格，营造出宁静的孤独感和奇妙感。房间以金属墙壁为特征，装饰着各种电缆和面板，表明这是一个在轨道上既实用又舒适的生活空间。一扇巨大的圆形窗户占据空间主导地位，提供远处行星的全景视野，其弧度在黑色太空背景下显得格外醒目。窗户下方，一个内置长椅提供了一个舒适的沉思或额外座位空间，装饰着盆栽薰衣草和其他绿色植物。一张铺着温暖黄色床品的床居中放置，沐浴在从窗户流泻的柔和、空灵的光线中，营造出舒适的光晕。床的一侧，一个床头柜上放着一盏发出柔和光线的台灯，与房间的环境照明相得益彰。金属表面和技术细节暗示着先进的工程，而柔软的家具和植物则引入了人性化的触感。各种技术屏幕和显示器集成在墙壁中，微妙地表明房间的先进功能，而不会过于分散注意力。地板采用微妙的镶板，与飞船的内部设计一致，延伸至整个舱室。床的朝向面向大圆形窗户，最大化天体视野。带台灯的床头柜直接放置在床边，靠近床头板。集成的屏幕和面板沿墙壁分布，提供功能性界面而不打断宁静的氛围。窗户下方的内置长椅横跨房间宽度，作为窗框的直接延伸。</p>
+</li>
+</ul>
+</li>
+</ol>
+
+</div>
+</div>
+
+<div class="marble-entry-container" style="background-image: url('https://cdn.marble.worldlabs.ai/521d18bd-092b-41c0-baed-dd7ece1952c1/d4ab8121-31f4-4d69-90d2-461035db6688_dust_mpi/thumbnail_960.webp'); background-size: cover; background-position: center top; background-repeat: no-repeat; padding: 20px; border-radius: 8px; margin-bottom: 30px; position: relative; min-height: 400px">
+<div class="marble-entry-content" style="background: rgba(0, 0, 0, 0.3); backdrop-filter: blur(1px); -webkit-backdrop-filter: blur(1px); padding: 20px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.2); box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1); color: #fff">
+<ol start="4">
+<li><span class="exturl" data-url="aHR0cHM6Ly9tYXJibGUud29ybGRsYWJzLmFpL3dvcmxkLzUyMWQxOGJkLTA5MmItNDFjMC1iYWVkLWRkN2VjZTE5NTJjMQ==">Rustic Modern Black Kitchen(乡村现代黑色厨房)<i class="fa fa-external-link-alt"></i></span><ul>
+<li><p>Promotes-input: A modern rustic kitchen with black cabinetry, warm wooden countertops, exposed ceiling beams, and hanging glass pendant lights creating a cozy, elegant atmosphere.</p>
+</li>
+<li><p>提示词-输入: 一个现代乡村风格的黑色厨房，配有黑色橱柜、温暖的木制台面、裸露的天花板横梁和悬挂的玻璃吊灯，营造出舒适优雅的氛围。</p>
+</li>
+<li><p>Promotes-handled: <strong>The scene is a</strong> modern rustic kitchen, <strong>captured in a realistic style</strong>, <strong>exuding a cozy and elegant atmosphere</strong>. The overall tone is sophisticated and inviting, with a balance of dark and warm elements. The kitchen features extensive black cabinetry, providing a sleek and uniform appearance throughout the space. Warm wooden countertops, crafted from a light-toned, richly grained wood, extend along all counter surfaces, including a large central island. Exposed wooden ceiling beams traverse the entire ceiling, adding a rustic charm and architectural interest. Hanging glass pendant lights with prominent Edison bulbs illuminate the island and other areas, casting a warm glow. A black tile backsplash with a herringbone pattern is installed behind the main range. The central island includes additional black cabinetry and drawers beneath its wooden surface, offering ample storage. Appliances, such as a black range and a deep sink, are seamlessly integrated into the black cabinetry. Windows with black frames allow natural light to enter, complementing the artificial lighting. To one side of the kitchen, an arched doorway leads to an adjacent room, featuring the same dark aesthetic. A small dining area with stools is positioned at the central island, inviting casual meals or gatherings. The kitchen also incorporates various decorative elements such as potted plants and kitchenware displayed on open shelves, enhancing the rustic modern aesthetic.</p>
+</li>
+<li><p>提示词-处理的: <strong>场景是一个</strong>现代乡村风格的厨房，采用写实风格，营造出舒适优雅的氛围。整体色调精致而温馨，平衡了深色和温暖元素。厨房采用大量黑色橱柜，在整个空间中提供时尚统一的外观。温暖的木制台面由浅色调、纹理丰富的木材制成，延伸至所有台面，包括一个大型中央岛台。裸露的木制天花板横梁横跨整个天花板，增添了乡村魅力和建筑趣味。悬挂的玻璃吊灯配有醒目的爱迪生灯泡，照亮岛台和其他区域，投下温暖的光芒。主炉灶后面安装了带有人字形图案的黑色瓷砖防溅板。中央岛台在其木制表面下方包含额外的黑色橱柜和抽屉，提供充足的存储空间。电器，如黑色炉灶和深水槽，无缝集成到黑色橱柜中。黑色框架的窗户允许自然光进入，与人工照明相得益彰。厨房的一侧，一个拱形门道通向相邻的房间，具有相同的深色美学。一个小型用餐区配有凳子，位于中央岛台旁，适合休闲用餐或聚会。厨房还融入了各种装饰元素，如盆栽植物和展示在开放式搁架上的厨具，增强了乡村现代美学。</p>
+</li>
+</ul>
+</li>
+</ol>
+
+</div>
+</div>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%8F%90%E7%A4%BA%E8%AF%8D/" rel="tag"># 提示词</a>
+              <a href="/tags/Marble/" rel="tag"># Marble</a>
+              <a href="/tags/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0/" rel="tag"># 英语学习</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/12/24/KMP-js-vs-wasmJs-%E5%8C%BA%E5%88%AB/" rel="prev" title="KMP js vs wasmJs 核心区别">
+                  <i class="fa fa-angle-left"></i> KMP js vs wasmJs 核心区别
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2025 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Zhifu-Tech</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL3poaWZ1LXRlY2gvemhpZnUtdGVjaA==" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+</body>
+</html>

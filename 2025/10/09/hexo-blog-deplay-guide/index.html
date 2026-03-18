@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon.svg" color="#222">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="google-site-verification" content="5AUIVYTbHIAuz-eQtxSfZbWW5eg9_EVZMSQycIuXrG0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inconsolata:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhifu-tech.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.25.0","exturl":true,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="本项目支持三种部署方式，满足不同场景的需求:本地、远程和github pages">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo blog 部署指南">
+<meta property="og:url" content="https://zhifu-tech.github.io/2025/10/09/hexo-blog-deplay-guide/index.html">
+<meta property="og:site_name" content="Zhifu-Tech">
+<meta property="og:description" content="本项目支持三种部署方式，满足不同场景的需求:本地、远程和github pages">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-10-09T15:35:23.000Z">
+<meta property="article:modified_time" content="2026-03-18T01:14:28.629Z">
+<meta property="article:author" content="zhifu(geo)">
+<meta property="article:tag" content="deploy">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="博客维护">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zhifu-tech.github.io/2025/10/09/hexo-blog-deplay-guide/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhifu-tech.github.io/2025/10/09/hexo-blog-deplay-guide/","path":"2025/10/09/hexo-blog-deplay-guide/","title":"Hexo blog 部署指南"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Hexo blog 部署指南 | Zhifu-Tech</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-43861RVV8R"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-43861RVV8R","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+  <script class="next-config" data-name="wavedrom" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.5.0/wavedrom.min.js","integrity":"sha256-INLAoJc6quTNfiMWkGZniYO2cxE8mHpddnLow1m6RFs="}}</script>
+  <script class="next-config" data-name="wavedrom_skin" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.5.0/skins/default.js","integrity":"sha256-fduc/Zszk5ezWws2uInY/ALWVmIrmV6VTgXbsYSReFI="}}</script>
+  <script src="/js/third-party/tags/wavedrom.js" defer></script>
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zhifu-Tech" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zhifu-Tech</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">技术分享与创新实践</p>
+      <img class="custom-logo-image" src="/images/zhifu-tech-logo.svg" alt="Zhifu-Tech">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">63</span></a></li><li class="menu-item menu-item-app-dashboard"><span class="exturl" data-url="aHR0cHM6Ly9zaXRlLWRhc2hib2FyZC56aGlmdS50ZWNoLw=="><i class="fa fa-tachometer-alt fa-fw"></i>APP - 仪表板</span></li><li class="menu-item menu-item-app-book-excerpt-generator"><span class="exturl" data-url="aHR0cHM6Ly9ib29rLWV4Y2VycHQuemhpZnUudGVjaC8="><i class="fa fa-book-open fa-fw"></i>APP - 书摘卡片生成器</span></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">101</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%8B-%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">📋 概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%9A%80-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B"><span class="nav-number">2.</span> <span class="nav-text">🚀 快速开始</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%8B-%E7%9B%AE%E5%BD%95"><span class="nav-number">3.</span> <span class="nav-text">📋 目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%8F%97%EF%B8%8F-%E4%B8%89%E7%A7%8D%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">🏗️ 三种部署方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%9C%AC%E5%9C%B0-Docker-%E9%83%A8%E7%BD%B2"><span class="nav-number">4.1.</span> <span class="nav-text">1. 本地 Docker 部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%BF%9C%E7%A8%8B%EF%BC%88Server%EF%BC%89Docker-%E9%83%A8%E7%BD%B2"><span class="nav-number">4.2.</span> <span class="nav-text">2. 远程（Server）Docker 部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-GitHub-Pages-%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2"><span class="nav-number">4.3.</span> <span class="nav-text">3. GitHub Pages 自动化部署</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%8F%97%EF%B8%8F-%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="nav-number">5.</span> <span class="nav-text">🏗️ 项目结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%9B%A0%EF%B8%8F-%E6%9C%AC%E5%9C%B0-Docker-%E9%83%A8%E7%BD%B2"><span class="nav-number">6.</span> <span class="nav-text">🛠️ 本地 Docker 部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E8%A6%81%E6%B1%82"><span class="nav-number">6.1.</span> <span class="nav-text">环境要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E5%90%AF%E5%8A%A8"><span class="nav-number">6.2.</span> <span class="nav-text">开发环境启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E7%89%B9%E6%80%A7"><span class="nav-number">6.3.</span> <span class="nav-text">开发特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="nav-number">6.4.</span> <span class="nav-text">开发工作流</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%8F%AD-%E8%BF%9C%E7%A8%8B-Docker-%E9%83%A8%E7%BD%B2"><span class="nav-number">7.</span> <span class="nav-text">🏭 远程 Docker 部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2"><span class="nav-number">7.1.</span> <span class="nav-text">生产环境部署</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E4%BA%A7%E7%89%B9%E6%80%A7"><span class="nav-number">7.2.</span> <span class="nav-text">生产特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B"><span class="nav-number">7.3.</span> <span class="nav-text">服务器部署流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%8C%90-GitHub-Pages-%E9%83%A8%E7%BD%B2"><span class="nav-number">8.</span> <span class="nav-text">🌐 GitHub Pages 部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8C%E4%BB%93%E5%BA%93%E6%9E%B6%E6%9E%84"><span class="nav-number">8.1.</span> <span class="nav-text">双仓库架构</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%93%E5%BA%93%E8%AF%B4%E6%98%8E"><span class="nav-number">8.1.1.</span> <span class="nav-text">仓库说明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B"><span class="nav-number">8.2.</span> <span class="nav-text">自动化部署流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F%E8%AE%BE%E7%BD%AE"><span class="nav-number">8.3.</span> <span class="nav-text">环境变量设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA-GitHub-Personal-Access-Token"><span class="nav-number">8.4.</span> <span class="nav-text">创建 GitHub Personal Access Token</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%94%A7-hexo-sh-%E8%84%9A%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="nav-number">9.</span> <span class="nav-text">🔧 hexo.sh 脚本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%84%9A%E6%9C%AC%E5%8A%9F%E8%83%BD"><span class="nav-number">9.1.</span> <span class="nav-text">脚本功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C"><span class="nav-number">9.2.</span> <span class="nav-text">常用操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%8B%E5%8A%A8-Docker-%E5%91%BD%E4%BB%A4"><span class="nav-number">9.3.</span> <span class="nav-text">手动 Docker 命令</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F"><span class="nav-number">9.3.1.</span> <span class="nav-text">构建镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E5%AE%B9%E5%99%A8"><span class="nav-number">9.3.2.</span> <span class="nav-text">运行容器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AB%AF%E5%8F%A3%E8%AF%B4%E6%98%8E"><span class="nav-number">9.4.</span> <span class="nav-text">端口说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%94%8D-%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4"><span class="nav-number">10.</span> <span class="nav-text">🔍 故障排除</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="nav-number">10.1.</span> <span class="nav-text">常见问题</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%9D%83%E9%99%90%E9%97%AE%E9%A2%98"><span class="nav-number">10.1.1.</span> <span class="nav-text">1. 权限问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Docker-%E6%9C%AA%E5%AE%89%E8%A3%85"><span class="nav-number">10.1.2.</span> <span class="nav-text">2. Docker 未安装</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E7%AB%AF%E5%8F%A3%E5%86%B2%E7%AA%81"><span class="nav-number">10.1.3.</span> <span class="nav-text">3. 端口冲突</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%AE%B9%E5%99%A8%E5%90%AF%E5%8A%A8%E5%A4%B1%E8%B4%A5"><span class="nav-number">10.1.4.</span> <span class="nav-text">4. 容器启动失败</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8%E9%94%99%E8%AF%AF"><span class="nav-number">10.1.5.</span> <span class="nav-text">5. 端口被占用错误</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-Hexo-8-0-0-ESM-%E5%85%BC%E5%AE%B9%E6%80%A7%E9%97%AE%E9%A2%98"><span class="nav-number">10.1.6.</span> <span class="nav-text">6. Hexo 8.0.0 ESM 兼容性问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-GitHub-Pages-%E9%83%A8%E7%BD%B2%E5%A4%B1%E8%B4%A5"><span class="nav-number">10.1.7.</span> <span class="nav-text">7. GitHub Pages 部署失败</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-%E9%A1%B5%E9%9D%A2%E6%A0%B7%E5%BC%8F%E5%BC%82%E5%B8%B8%E6%88%96%E6%9C%AA%E8%A7%81%E6%9C%80%E6%96%B0%E5%86%85%E5%AE%B9"><span class="nav-number">10.1.8.</span> <span class="nav-text">8. 页面样式异常或未见最新内容</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B0%83%E8%AF%95%E5%91%BD%E4%BB%A4"><span class="nav-number">10.2.</span> <span class="nav-text">调试命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%8A-%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96"><span class="nav-number">11.</span> <span class="nav-text">📊 性能优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker-%E9%95%9C%E5%83%8F%E4%BC%98%E5%8C%96"><span class="nav-number">11.1.</span> <span class="nav-text">Docker 镜像优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%A1%8C%E6%97%B6%E4%BC%98%E5%8C%96"><span class="nav-number">11.2.</span> <span class="nav-text">运行时优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%94%92-%E5%AE%89%E5%85%A8%E9%85%8D%E7%BD%AE"><span class="nav-number">12.</span> <span class="nav-text">🔒 安全配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%B9%E5%99%A8%E5%AE%89%E5%85%A8"><span class="nav-number">12.1.</span> <span class="nav-text">容器安全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8"><span class="nav-number">12.2.</span> <span class="nav-text">网络安全</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%88-%E7%9B%91%E6%8E%A7%E5%92%8C%E7%BB%B4%E6%8A%A4"><span class="nav-number">13.</span> <span class="nav-text">📈 监控和维护</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5"><span class="nav-number">13.1.</span> <span class="nav-text">健康检查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A5%E5%BF%97%E7%AE%A1%E7%90%86"><span class="nav-number">13.2.</span> <span class="nav-text">日志管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%87%E4%BB%BD%E5%92%8C%E6%81%A2%E5%A4%8D"><span class="nav-number">13.3.</span> <span class="nav-text">备份和恢复</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%9A-%E7%9B%B8%E5%85%B3%E8%B5%84%E6%BA%90"><span class="nav-number">14.</span> <span class="nav-text">📚 相关资源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%A4%9D-%E8%B4%A1%E7%8C%AE"><span class="nav-number">15.</span> <span class="nav-text">🤝 贡献</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%84-%E8%AE%B8%E5%8F%AF%E8%AF%81"><span class="nav-number">16.</span> <span class="nav-text">📄 许可证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%8E%AF-%E5%BF%AB%E9%80%9F%E5%8F%82%E8%80%83"><span class="nav-number">17.</span> <span class="nav-text">🎯 快速参考</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">17.1.</span> <span class="nav-text">常用命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E5%9C%B0%E5%9D%80"><span class="nav-number">17.2.</span> <span class="nav-text">访问地址</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zhifu(geo)"
+      src="/images/zhifu-tech-logo.svg">
+  <p class="site-author-name" itemprop="name">zhifu(geo)</p>
+  <div class="site-description" itemprop="description">分享前沿技术、开发经验和行业洞察</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">101</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3poaWZ1LXRlY2gvemhpZnUtdGVjaA==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zhifu-tech&#x2F;zhifu-tech"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS96aGlmdS10ZWNo" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;zhifu-tech"><i class="fab fa-zhihu fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVkYW8uY24vYm91Z2h0" title="Dedao → https:&#x2F;&#x2F;www.dedao.cn&#x2F;bought"><i class="fa fa-book fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhifu-tech.github.io/2025/10/09/hexo-blog-deplay-guide/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/zhifu-tech-logo.svg">
+      <meta itemprop="name" content="zhifu(geo)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhifu-Tech">
+      <meta itemprop="description" content="分享前沿技术、开发经验和行业洞察">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Hexo blog 部署指南 | Zhifu-Tech">
+      <meta itemprop="description" content="本项目支持三种部署方式，满足不同场景的需求:本地、远程和github pages">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo blog 部署指南<span class="exturl post-edit-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvdGhlbWUtbmV4dC1kb2NzL2VkaXQvbWFzdGVyL3NvdXJjZS9fcG9zdHMvaGV4by1ibG9nLWRlcGxheS1ndWlkZS5tZA==" title="编辑"><i class="fa fa-pen-nib"></i></span>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-10-09 23:35:23" itemprop="dateCreated datePublished" datetime="2025-10-09T23:35:23+08:00">2025-10-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF/%E5%B7%A5%E5%85%B7/" itemprop="url" rel="index"><span itemprop="name">工具</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">本项目支持三种部署方式，满足不同场景的需求:本地、远程和github pages</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+
+
+<h2 id="📋-概述"><a href="#📋-概述" class="headerlink" title="📋 概述"></a>📋 概述</h2><p>本项目支持三种部署方式，满足不同场景的需求：</p>
+<ol>
+<li><strong>本地 Docker 部署</strong> - 用于本地开发和调试</li>
+<li><strong>远程（Server）Docker 部署</strong> - 用于生产环境部署</li>
+<li><strong>GitHub Pages 自动化部署</strong> - 用于静态网站托管</li>
+</ol>
+<h2 id="🚀-快速开始"><a href="#🚀-快速开始" class="headerlink" title="🚀 快速开始"></a>🚀 快速开始</h2><p>所有操作都通过 <code>hexo.sh</code> 脚本进行，这是项目的<strong>唯一入口</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看帮助信息</span></span><br><span class="line">./hexo.sh <span class="built_in">help</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 本地开发环境</span></span><br><span class="line">./hexo.sh dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生产环境部署</span></span><br><span class="line">./hexo.sh build &amp;&amp; ./hexo.sh run</span><br></pre></td></tr></table></figure>
+
+<h2 id="📋-目录"><a href="#📋-目录" class="headerlink" title="📋 目录"></a>📋 目录</h2><ul>
+<li>[三种部署方式](#🏗️ 三种部署方式)</li>
+<li>[项目结构](#🏗️ 项目结构)</li>
+<li>[本地 Docker 部署](#🛠️ 本地 Docker 部署)</li>
+<li>[远程 Docker 部署](#🏭 远程 Docker 部署)</li>
+<li>[GitHub Pages 部署](#🌐 GitHub Pages 部署)</li>
+<li>[hexo.sh 脚本使用](#h🔧 hexo.sh 脚本使用)</li>
+<li>[故障排除](#🔍 故障排除)</li>
+</ul>
+<h2 id="🏗️-三种部署方式"><a href="#🏗️-三种部署方式" class="headerlink" title="🏗️ 三种部署方式"></a>🏗️ 三种部署方式</h2><h3 id="1-本地-Docker-部署"><a href="#1-本地-Docker-部署" class="headerlink" title="1. 本地 Docker 部署"></a>1. 本地 Docker 部署</h3><p><strong>用途</strong>: 本地开发和调试<br><strong>特点</strong>: 热重载、实时预览、开发调试<br><strong>命令</strong>: <code>./hexo.sh dev</code></p>
+<pre>
+<code class="mermaid">
+graph LR
+A[本地开发] --&gt; B[hexo.sh dev]
+B --&gt; C[Docker 开发容器]
+C --&gt; D[热重载服务器]
+D --&gt; E[localhost:3000]
+</code>
+</pre>
+
+<p><strong>优势</strong>:</p>
+<ul>
+<li>✅ 实时文件监控和热重载</li>
+<li>✅ 源代码挂载，修改即时生效</li>
+<li>✅ 完整的开发调试环境</li>
+<li>✅ 无需安装 Node.js 环境</li>
+</ul>
+<h3 id="2-远程（Server）Docker-部署"><a href="#2-远程（Server）Docker-部署" class="headerlink" title="2. 远程（Server）Docker 部署"></a>2. 远程（Server）Docker 部署</h3><p><strong>用途</strong>: 生产环境部署<br><strong>特点</strong>: 高性能、稳定可靠、生产就绪<br><strong>命令</strong>: <code>./hexo.sh build &amp;&amp; ./hexo.sh run</code></p>
+<pre>
+<code class="mermaid">
+graph LR
+A[服务器] --&gt; B[hexo.sh build]
+B --&gt; C[Docker 生产镜像]
+C --&gt; D[Nginx 服务器]
+D --&gt; E[生产环境]
+</code>
+</pre>
+
+<p><strong>优势</strong>:</p>
+<ul>
+<li>✅ Nginx 高性能静态文件服务</li>
+<li>✅ Gzip 压缩和缓存优化</li>
+<li>✅ 健康检查和监控</li>
+<li>✅ 容器化部署，易于管理</li>
+</ul>
+<h3 id="3-GitHub-Pages-自动化部署"><a href="#3-GitHub-Pages-自动化部署" class="headerlink" title="3. GitHub Pages 自动化部署"></a>3. GitHub Pages 自动化部署</h3><p><strong>用途</strong>: 静态网站托管<br><strong>特点</strong>: 自动化、免费、CDN 加速<br><strong>触发</strong>: 推送到 <code>main</code> 分支</p>
+<pre>
+<code class="mermaid">
+graph LR
+A[源码仓库] --&gt; B[GitHub Actions]
+B --&gt; C[Node.js 环境]
+C --&gt; D[生成静态文件]
+D --&gt; E[部署仓库]
+E --&gt; F[GitHub Pages]
+</code>
+</pre>
+
+<p><strong>优势</strong>:</p>
+<ul>
+<li>✅ 完全自动化部署</li>
+<li>✅ 免费静态网站托管</li>
+<li>✅ 全球 CDN 加速</li>
+<li>✅ 与 GitHub 生态集成</li>
+</ul>
+<h2 id="🏗️-项目结构"><a href="#🏗️-项目结构" class="headerlink" title="🏗️ 项目结构"></a>🏗️ 项目结构</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">zhifu-tech/</span><br><span class="line">├── hexo.sh                         <span class="comment"># 统一管理脚本（唯一入口）</span></span><br><span class="line">├── docker-build.sh                 <span class="comment"># 原始脚本（已废弃，请使用 hexo.sh）</span></span><br><span class="line">├── .github/</span><br><span class="line">│   └── workflows/</span><br><span class="line">│       └── deployment.yml          <span class="comment"># GitHub Actions 工作流</span></span><br><span class="line">├── Dockerfile                      <span class="comment"># 生产环境镜像</span></span><br><span class="line">├── Dockerfile.dev                  <span class="comment"># 开发环境镜像</span></span><br><span class="line">├── docker-compose.yml              <span class="comment"># 容器编排配置</span></span><br><span class="line">├── nginx.conf                      <span class="comment"># Nginx 配置</span></span><br><span class="line">├── package.json                    <span class="comment"># Node.js 依赖配置</span></span><br><span class="line">├── _config.yml                     <span class="comment"># Hexo 配置文件</span></span><br><span class="line">├── _config.next.yml                <span class="comment"># Next 主题配置</span></span><br><span class="line">└── <span class="built_in">source</span>/                         <span class="comment"># 博客源码目录</span></span><br><span class="line">    └── _posts/                     <span class="comment"># 博客文章目录</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="🛠️-本地-Docker-部署"><a href="#🛠️-本地-Docker-部署" class="headerlink" title="🛠️ 本地 Docker 部署"></a>🛠️ 本地 Docker 部署</h2><h3 id="环境要求"><a href="#环境要求" class="headerlink" title="环境要求"></a>环境要求</h3><ul>
+<li>Docker 20.10+</li>
+<li>Docker Compose 2.0+</li>
+</ul>
+<h3 id="开发环境启动"><a href="#开发环境启动" class="headerlink" title="开发环境启动"></a>开发环境启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动开发环境（推荐）</span></span><br><span class="line">./hexo.sh dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 访问开发服务器</span></span><br><span class="line"><span class="comment"># http://localhost:3000</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="开发特性"><a href="#开发特性" class="headerlink" title="开发特性"></a>开发特性</h3><ul>
+<li>✅ <strong>热重载</strong>: 修改源代码后自动刷新</li>
+<li>✅ <strong>实时监控</strong>: 文件变化实时检测</li>
+<li>✅ <strong>调试模式</strong>: 详细的调试信息输出</li>
+<li>✅ <strong>源代码挂载</strong>: 本地修改即时生效</li>
+</ul>
+<h3 id="开发工作流"><a href="#开发工作流" class="headerlink" title="开发工作流"></a>开发工作流</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 启动开发环境</span></span><br><span class="line">./hexo.sh dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 编辑文章（在 source/_posts/ 目录）</span></span><br><span class="line">vim <span class="built_in">source</span>/_posts/my-post.md</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 浏览器自动刷新显示最新内容</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 停止开发环境</span></span><br><span class="line">./hexo.sh stop</span><br></pre></td></tr></table></figure>
+
+<h2 id="🏭-远程-Docker-部署"><a href="#🏭-远程-Docker-部署" class="headerlink" title="🏭 远程 Docker 部署"></a>🏭 远程 Docker 部署</h2><h3 id="生产环境部署"><a href="#生产环境部署" class="headerlink" title="生产环境部署"></a>生产环境部署</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 构建生产镜像</span></span><br><span class="line">./hexo.sh build</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 运行生产容器</span></span><br><span class="line">./hexo.sh run</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 访问生产环境</span></span><br><span class="line"><span class="comment"># http://localhost:4000</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="生产特性"><a href="#生产特性" class="headerlink" title="生产特性"></a>生产特性</h3><ul>
+<li>✅ <strong>Nginx 服务器</strong>: 高性能静态文件服务</li>
+<li>✅ <strong>Gzip 压缩</strong>: 减少传输大小</li>
+<li>✅ <strong>静态缓存</strong>: 优化加载速度</li>
+<li>✅ <strong>健康检查</strong>: 监控服务状态</li>
+<li>✅ <strong>安全头</strong>: 增强安全性</li>
+</ul>
+<h3 id="服务器部署流程"><a href="#服务器部署流程" class="headerlink" title="服务器部署流程"></a>服务器部署流程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1. 克隆项目</span></span><br><span class="line">git <span class="built_in">clone</span> https://github.com/zhifu-tech/zhifu-tech.git</span><br><span class="line"><span class="built_in">cd</span> zhifu-tech</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 赋予执行权限</span></span><br><span class="line"><span class="built_in">chmod</span> +x hexo.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 构建并运行</span></span><br><span class="line">./hexo.sh build &amp;&amp; ./hexo.sh run</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 配置反向代理（可选）</span></span><br><span class="line"><span class="comment"># 使用 Nginx 或 Apache 配置域名和 SSL</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="🌐-GitHub-Pages-部署"><a href="#🌐-GitHub-Pages-部署" class="headerlink" title="🌐 GitHub Pages 部署"></a>🌐 GitHub Pages 部署</h2><h3 id="双仓库架构"><a href="#双仓库架构" class="headerlink" title="双仓库架构"></a>双仓库架构</h3><p>本项目采用双仓库架构，这是 Hexo 博客部署的最佳实践：</p>
+<h4 id="仓库说明"><a href="#仓库说明" class="headerlink" title="仓库说明"></a>仓库说明</h4><ol>
+<li><p><strong>源码仓库</strong> (<code>zhifu-tech/zhifu-tech</code>)</p>
+<ul>
+<li>存放 Hexo 博客的源代码</li>
+<li>包含 <code>_posts/</code>、<code>themes/</code>、<code>_config.yml</code> 等</li>
+<li>用于版本控制和协作开发</li>
+<li>触发 GitHub Actions 自动部署</li>
+</ul>
+</li>
+<li><p><strong>部署仓库</strong> (<code>zhifu-tech/zhifu-tech.github.io</code>)</p>
+<ul>
+<li>存放 Hexo 生成的静态文件</li>
+<li>自动启用 GitHub Pages 服务</li>
+<li>通过 GitHub Actions 自动更新</li>
+<li>用户访问的网站地址</li>
+</ul>
+</li>
+</ol>
+<h3 id="自动化部署流程"><a href="#自动化部署流程" class="headerlink" title="自动化部署流程"></a>自动化部署流程</h3><pre>
+<code class="mermaid">
+graph LR
+A[推送代码到 main 分支] --&gt; B[GitHub Actions 触发]
+B --&gt; C[Node.js 20 环境]
+C --&gt; D[安装依赖]
+D --&gt; E[生成静态文件]
+E --&gt; F[推送到部署仓库]
+F --&gt; G[GitHub Pages 更新]
+G --&gt; H[网站自动更新]
+</code>
+</pre>
+
+<h3 id="环境变量设置"><a href="#环境变量设置" class="headerlink" title="环境变量设置"></a>环境变量设置</h3><p>在 <strong>源码仓库</strong> (<code>zhifu-tech/zhifu-tech</code>) 中设置以下密钥：</p>
+<ol>
+<li>进入源码仓库 <strong>Settings</strong> → <strong>Secrets and variables</strong> → <strong>Actions</strong></li>
+<li>添加以下密钥：</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>密钥名称</th>
+<th>描述</th>
+<th>示例值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>GIT_EMAIL_BLOG</code></td>
+<td>Git 邮箱地址</td>
+<td><code>your-email@example.com</code></td>
+</tr>
+<tr>
+<td><code>GH_TOKEN_BLOG</code></td>
+<td>GitHub Personal Access Token</td>
+<td><code>ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</code></td>
+</tr>
+</tbody></table>
+<h3 id="创建-GitHub-Personal-Access-Token"><a href="#创建-GitHub-Personal-Access-Token" class="headerlink" title="创建 GitHub Personal Access Token"></a>创建 GitHub Personal Access Token</h3><ol>
+<li>登录 GitHub → <strong>Settings</strong> → <strong>Developer settings</strong> → <strong>Personal access tokens</strong> → <strong>Tokens (classic)</strong></li>
+<li>点击 <strong>Generate new token</strong> → <strong>Generate new token (classic)</strong></li>
+<li>填写信息：<ul>
+<li><strong>Note</strong>: <code>GitHub Actions Blog Deployment</code></li>
+<li><strong>Expiration</strong>: 选择过期时间</li>
+<li><strong>Scopes</strong>: 至少选择 <code>repo</code> 和 <code>workflow</code></li>
+</ul>
+</li>
+<li>复制生成的 token 并保存</li>
+</ol>
+<h2 id="🔧-hexo-sh-脚本使用"><a href="#🔧-hexo-sh-脚本使用" class="headerlink" title="🔧 hexo.sh 脚本使用"></a>🔧 hexo.sh 脚本使用</h2><h3 id="脚本功能"><a href="#脚本功能" class="headerlink" title="脚本功能"></a>脚本功能</h3><p><code>hexo.sh</code> 是项目的<strong>唯一入口</strong>，提供以下功能：</p>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>功能</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>./hexo.sh build</code></td>
+<td>构建 Docker 镜像</td>
+<td>构建生产和开发镜像</td>
+</tr>
+<tr>
+<td><code>./hexo.sh run</code></td>
+<td>运行生产环境</td>
+<td>启动 Nginx 服务器</td>
+</tr>
+<tr>
+<td><code>./hexo.sh dev</code></td>
+<td>运行开发环境</td>
+<td>启动热重载开发服务器</td>
+</tr>
+<tr>
+<td><code>./hexo.sh stop</code></td>
+<td>停止所有容器</td>
+<td>停止运行中的容器</td>
+</tr>
+<tr>
+<td><code>./hexo.sh clean</code></td>
+<td>清理资源</td>
+<td>清理容器和镜像</td>
+</tr>
+<tr>
+<td><code>./hexo.sh status</code></td>
+<td>查看状态</td>
+<td>显示容器和镜像状态</td>
+</tr>
+<tr>
+<td><code>./hexo.sh logs</code></td>
+<td>查看日志</td>
+<td>显示容器运行日志</td>
+</tr>
+<tr>
+<td><code>./hexo.sh help</code></td>
+<td>显示帮助</td>
+<td>显示使用说明</td>
+</tr>
+</tbody></table>
+<h3 id="常用操作"><a href="#常用操作" class="headerlink" title="常用操作"></a>常用操作</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 开发环境完整流程</span></span><br><span class="line">./hexo.sh dev                    <span class="comment"># 启动开发环境</span></span><br><span class="line"><span class="comment"># 编辑文章...</span></span><br><span class="line">./hexo.sh stop                   <span class="comment"># 停止开发环境</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生产环境完整流程</span></span><br><span class="line">./hexo.sh build                  <span class="comment"># 构建镜像</span></span><br><span class="line">./hexo.sh run                    <span class="comment"># 启动生产环境</span></span><br><span class="line">./hexo.sh status                 <span class="comment"># 查看状态</span></span><br><span class="line">./hexo.sh logs                   <span class="comment"># 查看日志</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 清理和维护</span></span><br><span class="line">./hexo.sh stop                   <span class="comment"># 停止所有容器</span></span><br><span class="line">./hexo.sh clean                  <span class="comment"># 清理所有资源</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="手动-Docker-命令"><a href="#手动-Docker-命令" class="headerlink" title="手动 Docker 命令"></a>手动 Docker 命令</h3><p>如果需要在没有 <code>hexo.sh</code> 脚本的环境中使用，可以直接使用 Docker 命令：</p>
+<h4 id="构建镜像"><a href="#构建镜像" class="headerlink" title="构建镜像"></a>构建镜像</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 构建生产镜像</span></span><br><span class="line">docker build -t zhifu-tech-blog:latest -f Dockerfile .</span><br><span class="line"></span><br><span class="line"><span class="comment"># 构建开发镜像</span></span><br><span class="line">docker build -t zhifu-tech-blog-dev:latest -f Dockerfile.dev .</span><br></pre></td></tr></table></figure>
+
+<h4 id="运行容器"><a href="#运行容器" class="headerlink" title="运行容器"></a>运行容器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 运行生产容器</span></span><br><span class="line">docker run -d \</span><br><span class="line">  --name zhifu-tech-blog \</span><br><span class="line">  -p 4000:80 \</span><br><span class="line">  --restart unless-stopped \</span><br><span class="line">  -e TZ=Asia/Shanghai \</span><br><span class="line">  -v $(<span class="built_in">pwd</span>)/logs/nginx:/var/log/nginx \</span><br><span class="line">  zhifu-tech-blog:latest</span><br><span class="line"></span><br><span class="line"><span class="comment"># 运行开发容器</span></span><br><span class="line">docker run -d \</span><br><span class="line">  --name zhifu-tech-blog-dev \</span><br><span class="line">  -p 3000:4000 \</span><br><span class="line">  --restart unless-stopped \</span><br><span class="line">  -e TZ=Asia/Shanghai \</span><br><span class="line">  -v $(<span class="built_in">pwd</span>)/source:/app/source \</span><br><span class="line">  -v $(<span class="built_in">pwd</span>)/themes:/app/themes \</span><br><span class="line">  -v $(<span class="built_in">pwd</span>)/_config.yml:/app/_config.yml \</span><br><span class="line">  -v $(<span class="built_in">pwd</span>)/_config.next.yml:/app/_config.next.yml \</span><br><span class="line">  zhifu-tech-blog-dev:latest</span><br></pre></td></tr></table></figure>
+
+<h3 id="端口说明"><a href="#端口说明" class="headerlink" title="端口说明"></a>端口说明</h3><table>
+<thead>
+<tr>
+<th>环境</th>
+<th>容器端口</th>
+<th>主机端口</th>
+<th>访问地址</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>开发环境</td>
+<td>4000</td>
+<td>3000</td>
+<td><span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDozMDAwLw==">http://localhost:3000<i class="fa fa-external-link-alt"></i></span></td>
+</tr>
+<tr>
+<td>生产环境</td>
+<td>80</td>
+<td>4000</td>
+<td><span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo0MDAwLw==">http://localhost:4000<i class="fa fa-external-link-alt"></i></span></td>
+</tr>
+</tbody></table>
+<h2 id="🔍-故障排除"><a href="#🔍-故障排除" class="headerlink" title="🔍 故障排除"></a>🔍 故障排除</h2><h3 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h3><h4 id="1-权限问题"><a href="#1-权限问题" class="headerlink" title="1. 权限问题"></a>1. 权限问题</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 赋予执行权限</span></span><br><span class="line"><span class="built_in">chmod</span> +x hexo.sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查权限</span></span><br><span class="line"><span class="built_in">ls</span> -la hexo.sh</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-Docker-未安装"><a href="#2-Docker-未安装" class="headerlink" title="2. Docker 未安装"></a>2. Docker 未安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Ubuntu/Debian</span></span><br><span class="line"><span class="built_in">sudo</span> apt update</span><br><span class="line"><span class="built_in">sudo</span> apt install docker.io docker-compose</span><br><span class="line"></span><br><span class="line"><span class="comment"># CentOS/RHEL</span></span><br><span class="line"><span class="built_in">sudo</span> yum install docker docker-compose</span><br><span class="line"></span><br><span class="line"><span class="comment"># macOS</span></span><br><span class="line">brew install docker docker-compose</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-端口冲突"><a href="#3-端口冲突" class="headerlink" title="3. 端口冲突"></a>3. 端口冲突</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查端口占用</span></span><br><span class="line">netstat -tulpn | grep :4000</span><br><span class="line">netstat -tulpn | grep :3000</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止占用端口的进程</span></span><br><span class="line"><span class="built_in">sudo</span> <span class="built_in">kill</span> -9 &lt;PID&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-容器启动失败"><a href="#4-容器启动失败" class="headerlink" title="4. 容器启动失败"></a>4. 容器启动失败</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看详细日志</span></span><br><span class="line">./hexo.sh logs</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查容器状态</span></span><br><span class="line">./hexo.sh status</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清理并重新构建</span></span><br><span class="line">./hexo.sh clean</span><br><span class="line">./hexo.sh build</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-端口被占用错误"><a href="#5-端口被占用错误" class="headerlink" title="5. 端口被占用错误"></a>5. 端口被占用错误</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 错误信息: ports are not available: exposing port TCP 0.0.0.0:4000 -&gt; 127.0.0.1:0: listen tcp 0.0.0.0:4000: bind: address already in use</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查端口占用</span></span><br><span class="line">lsof -i :4000</span><br><span class="line">lsof -i :3000</span><br><span class="line"></span><br><span class="line"><span class="comment"># 终止占用端口的进程</span></span><br><span class="line"><span class="built_in">kill</span> &lt;PID&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者使用不同端口</span></span><br><span class="line">docker run -p 8080:80 zhifu-tech-blog:latest</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-Hexo-8-0-0-ESM-兼容性问题"><a href="#6-Hexo-8-0-0-ESM-兼容性问题" class="headerlink" title="6. Hexo 8.0.0 ESM 兼容性问题"></a>6. Hexo 8.0.0 ESM 兼容性问题</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 问题: Error [ERR_REQUIRE_ESM]: require() of ES Module</span></span><br><span class="line"><span class="comment"># 解决: 已通过升级到 Node.js 20 解决</span></span><br><span class="line"><span class="comment"># 确保使用 node:20-alpine 基础镜像</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="7-GitHub-Pages-部署失败"><a href="#7-GitHub-Pages-部署失败" class="headerlink" title="7. GitHub Pages 部署失败"></a>7. GitHub Pages 部署失败</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查 GitHub Actions 日志</span></span><br><span class="line"><span class="comment"># 在 GitHub 仓库的 Actions 页面查看详细日志</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 验证环境变量设置</span></span><br><span class="line"><span class="comment"># 确保 GIT_EMAIL_BLOG 和 GH_TOKEN_BLOG 已正确设置</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="8-页面样式异常或未见最新内容"><a href="#8-页面样式异常或未见最新内容" class="headerlink" title="8. 页面样式异常或未见最新内容"></a>8. 页面样式异常或未见最新内容</h4><p>有时浏览器缓存可能导致页面显示异常或者无法看到最新内容更新。请尝试<strong>清除浏览器缓存</strong>后重新加载页面：</p>
+<ul>
+<li>Windows：按下 <kbd>Ctrl</kbd> + <kbd>F5</kbd></li>
+<li>Mac：按下 <kbd>Cmd</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd></li>
+</ul>
+<p>若问题仍未解决，可尝试更换浏览器或清理浏览器缓存后再次访问。</p>
+<h3 id="调试命令"><a href="#调试命令" class="headerlink" title="调试命令"></a>调试命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看容器详细信息</span></span><br><span class="line">docker inspect zhifu-tech-blog</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入运行中的容器</span></span><br><span class="line">docker <span class="built_in">exec</span> -it zhifu-tech-blog sh</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看容器资源使用</span></span><br><span class="line">docker stats zhifu-tech-blog</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看镜像大小</span></span><br><span class="line">docker images zhifu-tech-blog</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清理 Docker 缓存</span></span><br><span class="line">docker system prune -a</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看特定时间的日志</span></span><br><span class="line">docker logs --since <span class="string">&quot;2024-01-01T00:00:00&quot;</span> zhifu-tech-blog</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看最近的日志</span></span><br><span class="line">docker logs --<span class="built_in">tail</span> 100 zhifu-tech-blog</span><br></pre></td></tr></table></figure>
+
+<h2 id="📊-性能优化"><a href="#📊-性能优化" class="headerlink" title="📊 性能优化"></a>📊 性能优化</h2><h3 id="Docker-镜像优化"><a href="#Docker-镜像优化" class="headerlink" title="Docker 镜像优化"></a>Docker 镜像优化</h3><ul>
+<li>使用多阶段构建减少镜像大小</li>
+<li>使用 Alpine Linux 基础镜像</li>
+<li>配置 npm 镜像源加速安装</li>
+<li>生产镜像大小: ~50MB</li>
+<li>开发镜像大小: ~240MB</li>
+</ul>
+<h3 id="运行时优化"><a href="#运行时优化" class="headerlink" title="运行时优化"></a>运行时优化</h3><ul>
+<li>配置 Nginx 缓存策略</li>
+<li>启用 Gzip 压缩</li>
+<li>设置合适的 worker 进程数</li>
+<li>配置日志轮转</li>
+</ul>
+<h2 id="🔒-安全配置"><a href="#🔒-安全配置" class="headerlink" title="🔒 安全配置"></a>🔒 安全配置</h2><h3 id="容器安全"><a href="#容器安全" class="headerlink" title="容器安全"></a>容器安全</h3><ul>
+<li>使用非 root 用户运行</li>
+<li>设置适当的文件权限</li>
+<li>配置安全头</li>
+<li>限制容器资源使用</li>
+</ul>
+<h3 id="网络安全"><a href="#网络安全" class="headerlink" title="网络安全"></a>网络安全</h3><ul>
+<li>只暴露必要端口</li>
+<li>配置防火墙规则</li>
+<li>使用 HTTPS（生产环境）</li>
+<li>定期更新基础镜像</li>
+</ul>
+<h2 id="📈-监控和维护"><a href="#📈-监控和维护" class="headerlink" title="📈 监控和维护"></a>📈 监控和维护</h2><h3 id="健康检查"><a href="#健康检查" class="headerlink" title="健康检查"></a>健康检查</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查容器健康状态</span></span><br><span class="line">docker inspect --format=<span class="string">&#x27;&#123;&#123;.State.Health.Status&#125;&#125;&#x27;</span> zhifu-tech-blog</span><br><span class="line"></span><br><span class="line"><span class="comment"># 手动健康检查</span></span><br><span class="line">curl http://localhost:4000/health</span><br></pre></td></tr></table></figure>
+
+<h3 id="日志管理"><a href="#日志管理" class="headerlink" title="日志管理"></a>日志管理</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看实时日志</span></span><br><span class="line">./hexo.sh logs</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看最近的日志</span></span><br><span class="line">docker logs --<span class="built_in">tail</span> 100 zhifu-tech-blog</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置日志轮转</span></span><br><span class="line"><span class="comment"># 在 docker-compose.yml 中添加：</span></span><br><span class="line">logging:</span><br><span class="line">  driver: <span class="string">&quot;json-file&quot;</span></span><br><span class="line">  options:</span><br><span class="line">    max-size: <span class="string">&quot;10m&quot;</span></span><br><span class="line">    max-file: <span class="string">&quot;3&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="备份和恢复"><a href="#备份和恢复" class="headerlink" title="备份和恢复"></a>备份和恢复</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 备份容器数据</span></span><br><span class="line">docker <span class="built_in">cp</span> zhifu-tech-blog:/usr/share/nginx/html ./backup/</span><br><span class="line"></span><br><span class="line"><span class="comment"># 恢复数据</span></span><br><span class="line">docker <span class="built_in">cp</span> ./backup/ zhifu-tech-blog:/usr/share/nginx/html</span><br></pre></td></tr></table></figure>
+
+<h2 id="📚-相关资源"><a href="#📚-相关资源" class="headerlink" title="📚 相关资源"></a>📚 相关资源</h2><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmRvY2tlci5jb20v">Docker 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9uZ2lueC5vcmcvZW4vZG9jcy8=">Nginx 配置指南<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv">Hexo 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy8=">NexT 主题文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmdpdGh1Yi5jb20vZW4vYWN0aW9ucw==">GitHub Actions 文档<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<h2 id="🤝-贡献"><a href="#🤝-贡献" class="headerlink" title="🤝 贡献"></a>🤝 贡献</h2><p>欢迎提交 Issue 和 Pull Request 来改进这个部署方案！</p>
+<h2 id="📄-许可证"><a href="#📄-许可证" class="headerlink" title="📄 许可证"></a>📄 许可证</h2><p>本项目采用 MIT 许可证。详见 <a href="LICENSE">LICENSE</a> 文件。</p>
+<hr>
+<h2 id="🎯-快速参考"><a href="#🎯-快速参考" class="headerlink" title="🎯 快速参考"></a>🎯 快速参考</h2><h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 一键启动开发环境</span></span><br><span class="line">./hexo.sh dev</span><br><span class="line"></span><br><span class="line"><span class="comment"># 一键启动生产环境</span></span><br><span class="line">./hexo.sh build &amp;&amp; ./hexo.sh run</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看所有容器状态</span></span><br><span class="line">./hexo.sh status</span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止所有容器</span></span><br><span class="line">./hexo.sh stop</span><br><span class="line"></span><br><span class="line"><span class="comment"># 清理所有资源</span></span><br><span class="line">./hexo.sh clean</span><br></pre></td></tr></table></figure>
+
+<h3 id="访问地址"><a href="#访问地址" class="headerlink" title="访问地址"></a>访问地址</h3><ul>
+<li><strong>开发环境</strong>: <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDozMDAwLw==">http://localhost:3000<i class="fa fa-external-link-alt"></i></span></li>
+<li><strong>生产环境</strong>: <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo0MDAwLw==">http://localhost:4000<i class="fa fa-external-link-alt"></i></span></li>
+<li><strong>GitHub Pages</strong>: <a href="https://zhifu-tech.github.io/">https://zhifu-tech.github.io</a></li>
+<li><strong>健康检查</strong>: <span class="exturl" data-url="aHR0cDovL2xvY2FsaG9zdDo0MDAwL2hlYWx0aA==">http://localhost:4000/health<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<hr>
+<p><strong>维护者</strong>: zhifu <span class="exturl" data-url="bWFpbHRvOiYjMTIyOyYjMTIyOyYjMTAyOyYjeDJlOyYjMTAzOyYjeDY1OyYjMTExOyYjeDcyOyYjeDY3OyYjeDY1OyYjNDY7JiM5NzsmIzEwNTsmI3g0MDsmI3g2NzsmI3g2ZDsmIzk3OyYjMTA1OyYjeDZjOyYjNDY7JiN4NjM7JiMxMTE7JiMxMDk7">zzf.george.ai@gmail.com<i class="fa fa-external-link-alt"></i></span><br><strong>最后更新</strong>: 2025-01-09<br><strong>版本</strong>: v2.0.0 (统一 hexo.sh 入口，支持三种部署方式)</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%8D%9A%E5%AE%A2%E7%BB%B4%E6%8A%A4/" rel="tag"># 博客维护</a>
+              <a href="/tags/hexo/" rel="tag"># hexo</a>
+              <a href="/tags/deploy/" rel="tag"># deploy</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/10/09/about-logo/" rel="prev" title="关于 Logo">
+                  <i class="fa fa-angle-left"></i> 关于 Logo
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/10/10/%E4%B8%87%E7%BB%B4%E9%92%A2-%E7%B2%BE%E8%8B%B1%E6%97%A5%E8%AF%BE6-%E7%9B%B8%E4%BF%A1/" rel="next" title="读书笔记: 万维钢-精英日课6-相信">
+                  读书笔记: 万维钢-精英日课6-相信 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2025 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Zhifu-Tech</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL3poaWZ1LXRlY2gvemhpZnUtdGVjaA==" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+</body>
+</html>

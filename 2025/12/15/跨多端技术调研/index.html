@@ -1,0 +1,3713 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 8.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/favicon.svg" color="#222">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="google-site-verification" content="5AUIVYTbHIAuz-eQtxSfZbWW5eg9_EVZMSQycIuXrG0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inconsolata:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"zhifu-tech.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.25.0","exturl":true,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="全面的跨多端技术调研，涵盖 Web、Windows、macOS、Android、iOS、鸿蒙等平台的技术方案对比、优劣分析和最佳实践">
+<meta property="og:type" content="article">
+<meta property="og:title" content="跨多端技术调研">
+<meta property="og:url" content="https://zhifu-tech.github.io/2025/12/15/%E8%B7%A8%E5%A4%9A%E7%AB%AF%E6%8A%80%E6%9C%AF%E8%B0%83%E7%A0%94/index.html">
+<meta property="og:site_name" content="Zhifu-Tech">
+<meta property="og:description" content="全面的跨多端技术调研，涵盖 Web、Windows、macOS、Android、iOS、鸿蒙等平台的技术方案对比、优劣分析和最佳实践">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-12-15T15:49:31.000Z">
+<meta property="article:modified_time" content="2025-12-15T15:49:31.000Z">
+<meta property="article:author" content="zhifu(geo)">
+<meta property="article:tag" content="Electron">
+<meta property="article:tag" content="Flutter">
+<meta property="article:tag" content="KMP">
+<meta property="article:tag" content="Kotlin Multiplatform">
+<meta property="article:tag" content="React Native">
+<meta property="article:tag" content="Taro">
+<meta property="article:tag" content="Tauri">
+<meta property="article:tag" content="uni-app">
+<meta property="article:tag" content="技术调研">
+<meta property="article:tag" content="桌面应用">
+<meta property="article:tag" content="移动开发">
+<meta property="article:tag" content="跨平台">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zhifu-tech.github.io/2025/12/15/%E8%B7%A8%E5%A4%9A%E7%AB%AF%E6%8A%80%E6%9C%AF%E8%B0%83%E7%A0%94/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zhifu-tech.github.io/2025/12/15/%E8%B7%A8%E5%A4%9A%E7%AB%AF%E6%8A%80%E6%9C%AF%E8%B0%83%E7%A0%94/","path":"2025/12/15/跨多端技术调研/","title":"跨多端技术调研"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>跨多端技术调研 | Zhifu-Tech</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-43861RVV8R"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-43861RVV8R","only_pageview":false,"measure_protocol_api_secret":null}</script>
+  <script src="/js/third-party/analytics/google-analytics.js" defer></script>
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/medium-zoom/1.1.0/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+  <script class="next-config" data-name="mermaid" type="application/json">{"enable":true,"theme":{"light":"neutral","dark":"dark"},"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.10.1/mermaid.min.js","integrity":"sha256-BmQmdWDS8X2OTbrwELWK366LV6escyWhHHe0XCTU/Hk="}}</script>
+  <script src="/js/third-party/tags/mermaid.js" defer></script>
+
+  <script class="next-config" data-name="wavedrom" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.5.0/wavedrom.min.js","integrity":"sha256-INLAoJc6quTNfiMWkGZniYO2cxE8mHpddnLow1m6RFs="}}</script>
+  <script class="next-config" data-name="wavedrom_skin" type="application/json">{"enable":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/wavedrom/3.5.0/skins/default.js","integrity":"sha256-fduc/Zszk5ezWws2uInY/ALWVmIrmV6VTgXbsYSReFI="}}</script>
+  <script src="/js/third-party/tags/wavedrom.js" defer></script>
+
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"ams","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Zhifu-Tech" type="application/atom+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Zhifu-Tech</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">技术分享与创新实践</p>
+      <img class="custom-logo-image" src="/images/zhifu-tech-logo.svg" alt="Zhifu-Tech">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">63</span></a></li><li class="menu-item menu-item-app-dashboard"><span class="exturl" data-url="aHR0cHM6Ly9zaXRlLWRhc2hib2FyZC56aGlmdS50ZWNoLw=="><i class="fa fa-tachometer-alt fa-fw"></i>APP - 仪表板</span></li><li class="menu-item menu-item-app-book-excerpt-generator"><span class="exturl" data-url="aHR0cHM6Ly9ib29rLWV4Y2VycHQuemhpZnUudGVjaC8="><i class="fa fa-book-open fa-fw"></i>APP - 书摘卡片生成器</span></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">101</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">14</span></a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B7%A8%E5%A4%9A%E7%AB%AF%E6%8A%80%E6%9C%AF%E8%B0%83%E7%A0%94"><span class="nav-number">1.</span> <span class="nav-text">跨多端技术调研</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E5%BD%95"><span class="nav-number">1.1.</span> <span class="nav-text">目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88%E6%80%BB%E8%A7%88"><span class="nav-number">1.2.</span> <span class="nav-text">技术方案总览</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%AF%E6%8C%81%E7%9A%84%E5%B9%B3%E5%8F%B0%E8%8C%83%E5%9B%B4"><span class="nav-number">1.2.1.</span> <span class="nav-text">支持的平台范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%B9%B3%E5%8F%B0%E6%94%AF%E6%8C%81%E8%AF%A6%E6%83%85"><span class="nav-number">1.2.2.</span> <span class="nav-text">小程序平台支持详情</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E5%AF%B9%E6%AF%94%E7%9F%A9%E9%98%B5"><span class="nav-number">1.3.</span> <span class="nav-text">技术对比矩阵</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%8C%87%E6%A0%87%E5%AF%B9%E6%AF%94"><span class="nav-number">1.3.1.</span> <span class="nav-text">核心指标对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E7%89%B9%E6%80%A7%E5%AF%B9%E6%AF%94"><span class="nav-number">1.3.2.</span> <span class="nav-text">技术特性对比</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88%E8%AF%A6%E7%BB%86%E5%AF%B9%E6%AF%94"><span class="nav-number">1.4.</span> <span class="nav-text">技术方案详细对比</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Flutter"><span class="nav-number">1.4.1.</span> <span class="nav-text">1. Flutter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-React-Native"><span class="nav-number">1.4.2.</span> <span class="nav-text">2. React Native</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Tauri"><span class="nav-number">1.4.3.</span> <span class="nav-text">3. Tauri</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Electron"><span class="nav-number">1.4.4.</span> <span class="nav-text">4. Electron</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-uni-app"><span class="nav-number">1.4.5.</span> <span class="nav-text">5. uni-app</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-Taro"><span class="nav-number">1.4.6.</span> <span class="nav-text">6. Taro</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-Ionic"><span class="nav-number">1.4.7.</span> <span class="nav-text">7. Ionic</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-NET-MAUI"><span class="nav-number">1.4.8.</span> <span class="nav-text">8. .NET MAUI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-Qt"><span class="nav-number">1.4.9.</span> <span class="nav-text">9. Qt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#10-NativeScript"><span class="nav-number">1.4.10.</span> <span class="nav-text">10. NativeScript</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#11-Kotlin-Multiplatform-KMP"><span class="nav-number">1.4.11.</span> <span class="nav-text">11. Kotlin Multiplatform (KMP)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#12-ArkUI%EF%BC%88%E9%B8%BF%E8%92%99%E5%8E%9F%E7%94%9F%EF%BC%89"><span class="nav-number">1.4.12.</span> <span class="nav-text">12. ArkUI（鸿蒙原生）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%84%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88%E8%AF%A6%E8%A7%A3"><span class="nav-number">1.5.</span> <span class="nav-text">各技术方案详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Flutter-%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90"><span class="nav-number">1.5.1.</span> <span class="nav-text">Flutter 深度解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">技术原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E7%89%B9%E7%82%B9"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">性能特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E4%BD%93%E9%AA%8C"><span class="nav-number">1.5.1.3.</span> <span class="nav-text">开发体验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E6%80%81%E4%BD%93%E7%B3%BB"><span class="nav-number">1.5.1.4.</span> <span class="nav-text">生态体系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="nav-number">1.5.1.5.</span> <span class="nav-text">最佳实践</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99"><span class="nav-number">1.5.1.6.</span> <span class="nav-text">参考资料</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#React-Native-%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90"><span class="nav-number">1.5.2.</span> <span class="nav-text">React Native 深度解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86-1"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">技术原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E7%89%B9%E7%82%B9-1"><span class="nav-number">1.5.2.2.</span> <span class="nav-text">性能特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E4%BD%93%E9%AA%8C-1"><span class="nav-number">1.5.2.3.</span> <span class="nav-text">开发体验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E6%80%81%E4%BD%93%E7%B3%BB-1"><span class="nav-number">1.5.2.4.</span> <span class="nav-text">生态体系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5-1"><span class="nav-number">1.5.2.5.</span> <span class="nav-text">最佳实践</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99-1"><span class="nav-number">1.5.2.6.</span> <span class="nav-text">参考资料</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tauri-%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90"><span class="nav-number">1.5.3.</span> <span class="nav-text">Tauri 深度解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86-2"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">技术原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E7%89%B9%E7%82%B9-2"><span class="nav-number">1.5.3.2.</span> <span class="nav-text">性能特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E4%BD%93%E9%AA%8C-2"><span class="nav-number">1.5.3.3.</span> <span class="nav-text">开发体验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E6%80%81%E4%BD%93%E7%B3%BB-2"><span class="nav-number">1.5.3.4.</span> <span class="nav-text">生态体系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5-2"><span class="nav-number">1.5.3.5.</span> <span class="nav-text">最佳实践</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99-2"><span class="nav-number">1.5.3.6.</span> <span class="nav-text">参考资料</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Electron-%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90"><span class="nav-number">1.5.4.</span> <span class="nav-text">Electron 深度解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86-3"><span class="nav-number">1.5.4.1.</span> <span class="nav-text">技术原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E7%89%B9%E7%82%B9-3"><span class="nav-number">1.5.4.2.</span> <span class="nav-text">性能特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E4%BD%93%E9%AA%8C-3"><span class="nav-number">1.5.4.3.</span> <span class="nav-text">开发体验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E6%80%81%E4%BD%93%E7%B3%BB-3"><span class="nav-number">1.5.4.4.</span> <span class="nav-text">生态体系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5-3"><span class="nav-number">1.5.4.5.</span> <span class="nav-text">最佳实践</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99-3"><span class="nav-number">1.5.4.6.</span> <span class="nav-text">参考资料</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#uni-app-%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90"><span class="nav-number">1.5.5.</span> <span class="nav-text">uni-app 深度解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86-4"><span class="nav-number">1.5.5.1.</span> <span class="nav-text">技术原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E7%89%B9%E7%82%B9-4"><span class="nav-number">1.5.5.2.</span> <span class="nav-text">性能特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E4%BD%93%E9%AA%8C-4"><span class="nav-number">1.5.5.3.</span> <span class="nav-text">开发体验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E6%80%81%E4%BD%93%E7%B3%BB-4"><span class="nav-number">1.5.5.4.</span> <span class="nav-text">生态体系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5-4"><span class="nav-number">1.5.5.5.</span> <span class="nav-text">最佳实践</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99-4"><span class="nav-number">1.5.5.6.</span> <span class="nav-text">参考资料</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Taro-%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90"><span class="nav-number">1.5.6.</span> <span class="nav-text">Taro 深度解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86-5"><span class="nav-number">1.5.6.1.</span> <span class="nav-text">技术原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E7%89%B9%E7%82%B9-5"><span class="nav-number">1.5.6.2.</span> <span class="nav-text">性能特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E4%BD%93%E9%AA%8C-5"><span class="nav-number">1.5.6.3.</span> <span class="nav-text">开发体验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E6%80%81%E4%BD%93%E7%B3%BB-5"><span class="nav-number">1.5.6.4.</span> <span class="nav-text">生态体系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5-5"><span class="nav-number">1.5.6.5.</span> <span class="nav-text">最佳实践</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99-5"><span class="nav-number">1.5.6.6.</span> <span class="nav-text">参考资料</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ionic-%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90"><span class="nav-number">1.5.7.</span> <span class="nav-text">Ionic 深度解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86-6"><span class="nav-number">1.5.7.1.</span> <span class="nav-text">技术原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E7%89%B9%E7%82%B9-6"><span class="nav-number">1.5.7.2.</span> <span class="nav-text">性能特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E4%BD%93%E9%AA%8C-6"><span class="nav-number">1.5.7.3.</span> <span class="nav-text">开发体验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E6%80%81%E4%BD%93%E7%B3%BB-6"><span class="nav-number">1.5.7.4.</span> <span class="nav-text">生态体系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5-6"><span class="nav-number">1.5.7.5.</span> <span class="nav-text">最佳实践</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99-6"><span class="nav-number">1.5.7.6.</span> <span class="nav-text">参考资料</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NET-MAUI-%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90"><span class="nav-number">1.5.8.</span> <span class="nav-text">.NET MAUI 深度解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86-7"><span class="nav-number">1.5.8.1.</span> <span class="nav-text">技术原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E7%89%B9%E7%82%B9-7"><span class="nav-number">1.5.8.2.</span> <span class="nav-text">性能特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E4%BD%93%E9%AA%8C-7"><span class="nav-number">1.5.8.3.</span> <span class="nav-text">开发体验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E6%80%81%E4%BD%93%E7%B3%BB-7"><span class="nav-number">1.5.8.4.</span> <span class="nav-text">生态体系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5-7"><span class="nav-number">1.5.8.5.</span> <span class="nav-text">最佳实践</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99-7"><span class="nav-number">1.5.8.6.</span> <span class="nav-text">参考资料</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Qt-%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90"><span class="nav-number">1.5.9.</span> <span class="nav-text">Qt 深度解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86-8"><span class="nav-number">1.5.9.1.</span> <span class="nav-text">技术原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E7%89%B9%E7%82%B9-8"><span class="nav-number">1.5.9.2.</span> <span class="nav-text">性能特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E4%BD%93%E9%AA%8C-8"><span class="nav-number">1.5.9.3.</span> <span class="nav-text">开发体验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E6%80%81%E4%BD%93%E7%B3%BB-8"><span class="nav-number">1.5.9.4.</span> <span class="nav-text">生态体系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5-8"><span class="nav-number">1.5.9.5.</span> <span class="nav-text">最佳实践</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99-8"><span class="nav-number">1.5.9.6.</span> <span class="nav-text">参考资料</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NativeScript-%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90"><span class="nav-number">1.5.10.</span> <span class="nav-text">NativeScript 深度解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86-9"><span class="nav-number">1.5.10.1.</span> <span class="nav-text">技术原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E7%89%B9%E7%82%B9-9"><span class="nav-number">1.5.10.2.</span> <span class="nav-text">性能特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E4%BD%93%E9%AA%8C-9"><span class="nav-number">1.5.10.3.</span> <span class="nav-text">开发体验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E6%80%81%E4%BD%93%E7%B3%BB-9"><span class="nav-number">1.5.10.4.</span> <span class="nav-text">生态体系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5-9"><span class="nav-number">1.5.10.5.</span> <span class="nav-text">最佳实践</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99-9"><span class="nav-number">1.5.10.6.</span> <span class="nav-text">参考资料</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kotlin-Multiplatform-KMP-%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90"><span class="nav-number">1.5.11.</span> <span class="nav-text">Kotlin Multiplatform (KMP) 深度解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86-10"><span class="nav-number">1.5.11.1.</span> <span class="nav-text">技术原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E7%89%B9%E7%82%B9-10"><span class="nav-number">1.5.11.2.</span> <span class="nav-text">性能特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E4%BD%93%E9%AA%8C-10"><span class="nav-number">1.5.11.3.</span> <span class="nav-text">开发体验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E6%80%81%E4%BD%93%E7%B3%BB-10"><span class="nav-number">1.5.11.4.</span> <span class="nav-text">生态体系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5-10"><span class="nav-number">1.5.11.5.</span> <span class="nav-text">最佳实践</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E7%A4%BA%E4%BE%8B"><span class="nav-number">1.5.11.6.</span> <span class="nav-text">使用示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99-10"><span class="nav-number">1.5.11.7.</span> <span class="nav-text">参考资料</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ArkUI%EF%BC%88%E9%B8%BF%E8%92%99%E5%8E%9F%E7%94%9F%EF%BC%89%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90"><span class="nav-number">1.5.12.</span> <span class="nav-text">ArkUI（鸿蒙原生）深度解析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E5%8E%9F%E7%90%86-11"><span class="nav-number">1.5.12.1.</span> <span class="nav-text">技术原理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E7%89%B9%E7%82%B9-11"><span class="nav-number">1.5.12.2.</span> <span class="nav-text">性能特点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E4%BD%93%E9%AA%8C-11"><span class="nav-number">1.5.12.3.</span> <span class="nav-text">开发体验</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%94%9F%E6%80%81%E4%BD%93%E7%B3%BB-11"><span class="nav-number">1.5.12.4.</span> <span class="nav-text">生态体系</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5-11"><span class="nav-number">1.5.12.5.</span> <span class="nav-text">最佳实践</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99-11"><span class="nav-number">1.5.12.6.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Flutter-vs-uni-app-vs-Kotlin-Multiplatform-vs-React-Native-%E6%B7%B1%E5%BA%A6%E5%AF%B9%E6%AF%94"><span class="nav-number">1.6.</span> <span class="nav-text">Flutter vs uni-app vs Kotlin Multiplatform vs React Native 深度对比</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E5%AE%9A%E4%BD%8D%E5%AF%B9%E6%AF%94"><span class="nav-number">1.6.1.</span> <span class="nav-text">核心定位对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B3%E5%8F%B0%E6%94%AF%E6%8C%81%E5%AF%B9%E6%AF%94"><span class="nav-number">1.6.2.</span> <span class="nav-text">平台支持对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E6%9E%B6%E6%9E%84%E5%AF%B9%E6%AF%94"><span class="nav-number">1.6.3.</span> <span class="nav-text">技术架构对比</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Flutter"><span class="nav-number">1.6.3.1.</span> <span class="nav-text">Flutter</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#uni-app"><span class="nav-number">1.6.3.2.</span> <span class="nav-text">uni-app</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Kotlin-Multiplatform-KMP"><span class="nav-number">1.6.3.3.</span> <span class="nav-text">Kotlin Multiplatform (KMP)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#React-Native"><span class="nav-number">1.6.3.4.</span> <span class="nav-text">React Native</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E5%AF%B9%E6%AF%94"><span class="nav-number">1.6.4.</span> <span class="nav-text">性能对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E4%BD%93%E9%AA%8C%E5%AF%B9%E6%AF%94"><span class="nav-number">1.6.5.</span> <span class="nav-text">开发体验对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%A4%8D%E7%94%A8%E7%8E%87%E5%AF%B9%E6%AF%94"><span class="nav-number">1.6.6.</span> <span class="nav-text">代码复用率对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF%E5%AF%B9%E6%AF%94"><span class="nav-number">1.6.7.</span> <span class="nav-text">适用场景对比</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Flutter-%E6%9C%80%E9%80%82%E5%90%88"><span class="nav-number">1.6.7.1.</span> <span class="nav-text">Flutter 最适合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#uni-app-%E6%9C%80%E9%80%82%E5%90%88"><span class="nav-number">1.6.7.2.</span> <span class="nav-text">uni-app 最适合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Kotlin-Multiplatform-%E6%9C%80%E9%80%82%E5%90%88"><span class="nav-number">1.6.7.3.</span> <span class="nav-text">Kotlin Multiplatform 最适合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#React-Native-%E6%9C%80%E9%80%82%E5%90%88"><span class="nav-number">1.6.7.4.</span> <span class="nav-text">React Native 最适合</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%90%E6%9C%AC%E5%AF%B9%E6%AF%94"><span class="nav-number">1.6.8.</span> <span class="nav-text">成本对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E5%86%B3%E7%AD%96%E7%9F%A9%E9%98%B5"><span class="nav-number">1.6.9.</span> <span class="nav-text">技术选型决策矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E9%99%85%E9%A1%B9%E7%9B%AE%E6%A1%88%E4%BE%8B"><span class="nav-number">1.6.10.</span> <span class="nav-text">实际项目案例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Flutter-%E6%88%90%E5%8A%9F%E6%A1%88%E4%BE%8B"><span class="nav-number">1.6.10.1.</span> <span class="nav-text">Flutter 成功案例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#uni-app-%E6%88%90%E5%8A%9F%E6%A1%88%E4%BE%8B"><span class="nav-number">1.6.10.2.</span> <span class="nav-text">uni-app 成功案例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Kotlin-Multiplatform-%E6%88%90%E5%8A%9F%E6%A1%88%E4%BE%8B"><span class="nav-number">1.6.10.3.</span> <span class="nav-text">Kotlin Multiplatform 成功案例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#React-Native-%E6%88%90%E5%8A%9F%E6%A1%88%E4%BE%8B"><span class="nav-number">1.6.10.4.</span> <span class="nav-text">React Native 成功案例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%BC%E5%90%88%E8%AF%84%E5%88%86"><span class="nav-number">1.6.11.</span> <span class="nav-text">综合评分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%80%E7%BB%88%E5%BB%BA%E8%AE%AE"><span class="nav-number">1.6.12.</span> <span class="nav-text">最终建议</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%89%E6%8B%A9-Flutter-%E5%A6%82%E6%9E%9C%EF%BC%9A"><span class="nav-number">1.6.12.1.</span> <span class="nav-text">选择 Flutter 如果：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%89%E6%8B%A9-uni-app-%E5%A6%82%E6%9E%9C%EF%BC%9A"><span class="nav-number">1.6.12.2.</span> <span class="nav-text">选择 uni-app 如果：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%89%E6%8B%A9-Kotlin-Multiplatform-%E5%A6%82%E6%9E%9C%EF%BC%9A"><span class="nav-number">1.6.12.3.</span> <span class="nav-text">选择 Kotlin Multiplatform 如果：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%89%E6%8B%A9-React-Native-%E5%A6%82%E6%9E%9C%EF%BC%9A"><span class="nav-number">1.6.12.4.</span> <span class="nav-text">选择 React Native 如果：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%B7%E5%90%88%E6%96%B9%E6%A1%88%E5%BB%BA%E8%AE%AE"><span class="nav-number">1.6.13.</span> <span class="nav-text">混合方案建议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E8%80%85%E6%B7%B1%E5%BA%A6%E5%AF%B9%E6%AF%94%E6%80%BB%E7%BB%93"><span class="nav-number">1.6.14.</span> <span class="nav-text">四者深度对比总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%B7%AE%E5%BC%82"><span class="nav-number">1.6.14.1.</span> <span class="nav-text">核心技术差异</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%86%B3%E7%AD%96%E5%9B%A0%E7%B4%A0"><span class="nav-number">1.6.14.2.</span> <span class="nav-text">关键决策因素</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BB%BC%E5%90%88%E6%8E%A8%E8%8D%90"><span class="nav-number">1.6.14.3.</span> <span class="nav-text">综合推荐</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E6%8C%87%E5%8D%97"><span class="nav-number">1.7.</span> <span class="nav-text">最佳实践指南</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E5%86%B3%E7%AD%96%E6%A0%91"><span class="nav-number">1.7.1.</span> <span class="nav-text">技术选型决策树</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E9%80%9A%E7%94%A8%E7%AD%96%E7%95%A5"><span class="nav-number">1.7.2.</span> <span class="nav-text">性能优化通用策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%8F%91%E6%B5%81%E7%A8%8B%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="nav-number">1.7.3.</span> <span class="nav-text">开发流程最佳实践</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%A2%E9%98%9F%E5%8D%8F%E4%BD%9C%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="nav-number">1.7.4.</span> <span class="nav-text">团队协作最佳实践</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E5%BB%BA%E8%AE%AE"><span class="nav-number">1.8.</span> <span class="nav-text">技术选型建议</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89%E9%A1%B9%E7%9B%AE%E7%B1%BB%E5%9E%8B%E9%80%89%E6%8B%A9"><span class="nav-number">1.8.1.</span> <span class="nav-text">按项目类型选择</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%EF%BC%88Android-iOS%EF%BC%89"><span class="nav-number">1.8.1.1.</span> <span class="nav-text">1. 移动应用（Android&#x2F;iOS）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8%EF%BC%88Windows-macOS-Linux%EF%BC%89"><span class="nav-number">1.8.1.2.</span> <span class="nav-text">2. 桌面应用（Windows&#x2F;macOS&#x2F;Linux）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%85%A8%E5%B9%B3%E5%8F%B0%E5%BA%94%E7%94%A8%EF%BC%88Web-%E7%A7%BB%E5%8A%A8%E7%AB%AF-%E6%A1%8C%E9%9D%A2%E7%AB%AF%EF%BC%89"><span class="nav-number">1.8.1.3.</span> <span class="nav-text">3. 全平台应用（Web + 移动端 + 桌面端）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E9%9C%80%E8%A6%81%E9%B8%BF%E8%92%99%E6%94%AF%E6%8C%81"><span class="nav-number">1.8.1.4.</span> <span class="nav-text">4. 需要鸿蒙支持</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E5%B0%8F%E7%A8%8B%E5%BA%8F%E5%BC%80%E5%8F%91%EF%BC%88%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E3%80%81%E6%94%AF%E4%BB%98%E5%AE%9D%E5%B0%8F%E7%A8%8B%E5%BA%8F%E7%AD%89%EF%BC%89"><span class="nav-number">1.8.1.5.</span> <span class="nav-text">5. 小程序开发（微信小程序、支付宝小程序等）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89%E5%9B%A2%E9%98%9F%E6%8A%80%E6%9C%AF%E6%A0%88%E9%80%89%E6%8B%A9"><span class="nav-number">1.8.2.</span> <span class="nav-text">按团队技术栈选择</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%B7%B2%E6%9C%89-React-%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="nav-number">1.8.2.1.</span> <span class="nav-text">1. 已有 React 技术栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%B7%B2%E6%9C%89-Vue-%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="nav-number">1.8.2.2.</span> <span class="nav-text">2. 已有 Vue 技术栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E5%B7%B2%E6%9C%89-NET-%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="nav-number">1.8.2.3.</span> <span class="nav-text">3. 已有 .NET 技术栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%B7%B2%E6%9C%89-C-%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="nav-number">1.8.2.4.</span> <span class="nav-text">4. 已有 C++ 技术栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-%E5%B7%B2%E6%9C%89-Kotlin-Android-%E6%8A%80%E6%9C%AF%E6%A0%88"><span class="nav-number">1.8.2.5.</span> <span class="nav-text">5. 已有 Kotlin&#x2F;Android 技术栈</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-%E6%96%B0%E5%9B%A2%E9%98%9F%E6%88%96%E6%96%B0%E9%A1%B9%E7%9B%AE"><span class="nav-number">1.8.2.6.</span> <span class="nav-text">6. 新团队或新项目</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89%E6%80%A7%E8%83%BD%E8%A6%81%E6%B1%82%E9%80%89%E6%8B%A9"><span class="nav-number">1.8.3.</span> <span class="nav-text">按性能要求选择</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E9%AB%98%E6%80%A7%E8%83%BD%E8%A6%81%E6%B1%82"><span class="nav-number">1.8.3.1.</span> <span class="nav-text">1. 高性能要求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E4%B8%AD%E7%AD%89%E6%80%A7%E8%83%BD%E8%A6%81%E6%B1%82"><span class="nav-number">1.8.3.2.</span> <span class="nav-text">2. 中等性能要求</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E6%80%A7%E8%83%BD%E8%A6%81%E6%B1%82%E4%B8%8D%E9%AB%98"><span class="nav-number">1.8.3.3.</span> <span class="nav-text">3. 性能要求不高</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89%E5%8C%85%E4%BD%93%E7%A7%AF%E8%A6%81%E6%B1%82%E9%80%89%E6%8B%A9"><span class="nav-number">1.8.4.</span> <span class="nav-text">按包体积要求选择</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%8C%85%E4%BD%93%E7%A7%AF%E6%95%8F%E6%84%9F"><span class="nav-number">1.8.4.1.</span> <span class="nav-text">1. 包体积敏感</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%8C%85%E4%BD%93%E7%A7%AF%E4%B8%8D%E6%95%8F%E6%84%9F"><span class="nav-number">1.8.4.2.</span> <span class="nav-text">2. 包体积不敏感</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89%E5%BC%80%E5%8F%91%E9%80%9F%E5%BA%A6%E8%A6%81%E6%B1%82%E9%80%89%E6%8B%A9"><span class="nav-number">1.8.5.</span> <span class="nav-text">按开发速度要求选择</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E5%BF%AB%E9%80%9F%E5%BC%80%E5%8F%91"><span class="nav-number">1.8.5.1.</span> <span class="nav-text">1. 快速开发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E5%B9%B3%E8%A1%A1%E5%BC%80%E5%8F%91%E9%80%9F%E5%BA%A6%E5%92%8C%E6%80%A7%E8%83%BD"><span class="nav-number">1.8.5.2.</span> <span class="nav-text">2. 平衡开发速度和性能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E8%BF%BD%E6%B1%82%E6%9E%81%E8%87%B4%E6%80%A7%E8%83%BD"><span class="nav-number">1.8.5.3.</span> <span class="nav-text">3. 追求极致性能</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E8%B6%8B%E5%8A%BF%E5%88%86%E6%9E%90"><span class="nav-number">1.9.</span> <span class="nav-text">技术趋势分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BD%93%E5%89%8D%E8%B6%8B%E5%8A%BF%EF%BC%882024-2025%EF%BC%89"><span class="nav-number">1.9.1.</span> <span class="nav-text">当前趋势（2024-2025）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AA%E6%9D%A5%E5%B1%95%E6%9C%9B"><span class="nav-number">1.9.2.</span> <span class="nav-text">未来展望</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99-12"><span class="nav-number">1.10.</span> <span class="nav-text">参考资料</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="nav-number">1.10.1.</span> <span class="nav-text">官方文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E6%96%87%E7%AB%A0%E5%92%8C%E6%95%99%E7%A8%8B"><span class="nav-number">1.10.2.</span> <span class="nav-text">技术文章和教程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A4%BE%E5%8C%BA%E8%B5%84%E6%BA%90"><span class="nav-number">1.10.3.</span> <span class="nav-text">社区资源</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E5%AF%B9%E6%AF%94%E5%92%8C%E5%88%86%E6%9E%90"><span class="nav-number">1.10.4.</span> <span class="nav-text">技术对比和分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%BA%90"><span class="nav-number">1.10.5.</span> <span class="nav-text">学习资源</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.11.</span> <span class="nav-text">总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E5%8F%91%E7%8E%B0"><span class="nav-number">1.11.1.</span> <span class="nav-text">核心发现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%89%E5%9E%8B%E5%BB%BA%E8%AE%AE"><span class="nav-number">1.11.2.</span> <span class="nav-text">选型建议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AA%E6%9D%A5%E5%B1%95%E6%9C%9B-1"><span class="nav-number">1.11.3.</span> <span class="nav-text">未来展望</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="zhifu(geo)"
+      src="/images/zhifu-tech-logo.svg">
+  <p class="site-author-name" itemprop="name">zhifu(geo)</p>
+  <div class="site-description" itemprop="description">分享前沿技术、开发经验和行业洞察</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">101</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3poaWZ1LXRlY2gvemhpZnUtdGVjaA==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;zhifu-tech&#x2F;zhifu-tech"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuemhpaHUuY29tL3Blb3BsZS96aGlmdS10ZWNo" title="Zhihu → https:&#x2F;&#x2F;www.zhihu.com&#x2F;people&#x2F;zhifu-tech"><i class="fab fa-zhihu fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZGVkYW8uY24vYm91Z2h0" title="Dedao → https:&#x2F;&#x2F;www.dedao.cn&#x2F;bought"><i class="fa fa-book fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by_nc_sa.svg" alt="Creative Commons"></span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://zhifu-tech.github.io/2025/12/15/%E8%B7%A8%E5%A4%9A%E7%AB%AF%E6%8A%80%E6%9C%AF%E8%B0%83%E7%A0%94/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/zhifu-tech-logo.svg">
+      <meta itemprop="name" content="zhifu(geo)">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zhifu-Tech">
+      <meta itemprop="description" content="分享前沿技术、开发经验和行业洞察">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="跨多端技术调研 | Zhifu-Tech">
+      <meta itemprop="description" content="全面的跨多端技术调研，涵盖 Web、Windows、macOS、Android、iOS、鸿蒙等平台的技术方案对比、优劣分析和最佳实践">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          跨多端技术调研<span class="exturl post-edit-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvdGhlbWUtbmV4dC1kb2NzL2VkaXQvbWFzdGVyL3NvdXJjZS9fcG9zdHMv6Leo5aSa56uv5oqA5pyv6LCD56CULm1k" title="编辑"><i class="fa fa-pen-nib"></i></span>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-12-15 23:49:31" itemprop="dateCreated datePublished" datetime="2025-12-15T23:49:31+08:00">2025-12-15</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E6%8C%87%E5%8D%97/" itemprop="url" rel="index"><span itemprop="name">技术指南</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">全面的跨多端技术调研，涵盖 Web、Windows、macOS、Android、iOS、鸿蒙等平台的技术方案对比、优劣分析和最佳实践</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+
+
+<h1 id="跨多端技术调研"><a href="#跨多端技术调研" class="headerlink" title="跨多端技术调研"></a>跨多端技术调研</h1><blockquote>
+<p>本文档对当前主流的跨多端开发技术进行全面调研，涵盖 Web、Windows、macOS、Android、iOS、鸿蒙等平台的技术方案，包括技术对比、优劣分析和最佳实践。</p>
+</blockquote>
+<hr>
+<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
+<li><a href="#%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88%E6%80%BB%E8%A7%88">技术方案总览</a></li>
+<li><a href="#%E6%8A%80%E6%9C%AF%E5%AF%B9%E6%AF%94%E7%9F%A9%E9%98%B5">技术对比矩阵</a></li>
+<li><a href="#%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88%E8%AF%A6%E7%BB%86%E5%AF%B9%E6%AF%94">技术方案详细对比</a></li>
+<li><a href="#%E5%90%84%E6%8A%80%E6%9C%AF%E6%96%B9%E6%A1%88%E8%AF%A6%E8%A7%A3">各技术方案详解</a></li>
+<li><a href="#flutter-vs-uni-app-vs-kotlin-multiplatform-%E6%B7%B1%E5%BA%A6%E5%AF%B9%E6%AF%94">Flutter vs uni-app vs Kotlin Multiplatform 深度对比</a></li>
+<li><a href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%E6%8C%87%E5%8D%97">最佳实践指南</a></li>
+<li><a href="#%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%E5%BB%BA%E8%AE%AE">技术选型建议</a></li>
+<li><a href="#%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">参考资料</a></li>
+</ol>
+<hr>
+<h2 id="技术方案总览"><a href="#技术方案总览" class="headerlink" title="技术方案总览"></a>技术方案总览</h2><h3 id="支持的平台范围"><a href="#支持的平台范围" class="headerlink" title="支持的平台范围"></a>支持的平台范围</h3><table>
+<thead>
+<tr>
+<th>技术方案</th>
+<th>Web</th>
+<th>Windows</th>
+<th>macOS</th>
+<th>Android</th>
+<th>iOS</th>
+<th>鸿蒙</th>
+<th>微信小程序</th>
+<th>支付宝小程序</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Flutter</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>通过 Web 和桌面支持</td>
+</tr>
+<tr>
+<td><strong>React Native</strong></td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>需要 React Native for Windows&#x2F;macOS</td>
+</tr>
+<tr>
+<td><strong>Tauri</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>基于 Web 技术</td>
+</tr>
+<tr>
+<td><strong>Electron</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>基于 Web 技术</td>
+</tr>
+<tr>
+<td><strong>uni-app</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>支持鸿蒙原生，支持多小程序平台</td>
+</tr>
+<tr>
+<td><strong>Taro</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>支持鸿蒙，支持多小程序平台</td>
+</tr>
+<tr>
+<td><strong>Ionic</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>基于 Web 技术</td>
+</tr>
+<tr>
+<td><strong>.NET MAUI</strong></td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>微软跨平台框架</td>
+</tr>
+<tr>
+<td><strong>Qt</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>支持鸿蒙</td>
+</tr>
+<tr>
+<td><strong>NativeScript</strong></td>
+<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>原生性能</td>
+</tr>
+<tr>
+<td><strong>Kotlin Multiplatform (KMP)</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>JetBrains 跨平台框架</td>
+</tr>
+<tr>
+<td><strong>ArkUI</strong></td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>鸿蒙原生框架</td>
+</tr>
+</tbody></table>
+<h3 id="小程序平台支持详情"><a href="#小程序平台支持详情" class="headerlink" title="小程序平台支持详情"></a>小程序平台支持详情</h3><table>
+<thead>
+<tr>
+<th>技术方案</th>
+<th>微信小程序</th>
+<th>支付宝小程序</th>
+<th>百度小程序</th>
+<th>字节跳动小程序</th>
+<th>QQ 小程序</th>
+<th>快手小程序</th>
+<th>钉钉小程序</th>
+<th>其他小程序</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>uni-app</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>360、飞书、京东等</td>
+</tr>
+<tr>
+<td><strong>Taro</strong></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>京东等</td>
+</tr>
+<tr>
+<td><strong>Flutter</strong></td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td><strong>React Native</strong></td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td><strong>Tauri</strong></td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td><strong>Electron</strong></td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td><strong>Ionic</strong></td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td><strong>.NET MAUI</strong></td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td><strong>Qt</strong></td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td><strong>NativeScript</strong></td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td><strong>Kotlin Multiplatform (KMP)</strong></td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td><strong>ArkUI</strong></td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>不支持</td>
+</tr>
+</tbody></table>
+<p><strong>小程序支持说明</strong>:</p>
+<ul>
+<li><strong>uni-app</strong>: 支持最全面，覆盖主流小程序平台，包括微信、支付宝、百度、字节跳动、QQ、快手、钉钉、360、飞书、京东等</li>
+<li><strong>Taro</strong>: 支持主流小程序平台，包括微信、支付宝、百度、字节跳动、QQ、快手、钉钉、京东等</li>
+<li><strong>其他框架</strong>: 目前主流跨平台框架（Flutter、React Native 等）主要专注于 App 和桌面端，不支持小程序平台</li>
+</ul>
+<hr>
+<h2 id="技术对比矩阵"><a href="#技术对比矩阵" class="headerlink" title="技术对比矩阵"></a>技术对比矩阵</h2><h3 id="核心指标对比"><a href="#核心指标对比" class="headerlink" title="核心指标对比"></a>核心指标对比</h3><table>
+<thead>
+<tr>
+<th>技术方案</th>
+<th>开发语言</th>
+<th>性能</th>
+<th>包体积</th>
+<th>学习曲线</th>
+<th>生态成熟度</th>
+<th>社区活跃度</th>
+<th>企业支持</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Flutter</strong></td>
+<td>Dart</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>中等</td>
+<td>中等</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>Google</td>
+</tr>
+<tr>
+<td><strong>React Native</strong></td>
+<td>JavaScript&#x2F;TypeScript</td>
+<td>⭐⭐⭐⭐</td>
+<td>中等</td>
+<td>平缓</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>Meta</td>
+</tr>
+<tr>
+<td><strong>Tauri</strong></td>
+<td>Rust + Web</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>很小</td>
+<td>陡峭</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>社区</td>
+</tr>
+<tr>
+<td><strong>Electron</strong></td>
+<td>JavaScript&#x2F;TypeScript</td>
+<td>⭐⭐⭐</td>
+<td>很大</td>
+<td>平缓</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>GitHub</td>
+</tr>
+<tr>
+<td><strong>uni-app</strong></td>
+<td>Vue&#x2F;JavaScript</td>
+<td>⭐⭐⭐⭐</td>
+<td>小</td>
+<td>平缓</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>DCloud</td>
+</tr>
+<tr>
+<td><strong>Taro</strong></td>
+<td>React&#x2F;JavaScript</td>
+<td>⭐⭐⭐⭐</td>
+<td>小</td>
+<td>中等</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>京东</td>
+</tr>
+<tr>
+<td><strong>Ionic</strong></td>
+<td>JavaScript&#x2F;TypeScript</td>
+<td>⭐⭐⭐</td>
+<td>中等</td>
+<td>平缓</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>Ionic Team</td>
+</tr>
+<tr>
+<td><strong>.NET MAUI</strong></td>
+<td>C#</td>
+<td>⭐⭐⭐⭐</td>
+<td>中等</td>
+<td>中等</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>微软</td>
+</tr>
+<tr>
+<td><strong>Qt</strong></td>
+<td>C++&#x2F;QML</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>大</td>
+<td>陡峭</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>Qt Company</td>
+</tr>
+<tr>
+<td><strong>NativeScript</strong></td>
+<td>JavaScript&#x2F;TypeScript</td>
+<td>⭐⭐⭐⭐</td>
+<td>中等</td>
+<td>中等</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>Progress</td>
+</tr>
+<tr>
+<td><strong>Kotlin Multiplatform (KMP)</strong></td>
+<td>Kotlin</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>小到中等</td>
+<td>中等</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>JetBrains</td>
+</tr>
+<tr>
+<td><strong>ArkUI</strong></td>
+<td>ArkTS&#x2F;TypeScript</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>小</td>
+<td>中等</td>
+<td>⭐⭐</td>
+<td>⭐⭐</td>
+<td>华为</td>
+</tr>
+</tbody></table>
+<h3 id="技术特性对比"><a href="#技术特性对比" class="headerlink" title="技术特性对比"></a>技术特性对比</h3><table>
+<thead>
+<tr>
+<th>技术方案</th>
+<th>渲染方式</th>
+<th>原生能力</th>
+<th>热更新</th>
+<th>代码复用率</th>
+<th>开发效率</th>
+<th>维护成本</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Flutter</strong></td>
+<td>自绘引擎</td>
+<td>优秀</td>
+<td>✅</td>
+<td>80-90%</td>
+<td>高</td>
+<td>低</td>
+</tr>
+<tr>
+<td><strong>React Native</strong></td>
+<td>原生组件</td>
+<td>优秀</td>
+<td>✅</td>
+<td>70-85%</td>
+<td>高</td>
+<td>中</td>
+</tr>
+<tr>
+<td><strong>Tauri</strong></td>
+<td>WebView</td>
+<td>优秀</td>
+<td>✅</td>
+<td>90-95%</td>
+<td>高</td>
+<td>低</td>
+</tr>
+<tr>
+<td><strong>Electron</strong></td>
+<td>Chromium</td>
+<td>良好</td>
+<td>✅</td>
+<td>90-95%</td>
+<td>高</td>
+<td>中</td>
+</tr>
+<tr>
+<td><strong>uni-app</strong></td>
+<td>混合渲染</td>
+<td>良好</td>
+<td>✅</td>
+<td>85-95%</td>
+<td>高</td>
+<td>低</td>
+</tr>
+<tr>
+<td><strong>Taro</strong></td>
+<td>混合渲染</td>
+<td>良好</td>
+<td>✅</td>
+<td>85-95%</td>
+<td>高</td>
+<td>低</td>
+</tr>
+<tr>
+<td><strong>Ionic</strong></td>
+<td>WebView</td>
+<td>良好</td>
+<td>✅</td>
+<td>90-95%</td>
+<td>高</td>
+<td>中</td>
+</tr>
+<tr>
+<td><strong>.NET MAUI</strong></td>
+<td>原生组件</td>
+<td>优秀</td>
+<td>❌</td>
+<td>70-80%</td>
+<td>中</td>
+<td>中</td>
+</tr>
+<tr>
+<td><strong>Qt</strong></td>
+<td>自绘引擎</td>
+<td>优秀</td>
+<td>❌</td>
+<td>80-90%</td>
+<td>中</td>
+<td>中</td>
+</tr>
+<tr>
+<td><strong>NativeScript</strong></td>
+<td>原生组件</td>
+<td>优秀</td>
+<td>✅</td>
+<td>70-80%</td>
+<td>中</td>
+<td>中</td>
+</tr>
+<tr>
+<td><strong>Kotlin Multiplatform (KMP)</strong></td>
+<td>原生组件</td>
+<td>优秀</td>
+<td>✅</td>
+<td>60-80%</td>
+<td>中</td>
+<td>中</td>
+</tr>
+<tr>
+<td><strong>ArkUI</strong></td>
+<td>原生渲染</td>
+<td>优秀</td>
+<td>✅</td>
+<td>0%</td>
+<td>中</td>
+<td>低</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="技术方案详细对比"><a href="#技术方案详细对比" class="headerlink" title="技术方案详细对比"></a>技术方案详细对比</h2><h3 id="1-Flutter"><a href="#1-Flutter" class="headerlink" title="1. Flutter"></a>1. Flutter</h3><p><strong>官方网站</strong>: <span class="exturl" data-url="aHR0cHM6Ly9mbHV0dGVyLmRldi8=">https://flutter.dev/<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>核心优势</strong>:</p>
+<ul>
+<li>✅ 统一的 UI 框架，一套代码多端运行</li>
+<li>✅ 高性能自绘引擎，接近原生性能</li>
+<li>✅ 丰富的组件库和生态</li>
+<li>✅ Google 官方支持，持续更新</li>
+<li>✅ 支持热重载，开发体验优秀</li>
+<li>✅ 支持 Web、桌面和移动端</li>
+</ul>
+<p><strong>核心劣势</strong>:</p>
+<ul>
+<li>❌ 包体积相对较大（基础包约 5-10MB）</li>
+<li>❌ Dart 语言学习成本</li>
+<li>❌ Web 端性能不如原生 Web 框架</li>
+<li>❌ 某些平台特定功能需要原生插件</li>
+</ul>
+<p><strong>适用场景</strong>:</p>
+<ul>
+<li>移动应用开发（Android&#x2F;iOS）</li>
+<li>需要高性能的跨平台应用</li>
+<li>对 UI 一致性要求高的应用</li>
+<li>新项目或重构项目</li>
+</ul>
+<p><strong>技术架构</strong>:</p>
+<ul>
+<li><strong>渲染引擎</strong>: Impeller 引擎（自定义引擎，直接与 GPU 通信，使用 Metal、Vulkan 或 OpenGL）</li>
+<li><strong>语言</strong>: Dart</li>
+<li><strong>编译方式</strong>:<ul>
+<li>Debug 构建：在虚拟机中运行 Dart 代码</li>
+<li>Release 构建：输出平台特定二进制文件（原生平台）或 JavaScript&#x2F;Wasm（Web）</li>
+</ul>
+</li>
+<li><strong>状态管理</strong>: Provider、Riverpod、Bloc、GetX</li>
+<li><strong>路由</strong>: go_router、auto_route</li>
+<li><strong>网络</strong>: dio、http</li>
+<li><strong>存储</strong>: shared_preferences、sqflite、hive</li>
+<li><strong>原生 API 访问</strong>: 使用 Platform Channels</li>
+</ul>
+<p><strong>包体积参考</strong>:</p>
+<ul>
+<li>Android APK: 5-15MB（未压缩）</li>
+<li>iOS IPA: 8-20MB</li>
+<li>Web: 首次加载 1-2MB</li>
+</ul>
+<hr>
+<h3 id="2-React-Native"><a href="#2-React-Native" class="headerlink" title="2. React Native"></a>2. React Native</h3><p><strong>官方网站</strong>: <span class="exturl" data-url="aHR0cHM6Ly9yZWFjdG5hdGl2ZS5kZXYv">https://reactnative.dev/<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>核心优势</strong>:</p>
+<ul>
+<li>✅ 基于 React，学习成本低</li>
+<li>✅ 使用原生组件，性能接近原生</li>
+<li>✅ 庞大的 JavaScript 生态</li>
+<li>✅ Meta 官方支持，社区活跃</li>
+<li>✅ 支持热重载和快速刷新</li>
+<li>✅ 丰富的第三方库</li>
+</ul>
+<p><strong>核心劣势</strong>:</p>
+<ul>
+<li>❌ 需要原生开发知识处理复杂功能</li>
+<li>❌ 不同平台 UI 可能不一致</li>
+<li>❌ 性能优化需要深入了解原生</li>
+<li>❌ 新架构（Fabric&#x2F;TurboModules）迁移成本</li>
+<li>❌ 不支持 Web（需要额外方案）</li>
+</ul>
+<p><strong>适用场景</strong>:</p>
+<ul>
+<li>已有 React 技术栈的团队</li>
+<li>需要快速开发移动应用</li>
+<li>对原生性能要求较高的应用</li>
+<li>需要频繁更新 UI 的应用</li>
+</ul>
+<p><strong>技术架构</strong>:</p>
+<ul>
+<li><strong>核心</strong>: JavaScript Bridge（旧架构）&#x2F; JSI（新架构）</li>
+<li><strong>语言</strong>: JavaScript&#x2F;TypeScript</li>
+<li><strong>状态管理</strong>: Redux、MobX、Zustand、Recoil</li>
+<li><strong>导航</strong>: React Navigation、React Native Navigation</li>
+<li><strong>网络</strong>: axios、fetch</li>
+<li><strong>存储</strong>: AsyncStorage、Realm、SQLite</li>
+</ul>
+<p><strong>性能优化</strong>:</p>
+<ul>
+<li>使用 Hermes 引擎（Android）</li>
+<li>启用新架构（Fabric + TurboModules）</li>
+<li>使用 FlatList 替代 ScrollView</li>
+<li>图片优化和懒加载</li>
+<li>减少 Bridge 通信</li>
+</ul>
+<hr>
+<h3 id="3-Tauri"><a href="#3-Tauri" class="headerlink" title="3. Tauri"></a>3. Tauri</h3><p><strong>官方网站</strong>: <span class="exturl" data-url="aHR0cHM6Ly90YXVyaS5hcHAv">https://tauri.app/<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>核心优势</strong>:</p>
+<ul>
+<li>✅ 极小的包体积（&lt; 5MB）</li>
+<li>✅ 基于 Rust，安全性高</li>
+<li>✅ 使用系统 WebView，资源占用低</li>
+<li>✅ 支持所有主流 Web 框架</li>
+<li>✅ 原生性能的 API 调用</li>
+<li>✅ 开源且免费</li>
+</ul>
+<p><strong>核心劣势</strong>:</p>
+<ul>
+<li>❌ 需要学习 Rust（后端）</li>
+<li>❌ 生态相对较新，资源较少</li>
+<li>❌ 主要面向桌面应用</li>
+<li>❌ WebView 版本依赖系统</li>
+<li>❌ 移动端支持有限</li>
+</ul>
+<p><strong>适用场景</strong>:</p>
+<ul>
+<li>桌面应用开发（Windows&#x2F;macOS&#x2F;Linux）</li>
+<li>对包体积敏感的应用</li>
+<li>需要系统级 API 访问</li>
+<li>基于 Web 技术的桌面应用</li>
+</ul>
+<p><strong>技术架构</strong>:</p>
+<ul>
+<li><strong>前端</strong>: 任意 Web 框架（React、Vue、Svelte 等）</li>
+<li><strong>后端</strong>: Rust</li>
+<li><strong>通信</strong>: Tauri IPC</li>
+<li><strong>打包</strong>: 系统 WebView + Rust 二进制</li>
+</ul>
+<p><strong>包体积参考</strong>:</p>
+<ul>
+<li>Windows: 3-8MB</li>
+<li>macOS: 5-10MB</li>
+<li>Linux: 3-8MB</li>
+</ul>
+<hr>
+<h3 id="4-Electron"><a href="#4-Electron" class="headerlink" title="4. Electron"></a>4. Electron</h3><p><strong>官方网站</strong>: <span class="exturl" data-url="aHR0cHM6Ly93d3cuZWxlY3Ryb25qcy5vcmcv">https://www.electronjs.org/<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>核心优势</strong>:</p>
+<ul>
+<li>✅ 成熟的生态和工具链</li>
+<li>✅ 使用 Web 技术，开发效率高</li>
+<li>✅ 丰富的第三方库和插件</li>
+<li>✅ 支持所有 Web API</li>
+<li>✅ 跨平台兼容性好</li>
+<li>✅ 大型项目验证（VS Code、Discord、Slack）</li>
+</ul>
+<p><strong>核心劣势</strong>:</p>
+<ul>
+<li>❌ 包体积大（通常 100-200MB）</li>
+<li>❌ 内存占用高</li>
+<li>❌ 性能不如原生应用</li>
+<li>❌ 安全性需要额外注意</li>
+<li>❌ 移动端不支持</li>
+</ul>
+<p><strong>适用场景</strong>:</p>
+<ul>
+<li>桌面应用开发</li>
+<li>已有 Web 应用需要桌面版本</li>
+<li>需要快速开发桌面应用</li>
+<li>对包体积不敏感的应用</li>
+</ul>
+<p><strong>技术架构</strong>:</p>
+<ul>
+<li><strong>核心</strong>: Chromium + Node.js</li>
+<li><strong>语言</strong>: JavaScript&#x2F;TypeScript</li>
+<li><strong>框架</strong>: 任意 Web 框架</li>
+<li><strong>打包</strong>: Electron Builder、Electron Forge</li>
+</ul>
+<p><strong>性能优化</strong>:</p>
+<ul>
+<li>使用 Vite 等现代构建工具</li>
+<li>启用上下文隔离</li>
+<li>使用多进程架构</li>
+<li>代码分割和懒加载</li>
+<li>禁用不必要的 Node.js 模块</li>
+</ul>
+<hr>
+<h3 id="5-uni-app"><a href="#5-uni-app" class="headerlink" title="5. uni-app"></a>5. uni-app</h3><p><strong>官方网站</strong>: <span class="exturl" data-url="aHR0cHM6Ly91bmlhcHAuZGNsb3VkLm5ldC5jbi8=">https://uniapp.dcloud.net.cn/<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>核心优势</strong>:</p>
+<ul>
+<li>✅ 一套代码多端发布</li>
+<li>✅ 基于 Vue，学习成本低</li>
+<li>✅ <strong>全面支持小程序平台</strong>：微信小程序、支付宝小程序、百度小程序、字节跳动小程序、QQ 小程序、快手小程序、钉钉小程序等</li>
+<li>✅ 支持鸿蒙原生开发</li>
+<li>✅ 丰富的插件市场</li>
+<li>✅ DCloud 官方支持</li>
+<li>✅ 支持云打包和云服务</li>
+</ul>
+<p><strong>核心劣势</strong>:</p>
+<ul>
+<li>❌ 某些平台功能需要条件编译</li>
+<li>❌ 性能不如纯原生应用</li>
+<li>❌ 依赖 DCloud 生态</li>
+<li>❌ 某些复杂功能需要原生插件</li>
+</ul>
+<p><strong>适用场景</strong>:</p>
+<ul>
+<li>需要同时支持多个平台的应用</li>
+<li><strong>需要支持微信小程序、支付宝小程序等小程序平台的项目</strong></li>
+<li>已有 Vue 技术栈的团队</li>
+<li>需要快速开发多端应用</li>
+<li>对鸿蒙支持有要求的项目</li>
+</ul>
+<p><strong>技术架构</strong>:</p>
+<ul>
+<li><strong>框架</strong>: Vue 2&#x2F;3</li>
+<li><strong>编译</strong>: 条件编译 + 多端适配</li>
+<li><strong>UI</strong>: uni-ui、uView</li>
+<li><strong>状态管理</strong>: Vuex、Pinia</li>
+<li><strong>路由</strong>: uni-app 路由系统</li>
+</ul>
+<p><strong>支持的平台</strong>:</p>
+<ul>
+<li>H5</li>
+<li>微信小程序</li>
+<li>支付宝小程序</li>
+<li>百度小程序</li>
+<li>字节跳动小程序</li>
+<li>QQ 小程序</li>
+<li>快手小程序</li>
+<li>钉钉小程序</li>
+<li>360 小程序</li>
+<li>快手小程序</li>
+<li>飞书小程序</li>
+<li>京东小程序</li>
+<li>Android App</li>
+<li>iOS App</li>
+<li>鸿蒙 App</li>
+<li>快应用</li>
+</ul>
+<hr>
+<h3 id="6-Taro"><a href="#6-Taro" class="headerlink" title="6. Taro"></a>6. Taro</h3><p><strong>官方网站</strong>: <span class="exturl" data-url="aHR0cHM6Ly90YXJvLmpkLmNvbS8=">https://taro.jd.com/<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>核心优势</strong>:</p>
+<ul>
+<li>✅ 基于 React，学习成本低</li>
+<li>✅ 支持多端编译</li>
+<li>✅ <strong>全面支持小程序平台</strong>：微信小程序、支付宝小程序、百度小程序、字节跳动小程序、QQ 小程序、快手小程序、钉钉小程序等</li>
+<li>✅ 支持鸿蒙</li>
+<li>✅ 京东团队维护，企业级支持</li>
+<li>✅ 灵活的编译配置</li>
+<li>✅ 支持多框架（React、Vue、Vue3）</li>
+</ul>
+<p><strong>核心劣势</strong>:</p>
+<ul>
+<li>❌ 某些平台需要条件编译</li>
+<li>❌ 性能优化需要深入了解</li>
+<li>❌ 生态相对较小</li>
+<li>❌ 某些复杂功能需要原生插件</li>
+</ul>
+<p><strong>适用场景</strong>:</p>
+<ul>
+<li>已有 React 技术栈的团队</li>
+<li><strong>需要支持微信小程序、支付宝小程序等小程序平台的项目</strong></li>
+<li>需要支持小程序和 App</li>
+<li>需要支持鸿蒙的应用</li>
+<li>企业级应用开发</li>
+</ul>
+<p><strong>技术架构</strong>:</p>
+<ul>
+<li><strong>框架</strong>: React&#x2F;Vue&#x2F;Vue3</li>
+<li><strong>编译</strong>: 多端编译适配</li>
+<li><strong>UI</strong>: Taro UI、NutUI</li>
+<li><strong>状态管理</strong>: Redux、MobX、Zustand</li>
+<li><strong>路由</strong>: Taro 路由系统</li>
+</ul>
+<p><strong>支持的平台</strong>:</p>
+<ul>
+<li>H5</li>
+<li>微信小程序</li>
+<li>支付宝小程序</li>
+<li>百度小程序</li>
+<li>字节跳动小程序</li>
+<li>QQ 小程序</li>
+<li>京东小程序</li>
+<li>快手小程序</li>
+<li>钉钉小程序</li>
+<li>Android App</li>
+<li>iOS App</li>
+<li>鸿蒙 App</li>
+<li>快应用</li>
+</ul>
+<hr>
+<h3 id="7-Ionic"><a href="#7-Ionic" class="headerlink" title="7. Ionic"></a>7. Ionic</h3><p><strong>官方网站</strong>: <span class="exturl" data-url="aHR0cHM6Ly9pb25pY2ZyYW1ld29yay5jb20v">https://ionicframework.com/<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>核心优势</strong>:</p>
+<ul>
+<li>✅ 基于 Web 技术，学习成本低</li>
+<li>✅ 丰富的 UI 组件库</li>
+<li>✅ 支持多框架（React、Vue、Angular）</li>
+<li>✅ 成熟的工具链</li>
+<li>✅ 良好的文档和社区</li>
+</ul>
+<p><strong>核心劣势</strong>:</p>
+<ul>
+<li>❌ 性能不如原生应用</li>
+<li>❌ WebView 依赖系统版本</li>
+<li>❌ 某些原生功能需要插件</li>
+<li>❌ 包体积相对较大</li>
+</ul>
+<p><strong>适用场景</strong>:</p>
+<ul>
+<li>基于 Web 技术的移动应用</li>
+<li>需要快速开发的应用</li>
+<li>已有 Web 技术栈的团队</li>
+<li>对性能要求不极致的应用</li>
+</ul>
+<p><strong>技术架构</strong>:</p>
+<ul>
+<li><strong>框架</strong>: React&#x2F;Vue&#x2F;Angular</li>
+<li><strong>UI</strong>: Ionic Components</li>
+<li><strong>构建</strong>: Capacitor（新）或 Cordova（旧）</li>
+<li><strong>打包</strong>: 原生 WebView</li>
+</ul>
+<hr>
+<h3 id="8-NET-MAUI"><a href="#8-NET-MAUI" class="headerlink" title="8. .NET MAUI"></a>8. .NET MAUI</h3><p><strong>官方网站</strong>: <span class="exturl" data-url="aHR0cHM6Ly9kb3RuZXQubWljcm9zb2Z0LmNvbS96aC1jbi9hcHBzL21hdWk=">https://dotnet.microsoft.com/zh-cn/apps/maui<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>核心优势</strong>:</p>
+<ul>
+<li>✅ 微软官方支持</li>
+<li>✅ 使用 C#，类型安全</li>
+<li>✅ 原生性能</li>
+<li>✅ 与 .NET 生态集成</li>
+<li>✅ 企业级支持</li>
+</ul>
+<p><strong>核心劣势</strong>:</p>
+<ul>
+<li>❌ 不支持 Web</li>
+<li>❌ 主要面向 .NET 开发者</li>
+<li>❌ 生态相对较小</li>
+<li>❌ 学习曲线较陡</li>
+<li>❌ 不支持鸿蒙</li>
+</ul>
+<p><strong>适用场景</strong>:</p>
+<ul>
+<li>已有 .NET 技术栈的团队</li>
+<li>企业级应用开发</li>
+<li>需要原生性能的应用</li>
+<li>Windows&#x2F;macOS 桌面应用</li>
+</ul>
+<p><strong>技术架构</strong>:</p>
+<ul>
+<li><strong>语言</strong>: C#</li>
+<li><strong>UI</strong>: XAML 或 C# 代码</li>
+<li><strong>框架</strong>: .NET MAUI</li>
+<li><strong>状态管理</strong>: MVVM 模式</li>
+</ul>
+<hr>
+<h3 id="9-Qt"><a href="#9-Qt" class="headerlink" title="9. Qt"></a>9. Qt</h3><p><strong>官方网站</strong>: <span class="exturl" data-url="aHR0cHM6Ly93d3cucXQuaW8v">https://www.qt.io/<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>核心优势</strong>:</p>
+<ul>
+<li>✅ 跨平台支持广泛</li>
+<li>✅ 原生性能</li>
+<li>✅ 成熟的框架和工具</li>
+<li>✅ 支持多种编程语言</li>
+<li>✅ 企业级支持</li>
+<li>✅ 支持鸿蒙</li>
+</ul>
+<p><strong>核心劣势</strong>:</p>
+<ul>
+<li>❌ 商业授权费用（LGPL 免费但有限制）</li>
+<li>❌ 学习曲线陡峭</li>
+<li>❌ 包体积较大</li>
+<li>❌ 主要面向桌面和嵌入式</li>
+</ul>
+<p><strong>适用场景</strong>:</p>
+<ul>
+<li>桌面应用开发</li>
+<li>嵌入式系统</li>
+<li>需要原生性能的应用</li>
+<li>企业级应用</li>
+</ul>
+<p><strong>技术架构</strong>:</p>
+<ul>
+<li><strong>语言</strong>: C++、QML、Python</li>
+<li><strong>UI</strong>: Qt Widgets、Qt Quick&#x2F;QML</li>
+<li><strong>框架</strong>: Qt Framework</li>
+</ul>
+<hr>
+<h3 id="10-NativeScript"><a href="#10-NativeScript" class="headerlink" title="10. NativeScript"></a>10. NativeScript</h3><p><strong>官方网站</strong>: <span class="exturl" data-url="aHR0cHM6Ly9uYXRpdmVzY3JpcHQub3JnLw==">https://nativescript.org/<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>核心优势</strong>:</p>
+<ul>
+<li>✅ 使用 JavaScript&#x2F;TypeScript</li>
+<li>✅ 直接访问原生 API</li>
+<li>✅ 原生性能</li>
+<li>✅ 支持 Vue、React、Angular</li>
+</ul>
+<p><strong>核心劣势</strong>:</p>
+<ul>
+<li>❌ 生态相对较小</li>
+<li>❌ 社区活跃度一般</li>
+<li>❌ 不支持 Web</li>
+<li>❌ 不支持鸿蒙</li>
+</ul>
+<p><strong>适用场景</strong>:</p>
+<ul>
+<li>需要原生性能的移动应用</li>
+<li>已有 JavaScript 技术栈</li>
+<li>需要直接访问原生 API</li>
+</ul>
+<p><strong>技术架构</strong>:</p>
+<ul>
+<li><strong>语言</strong>: JavaScript&#x2F;TypeScript</li>
+<li><strong>框架</strong>: Vue&#x2F;React&#x2F;Angular</li>
+<li><strong>运行时</strong>: NativeScript Runtime</li>
+</ul>
+<hr>
+<h3 id="11-Kotlin-Multiplatform-KMP"><a href="#11-Kotlin-Multiplatform-KMP" class="headerlink" title="11. Kotlin Multiplatform (KMP)"></a>11. Kotlin Multiplatform (KMP)</h3><p><strong>官方网站</strong>: <span class="exturl" data-url="aHR0cHM6Ly9rb3RsaW5sYW5nLm9yZy9kb2NzL211bHRpcGxhdGZvcm0uaHRtbA==">https://kotlinlang.org/docs/multiplatform.html<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>核心优势</strong>:</p>
+<ul>
+<li>✅ 使用 Kotlin 语言，类型安全</li>
+<li>✅ <strong>灵活的代码共享</strong>：可以共享 1% 到 100% 的代码，包括业务逻辑和&#x2F;或 UI</li>
+<li>✅ <strong>UI 选择灵活</strong>：<ul>
+<li>使用 Compose Multiplatform 共享 UI（基于 Jetpack Compose）</li>
+<li>或使用原生 UI 框架获得原生体验</li>
+</ul>
+</li>
+<li>✅ 原生性能，直接编译为平台代码</li>
+<li>✅ JetBrains 官方支持</li>
+<li>✅ 与 Android 开发无缝集成</li>
+<li>✅ Google 在 2024 年 Google I&#x2F;O 上宣布支持 KMP</li>
+<li>✅ 支持 iOS、Android、Web、桌面端、服务器端</li>
+<li>✅ 使用 expect&#x2F;actual 声明直接访问原生 API</li>
+</ul>
+<p><strong>核心劣势</strong>:</p>
+<ul>
+<li>❌ 如果使用原生 UI，需要各平台独立开发 UI 层</li>
+<li>❌ 如果使用 Compose Multiplatform，Web 端仍在 Beta 阶段</li>
+<li>❌ 需要学习 Kotlin（如果团队不熟悉）</li>
+<li>❌ 生态相对较新（相比 Flutter 和 React Native）</li>
+<li>❌ 不支持鸿蒙</li>
+<li>❌ 不支持小程序平台</li>
+</ul>
+<p><strong>适用场景</strong>:</p>
+<ul>
+<li>Android 和 iOS 移动应用开发</li>
+<li>需要共享业务逻辑的项目</li>
+<li>已有 Kotlin&#x2F;Android 技术栈的团队</li>
+<li>对性能要求高的应用</li>
+<li>需要原生 UI 体验的应用</li>
+</ul>
+<p><strong>技术架构</strong>:</p>
+<ul>
+<li><strong>语言</strong>: Kotlin</li>
+<li><strong>代码共享策略</strong>: 可以共享 1% 到 100% 的代码</li>
+<li><strong>UI 选项</strong>:<ul>
+<li><strong>Compose Multiplatform</strong>: 共享 UI（基于 Jetpack Compose，使用 Skia 引擎）</li>
+<li><strong>原生 UI</strong>: 各平台使用原生框架（SwiftUI、Jetpack Compose）</li>
+</ul>
+</li>
+<li><strong>编译方式</strong>:<ul>
+<li>桌面和 Android：编译为 JVM bytecode</li>
+<li>Web：编译为 JavaScript 或 Wasm</li>
+<li>原生平台：编译为平台特定二进制文件</li>
+</ul>
+</li>
+<li><strong>原生 API 访问</strong>: 使用 expect&#x2F;actual 声明</li>
+</ul>
+<p><strong>支持的平台</strong>:</p>
+<ul>
+<li>Android (原生)</li>
+<li>iOS (通过 Kotlin&#x2F;Native)</li>
+<li>Web (通过 Kotlin&#x2F;JS)</li>
+<li>Windows (通过 Kotlin&#x2F;Native)</li>
+<li>macOS (通过 Kotlin&#x2F;Native)</li>
+<li>Linux (通过 Kotlin&#x2F;Native)</li>
+</ul>
+<p><strong>代码复用策略</strong>:</p>
+<ul>
+<li><strong>策略 1：共享业务逻辑 + 原生 UI</strong><ul>
+<li>共享层：业务逻辑、数据模型、网络请求、数据存储</li>
+<li>平台层：UI 实现（Android 使用 Jetpack Compose，iOS 使用 SwiftUI，Web 使用 Compose for Web）</li>
+</ul>
+</li>
+<li><strong>策略 2：共享业务逻辑 + 共享 UI（Compose Multiplatform）</strong><ul>
+<li>共享层：业务逻辑、数据模型、网络请求、数据存储、UI（Compose Multiplatform）</li>
+<li>平台层：平台特定实现和原生 API 访问</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="12-ArkUI（鸿蒙原生）"><a href="#12-ArkUI（鸿蒙原生）" class="headerlink" title="12. ArkUI（鸿蒙原生）"></a>12. ArkUI（鸿蒙原生）</h3><p><strong>官方网站</strong>: <span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIuaGFybW9ueW9zLmNvbS8=">https://developer.harmonyos.com/<i class="fa fa-external-link-alt"></i></span></p>
+<p><strong>核心优势</strong>:</p>
+<ul>
+<li>✅ 鸿蒙原生框架</li>
+<li>✅ 高性能</li>
+<li>✅ 完整的鸿蒙生态支持</li>
+<li>✅ 华为官方支持</li>
+<li>✅ 声明式 UI</li>
+</ul>
+<p><strong>核心劣势</strong>:</p>
+<ul>
+<li>❌ 仅支持鸿蒙平台</li>
+<li>❌ 生态相对较新</li>
+<li>❌ 学习资源有限</li>
+<li>❌ 需要鸿蒙开发环境</li>
+</ul>
+<p><strong>适用场景</strong>:</p>
+<ul>
+<li>鸿蒙原生应用开发</li>
+<li>需要完整鸿蒙功能的应用</li>
+<li>对鸿蒙生态有要求的项目</li>
+</ul>
+<p><strong>技术架构</strong>:</p>
+<ul>
+<li><strong>语言</strong>: ArkTS（TypeScript 扩展）</li>
+<li><strong>UI</strong>: 声明式 UI 框架</li>
+<li><strong>框架</strong>: ArkUI</li>
+</ul>
+<hr>
+<h2 id="各技术方案详解"><a href="#各技术方案详解" class="headerlink" title="各技术方案详解"></a>各技术方案详解</h2><h3 id="Flutter-深度解析"><a href="#Flutter-深度解析" class="headerlink" title="Flutter 深度解析"></a>Flutter 深度解析</h3><h4 id="技术原理"><a href="#技术原理" class="headerlink" title="技术原理"></a>技术原理</h4><p>Flutter 使用自绘引擎（Skia）进行渲染，不依赖平台的原生组件。这意味着 Flutter 应用在不同平台上具有完全一致的 UI 表现。</p>
+<p><strong>核心组件</strong>:</p>
+<ol>
+<li><strong>Dart 语言</strong>: Google 开发的面向对象语言</li>
+<li><strong>Flutter 框架</strong>: 提供 Widget 系统和渲染引擎</li>
+<li><strong>Skia 图形库</strong>: 底层图形渲染引擎</li>
+<li><strong>Platform Channels</strong>: 与原生代码通信的桥梁</li>
+</ol>
+<p><strong>渲染流程</strong>:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Dart 代码 → Widget 树 → Element 树 → RenderObject 树 → Skia 渲染 → 屏幕显示</span><br></pre></td></tr></table></figure>
+
+<h4 id="性能特点"><a href="#性能特点" class="headerlink" title="性能特点"></a>性能特点</h4><ul>
+<li><strong>60 FPS 流畅度</strong>: 通过自绘引擎实现流畅的动画</li>
+<li><strong>JIT 和 AOT 编译</strong>: 开发时使用 JIT，发布时使用 AOT</li>
+<li><strong>Widget 复用</strong>: 高效的 Widget 树更新机制</li>
+<li><strong>Isolate</strong>: 支持多线程计算</li>
+</ul>
+<h4 id="开发体验"><a href="#开发体验" class="headerlink" title="开发体验"></a>开发体验</h4><ul>
+<li><strong>Hot Reload</strong>: 毫秒级热重载</li>
+<li><strong>丰富的 Widget</strong>: Material Design 和 Cupertino 组件</li>
+<li><strong>强大的工具</strong>: Flutter DevTools、Dart Analyzer</li>
+<li><strong>完善的文档</strong>: 官方文档和示例代码</li>
+</ul>
+<h4 id="生态体系"><a href="#生态体系" class="headerlink" title="生态体系"></a>生态体系</h4><ul>
+<li><strong>包管理</strong>: pub.dev（超过 30,000 个包）</li>
+<li><strong>状态管理</strong>: Provider、Riverpod、Bloc、GetX、MobX</li>
+<li><strong>路由</strong>: go_router、auto_route、fluro</li>
+<li><strong>网络</strong>: dio、http、retrofit</li>
+<li><strong>存储</strong>: shared_preferences、sqflite、hive、drift</li>
+<li><strong>UI 组件</strong>: flutter_screenutil、cached_network_image、flutter_svg</li>
+</ul>
+<h4 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h4><ol>
+<li><strong>项目结构</strong></li>
+</ol>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">lib/</span><br><span class="line">  ├── main.dart</span><br><span class="line">  ├── models/</span><br><span class="line">  ├── views/</span><br><span class="line">  ├── view_models/</span><br><span class="line">  ├── services/</span><br><span class="line">  ├── utils/</span><br><span class="line">  └── widgets/</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p><strong>状态管理选择</strong></p>
+<ul>
+<li>小型项目: Provider</li>
+<li>中型项目: Riverpod</li>
+<li>大型项目: Bloc 或 GetX</li>
+</ul>
+</li>
+<li><p><strong>性能优化</strong></p>
+<ul>
+<li>使用 <code>const</code> 构造函数</li>
+<li>避免在 <code>build</code> 方法中创建对象</li>
+<li>使用 <code>ListView.builder</code> 处理长列表</li>
+<li>图片使用 <code>cached_network_image</code></li>
+<li>合理使用 <code>setState</code></li>
+</ul>
+</li>
+<li><p><strong>代码规范</strong></p>
+<ul>
+<li>遵循 Dart 官方风格指南</li>
+<li>使用 <code>flutter_lints</code> 进行代码检查</li>
+<li>编写单元测试和 Widget 测试</li>
+</ul>
+</li>
+</ol>
+<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9mbHV0dGVyLmRldi9kb2Nz">Flutter 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kYXJ0LmRldi9ndWlkZXM=">Dart 语言文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9mbHV0dGVyLmNuLw==">Flutter 中文网<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ib29rLmZsdXR0ZXJjaGluYS5jbHViLw==">Flutter 实战<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<hr>
+<h3 id="React-Native-深度解析"><a href="#React-Native-深度解析" class="headerlink" title="React Native 深度解析"></a>React Native 深度解析</h3><h4 id="技术原理-1"><a href="#技术原理-1" class="headerlink" title="技术原理"></a>技术原理</h4><p>React Native 使用 JavaScript Bridge（旧架构）或 JSI（新架构）与原生代码通信。UI 组件映射到原生组件，实现接近原生的性能。</p>
+<p><strong>核心组件</strong>:</p>
+<ol>
+<li><strong>JavaScript 引擎</strong>: Hermes（Android）或 JavaScriptCore（iOS）</li>
+<li><strong>Bridge&#x2F;JSI</strong>: 与原生代码通信的桥梁</li>
+<li><strong>原生模块</strong>: 平台特定的功能模块</li>
+<li><strong>UI 管理器</strong>: 管理原生组件的创建和更新</li>
+</ol>
+<p><strong>新架构（Fabric + TurboModules）</strong>:</p>
+<ul>
+<li><strong>Fabric</strong>: 新的渲染系统，支持同步渲染</li>
+<li><strong>TurboModules</strong>: 新的原生模块系统，支持类型安全和懒加载</li>
+<li><strong>JSI</strong>: JavaScript 接口，直接调用原生代码</li>
+</ul>
+<h4 id="性能特点-1"><a href="#性能特点-1" class="headerlink" title="性能特点"></a>性能特点</h4><ul>
+<li><strong>原生组件</strong>: 使用平台原生组件，性能接近原生</li>
+<li><strong>异步通信</strong>: Bridge 异步通信可能造成延迟（旧架构）</li>
+<li><strong>Hermes 引擎</strong>: Android 上使用 Hermes 提升性能</li>
+<li><strong>新架构</strong>: Fabric 和 TurboModules 显著提升性能</li>
+</ul>
+<h4 id="开发体验-1"><a href="#开发体验-1" class="headerlink" title="开发体验"></a>开发体验</h4><ul>
+<li><strong>Fast Refresh</strong>: 快速刷新，保持组件状态</li>
+<li><strong>丰富的库</strong>: npm 生态，超过 100 万个包</li>
+<li><strong>调试工具</strong>: React Native Debugger、Flipper</li>
+<li><strong>TypeScript 支持</strong>: 完整的类型支持</li>
+</ul>
+<h4 id="生态体系-1"><a href="#生态体系-1" class="headerlink" title="生态体系"></a>生态体系</h4><ul>
+<li><strong>导航</strong>: React Navigation、React Native Navigation</li>
+<li><strong>状态管理</strong>: Redux、MobX、Zustand、Recoil、Jotai</li>
+<li><strong>UI 组件</strong>: React Native Elements、NativeBase、UI Kitten</li>
+<li><strong>网络</strong>: axios、fetch、react-query</li>
+<li><strong>存储</strong>: AsyncStorage、Realm、WatermelonDB</li>
+<li><strong>动画</strong>: react-native-reanimated、react-native-animatable</li>
+</ul>
+<h4 id="最佳实践-1"><a href="#最佳实践-1" class="headerlink" title="最佳实践"></a>最佳实践</h4><ol>
+<li><strong>项目结构</strong></li>
+</ol>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">src/</span><br><span class="line">  ├── components/</span><br><span class="line">  ├── screens/</span><br><span class="line">  ├── navigation/</span><br><span class="line">  ├── store/</span><br><span class="line">  ├── services/</span><br><span class="line">  ├── utils/</span><br><span class="line">  └── types/</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p><strong>性能优化</strong></p>
+<ul>
+<li>使用 <code>FlatList</code> 替代 <code>ScrollView</code></li>
+<li>使用 <code>React.memo</code> 优化组件渲染</li>
+<li>图片使用 <code>react-native-fast-image</code></li>
+<li>启用 Hermes 引擎</li>
+<li>迁移到新架构（Fabric + TurboModules）</li>
+</ul>
+</li>
+<li><p><strong>代码规范</strong></p>
+<ul>
+<li>使用 TypeScript</li>
+<li>遵循 React 最佳实践</li>
+<li>使用 ESLint 和 Prettier</li>
+<li>编写单元测试和集成测试</li>
+</ul>
+</li>
+<li><p><strong>原生模块开发</strong></p>
+<ul>
+<li>使用 TypeScript 定义接口</li>
+<li>遵循平台规范</li>
+<li>编写文档和示例</li>
+</ul>
+</li>
+</ol>
+<h4 id="参考资料-1"><a href="#参考资料-1" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9yZWFjdG5hdGl2ZS5kZXYvZG9jcy9nZXR0aW5nLXN0YXJ0ZWQ=">React Native 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9yZWFjdG5hdGl2ZS5kZXYvZG9jcy90aGUtbmV3LWFyY2hpdGVjdHVyZS9sYW5kaW5nLXBhZ2U=">React Native 新架构<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9yZWFjdG5hdGl2ZS5jbi8=">React Native 中文网<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3JlYWN0LW5hdGl2ZS1jb21tdW5pdHk=">React Native 社区<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<hr>
+<h3 id="Tauri-深度解析"><a href="#Tauri-深度解析" class="headerlink" title="Tauri 深度解析"></a>Tauri 深度解析</h3><h4 id="技术原理-2"><a href="#技术原理-2" class="headerlink" title="技术原理"></a>技术原理</h4><p>Tauri 使用系统 WebView 渲染前端界面，使用 Rust 编写后端逻辑。通过 IPC（进程间通信）实现前后端通信。</p>
+<p><strong>核心组件</strong>:</p>
+<ol>
+<li><strong>前端</strong>: 任意 Web 框架（React、Vue、Svelte 等）</li>
+<li><strong>后端</strong>: Rust 编写的核心逻辑</li>
+<li><strong>WebView</strong>: 系统原生 WebView（Edge WebView2、WKWebView、WebKitGTK）</li>
+<li><strong>IPC</strong>: 前后端通信机制</li>
+</ol>
+<p><strong>架构优势</strong>:</p>
+<ul>
+<li>使用系统 WebView，无需打包 Chromium</li>
+<li>Rust 后端提供安全性和性能</li>
+<li>极小的包体积</li>
+</ul>
+<h4 id="性能特点-2"><a href="#性能特点-2" class="headerlink" title="性能特点"></a>性能特点</h4><ul>
+<li><strong>包体积小</strong>: 通常 &lt; 5MB（相比 Electron 的 100-200MB）</li>
+<li><strong>内存占用低</strong>: 使用系统 WebView，共享系统资源</li>
+<li><strong>启动速度快</strong>: 无需加载完整的 Chromium</li>
+<li><strong>原生性能</strong>: Rust 后端提供原生性能</li>
+</ul>
+<h4 id="开发体验-2"><a href="#开发体验-2" class="headerlink" title="开发体验"></a>开发体验</h4><ul>
+<li><strong>Web 技术栈</strong>: 使用熟悉的 Web 框架</li>
+<li><strong>类型安全</strong>: Rust 的类型系统保证安全性</li>
+<li><strong>热重载</strong>: 支持前端热重载</li>
+<li><strong>跨平台</strong>: 一套代码多平台运行</li>
+</ul>
+<h4 id="生态体系-2"><a href="#生态体系-2" class="headerlink" title="生态体系"></a>生态体系</h4><ul>
+<li><strong>前端框架</strong>: 支持所有主流 Web 框架</li>
+<li><strong>Rust 生态</strong>: 丰富的 Rust 库（crates.io）</li>
+<li><strong>插件系统</strong>: Tauri 插件生态</li>
+<li><strong>构建工具</strong>: Tauri CLI</li>
+</ul>
+<h4 id="最佳实践-2"><a href="#最佳实践-2" class="headerlink" title="最佳实践"></a>最佳实践</h4><ol>
+<li><strong>项目结构</strong></li>
+</ol>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">src-tauri/</span><br><span class="line">  ├── src/</span><br><span class="line">  │   ├── main.rs</span><br><span class="line">  │   ├── commands.rs</span><br><span class="line">  │   └── lib.rs</span><br><span class="line">  ├── Cargo.toml</span><br><span class="line">  └── tauri.conf.json</span><br><span class="line">src/</span><br><span class="line">  ├── main.jsx</span><br><span class="line">  ├── components/</span><br><span class="line">  └── ...</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p><strong>安全实践</strong></p>
+<ul>
+<li>使用 CSP（内容安全策略）</li>
+<li>验证 IPC 消息</li>
+<li>限制文件系统访问</li>
+<li>使用 Rust 的类型安全</li>
+</ul>
+</li>
+<li><p><strong>性能优化</strong></p>
+<ul>
+<li>使用 Vite 等现代构建工具</li>
+<li>代码分割和懒加载</li>
+<li>优化 Rust 后端逻辑</li>
+<li>使用系统 WebView 缓存</li>
+</ul>
+</li>
+<li><p><strong>打包优化</strong></p>
+<ul>
+<li>使用 UPX 压缩（可选）</li>
+<li>移除未使用的依赖</li>
+<li>优化资源文件</li>
+</ul>
+</li>
+</ol>
+<h4 id="参考资料-2"><a href="#参考资料-2" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly90YXVyaS5hcHAvdjEvZ3VpZGVzLw==">Tauri 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly90YXVyaS5hcHAvdjEvYXBpLw==">Tauri API 文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RhdXJpLWFwcHMvdGF1cmkvdHJlZS9kZXYvZXhhbXBsZXM=">Tauri 示例<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kb2MucnVzdC1sYW5nLm9yZy8=">Rust 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<hr>
+<h3 id="Electron-深度解析"><a href="#Electron-深度解析" class="headerlink" title="Electron 深度解析"></a>Electron 深度解析</h3><h4 id="技术原理-3"><a href="#技术原理-3" class="headerlink" title="技术原理"></a>技术原理</h4><p>Electron 将 Chromium 和 Node.js 打包在一起，创建一个可以运行 Web 应用的桌面环境。</p>
+<p><strong>核心组件</strong>:</p>
+<ol>
+<li><strong>Chromium</strong>: 渲染进程，运行 Web 内容</li>
+<li><strong>Node.js</strong>: 主进程，访问系统 API</li>
+<li><strong>IPC</strong>: 主进程和渲染进程通信</li>
+<li><strong>原生模块</strong>: 使用 Node.js 原生模块访问系统功能</li>
+</ol>
+<p><strong>进程模型</strong>:</p>
+<ul>
+<li><strong>主进程</strong>: 一个主进程管理应用生命周期</li>
+<li><strong>渲染进程</strong>: 多个渲染进程运行 Web 内容</li>
+<li><strong>GPU 进程</strong>: 处理图形渲染</li>
+<li><strong>工具进程</strong>: 处理其他任务</li>
+</ul>
+<h4 id="性能特点-3"><a href="#性能特点-3" class="headerlink" title="性能特点"></a>性能特点</h4><ul>
+<li><strong>包体积大</strong>: 通常 100-200MB（包含 Chromium）</li>
+<li><strong>内存占用高</strong>: 每个窗口都是独立的 Chromium 进程</li>
+<li><strong>启动速度慢</strong>: 需要加载完整的 Chromium</li>
+<li><strong>Web 性能</strong>: 与 Chrome 浏览器性能相当</li>
+</ul>
+<h4 id="开发体验-3"><a href="#开发体验-3" class="headerlink" title="开发体验"></a>开发体验</h4><ul>
+<li><strong>Web 技术</strong>: 使用熟悉的 Web 技术栈</li>
+<li><strong>丰富的生态</strong>: npm 生态，超过 200 万个包</li>
+<li><strong>成熟的工具</strong>: Electron Builder、Electron Forge</li>
+<li><strong>调试工具</strong>: Chrome DevTools、VS Code 调试</li>
+</ul>
+<h4 id="生态体系-3"><a href="#生态体系-3" class="headerlink" title="生态体系"></a>生态体系</h4><ul>
+<li><strong>构建工具</strong>: Electron Builder、Electron Forge、electron-builder</li>
+<li><strong>框架集成</strong>: 支持所有主流 Web 框架</li>
+<li><strong>原生模块</strong>: node-gyp、node-addon-api</li>
+<li><strong>工具库</strong>: electron-store、electron-updater、electron-log</li>
+</ul>
+<h4 id="最佳实践-3"><a href="#最佳实践-3" class="headerlink" title="最佳实践"></a>最佳实践</h4><ol>
+<li><strong>项目结构</strong></li>
+</ol>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">src/</span><br><span class="line">  ├── main/</span><br><span class="line">  │   ├── main.js</span><br><span class="line">  │   └── preload.js</span><br><span class="line">  ├── renderer/</span><br><span class="line">  │   ├── index.html</span><br><span class="line">  │   └── ...</span><br><span class="line">  └── shared/</span><br><span class="line">      └── ...</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p><strong>安全实践</strong></p>
+<ul>
+<li>启用上下文隔离（Context Isolation）</li>
+<li>禁用 Node.js 集成（在渲染进程中）</li>
+<li>使用预加载脚本（Preload Scripts）</li>
+<li>验证 IPC 消息</li>
+<li>使用 CSP（内容安全策略）</li>
+</ul>
+</li>
+<li><p><strong>性能优化</strong></p>
+<ul>
+<li>使用 Vite 等现代构建工具</li>
+<li>代码分割和懒加载</li>
+<li>使用多进程架构</li>
+<li>优化资源加载</li>
+<li>使用原生模块处理重计算</li>
+</ul>
+</li>
+<li><p><strong>打包优化</strong></p>
+<ul>
+<li>使用 Electron Builder 的压缩选项</li>
+<li>移除未使用的依赖</li>
+<li>使用 asar 归档</li>
+<li>优化资源文件</li>
+</ul>
+</li>
+</ol>
+<h4 id="参考资料-3"><a href="#参考资料-3" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZWxlY3Ryb25qcy5vcmcvZG9jcy9sYXRlc3Q=">Electron 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZWxlY3Ryb25qcy5vcmcvZG9jcy9sYXRlc3QvdHV0b3JpYWwvc2VjdXJpdHk=">Electron 安全指南<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZWxlY3Ryb25qcy5vcmcvZG9jcy9sYXRlc3QvdHV0b3JpYWwvcGVyZm9ybWFuY2U=">Electron 最佳实践<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2VsZWN0cm9uL2VsZWN0cm9uLXF1aWNrLXN0YXJ0">Electron 应用示例<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<hr>
+<h3 id="uni-app-深度解析"><a href="#uni-app-深度解析" class="headerlink" title="uni-app 深度解析"></a>uni-app 深度解析</h3><h4 id="技术原理-4"><a href="#技术原理-4" class="headerlink" title="技术原理"></a>技术原理</h4><p>uni-app 使用条件编译和运行时适配，将 Vue 代码编译到不同平台。通过统一的 API 和组件，实现一套代码多端运行。</p>
+<p><strong>核心组件</strong>:</p>
+<ol>
+<li><strong>Vue 框架</strong>: 基于 Vue 2&#x2F;3</li>
+<li><strong>条件编译</strong>: 使用 <code>#ifdef</code> 和 <code>#endif</code> 进行平台特定代码</li>
+<li><strong>运行时适配</strong>: 运行时根据平台调用不同的 API</li>
+<li><strong>原生插件</strong>: 通过插件扩展原生功能</li>
+</ol>
+<p><strong>编译流程</strong>:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Vue 代码 → 条件编译 → 平台适配 → 编译到目标平台 → 打包发布</span><br></pre></td></tr></table></figure>
+
+<h4 id="性能特点-4"><a href="#性能特点-4" class="headerlink" title="性能特点"></a>性能特点</h4><ul>
+<li><strong>混合渲染</strong>: 部分使用原生组件，部分使用 WebView</li>
+<li><strong>nvue</strong>: 使用原生渲染，性能接近原生</li>
+<li><strong>优化策略</strong>: 自动优化图片、代码分割</li>
+<li><strong>包体积</strong>: 相对较小，支持按需引入</li>
+</ul>
+<h4 id="开发体验-4"><a href="#开发体验-4" class="headerlink" title="开发体验"></a>开发体验</h4><ul>
+<li><strong>Vue 语法</strong>: 使用熟悉的 Vue 语法</li>
+<li><strong>HBuilderX</strong>: 官方 IDE，提供可视化配置</li>
+<li><strong>云打包</strong>: 无需本地配置环境</li>
+<li><strong>丰富的插件</strong>: DCloud 插件市场</li>
+<li><strong>小程序支持</strong>:<ul>
+<li>支持微信小程序、支付宝小程序、百度小程序、字节跳动小程序、QQ 小程序、快手小程序、钉钉小程序等</li>
+<li>一套代码编译到多个小程序平台</li>
+<li>支持小程序特定的 API 和组件</li>
+<li>支持条件编译处理平台差异</li>
+</ul>
+</li>
+</ul>
+<h4 id="生态体系-4"><a href="#生态体系-4" class="headerlink" title="生态体系"></a>生态体系</h4><ul>
+<li><strong>UI 框架</strong>: uni-ui、uView、ColorUI</li>
+<li><strong>状态管理</strong>: Vuex、Pinia</li>
+<li><strong>网络请求</strong>: uni.request、uni.uploadFile</li>
+<li><strong>存储</strong>: uni.setStorage、uni.getStorage</li>
+<li><strong>路由</strong>: uni.navigateTo、uni.redirectTo</li>
+</ul>
+<h4 id="最佳实践-4"><a href="#最佳实践-4" class="headerlink" title="最佳实践"></a>最佳实践</h4><ol>
+<li><strong>项目结构</strong></li>
+</ol>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">src/</span><br><span class="line">  ├── pages/</span><br><span class="line">  ├── components/</span><br><span class="line">  ├── static/</span><br><span class="line">  ├── store/</span><br><span class="line">  ├── utils/</span><br><span class="line">  └── manifest.json</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>条件编译</strong></li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// #ifdef H5</span></span><br><span class="line"><span class="comment">// H5 特定代码</span></span><br><span class="line"><span class="comment">// #endif</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// #ifdef APP-PLUS</span></span><br><span class="line"><span class="comment">// App 特定代码</span></span><br><span class="line"><span class="comment">// #endif</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// #ifdef MP-WEIXIN</span></span><br><span class="line"><span class="comment">// 微信小程序特定代码</span></span><br><span class="line"><span class="comment">// #endif</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// #ifdef MP-ALIPAY</span></span><br><span class="line"><span class="comment">// 支付宝小程序特定代码</span></span><br><span class="line"><span class="comment">// #endif</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p><strong>小程序开发最佳实践</strong></p>
+<ul>
+<li><strong>微信小程序</strong>:<ul>
+<li>使用 <code>#ifdef MP-WEIXIN</code> 处理微信小程序特定代码</li>
+<li>注意微信小程序的 API 限制和规范</li>
+<li>合理使用分包，控制主包大小</li>
+</ul>
+</li>
+<li><strong>支付宝小程序</strong>:<ul>
+<li>使用 <code>#ifdef MP-ALIPAY</code> 处理支付宝小程序特定代码</li>
+<li>注意支付宝小程序的 API 差异</li>
+<li>适配支付宝小程序的 UI 规范</li>
+</ul>
+</li>
+<li><strong>多平台适配</strong>:<ul>
+<li>使用条件编译处理平台差异</li>
+<li>统一 API 调用，运行时自动适配</li>
+<li>测试各个小程序平台的兼容性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>性能优化</strong></p>
+<ul>
+<li>使用 nvue 页面提升性能</li>
+<li>合理使用条件编译</li>
+<li>图片使用 webp 格式</li>
+<li>使用分包加载</li>
+<li>优化首屏加载</li>
+</ul>
+</li>
+<li><p><strong>代码规范</strong></p>
+<ul>
+<li>遵循 Vue 官方风格指南</li>
+<li>使用 ESLint</li>
+<li>编写单元测试</li>
+</ul>
+</li>
+</ol>
+<h4 id="参考资料-4"><a href="#参考资料-4" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly91bmlhcHAuZGNsb3VkLm5ldC5jbi8=">uni-app 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9leHQuZGNsb3VkLm5ldC5jbi8=">uni-app 插件市场<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9hc2suZGNsb3VkLm5ldC5jbi8=">uni-app 社区<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RjbG91ZGlvL3VuaS1hcHA=">uni-app 示例<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<hr>
+<h3 id="Taro-深度解析"><a href="#Taro-深度解析" class="headerlink" title="Taro 深度解析"></a>Taro 深度解析</h3><h4 id="技术原理-5"><a href="#技术原理-5" class="headerlink" title="技术原理"></a>技术原理</h4><p>Taro 使用编译时转换，将 React&#x2F;Vue 代码转换为不同平台的代码。通过统一的组件和 API，实现一套代码多端运行。</p>
+<p><strong>核心组件</strong>:</p>
+<ol>
+<li><strong>多框架支持</strong>: React、Vue、Vue3</li>
+<li><strong>编译时转换</strong>: 将框架代码转换为平台代码</li>
+<li><strong>运行时适配</strong>: 运行时根据平台调用不同的 API</li>
+<li><strong>条件编译</strong>: 支持平台特定代码</li>
+</ol>
+<p><strong>编译流程</strong>:</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">React/Vue 代码 → Taro 编译 → 平台适配 → 编译到目标平台 → 打包发布</span><br></pre></td></tr></table></figure>
+
+<h4 id="性能特点-5"><a href="#性能特点-5" class="headerlink" title="性能特点"></a>性能特点</h4><ul>
+<li><strong>混合渲染</strong>: 部分使用原生组件，部分使用 WebView</li>
+<li><strong>编译优化</strong>: 编译时优化，减少运行时开销</li>
+<li><strong>包体积</strong>: 相对较小，支持按需引入</li>
+<li><strong>性能优化</strong>: 自动优化和手动优化选项</li>
+</ul>
+<h4 id="开发体验-5"><a href="#开发体验-5" class="headerlink" title="开发体验"></a>开发体验</h4><ul>
+<li><strong>React&#x2F;Vue 语法</strong>: 使用熟悉的框架语法</li>
+<li><strong>TypeScript 支持</strong>: 完整的类型支持</li>
+<li><strong>开发工具</strong>: Taro CLI、Taro DevTools</li>
+<li><strong>丰富的生态</strong>: 支持 React&#x2F;Vue 生态</li>
+<li><strong>小程序支持</strong>:<ul>
+<li>支持微信小程序、支付宝小程序、百度小程序、字节跳动小程序、QQ 小程序、快手小程序、钉钉小程序等</li>
+<li>一套代码编译到多个小程序平台</li>
+<li>支持小程序特定的 API 和组件</li>
+<li>使用 <code>process.env.TARO_ENV</code> 进行条件编译</li>
+</ul>
+</li>
+</ul>
+<h4 id="生态体系-5"><a href="#生态体系-5" class="headerlink" title="生态体系"></a>生态体系</h4><ul>
+<li><strong>UI 框架</strong>: Taro UI、NutUI、Taroify</li>
+<li><strong>状态管理</strong>: Redux、MobX、Zustand</li>
+<li><strong>路由</strong>: Taro 路由系统</li>
+<li><strong>网络请求</strong>: Taro.request</li>
+<li><strong>存储</strong>: Taro.setStorage、Taro.getStorage</li>
+</ul>
+<h4 id="最佳实践-5"><a href="#最佳实践-5" class="headerlink" title="最佳实践"></a>最佳实践</h4><ol>
+<li><strong>项目结构</strong></li>
+</ol>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">src/</span><br><span class="line">  ├── pages/</span><br><span class="line">  ├── components/</span><br><span class="line">  ├── app.config.js</span><br><span class="line">  ├── app.js</span><br><span class="line">  └── project.config.json</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>条件编译</strong></li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用 process.env.TARO_ENV</span></span><br><span class="line"><span class="keyword">if</span> (process.<span class="property">env</span>.<span class="property">TARO_ENV</span> === <span class="string">&quot;h5&quot;</span>) &#123;</span><br><span class="line">  <span class="comment">// H5 特定代码</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (process.<span class="property">env</span>.<span class="property">TARO_ENV</span> === <span class="string">&quot;weapp&quot;</span>) &#123;</span><br><span class="line">  <span class="comment">// 微信小程序特定代码</span></span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (process.<span class="property">env</span>.<span class="property">TARO_ENV</span> === <span class="string">&quot;alipay&quot;</span>) &#123;</span><br><span class="line">  <span class="comment">// 支付宝小程序特定代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p><strong>小程序开发最佳实践</strong></p>
+<ul>
+<li><strong>微信小程序</strong>:<ul>
+<li>使用 <code>process.env.TARO_ENV === &quot;weapp&quot;</code> 处理微信小程序特定代码</li>
+<li>注意微信小程序的 API 限制和规范</li>
+<li>合理使用分包，控制主包大小</li>
+</ul>
+</li>
+<li><strong>支付宝小程序</strong>:<ul>
+<li>使用 <code>process.env.TARO_ENV === &quot;alipay&quot;</code> 处理支付宝小程序特定代码</li>
+<li>注意支付宝小程序的 API 差异</li>
+<li>适配支付宝小程序的 UI 规范</li>
+</ul>
+</li>
+<li><strong>多平台适配</strong>:<ul>
+<li>使用条件编译处理平台差异</li>
+<li>统一 API 调用，运行时自动适配</li>
+<li>测试各个小程序平台的兼容性</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>性能优化</strong></p>
+<ul>
+<li>使用 Taro 优化选项</li>
+<li>合理使用条件编译</li>
+<li>图片优化</li>
+<li>代码分割</li>
+<li>使用原生组件</li>
+</ul>
+</li>
+<li><p><strong>代码规范</strong></p>
+<ul>
+<li>遵循 React&#x2F;Vue 官方风格指南</li>
+<li>使用 TypeScript</li>
+<li>使用 ESLint 和 Prettier</li>
+</ul>
+</li>
+</ol>
+<h4 id="参考资料-5"><a href="#参考资料-5" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly90YXJvLmpkLmNvbS9kb2NzLw==">Taro 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL05lcnZKUy90YXJvL3RyZWUvbWFzdGVyL2V4YW1wbGVz">Taro 示例<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL05lcnZKUy90YXJv">Taro 社区<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly90YXJvLXVpLmpkLmNvbS8=">Taro UI<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<hr>
+<h3 id="Ionic-深度解析"><a href="#Ionic-深度解析" class="headerlink" title="Ionic 深度解析"></a>Ionic 深度解析</h3><h4 id="技术原理-6"><a href="#技术原理-6" class="headerlink" title="技术原理"></a>技术原理</h4><p>Ionic 使用 WebView 渲染 Web 内容，通过 Capacitor（新）或 Cordova（旧）访问原生功能。</p>
+<p><strong>核心组件</strong>:</p>
+<ol>
+<li><strong>Web 框架</strong>: React、Vue、Angular</li>
+<li><strong>UI 组件</strong>: Ionic Components</li>
+<li><strong>原生桥接</strong>: Capacitor 或 Cordova</li>
+<li><strong>WebView</strong>: 系统 WebView 或 Cordova WebView</li>
+</ol>
+<p><strong>架构演进</strong>:</p>
+<ul>
+<li><strong>Cordova</strong>: 传统的插件架构</li>
+<li><strong>Capacitor</strong>: 现代化的原生桥接，更好的性能和开发体验</li>
+</ul>
+<h4 id="性能特点-6"><a href="#性能特点-6" class="headerlink" title="性能特点"></a>性能特点</h4><ul>
+<li><strong>Web 性能</strong>: 依赖 WebView 性能</li>
+<li><strong>原生访问</strong>: 通过插件访问原生功能</li>
+<li><strong>包体积</strong>: 中等大小</li>
+<li><strong>启动速度</strong>: 取决于 WebView 加载速度</li>
+</ul>
+<h4 id="开发体验-6"><a href="#开发体验-6" class="headerlink" title="开发体验"></a>开发体验</h4><ul>
+<li><strong>Web 技术</strong>: 使用熟悉的 Web 技术栈</li>
+<li><strong>丰富的组件</strong>: Ionic 组件库</li>
+<li><strong>跨框架</strong>: 支持 React、Vue、Angular</li>
+<li><strong>工具链</strong>: Ionic CLI、Ionic DevTools</li>
+</ul>
+<h4 id="生态体系-6"><a href="#生态体系-6" class="headerlink" title="生态体系"></a>生态体系</h4><ul>
+<li><strong>UI 组件</strong>: Ionic Components</li>
+<li><strong>原生插件</strong>: Capacitor 插件、Cordova 插件</li>
+<li><strong>工具</strong>: Ionic CLI、Ionic Appflow</li>
+<li><strong>主题</strong>: Ionic 主题系统</li>
+</ul>
+<h4 id="最佳实践-6"><a href="#最佳实践-6" class="headerlink" title="最佳实践"></a>最佳实践</h4><ol>
+<li><strong>项目结构</strong></li>
+</ol>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">src/</span><br><span class="line">  ├── app/</span><br><span class="line">  ├── pages/</span><br><span class="line">  ├── components/</span><br><span class="line">  └── ...</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p><strong>性能优化</strong></p>
+<ul>
+<li>使用懒加载</li>
+<li>优化图片</li>
+<li>使用原生组件</li>
+<li>减少 WebView 通信</li>
+</ul>
+</li>
+<li><p><strong>代码规范</strong></p>
+<ul>
+<li>遵循框架最佳实践</li>
+<li>使用 TypeScript</li>
+<li>使用 ESLint</li>
+</ul>
+</li>
+</ol>
+<h4 id="参考资料-6"><a href="#参考资料-6" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9pb25pY2ZyYW1ld29yay5jb20vZG9jcw==">Ionic 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9jYXBhY2l0b3Jqcy5jb20vZG9jcw==">Capacitor 文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9pb25pY2ZyYW1ld29yay5jb20vZG9jcy9jb21wb25lbnRz">Ionic 组件<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<hr>
+<h3 id="NET-MAUI-深度解析"><a href="#NET-MAUI-深度解析" class="headerlink" title=".NET MAUI 深度解析"></a>.NET MAUI 深度解析</h3><h4 id="技术原理-7"><a href="#技术原理-7" class="headerlink" title="技术原理"></a>技术原理</h4><p>.NET MAUI 使用原生控件渲染 UI，通过 .NET 运行时在目标平台上运行。</p>
+<p><strong>核心组件</strong>:</p>
+<ol>
+<li><strong>.NET 运行时</strong>: 跨平台的 .NET 运行时</li>
+<li><strong>原生控件</strong>: 使用平台原生控件</li>
+<li><strong>XAML</strong>: 声明式 UI 定义</li>
+<li><strong>MVVM</strong>: 模型-视图-视图模型模式</li>
+</ol>
+<h4 id="性能特点-7"><a href="#性能特点-7" class="headerlink" title="性能特点"></a>性能特点</h4><ul>
+<li><strong>原生性能</strong>: 使用原生控件，性能接近原生</li>
+<li><strong>包体积</strong>: 中等大小</li>
+<li><strong>启动速度</strong>: 取决于 .NET 运行时加载</li>
+</ul>
+<h4 id="开发体验-7"><a href="#开发体验-7" class="headerlink" title="开发体验"></a>开发体验</h4><ul>
+<li><strong>C# 语言</strong>: 使用 C# 开发</li>
+<li><strong>Visual Studio</strong>: 官方 IDE 支持</li>
+<li><strong>XAML</strong>: 声明式 UI</li>
+<li><strong>.NET 生态</strong>: 丰富的 .NET 库</li>
+</ul>
+<h4 id="生态体系-7"><a href="#生态体系-7" class="headerlink" title="生态体系"></a>生态体系</h4><ul>
+<li><strong>UI 框架</strong>: .NET MAUI</li>
+<li><strong>状态管理</strong>: MVVM 模式</li>
+<li><strong>网络</strong>: HttpClient、Refit</li>
+<li><strong>存储</strong>: SQLite、Preferences</li>
+</ul>
+<h4 id="最佳实践-7"><a href="#最佳实践-7" class="headerlink" title="最佳实践"></a>最佳实践</h4><ol>
+<li><strong>项目结构</strong></li>
+</ol>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Platforms/</span><br><span class="line">  ├── Android/</span><br><span class="line">  ├── iOS/</span><br><span class="line">  ├── Windows/</span><br><span class="line">  └── macOS/</span><br><span class="line">Views/</span><br><span class="line">ViewModels/</span><br><span class="line">Models/</span><br><span class="line">Services/</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p><strong>MVVM 模式</strong></p>
+<ul>
+<li>使用 ViewModel 管理状态</li>
+<li>使用 Command 处理交互</li>
+<li>使用 DataBinding 绑定数据</li>
+</ul>
+</li>
+<li><p><strong>性能优化</strong></p>
+<ul>
+<li>使用原生控件</li>
+<li>优化资源加载</li>
+<li>使用异步操作</li>
+</ul>
+</li>
+</ol>
+<h4 id="参考资料-7"><a href="#参考资料-7" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5taWNyb3NvZnQuY29tL3poLWNuL2RvdG5ldC9tYXVpLw==">.NET MAUI 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvdG5ldC9tYXVpLXNhbXBsZXM=">.NET MAUI 示例<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<hr>
+<h3 id="Qt-深度解析"><a href="#Qt-深度解析" class="headerlink" title="Qt 深度解析"></a>Qt 深度解析</h3><h4 id="技术原理-8"><a href="#技术原理-8" class="headerlink" title="技术原理"></a>技术原理</h4><p>Qt 使用自绘引擎或原生控件渲染 UI，通过 C++ 或 QML 开发。</p>
+<p><strong>核心组件</strong>:</p>
+<ol>
+<li><strong>Qt Framework</strong>: 跨平台框架</li>
+<li><strong>QML</strong>: 声明式 UI 语言</li>
+<li><strong>Qt Widgets</strong>: 传统桌面 UI 组件</li>
+<li><strong>Qt Quick</strong>: 现代 UI 框架</li>
+</ol>
+<h4 id="性能特点-8"><a href="#性能特点-8" class="headerlink" title="性能特点"></a>性能特点</h4><ul>
+<li><strong>原生性能</strong>: C++ 性能，接近原生</li>
+<li><strong>包体积</strong>: 较大（包含 Qt 库）</li>
+<li><strong>启动速度</strong>: 取决于 Qt 库加载</li>
+</ul>
+<h4 id="开发体验-8"><a href="#开发体验-8" class="headerlink" title="开发体验"></a>开发体验</h4><ul>
+<li><strong>C++&#x2F;QML</strong>: 使用 C++ 或 QML 开发</li>
+<li><strong>Qt Creator</strong>: 官方 IDE</li>
+<li><strong>丰富的组件</strong>: Qt Widgets、Qt Quick Controls</li>
+<li><strong>跨平台</strong>: 一套代码多平台运行</li>
+</ul>
+<h4 id="生态体系-8"><a href="#生态体系-8" class="headerlink" title="生态体系"></a>生态体系</h4><ul>
+<li><strong>UI 框架</strong>: Qt Widgets、Qt Quick</li>
+<li><strong>工具</strong>: Qt Creator、Qt Designer</li>
+<li><strong>库</strong>: 丰富的 Qt 模块</li>
+</ul>
+<h4 id="最佳实践-8"><a href="#最佳实践-8" class="headerlink" title="最佳实践"></a>最佳实践</h4><ol>
+<li><strong>项目结构</strong></li>
+</ol>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">src/</span><br><span class="line">  ├── main.cpp</span><br><span class="line">  ├── main.qml</span><br><span class="line">  └── ...</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>性能优化</strong><ul>
+<li>使用 QML 进行 UI</li>
+<li>使用 C++ 处理重计算</li>
+<li>优化资源加载</li>
+</ul>
+</li>
+</ol>
+<h4 id="参考资料-8"><a href="#参考资料-8" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kb2MucXQuaW8v">Qt 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kb2MucXQuaW8vcXQtNi9xdGV4YW1wbGVzYW5kdHV0b3JpYWxzLmh0bWw=">Qt 示例<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<hr>
+<h3 id="NativeScript-深度解析"><a href="#NativeScript-深度解析" class="headerlink" title="NativeScript 深度解析"></a>NativeScript 深度解析</h3><h4 id="技术原理-9"><a href="#技术原理-9" class="headerlink" title="技术原理"></a>技术原理</h4><p>NativeScript 使用 JavaScript 运行时直接调用原生 API，无需 Bridge。</p>
+<p><strong>核心组件</strong>:</p>
+<ol>
+<li><strong>JavaScript 运行时</strong>: V8 或 JavaScriptCore</li>
+<li><strong>原生访问</strong>: 直接访问原生 API</li>
+<li><strong>框架支持</strong>: Vue、React、Angular</li>
+</ol>
+<h4 id="性能特点-9"><a href="#性能特点-9" class="headerlink" title="性能特点"></a>性能特点</h4><ul>
+<li><strong>原生性能</strong>: 直接调用原生 API</li>
+<li><strong>包体积</strong>: 中等大小</li>
+<li><strong>启动速度</strong>: 取决于 JavaScript 运行时加载</li>
+</ul>
+<h4 id="开发体验-9"><a href="#开发体验-9" class="headerlink" title="开发体验"></a>开发体验</h4><ul>
+<li><strong>JavaScript</strong>: 使用 JavaScript&#x2F;TypeScript</li>
+<li><strong>框架支持</strong>: Vue、React、Angular</li>
+<li><strong>原生访问</strong>: 直接访问原生 API</li>
+</ul>
+<h4 id="生态体系-9"><a href="#生态体系-9" class="headerlink" title="生态体系"></a>生态体系</h4><ul>
+<li><strong>UI 组件</strong>: NativeScript UI</li>
+<li><strong>插件</strong>: NativeScript 插件生态</li>
+<li><strong>工具</strong>: NativeScript CLI</li>
+</ul>
+<h4 id="最佳实践-9"><a href="#最佳实践-9" class="headerlink" title="最佳实践"></a>最佳实践</h4><ol>
+<li><strong>项目结构</strong></li>
+</ol>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">app/</span><br><span class="line">  ├── app.js</span><br><span class="line">  ├── main-page.xml</span><br><span class="line">  └── ...</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>性能优化</strong><ul>
+<li>使用原生组件</li>
+<li>优化 JavaScript 代码</li>
+<li>减少原生调用</li>
+</ul>
+</li>
+</ol>
+<h4 id="参考资料-9"><a href="#参考资料-9" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm5hdGl2ZXNjcmlwdC5vcmcv">NativeScript 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<hr>
+<h3 id="Kotlin-Multiplatform-KMP-深度解析"><a href="#Kotlin-Multiplatform-KMP-深度解析" class="headerlink" title="Kotlin Multiplatform (KMP) 深度解析"></a>Kotlin Multiplatform (KMP) 深度解析</h3><h4 id="技术原理-10"><a href="#技术原理-10" class="headerlink" title="技术原理"></a>技术原理</h4><p>Kotlin Multiplatform 允许在多个平台之间共享代码，同时保持平台特定的实现。它提供了<strong>灵活的代码共享策略</strong>，可以共享 1% 到 100% 的代码，包括业务逻辑和&#x2F;或 UI。</p>
+<p><strong>核心组件</strong>:</p>
+<ol>
+<li><strong>Kotlin 语言</strong>: 统一的开发语言</li>
+<li><strong>共享模块</strong>: 包含业务逻辑、数据模型、网络层等</li>
+<li><strong>平台特定模块</strong>: 各平台的 UI 和平台特定 API</li>
+<li><strong>编译器</strong>:<ul>
+<li>Kotlin&#x2F;Native（iOS、桌面）</li>
+<li>Kotlin&#x2F;JS（Web）</li>
+<li>Kotlin&#x2F;JVM（Android、桌面）</li>
+</ul>
+</li>
+</ol>
+<p><strong>架构模式</strong>:</p>
+<p><strong>模式 1：共享业务逻辑 + 原生 UI</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">共享模块 (commonMain)</span><br><span class="line">├── 业务逻辑</span><br><span class="line">├── 数据模型</span><br><span class="line">├── 网络层</span><br><span class="line">└── 数据存储</span><br><span class="line"></span><br><span class="line">平台特定模块</span><br><span class="line">├── androidMain (Jetpack Compose)</span><br><span class="line">├── iosMain (SwiftUI)</span><br><span class="line">└── jsMain (Compose for Web)</span><br></pre></td></tr></table></figure>
+
+<p><strong>模式 2：共享业务逻辑 + 共享 UI（Compose Multiplatform）</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">共享模块 (commonMain)</span><br><span class="line">├── 业务逻辑</span><br><span class="line">├── 数据模型</span><br><span class="line">├── 网络层</span><br><span class="line">├── 数据存储</span><br><span class="line">└── UI（Compose Multiplatform）</span><br><span class="line"></span><br><span class="line">平台特定模块</span><br><span class="line">├── androidMain</span><br><span class="line">├── iosMain</span><br><span class="line">└── jsMain（Beta）</span><br></pre></td></tr></table></figure>
+
+<p><strong>Compose Multiplatform</strong>:</p>
+<ul>
+<li>基于 Google 的 Jetpack Compose</li>
+<li>使用 Skia 引擎（兼容 OpenGL、ANGLE、Vulkan、Metal）</li>
+<li>支持共享 UI 代码</li>
+<li>目前稳定：iOS、Android、桌面</li>
+<li>Web 端：Beta 阶段</li>
+</ul>
+<h4 id="性能特点-10"><a href="#性能特点-10" class="headerlink" title="性能特点"></a>性能特点</h4><ul>
+<li><strong>原生性能</strong>: 编译为平台原生代码，性能接近原生</li>
+<li><strong>包体积</strong>: 相对较小，只包含共享代码和必要的运行时</li>
+<li><strong>启动速度</strong>: 原生启动速度</li>
+<li><strong>内存占用</strong>: 与原生应用相当</li>
+</ul>
+<h4 id="开发体验-10"><a href="#开发体验-10" class="headerlink" title="开发体验"></a>开发体验</h4><ul>
+<li><strong>Kotlin 语言</strong>: 现代、类型安全的语言</li>
+<li><strong>IDE 支持</strong>: IntelliJ IDEA、Android Studio 完整支持</li>
+<li><strong>代码共享</strong>: 可以共享 1% 到 100% 的代码，灵活选择共享范围</li>
+<li><strong>UI 开发</strong>:<ul>
+<li>使用 Compose Multiplatform：可以共享 UI 代码，支持热重载（Compose Hot Reload）</li>
+<li>使用原生 UI：各平台使用最佳 UI 框架（Jetpack Compose、SwiftUI）</li>
+</ul>
+</li>
+<li><strong>原生 API 访问</strong>: 使用 expect&#x2F;actual 声明直接访问原生 API</li>
+</ul>
+<h4 id="生态体系-10"><a href="#生态体系-10" class="headerlink" title="生态体系"></a>生态体系</h4><ul>
+<li><strong>UI 框架</strong>:<ul>
+<li><strong>Compose Multiplatform</strong>: 共享 UI（基于 Jetpack Compose）<ul>
+<li>Android: ✅ 稳定</li>
+<li>iOS: ✅ 稳定</li>
+<li>桌面: ✅ 稳定</li>
+<li>Web: ⚠️ Beta</li>
+</ul>
+</li>
+<li><strong>原生 UI</strong>:<ul>
+<li>Android: Jetpack Compose</li>
+<li>iOS: SwiftUI</li>
+<li>Web: Compose for Web</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>包管理</strong>: Maven Central、klibs.io（Alpha）</li>
+<li><strong>网络</strong>: Ktor、OkHttp</li>
+<li><strong>序列化</strong>: kotlinx.serialization</li>
+<li><strong>协程</strong>: kotlinx.coroutines</li>
+<li><strong>依赖注入</strong>: Koin、Kodein</li>
+<li><strong>构建工具</strong>: Gradle（Apple 设备需要 Xcode）</li>
+</ul>
+<h4 id="最佳实践-10"><a href="#最佳实践-10" class="headerlink" title="最佳实践"></a>最佳实践</h4><ol>
+<li><strong>项目结构</strong></li>
+</ol>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">shared/</span><br><span class="line">  ├── commonMain/</span><br><span class="line">  │   ├── kotlin/</span><br><span class="line">  │   │   ├── models/</span><br><span class="line">  │   │   ├── repository/</span><br><span class="line">  │   │   ├── usecase/</span><br><span class="line">  │   │   └── network/</span><br><span class="line">  ├── androidMain/</span><br><span class="line">  │   └── kotlin/</span><br><span class="line">  │       └── platform/</span><br><span class="line">  └── iosMain/</span><br><span class="line">      └── kotlin/</span><br><span class="line">          └── platform/</span><br><span class="line">android/</span><br><span class="line">  └── app/</span><br><span class="line">      └── src/</span><br><span class="line">          └── main/</span><br><span class="line">              └── kotlin/</span><br><span class="line">                  └── ui/</span><br><span class="line">ios/</span><br><span class="line">  └── App/</span><br><span class="line">      └── Views/</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p><strong>代码组织</strong></p>
+<ul>
+<li>将业务逻辑放在 <code>commonMain</code></li>
+<li>平台特定代码放在对应的平台模块</li>
+<li>使用 <code>expect/actual</code> 机制处理平台差异</li>
+<li>使用接口定义平台特定实现</li>
+</ul>
+</li>
+<li><p><strong>性能优化</strong></p>
+<ul>
+<li>使用协程处理异步操作</li>
+<li>合理使用缓存</li>
+<li>优化网络请求</li>
+<li>使用原生 UI 框架</li>
+</ul>
+</li>
+<li><p><strong>代码规范</strong></p>
+<ul>
+<li>遵循 Kotlin 编码规范</li>
+<li>使用 Kotlin 标准库</li>
+<li>编写单元测试</li>
+<li>使用 Kotlin Multiplatform 最佳实践</li>
+</ul>
+</li>
+</ol>
+<h4 id="使用示例"><a href="#使用示例" class="headerlink" title="使用示例"></a>使用示例</h4><p><strong>共享业务逻辑</strong>:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// commonMain</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">UserRepository</span> &#123;</span><br><span class="line">    <span class="keyword">suspend</span> <span class="function"><span class="keyword">fun</span> <span class="title">getUser</span><span class="params">(id: <span class="type">String</span>)</span></span>: User &#123;</span><br><span class="line">        <span class="keyword">return</span> apiService.getUser(id)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>平台特定实现</strong>:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// androidMain</span></span><br><span class="line"><span class="keyword">expect</span> <span class="keyword">class</span> <span class="title class_">Platform</span>() &#123;</span><br><span class="line">    <span class="function"><span class="keyword">fun</span> <span class="title">getPlatformName</span><span class="params">()</span></span>: String</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// androidMain</span></span><br><span class="line"><span class="keyword">actual</span> <span class="keyword">class</span> <span class="title class_">Platform</span> &#123;</span><br><span class="line">    <span class="keyword">actual</span> <span class="function"><span class="keyword">fun</span> <span class="title">getPlatformName</span><span class="params">()</span></span>: String = <span class="string">&quot;Android&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// iosMain</span></span><br><span class="line"><span class="keyword">actual</span> <span class="keyword">class</span> <span class="title class_">Platform</span> &#123;</span><br><span class="line">    <span class="keyword">actual</span> <span class="function"><span class="keyword">fun</span> <span class="title">getPlatformName</span><span class="params">()</span></span>: String = <span class="string">&quot;iOS&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="参考资料-10"><a href="#参考资料-10" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9rb3RsaW5sYW5nLm9yZy9kb2NzL211bHRpcGxhdGZvcm0uaHRtbA==">Kotlin Multiplatform 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0tvdGxpbi9rb3RsaW4tbXVsdGlwbGF0Zm9ybS1zYW1wbGVz">Kotlin Multiplatform 示例<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuamV0YnJhaW5zLmNvbS9scC9jb21wb3NlLW11bHRpcGxhdGZvcm0v">Compose Multiplatform<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9rb3RsaW5sYW5nLm9yZy9kb2NzL2hvbWUuaHRtbA==">Kotlin 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<hr>
+<h3 id="ArkUI（鸿蒙原生）深度解析"><a href="#ArkUI（鸿蒙原生）深度解析" class="headerlink" title="ArkUI（鸿蒙原生）深度解析"></a>ArkUI（鸿蒙原生）深度解析</h3><h4 id="技术原理-11"><a href="#技术原理-11" class="headerlink" title="技术原理"></a>技术原理</h4><p>ArkUI 是鸿蒙系统的原生 UI 框架，使用声明式 UI 和状态管理。</p>
+<p><strong>核心组件</strong>:</p>
+<ol>
+<li><strong>ArkTS</strong>: TypeScript 的扩展</li>
+<li><strong>声明式 UI</strong>: 声明式 UI 框架</li>
+<li><strong>状态管理</strong>: 响应式状态管理</li>
+<li><strong>组件系统</strong>: 丰富的组件库</li>
+</ol>
+<h4 id="性能特点-11"><a href="#性能特点-11" class="headerlink" title="性能特点"></a>性能特点</h4><ul>
+<li><strong>原生性能</strong>: 鸿蒙原生框架</li>
+<li><strong>包体积</strong>: 相对较小</li>
+<li><strong>启动速度</strong>: 原生启动速度</li>
+</ul>
+<h4 id="开发体验-11"><a href="#开发体验-11" class="headerlink" title="开发体验"></a>开发体验</h4><ul>
+<li><strong>ArkTS</strong>: 基于 TypeScript</li>
+<li><strong>DevEco Studio</strong>: 官方 IDE</li>
+<li><strong>声明式 UI</strong>: 简洁的 UI 定义</li>
+<li><strong>热重载</strong>: 支持热重载</li>
+</ul>
+<h4 id="生态体系-11"><a href="#生态体系-11" class="headerlink" title="生态体系"></a>生态体系</h4><ul>
+<li><strong>UI 组件</strong>: ArkUI 组件库</li>
+<li><strong>工具</strong>: DevEco Studio</li>
+<li><strong>文档</strong>: 鸿蒙开发者文档</li>
+</ul>
+<h4 id="最佳实践-11"><a href="#最佳实践-11" class="headerlink" title="最佳实践"></a>最佳实践</h4><ol>
+<li><strong>项目结构</strong></li>
+</ol>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">entry/</span><br><span class="line">  ├── src/</span><br><span class="line">  │   ├── main/</span><br><span class="line">  │   │   ├── ets/</span><br><span class="line">  │   │   └── resources/</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><strong>性能优化</strong><ul>
+<li>使用声明式 UI</li>
+<li>优化状态管理</li>
+<li>使用原生组件</li>
+</ul>
+</li>
+</ol>
+<h4 id="参考资料-11"><a href="#参考资料-11" class="headerlink" title="参考资料"></a>参考资料</h4><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIuaGFybW9ueW9zLmNvbS8=">鸿蒙开发者文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIuaGFybW9ueW9zLmNvbS9jbi9kb2NzL2RvY3VtZW50YXRpb24vZG9jLWd1aWRlcy1WMy9hcmt1aS1vdmVydmlldy0wMDAwMDAxNTA0NzY0NzIxLVYz">ArkUI 开发指南<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+<hr>
+<h2 id="Flutter-vs-uni-app-vs-Kotlin-Multiplatform-vs-React-Native-深度对比"><a href="#Flutter-vs-uni-app-vs-Kotlin-Multiplatform-vs-React-Native-深度对比" class="headerlink" title="Flutter vs uni-app vs Kotlin Multiplatform vs React Native 深度对比"></a>Flutter vs uni-app vs Kotlin Multiplatform vs React Native 深度对比</h2><blockquote>
+<p>针对 Flutter、uni-app、Kotlin Multiplatform (KMP) 和 React Native 四个主流跨平台技术方案的全面深度对比，帮助做出最适合的技术选型决策。</p>
+</blockquote>
+<h3 id="核心定位对比"><a href="#核心定位对比" class="headerlink" title="核心定位对比"></a>核心定位对比</h3><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Flutter</th>
+<th>uni-app</th>
+<th>Kotlin Multiplatform (KMP)</th>
+<th>React Native</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>定位</strong></td>
+<td>全平台 UI 框架</td>
+<td>多端统一开发框架</td>
+<td>灵活的代码共享框架（1-100%）</td>
+<td>移动端跨平台框架</td>
+</tr>
+<tr>
+<td><strong>UI 策略</strong></td>
+<td>Impeller 引擎，统一 UI</td>
+<td>混合渲染，平台适配</td>
+<td>Compose Multiplatform 或原生 UI</td>
+<td>原生组件，平台适配</td>
+</tr>
+<tr>
+<td><strong>代码复用</strong></td>
+<td>UI + 业务逻辑（100%）</td>
+<td>UI + 业务逻辑（80-90%）</td>
+<td>业务逻辑和&#x2F;或 UI（1-100%，灵活）</td>
+<td>UI + 业务逻辑（70-85%）</td>
+</tr>
+<tr>
+<td><strong>主要优势</strong></td>
+<td>性能优秀，UI 一致</td>
+<td>支持小程序，生态丰富</td>
+<td>灵活代码共享，原生性能</td>
+<td>React 生态，原生性能</td>
+</tr>
+</tbody></table>
+<h3 id="平台支持对比"><a href="#平台支持对比" class="headerlink" title="平台支持对比"></a>平台支持对比</h3><table>
+<thead>
+<tr>
+<th>平台</th>
+<th>Flutter</th>
+<th>uni-app</th>
+<th>Kotlin Multiplatform (KMP)</th>
+<th>React Native</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Android</strong></td>
+<td>✅ 原生支持</td>
+<td>✅ 支持</td>
+<td>✅ 原生支持</td>
+<td>✅ 原生支持</td>
+</tr>
+<tr>
+<td><strong>iOS</strong></td>
+<td>✅ 原生支持</td>
+<td>✅ 支持</td>
+<td>✅ 原生支持</td>
+<td>✅ 原生支持</td>
+</tr>
+<tr>
+<td><strong>Web</strong></td>
+<td>✅ 支持（性能一般）</td>
+<td>✅ 支持</td>
+<td>✅ 支持（Compose for Web）</td>
+<td>❌ 不支持（需额外方案）</td>
+</tr>
+<tr>
+<td><strong>Windows</strong></td>
+<td>✅ 支持</td>
+<td>✅ 支持</td>
+<td>✅ 支持</td>
+<td>✅ 支持（RNW）</td>
+</tr>
+<tr>
+<td><strong>macOS</strong></td>
+<td>✅ 支持</td>
+<td>✅ 支持</td>
+<td>✅ 支持</td>
+<td>✅ 支持（RNM）</td>
+</tr>
+<tr>
+<td><strong>Linux</strong></td>
+<td>✅ 支持</td>
+<td>❌ 不支持</td>
+<td>✅ 支持</td>
+<td>❌ 不支持</td>
+</tr>
+<tr>
+<td><strong>鸿蒙</strong></td>
+<td>✅ 社区支持</td>
+<td>✅ 官方支持</td>
+<td>❌ 不支持</td>
+<td>❌ 不支持</td>
+</tr>
+<tr>
+<td><strong>微信小程序</strong></td>
+<td>❌ 不支持</td>
+<td>✅ 官方支持</td>
+<td>❌ 不支持</td>
+<td>❌ 不支持</td>
+</tr>
+<tr>
+<td><strong>支付宝小程序</strong></td>
+<td>❌ 不支持</td>
+<td>✅ 官方支持</td>
+<td>❌ 不支持</td>
+<td>❌ 不支持</td>
+</tr>
+<tr>
+<td><strong>其他小程序</strong></td>
+<td>❌ 不支持</td>
+<td>✅ 支持多个</td>
+<td>❌ 不支持</td>
+<td>❌ 不支持</td>
+</tr>
+</tbody></table>
+<h3 id="技术架构对比"><a href="#技术架构对比" class="headerlink" title="技术架构对比"></a>技术架构对比</h3><h4 id="Flutter"><a href="#Flutter" class="headerlink" title="Flutter"></a>Flutter</h4><p><strong>架构特点</strong>:</p>
+<ul>
+<li><strong>渲染引擎</strong>: Impeller 引擎（自定义引擎，直接与 GPU 通信，使用 Metal、Vulkan 或 OpenGL）</li>
+<li><strong>语言</strong>: Dart</li>
+<li><strong>编译方式</strong>:<ul>
+<li>Debug 构建：在虚拟机中运行 Dart 代码</li>
+<li>Release 构建：输出平台特定二进制文件（原生平台）或 JavaScript&#x2F;Wasm（Web）</li>
+</ul>
+</li>
+<li><strong>UI 一致性</strong>: 完全一致，不受平台影响</li>
+<li><strong>代码共享</strong>: 100% 代码共享，控制应用的每个像素</li>
+</ul>
+<p><strong>优势</strong>:</p>
+<ul>
+<li>UI 在所有平台完全一致</li>
+<li>性能接近原生（60 FPS）</li>
+<li>热重载速度快（毫秒级）</li>
+</ul>
+<p><strong>劣势</strong>:</p>
+<ul>
+<li>无法使用平台原生 UI 组件</li>
+<li>包体积相对较大（5-15MB）</li>
+<li>Web 端性能不如原生 Web 框架</li>
+<li>不支持小程序平台</li>
+</ul>
+<h4 id="uni-app"><a href="#uni-app" class="headerlink" title="uni-app"></a>uni-app</h4><p><strong>架构特点</strong>:</p>
+<ul>
+<li><strong>渲染方式</strong>: 混合渲染（nvue 原生渲染 + vue 页面）</li>
+<li><strong>语言</strong>: Vue 2&#x2F;3 + JavaScript&#x2F;TypeScript</li>
+<li><strong>编译方式</strong>: 条件编译 + 运行时适配</li>
+<li><strong>UI 策略</strong>: 尽量统一，平台差异通过条件编译处理</li>
+</ul>
+<p><strong>优势</strong>:</p>
+<ul>
+<li>支持小程序平台（核心优势）</li>
+<li>基于 Vue，学习成本低</li>
+<li>丰富的插件市场</li>
+<li>云打包服务</li>
+</ul>
+<p><strong>劣势</strong>:</p>
+<ul>
+<li>不同平台 UI 可能有差异</li>
+<li>性能不如纯原生应用</li>
+<li>依赖 DCloud 生态</li>
+</ul>
+<h4 id="Kotlin-Multiplatform-KMP"><a href="#Kotlin-Multiplatform-KMP" class="headerlink" title="Kotlin Multiplatform (KMP)"></a>Kotlin Multiplatform (KMP)</h4><p><strong>架构特点</strong>:</p>
+<ul>
+<li><strong>代码共享灵活性</strong>: 可以共享 1% 到 100% 的代码，包括业务逻辑和&#x2F;或 UI</li>
+<li><strong>UI 选项</strong>:<ul>
+<li>使用 Compose Multiplatform 共享 UI（基于 Jetpack Compose，使用 Skia 引擎）</li>
+<li>或使用原生 UI 框架（Jetpack Compose、SwiftUI）各平台独立开发</li>
+</ul>
+</li>
+<li><strong>语言</strong>: Kotlin</li>
+<li><strong>编译方式</strong>:<ul>
+<li>桌面和 Android：编译为 JVM bytecode</li>
+<li>Web：编译为 JavaScript 或 Wasm</li>
+<li>原生平台：编译为平台特定二进制文件</li>
+</ul>
+</li>
+<li><strong>原生 API 访问</strong>: 使用 expect&#x2F;actual 声明直接访问原生 API</li>
+</ul>
+<p><strong>优势</strong>:</p>
+<ul>
+<li><strong>灵活的代码共享</strong>: 可以共享 1% 到 100% 的代码，包括业务逻辑和&#x2F;或 UI</li>
+<li><strong>UI 选择灵活</strong>:<ul>
+<li>可以使用 Compose Multiplatform 共享 UI（基于 Jetpack Compose）</li>
+<li>或使用原生 UI 框架获得原生体验</li>
+</ul>
+</li>
+<li>原生性能（编译为平台原生代码）</li>
+<li>业务逻辑高度复用</li>
+<li>与 Android 开发无缝集成</li>
+<li>Google 在 2024 年 Google I&#x2F;O 上宣布支持 KMP 用于 Android 和 iOS 之间的业务逻辑共享</li>
+</ul>
+<p><strong>劣势</strong>:</p>
+<ul>
+<li>如果使用原生 UI，需要各平台独立开发 UI 层</li>
+<li>如果使用 Compose Multiplatform，Web 端仍在 Beta 阶段</li>
+<li>需要学习 Kotlin（如果团队不熟悉）</li>
+<li>不支持小程序平台</li>
+<li>生态相对较新（相比 Flutter 和 React Native）</li>
+</ul>
+<h4 id="React-Native"><a href="#React-Native" class="headerlink" title="React Native"></a>React Native</h4><p><strong>架构特点</strong>:</p>
+<ul>
+<li><strong>渲染方式</strong>: 使用原生组件（旧架构：Bridge，新架构：JSI）</li>
+<li><strong>语言</strong>: JavaScript&#x2F;TypeScript</li>
+<li><strong>编译方式</strong>: JavaScript 引擎（Hermes&#x2F;JavaScriptCore）</li>
+<li><strong>UI 策略</strong>: 映射到原生组件，保持平台原生体验</li>
+</ul>
+<p><strong>优势</strong>:</p>
+<ul>
+<li>基于 React，学习成本低（已有 React 技术栈）</li>
+<li>使用原生组件，性能接近原生</li>
+<li>庞大的 JavaScript 生态</li>
+<li>Meta 官方支持，社区活跃</li>
+<li>新架构（Fabric + TurboModules）性能提升明显</li>
+</ul>
+<p><strong>劣势</strong>:</p>
+<ul>
+<li>不同平台 UI 可能有差异（遵循平台设计规范）</li>
+<li>需要原生开发知识处理复杂功能</li>
+<li>不支持 Web（需要额外方案如 React Native Web）</li>
+<li>不支持小程序平台</li>
+<li>新架构迁移需要一定成本</li>
+</ul>
+<h3 id="性能对比"><a href="#性能对比" class="headerlink" title="性能对比"></a>性能对比</h3><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Flutter</th>
+<th>uni-app</th>
+<th>Kotlin Multiplatform (KMP)</th>
+<th>React Native</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>运行性能</strong></td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐⭐（新架构）</td>
+</tr>
+<tr>
+<td><strong>启动速度</strong></td>
+<td>快</td>
+<td>中等</td>
+<td>原生速度</td>
+<td>快（Hermes 引擎）</td>
+</tr>
+<tr>
+<td><strong>包体积</strong></td>
+<td>中等（5-15MB）</td>
+<td>小（10-30MB）</td>
+<td>小到中等</td>
+<td>中等（5-15MB）</td>
+</tr>
+<tr>
+<td><strong>内存占用</strong></td>
+<td>中等</td>
+<td>中等</td>
+<td>原生级别</td>
+<td>中等</td>
+</tr>
+<tr>
+<td><strong>动画流畅度</strong></td>
+<td>优秀（60 FPS）</td>
+<td>良好</td>
+<td>原生级别</td>
+<td>优秀（60 FPS）</td>
+</tr>
+<tr>
+<td><strong>Web 性能</strong></td>
+<td>一般</td>
+<td>良好</td>
+<td>良好（Compose for Web）</td>
+<td>不支持（需 RN Web）</td>
+</tr>
+</tbody></table>
+<p><strong>详细分析</strong>:</p>
+<ol>
+<li><p><strong>Flutter</strong>:</p>
+<ul>
+<li>自绘引擎，性能接近原生</li>
+<li>60 FPS 流畅度</li>
+<li>Web 端性能一般（首次加载 1-2MB）</li>
+</ul>
+</li>
+<li><p><strong>uni-app</strong>:</p>
+<ul>
+<li>nvue 页面性能接近原生</li>
+<li>vue 页面使用 WebView，性能一般</li>
+<li>小程序端性能良好</li>
+</ul>
+</li>
+<li><p><strong>Kotlin Multiplatform</strong>:</p>
+<ul>
+<li>编译为原生代码，性能最优</li>
+<li>各平台使用原生 UI 框架</li>
+<li>启动速度和内存占用都是原生级别</li>
+</ul>
+</li>
+<li><p><strong>React Native</strong>:</p>
+<ul>
+<li>使用原生组件，性能接近原生</li>
+<li>新架构（Fabric + TurboModules）性能显著提升</li>
+<li>Hermes 引擎（Android）提升启动速度和性能</li>
+<li>旧架构 Bridge 通信可能有延迟</li>
+</ul>
+</li>
+</ol>
+<h3 id="开发体验对比"><a href="#开发体验对比" class="headerlink" title="开发体验对比"></a>开发体验对比</h3><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Flutter</th>
+<th>uni-app</th>
+<th>Kotlin Multiplatform (KMP)</th>
+<th>React Native</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>学习曲线</strong></td>
+<td>中等（需要学习 Dart）</td>
+<td>平缓（基于 Vue）</td>
+<td>中等（需要学习 Kotlin）</td>
+<td>平缓（基于 React）</td>
+</tr>
+<tr>
+<td><strong>开发工具</strong></td>
+<td>VS Code、Android Studio</td>
+<td>HBuilderX、VS Code</td>
+<td>IntelliJ IDEA、Android Studio</td>
+<td>VS Code、React Native CLI</td>
+</tr>
+<tr>
+<td><strong>热重载</strong></td>
+<td>✅ 毫秒级</td>
+<td>✅ 支持</td>
+<td>✅ 支持</td>
+<td>✅ Fast Refresh</td>
+</tr>
+<tr>
+<td><strong>调试体验</strong></td>
+<td>优秀</td>
+<td>良好</td>
+<td>优秀</td>
+<td>优秀（Flipper、DevTools）</td>
+</tr>
+<tr>
+<td><strong>文档质量</strong></td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>社区支持</strong></td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>生态成熟度</strong></td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐⭐（npm 生态）</td>
+</tr>
+</tbody></table>
+<p><strong>详细分析</strong>:</p>
+<ol>
+<li><p><strong>Flutter</strong>:</p>
+<ul>
+<li>Dart 语言学习成本中等</li>
+<li>工具链完善（Flutter DevTools）</li>
+<li>文档和社区非常活跃</li>
+<li>包管理：pub.dev（30,000+ 包）</li>
+</ul>
+</li>
+<li><p><strong>uni-app</strong>:</p>
+<ul>
+<li>Vue 语法，学习成本低</li>
+<li>HBuilderX 提供可视化配置</li>
+<li>云打包服务，无需本地环境</li>
+<li>插件市场丰富</li>
+</ul>
+</li>
+<li><p><strong>Kotlin Multiplatform</strong>:</p>
+<ul>
+<li>Kotlin 语言，类型安全</li>
+<li>IntelliJ IDEA 完整支持</li>
+<li>与 Android 开发无缝集成</li>
+<li>生态逐步完善</li>
+</ul>
+</li>
+</ol>
+<h3 id="代码复用率对比"><a href="#代码复用率对比" class="headerlink" title="代码复用率对比"></a>代码复用率对比</h3><table>
+<thead>
+<tr>
+<th>场景</th>
+<th>Flutter</th>
+<th>uni-app</th>
+<th>Kotlin Multiplatform (KMP)</th>
+<th>React Native</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>UI 代码</strong></td>
+<td>90-95%</td>
+<td>80-90%</td>
+<td>0-90%（取决于是否使用 Compose Multiplatform）</td>
+<td>70-85%</td>
+</tr>
+<tr>
+<td><strong>业务逻辑</strong></td>
+<td>90-95%</td>
+<td>85-95%</td>
+<td>90-95%</td>
+<td>85-95%</td>
+</tr>
+<tr>
+<td><strong>网络层</strong></td>
+<td>90-95%</td>
+<td>85-95%</td>
+<td>90-95%</td>
+<td>85-95%</td>
+</tr>
+<tr>
+<td><strong>数据模型</strong></td>
+<td>90-95%</td>
+<td>85-95%</td>
+<td>90-95%</td>
+<td>85-95%</td>
+</tr>
+<tr>
+<td><strong>总体复用率</strong></td>
+<td><strong>85-95%</strong></td>
+<td><strong>80-90%</strong></td>
+<td><strong>1-100%</strong>（灵活选择共享范围）</td>
+<td><strong>70-85%</strong></td>
+</tr>
+</tbody></table>
+<p><strong>详细分析</strong>:</p>
+<ol>
+<li><p><strong>Flutter</strong>:</p>
+<ul>
+<li>UI 和业务逻辑都可以高度复用</li>
+<li>一套代码多端运行</li>
+<li>平台特定功能通过 Platform Channels</li>
+</ul>
+</li>
+<li><p><strong>uni-app</strong>:</p>
+<ul>
+<li>UI 和业务逻辑都可以复用</li>
+<li>小程序平台需要条件编译</li>
+<li>平台差异通过条件编译处理</li>
+</ul>
+</li>
+<li><p><strong>Kotlin Multiplatform</strong>:</p>
+<ul>
+<li><strong>灵活的代码共享策略</strong>：可以共享 1% 到 100% 的代码</li>
+<li><strong>UI 选项</strong>：<ul>
+<li>使用 Compose Multiplatform：UI 代码可以共享（基于 Jetpack Compose）</li>
+<li>使用原生 UI：UI 层各平台独立开发，获得原生体验</li>
+</ul>
+</li>
+<li>业务逻辑层高度复用（90-95%）</li>
+<li>适合需要灵活代码共享策略的项目</li>
+</ul>
+</li>
+<li><p><strong>React Native</strong>:</p>
+<ul>
+<li>UI 和业务逻辑都可以复用</li>
+<li>不同平台 UI 可能有差异（遵循平台设计规范）</li>
+<li>需要原生开发知识处理复杂功能</li>
+<li>新架构（Fabric）提升代码复用和性能</li>
+</ul>
+</li>
+</ol>
+<h3 id="适用场景对比"><a href="#适用场景对比" class="headerlink" title="适用场景对比"></a>适用场景对比</h3><h4 id="Flutter-最适合"><a href="#Flutter-最适合" class="headerlink" title="Flutter 最适合"></a>Flutter 最适合</h4><p>✅ <strong>推荐场景</strong>:</p>
+<ul>
+<li>需要统一 UI 体验的项目</li>
+<li>新项目，没有历史包袱</li>
+<li>需要高性能的应用</li>
+<li>需要支持多个平台（App + Web + 桌面）</li>
+<li>团队愿意学习 Dart 语言</li>
+</ul>
+<p>❌ <strong>不推荐场景</strong>:</p>
+<ul>
+<li>需要支持小程序平台</li>
+<li>需要平台原生 UI 体验</li>
+<li>已有大量 Vue&#x2F;React 代码</li>
+</ul>
+<h4 id="uni-app-最适合"><a href="#uni-app-最适合" class="headerlink" title="uni-app 最适合"></a>uni-app 最适合</h4><p>✅ <strong>推荐场景</strong>:</p>
+<ul>
+<li><strong>需要支持小程序平台（核心优势）</strong></li>
+<li>需要同时支持 App + 小程序 + H5</li>
+<li>已有 Vue 技术栈的团队</li>
+<li>需要快速开发多端应用</li>
+<li>需要支持鸿蒙平台</li>
+</ul>
+<p>❌ <strong>不推荐场景</strong>:</p>
+<ul>
+<li>对性能要求极高的应用</li>
+<li>需要完全统一的 UI 体验</li>
+<li>需要原生 UI 组件</li>
+</ul>
+<h4 id="Kotlin-Multiplatform-最适合"><a href="#Kotlin-Multiplatform-最适合" class="headerlink" title="Kotlin Multiplatform 最适合"></a>Kotlin Multiplatform 最适合</h4><p>✅ <strong>推荐场景</strong>:</p>
+<ul>
+<li>需要原生 UI 体验</li>
+<li>已有 Kotlin&#x2F;Android 技术栈</li>
+<li>需要共享业务逻辑，UI 各平台独立</li>
+<li>对性能要求极高的应用</li>
+<li>企业级应用开发</li>
+</ul>
+<p>❌ <strong>不推荐场景</strong>:</p>
+<ul>
+<li>需要支持小程序平台</li>
+<li>需要快速开发（UI 层需要各平台开发）</li>
+<li>团队不熟悉 Kotlin</li>
+</ul>
+<h4 id="React-Native-最适合"><a href="#React-Native-最适合" class="headerlink" title="React Native 最适合"></a>React Native 最适合</h4><p>✅ <strong>推荐场景</strong>:</p>
+<ul>
+<li>已有 React 技术栈的团队</li>
+<li>需要原生性能的移动应用</li>
+<li>需要快速开发移动应用</li>
+<li>需要频繁更新 UI 的应用</li>
+<li>对原生性能要求较高的应用</li>
+<li>需要利用庞大的 JavaScript 生态</li>
+</ul>
+<p>❌ <strong>不推荐场景</strong>:</p>
+<ul>
+<li>需要支持小程序平台</li>
+<li>需要支持 Web（需要额外方案）</li>
+<li>需要完全统一的 UI 体验</li>
+<li>团队不熟悉 React</li>
+</ul>
+<h3 id="成本对比"><a href="#成本对比" class="headerlink" title="成本对比"></a>成本对比</h3><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Flutter</th>
+<th>uni-app</th>
+<th>Kotlin Multiplatform (KMP)</th>
+<th>React Native</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>学习成本</strong></td>
+<td>中等</td>
+<td>低</td>
+<td>中等</td>
+<td>低（已有 React 技术栈）</td>
+</tr>
+<tr>
+<td><strong>开发成本</strong></td>
+<td>中等</td>
+<td>低</td>
+<td>高（UI 层需要各平台开发）</td>
+<td>中等</td>
+</tr>
+<tr>
+<td><strong>维护成本</strong></td>
+<td>低</td>
+<td>低</td>
+<td>中（需要维护多个 UI 层）</td>
+<td>中（需要处理平台差异）</td>
+</tr>
+<tr>
+<td><strong>人力成本</strong></td>
+<td>中等</td>
+<td>低</td>
+<td>高（需要各平台 UI 开发人员）</td>
+<td>中等</td>
+</tr>
+<tr>
+<td><strong>时间成本</strong></td>
+<td>中等</td>
+<td>低</td>
+<td>高</td>
+<td>中等</td>
+</tr>
+</tbody></table>
+<h3 id="技术选型决策矩阵"><a href="#技术选型决策矩阵" class="headerlink" title="技术选型决策矩阵"></a>技术选型决策矩阵</h3><p><strong>按需求优先级选择</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>需求</th>
+<th>首选</th>
+<th>次选</th>
+<th>不推荐</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>需要小程序支持</strong></td>
+<td>uni-app</td>
+<td>Taro</td>
+<td>Flutter、KMP、RN</td>
+</tr>
+<tr>
+<td><strong>需要统一 UI</strong></td>
+<td>Flutter</td>
+<td>uni-app</td>
+<td>KMP、RN</td>
+</tr>
+<tr>
+<td><strong>需要原生 UI 体验</strong></td>
+<td>KMP</td>
+<td>React Native</td>
+<td>Flutter、uni-app</td>
+</tr>
+<tr>
+<td><strong>需要高性能</strong></td>
+<td>KMP、Flutter</td>
+<td>React Native</td>
+<td>uni-app</td>
+</tr>
+<tr>
+<td><strong>需要快速开发</strong></td>
+<td>uni-app</td>
+<td>Flutter、RN</td>
+<td>KMP</td>
+</tr>
+<tr>
+<td><strong>已有 Vue 技术栈</strong></td>
+<td>uni-app</td>
+<td>-</td>
+<td>Flutter、KMP、RN</td>
+</tr>
+<tr>
+<td><strong>已有 React 技术栈</strong></td>
+<td>React Native</td>
+<td>-</td>
+<td>Flutter、KMP</td>
+</tr>
+<tr>
+<td><strong>已有 Kotlin 技术栈</strong></td>
+<td>KMP</td>
+<td>Flutter</td>
+<td>uni-app、RN</td>
+</tr>
+<tr>
+<td><strong>需要支持鸿蒙</strong></td>
+<td>uni-app</td>
+<td>Flutter</td>
+<td>KMP、RN</td>
+</tr>
+<tr>
+<td><strong>需要支持 Web</strong></td>
+<td>uni-app、Flutter</td>
+<td>KMP</td>
+<td>React Native</td>
+</tr>
+<tr>
+<td><strong>需要支持桌面端</strong></td>
+<td>Flutter</td>
+<td>KMP</td>
+<td>uni-app、RN</td>
+</tr>
+</tbody></table>
+<h3 id="实际项目案例"><a href="#实际项目案例" class="headerlink" title="实际项目案例"></a>实际项目案例</h3><h4 id="Flutter-成功案例"><a href="#Flutter-成功案例" class="headerlink" title="Flutter 成功案例"></a>Flutter 成功案例</h4><ul>
+<li>Google Pay</li>
+<li>Alibaba（部分应用）</li>
+<li>eBay Motors</li>
+<li>BMW（部分应用）</li>
+</ul>
+<h4 id="uni-app-成功案例"><a href="#uni-app-成功案例" class="headerlink" title="uni-app 成功案例"></a>uni-app 成功案例</h4><ul>
+<li>大量小程序项目</li>
+<li>多端统一的应用</li>
+<li>需要同时支持 App 和小程序的项目</li>
+</ul>
+<h4 id="Kotlin-Multiplatform-成功案例"><a href="#Kotlin-Multiplatform-成功案例" class="headerlink" title="Kotlin Multiplatform 成功案例"></a>Kotlin Multiplatform 成功案例</h4><ul>
+<li>Netflix（部分功能）</li>
+<li>Cash App</li>
+<li>多个企业级应用</li>
+</ul>
+<h4 id="React-Native-成功案例"><a href="#React-Native-成功案例" class="headerlink" title="React Native 成功案例"></a>React Native 成功案例</h4><ul>
+<li>Facebook（Meta）</li>
+<li>Instagram</li>
+<li>WhatsApp（部分功能）</li>
+<li>Shopify</li>
+<li>Uber Eats</li>
+<li>Discord</li>
+<li>Pinterest</li>
+<li>Bloomberg</li>
+</ul>
+<h3 id="综合评分"><a href="#综合评分" class="headerlink" title="综合评分"></a>综合评分</h3><table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Flutter</th>
+<th>uni-app</th>
+<th>Kotlin Multiplatform (KMP)</th>
+<th>React Native</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>性能</strong></td>
+<td>9&#x2F;10</td>
+<td>7&#x2F;10</td>
+<td>10&#x2F;10</td>
+<td>9&#x2F;10（新架构）</td>
+</tr>
+<tr>
+<td><strong>开发效率</strong></td>
+<td>8&#x2F;10</td>
+<td>9&#x2F;10</td>
+<td>6&#x2F;10</td>
+<td>8&#x2F;10</td>
+</tr>
+<tr>
+<td><strong>代码复用</strong></td>
+<td>9&#x2F;10</td>
+<td>8&#x2F;10</td>
+<td>7&#x2F;10</td>
+<td>8&#x2F;10</td>
+</tr>
+<tr>
+<td><strong>生态成熟度</strong></td>
+<td>10&#x2F;10</td>
+<td>8&#x2F;10</td>
+<td>7&#x2F;10</td>
+<td>10&#x2F;10</td>
+</tr>
+<tr>
+<td><strong>学习成本</strong></td>
+<td>7&#x2F;10</td>
+<td>9&#x2F;10</td>
+<td>7&#x2F;10</td>
+<td>9&#x2F;10（已有 React）</td>
+</tr>
+<tr>
+<td><strong>小程序支持</strong></td>
+<td>0&#x2F;10</td>
+<td>10&#x2F;10</td>
+<td>0&#x2F;10</td>
+<td>0&#x2F;10</td>
+</tr>
+<tr>
+<td><strong>原生体验</strong></td>
+<td>8&#x2F;10</td>
+<td>6&#x2F;10</td>
+<td>10&#x2F;10</td>
+<td>9&#x2F;10</td>
+</tr>
+<tr>
+<td><strong>综合评分</strong></td>
+<td><strong>8.6&#x2F;10</strong></td>
+<td><strong>8.4&#x2F;10</strong></td>
+<td><strong>7.9&#x2F;10</strong></td>
+<td><strong>8.6&#x2F;10</strong></td>
+</tr>
+</tbody></table>
+<h3 id="最终建议"><a href="#最终建议" class="headerlink" title="最终建议"></a>最终建议</h3><h4 id="选择-Flutter-如果："><a href="#选择-Flutter-如果：" class="headerlink" title="选择 Flutter 如果："></a>选择 Flutter 如果：</h4><ol>
+<li>✅ 需要统一 UI 体验</li>
+<li>✅ 需要高性能</li>
+<li>✅ 需要支持多个平台（App + Web + 桌面）</li>
+<li>✅ 新项目，没有历史包袱</li>
+<li>❌ 不需要小程序支持</li>
+</ol>
+<h4 id="选择-uni-app-如果："><a href="#选择-uni-app-如果：" class="headerlink" title="选择 uni-app 如果："></a>选择 uni-app 如果：</h4><ol>
+<li>✅ <strong>需要支持小程序平台（微信、支付宝等）</strong></li>
+<li>✅ 需要快速开发多端应用</li>
+<li>✅ 已有 Vue 技术栈</li>
+<li>✅ 需要同时支持 App + 小程序 + H5</li>
+<li>✅ 需要支持鸿蒙</li>
+</ol>
+<h4 id="选择-Kotlin-Multiplatform-如果："><a href="#选择-Kotlin-Multiplatform-如果：" class="headerlink" title="选择 Kotlin Multiplatform 如果："></a>选择 Kotlin Multiplatform 如果：</h4><ol>
+<li>✅ 需要灵活的代码共享策略（可以共享 1% 到 100% 的代码）</li>
+<li>✅ 已有 Kotlin&#x2F;Android 技术栈</li>
+<li>✅ 需要共享业务逻辑，UI 可以选择：<ul>
+<li>使用 Compose Multiplatform 共享 UI</li>
+<li>或使用原生 UI 框架获得原生体验</li>
+</ul>
+</li>
+<li>✅ 对性能要求极高（编译为平台原生代码）</li>
+<li>✅ 需要直接访问原生 API（使用 expect&#x2F;actual）</li>
+<li>❌ 不需要小程序支持</li>
+</ol>
+<h4 id="选择-React-Native-如果："><a href="#选择-React-Native-如果：" class="headerlink" title="选择 React Native 如果："></a>选择 React Native 如果：</h4><ol>
+<li>✅ 已有 React 技术栈（核心优势）</li>
+<li>✅ 需要原生性能的移动应用</li>
+<li>✅ 需要快速开发移动应用</li>
+<li>✅ 需要利用庞大的 JavaScript 生态</li>
+<li>✅ 需要频繁更新 UI 的应用</li>
+<li>❌ 不需要小程序支持</li>
+<li>❌ 不需要 Web 支持（或可接受额外方案）</li>
+</ol>
+<h3 id="混合方案建议"><a href="#混合方案建议" class="headerlink" title="混合方案建议"></a>混合方案建议</h3><p>在某些场景下，可以考虑混合使用：</p>
+<ol>
+<li><p><strong>uni-app + Flutter</strong>:</p>
+<ul>
+<li>uni-app 处理小程序和 H5</li>
+<li>Flutter 处理 App 和桌面端</li>
+<li>适合需要小程序 + 高性能 App 的场景</li>
+</ul>
+</li>
+<li><p><strong>KMP + uni-app</strong>:</p>
+<ul>
+<li>KMP 处理 App 的业务逻辑和原生 UI</li>
+<li>uni-app 处理小程序</li>
+<li>适合需要原生体验 + 小程序支持的场景</li>
+</ul>
+</li>
+<li><p><strong>React Native + uni-app</strong>:</p>
+<ul>
+<li>React Native 处理 App（已有 React 技术栈）</li>
+<li>uni-app 处理小程序</li>
+<li>适合需要 React 生态 + 小程序支持的场景</li>
+</ul>
+</li>
+<li><p><strong>Flutter + React Native</strong>:</p>
+<ul>
+<li>Flutter 处理需要统一 UI 的部分</li>
+<li>React Native 处理需要原生体验的部分</li>
+<li>适合大型项目，不同模块使用不同技术</li>
+</ul>
+</li>
+</ol>
+<h3 id="四者深度对比总结"><a href="#四者深度对比总结" class="headerlink" title="四者深度对比总结"></a>四者深度对比总结</h3><h4 id="核心技术差异"><a href="#核心技术差异" class="headerlink" title="核心技术差异"></a>核心技术差异</h4><table>
+<thead>
+<tr>
+<th>技术</th>
+<th>核心特点</th>
+<th>最佳适用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Flutter</strong></td>
+<td>Impeller 引擎，统一 UI，性能优秀</td>
+<td>需要统一 UI 体验，支持多平台（App + Web + 桌面）</td>
+</tr>
+<tr>
+<td><strong>uni-app</strong></td>
+<td>支持小程序，基于 Vue，快速开发</td>
+<td><strong>需要小程序支持</strong>，多端统一开发</td>
+</tr>
+<tr>
+<td><strong>Kotlin Multiplatform</strong></td>
+<td>灵活代码共享（1-100%），Compose Multiplatform 或原生 UI，原生性能</td>
+<td>需要灵活代码共享策略，已有 Kotlin 技术栈</td>
+</tr>
+<tr>
+<td><strong>React Native</strong></td>
+<td>基于 React，原生组件，庞大生态</td>
+<td>已有 React 技术栈，需要原生性能</td>
+</tr>
+</tbody></table>
+<h4 id="关键决策因素"><a href="#关键决策因素" class="headerlink" title="关键决策因素"></a>关键决策因素</h4><ol>
+<li><p><strong>是否需要小程序支持</strong></p>
+<ul>
+<li>✅ 需要 → <strong>uni-app</strong>（唯一选择）</li>
+<li>❌ 不需要 → 继续考虑其他因素</li>
+</ul>
+</li>
+<li><p><strong>已有技术栈</strong></p>
+<ul>
+<li>Vue → <strong>uni-app</strong></li>
+<li>React → <strong>React Native</strong></li>
+<li>Kotlin&#x2F;Android → <strong>Kotlin Multiplatform</strong>（可以共享 UI 或使用原生 UI）</li>
+<li>无特定技术栈 → <strong>Flutter</strong></li>
+</ul>
+</li>
+<li><p><strong>UI 策略偏好</strong></p>
+<ul>
+<li>统一 UI → <strong>Flutter</strong></li>
+<li>原生 UI 体验 → <strong>Kotlin Multiplatform</strong>（原生 UI）或 <strong>React Native</strong></li>
+<li>共享 UI 体验 → <strong>Kotlin Multiplatform</strong>（Compose Multiplatform）或 <strong>Flutter</strong></li>
+<li>混合策略 → <strong>uni-app</strong></li>
+</ul>
+</li>
+<li><p><strong>性能要求</strong></p>
+<ul>
+<li>极高 → <strong>Kotlin Multiplatform</strong>（编译为原生代码，原生性能）</li>
+<li>高 → <strong>Flutter</strong> 或 <strong>React Native</strong>（新架构）</li>
+<li>中等 → <strong>uni-app</strong></li>
+</ul>
+</li>
+<li><p><strong>开发速度要求</strong></p>
+<ul>
+<li>快速开发 → <strong>uni-app</strong> 或 <strong>React Native</strong></li>
+<li>平衡 → <strong>Flutter</strong></li>
+<li>可接受较慢 → <strong>Kotlin Multiplatform</strong>（如果使用原生 UI，需要各平台开发）</li>
+</ul>
+</li>
+</ol>
+<h4 id="综合推荐"><a href="#综合推荐" class="headerlink" title="综合推荐"></a>综合推荐</h4><p><strong>如果只能选一个技术栈</strong>：</p>
+<ul>
+<li><strong>需要小程序</strong> → <strong>uni-app</strong></li>
+<li><strong>已有 React 技术栈</strong> → <strong>React Native</strong></li>
+<li><strong>已有 Vue 技术栈</strong> → <strong>uni-app</strong></li>
+<li><strong>已有 Kotlin 技术栈</strong> → <strong>Kotlin Multiplatform</strong></li>
+<li><strong>新项目，需要统一 UI</strong> → <strong>Flutter</strong> 或 <strong>Kotlin Multiplatform</strong>（使用 Compose Multiplatform）</li>
+<li><strong>新项目，需要原生体验</strong> → <strong>React Native</strong> 或 <strong>Kotlin Multiplatform</strong>（使用原生 UI）</li>
+<li><strong>新项目，需要灵活代码共享</strong> → <strong>Kotlin Multiplatform</strong>（可以共享 1-100% 代码）</li>
+</ul>
+<p><strong>如果可以选择混合方案</strong>：</p>
+<ul>
+<li><strong>小程序 + App</strong> → <strong>uni-app</strong>（统一）或 <strong>uni-app + React Native&#x2F;Flutter</strong>（分离）</li>
+<li><strong>App + Web + 桌面</strong> → <strong>Flutter</strong>（统一）或 <strong>React Native + Web 框架</strong>（分离）</li>
+</ul>
+<hr>
+<h2 id="最佳实践指南"><a href="#最佳实践指南" class="headerlink" title="最佳实践指南"></a>最佳实践指南</h2><h3 id="技术选型决策树"><a href="#技术选型决策树" class="headerlink" title="技术选型决策树"></a>技术选型决策树</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">需要支持哪些平台？</span><br><span class="line">├── 仅小程序（微信/支付宝等）</span><br><span class="line">│   ├── 需要支持多个小程序平台 → uni-app</span><br><span class="line">│   ├── 已有 Vue 技术栈 → uni-app</span><br><span class="line">│   ├── 已有 React 技术栈 → Taro</span><br><span class="line">│   └── 仅需微信小程序 → uni-app / Taro</span><br><span class="line">├── 小程序 + App</span><br><span class="line">│   ├── 需要支持多个小程序平台 → uni-app</span><br><span class="line">│   ├── 已有 Vue 技术栈 → uni-app</span><br><span class="line">│   ├── 已有 React 技术栈 → Taro</span><br><span class="line">│   └── 需要快速开发 → uni-app / Taro</span><br><span class="line">├── 仅移动端（Android/iOS）</span><br><span class="line">│   ├── 需要原生性能 → Flutter / React Native / Kotlin Multiplatform</span><br><span class="line">│   ├── 已有 React 技术栈 → React Native</span><br><span class="line">│   ├── 已有 Kotlin/Android 技术栈 → Kotlin Multiplatform</span><br><span class="line">│   ├── 需要原生 UI 体验 → Kotlin Multiplatform / React Native</span><br><span class="line">│   ├── 需要快速开发 → uni-app / Taro</span><br><span class="line">│   └── 需要鸿蒙支持 → uni-app / Taro / Flutter</span><br><span class="line">├── 仅桌面端（Windows/macOS/Linux）</span><br><span class="line">│   ├── 对包体积敏感 → Tauri</span><br><span class="line">│   ├── 已有 Web 技术栈 → Electron / Tauri</span><br><span class="line">│   ├── 需要原生性能 → Qt / .NET MAUI</span><br><span class="line">│   └── 需要快速开发 → Electron</span><br><span class="line">├── 移动端 + 桌面端</span><br><span class="line">│   ├── 需要统一代码 → Flutter</span><br><span class="line">│   ├── 已有 Web 技术栈 → Tauri + React Native</span><br><span class="line">│   ├── 已有 Kotlin 技术栈 → Kotlin Multiplatform</span><br><span class="line">│   └── 需要快速开发 → uni-app / Taro</span><br><span class="line">└── 全平台（Web + 移动端 + 桌面端 + 小程序）</span><br><span class="line">    ├── 需要统一代码 → uni-app / Taro</span><br><span class="line">    ├── 已有 Web 技术栈 → uni-app / Taro</span><br><span class="line">    ├── 需要支持多个小程序平台 → uni-app</span><br><span class="line">    └── 需要快速开发 → uni-app / Taro</span><br></pre></td></tr></table></figure>
+
+<h3 id="性能优化通用策略"><a href="#性能优化通用策略" class="headerlink" title="性能优化通用策略"></a>性能优化通用策略</h3><ol>
+<li><p><strong>代码层面</strong></p>
+<ul>
+<li>使用现代构建工具（Vite、Webpack 5、Turbopack）</li>
+<li>代码分割和懒加载</li>
+<li>使用 Tree Shaking 移除未使用代码</li>
+<li>优化图片和资源文件</li>
+<li>使用 CDN 加速资源加载</li>
+</ul>
+</li>
+<li><p><strong>渲染优化</strong></p>
+<ul>
+<li>减少重绘和重排</li>
+<li>使用虚拟列表处理长列表</li>
+<li>合理使用缓存</li>
+<li>优化动画性能</li>
+</ul>
+</li>
+<li><p><strong>网络优化</strong></p>
+<ul>
+<li>使用 HTTP&#x2F;2 或 HTTP&#x2F;3</li>
+<li>启用 Gzip&#x2F;Brotli 压缩</li>
+<li>使用 CDN 加速</li>
+<li>实现请求缓存和去重</li>
+</ul>
+</li>
+<li><p><strong>打包优化</strong></p>
+<ul>
+<li>移除未使用的依赖</li>
+<li>压缩资源文件</li>
+<li>使用代码混淆</li>
+<li>优化包体积</li>
+</ul>
+</li>
+</ol>
+<h3 id="开发流程最佳实践"><a href="#开发流程最佳实践" class="headerlink" title="开发流程最佳实践"></a>开发流程最佳实践</h3><ol>
+<li><p><strong>项目初始化</strong></p>
+<ul>
+<li>选择合适的项目模板</li>
+<li>配置开发环境</li>
+<li>设置代码规范和 lint 规则</li>
+<li>配置 Git 工作流</li>
+</ul>
+</li>
+<li><p><strong>开发阶段</strong></p>
+<ul>
+<li>使用 TypeScript 提高代码质量</li>
+<li>遵循框架最佳实践</li>
+<li>编写单元测试和集成测试</li>
+<li>使用版本控制管理代码</li>
+</ul>
+</li>
+<li><p><strong>测试阶段</strong></p>
+<ul>
+<li>在不同平台和设备上测试</li>
+<li>性能测试和优化</li>
+<li>安全测试</li>
+<li>用户体验测试</li>
+</ul>
+</li>
+<li><p><strong>发布阶段</strong></p>
+<ul>
+<li>优化打包配置</li>
+<li>配置自动发布流程</li>
+<li>监控和分析</li>
+<li>收集用户反馈</li>
+</ul>
+</li>
+</ol>
+<h3 id="团队协作最佳实践"><a href="#团队协作最佳实践" class="headerlink" title="团队协作最佳实践"></a>团队协作最佳实践</h3><ol>
+<li><p><strong>代码规范</strong></p>
+<ul>
+<li>使用统一的代码风格</li>
+<li>配置 ESLint、Prettier 等工具</li>
+<li>使用 Git Hooks 自动检查</li>
+<li>代码审查流程</li>
+</ul>
+</li>
+<li><p><strong>文档管理</strong></p>
+<ul>
+<li>编写技术文档</li>
+<li>维护 API 文档</li>
+<li>记录决策和变更</li>
+<li>分享最佳实践</li>
+</ul>
+</li>
+<li><p><strong>知识分享</strong></p>
+<ul>
+<li>定期技术分享</li>
+<li>建立知识库</li>
+<li>代码审查和学习</li>
+<li>外部技术交流</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="技术选型建议"><a href="#技术选型建议" class="headerlink" title="技术选型建议"></a>技术选型建议</h2><h3 id="按项目类型选择"><a href="#按项目类型选择" class="headerlink" title="按项目类型选择"></a>按项目类型选择</h3><h4 id="1-移动应用（Android-iOS）"><a href="#1-移动应用（Android-iOS）" class="headerlink" title="1. 移动应用（Android&#x2F;iOS）"></a>1. 移动应用（Android&#x2F;iOS）</h4><p><strong>推荐方案</strong>:</p>
+<ul>
+<li><strong>Flutter</strong>: 适合新项目，需要高性能和统一 UI</li>
+<li><strong>React Native</strong>: 适合已有 React 技术栈的团队</li>
+<li><strong>Kotlin Multiplatform (KMP)</strong>: 适合已有 Kotlin&#x2F;Android 技术栈，需要原生 UI 体验</li>
+<li><strong>uni-app&#x2F;Taro</strong>: 适合需要同时支持小程序的项目</li>
+</ul>
+<p><strong>不推荐</strong>:</p>
+<ul>
+<li>Electron: 不支持移动端</li>
+<li>Tauri: 移动端支持有限</li>
+</ul>
+<h4 id="2-桌面应用（Windows-macOS-Linux）"><a href="#2-桌面应用（Windows-macOS-Linux）" class="headerlink" title="2. 桌面应用（Windows&#x2F;macOS&#x2F;Linux）"></a>2. 桌面应用（Windows&#x2F;macOS&#x2F;Linux）</h4><p><strong>推荐方案</strong>:</p>
+<ul>
+<li><strong>Tauri</strong>: 适合对包体积敏感的项目</li>
+<li><strong>Electron</strong>: 适合已有 Web 技术栈的项目</li>
+<li><strong>Qt</strong>: 适合需要原生性能的企业级应用</li>
+<li><strong>.NET MAUI</strong>: 适合已有 .NET 技术栈的项目</li>
+</ul>
+<p><strong>不推荐</strong>:</p>
+<ul>
+<li>React Native: 桌面端支持不完善</li>
+<li>uni-app&#x2F;Taro: 桌面端支持有限</li>
+</ul>
+<h4 id="3-全平台应用（Web-移动端-桌面端）"><a href="#3-全平台应用（Web-移动端-桌面端）" class="headerlink" title="3. 全平台应用（Web + 移动端 + 桌面端）"></a>3. 全平台应用（Web + 移动端 + 桌面端）</h4><p><strong>推荐方案</strong>:</p>
+<ul>
+<li><strong>Flutter</strong>: 适合需要统一代码和 UI 的项目</li>
+<li><strong>Tauri + uni-app&#x2F;Taro</strong>: 适合已有 Web 技术栈的项目</li>
+<li><strong>uni-app&#x2F;Taro</strong>: 适合需要快速开发的项目</li>
+</ul>
+<p><strong>不推荐</strong>:</p>
+<ul>
+<li>React Native: 不支持 Web</li>
+<li>Electron: 移动端不支持</li>
+</ul>
+<h4 id="4-需要鸿蒙支持"><a href="#4-需要鸿蒙支持" class="headerlink" title="4. 需要鸿蒙支持"></a>4. 需要鸿蒙支持</h4><p><strong>推荐方案</strong>:</p>
+<ul>
+<li><strong>uni-app</strong>: 官方支持鸿蒙，生态完善</li>
+<li><strong>Taro</strong>: 支持鸿蒙编译</li>
+<li><strong>Flutter</strong>: 通过社区支持鸿蒙</li>
+<li><strong>ArkUI</strong>: 鸿蒙原生开发</li>
+</ul>
+<p><strong>不推荐</strong>:</p>
+<ul>
+<li>React Native: 不支持鸿蒙</li>
+<li>Electron: 不支持移动端和鸿蒙</li>
+</ul>
+<h4 id="5-小程序开发（微信小程序、支付宝小程序等）"><a href="#5-小程序开发（微信小程序、支付宝小程序等）" class="headerlink" title="5. 小程序开发（微信小程序、支付宝小程序等）"></a>5. 小程序开发（微信小程序、支付宝小程序等）</h4><p><strong>推荐方案</strong>:</p>
+<ul>
+<li><strong>uni-app</strong>:<ul>
+<li>✅ 支持最全面，覆盖微信、支付宝、百度、字节跳动、QQ、快手、钉钉等主流小程序平台</li>
+<li>✅ 基于 Vue，学习成本低</li>
+<li>✅ 一套代码多端发布</li>
+<li>✅ 丰富的插件市场和云服务</li>
+<li>✅ 适合需要支持多个小程序平台的项目</li>
+</ul>
+</li>
+<li><strong>Taro</strong>:<ul>
+<li>✅ 支持主流小程序平台（微信、支付宝、百度、字节跳动、QQ、快手、钉钉等）</li>
+<li>✅ 基于 React，适合已有 React 技术栈的团队</li>
+<li>✅ 支持多框架（React、Vue、Vue3）</li>
+<li>✅ 京东团队维护，企业级支持</li>
+<li>✅ 适合需要同时支持小程序和 App 的项目</li>
+</ul>
+</li>
+</ul>
+<p><strong>不推荐</strong>:</p>
+<ul>
+<li>Flutter: 不支持小程序平台</li>
+<li>React Native: 不支持小程序平台</li>
+<li>Electron: 不支持小程序平台</li>
+<li>其他框架: 目前主流跨平台框架主要专注于 App 和桌面端，不支持小程序</li>
+</ul>
+<p><strong>小程序平台选择建议</strong>:</p>
+<ul>
+<li><strong>仅需微信小程序</strong>: uni-app 或 Taro 都可以，选择取决于技术栈偏好</li>
+<li><strong>需要微信 + 支付宝小程序</strong>: uni-app 或 Taro，两者都支持良好</li>
+<li><strong>需要多个小程序平台</strong>: 优先选择 uni-app，支持最全面</li>
+<li><strong>需要小程序 + App</strong>: uni-app 或 Taro，两者都支持</li>
+<li><strong>需要小程序 + App + 鸿蒙</strong>: uni-app 或 Taro</li>
+</ul>
+<h3 id="按团队技术栈选择"><a href="#按团队技术栈选择" class="headerlink" title="按团队技术栈选择"></a>按团队技术栈选择</h3><h4 id="1-已有-React-技术栈"><a href="#1-已有-React-技术栈" class="headerlink" title="1. 已有 React 技术栈"></a>1. 已有 React 技术栈</h4><p><strong>推荐</strong>: React Native、Taro、Electron、Tauri</p>
+<h4 id="2-已有-Vue-技术栈"><a href="#2-已有-Vue-技术栈" class="headerlink" title="2. 已有 Vue 技术栈"></a>2. 已有 Vue 技术栈</h4><p><strong>推荐</strong>: uni-app、Taro、Electron、Tauri</p>
+<h4 id="3-已有-NET-技术栈"><a href="#3-已有-NET-技术栈" class="headerlink" title="3. 已有 .NET 技术栈"></a>3. 已有 .NET 技术栈</h4><p><strong>推荐</strong>: .NET MAUI</p>
+<h4 id="4-已有-C-技术栈"><a href="#4-已有-C-技术栈" class="headerlink" title="4. 已有 C++ 技术栈"></a>4. 已有 C++ 技术栈</h4><p><strong>推荐</strong>: Qt、Flutter（Dart 类似 C++）</p>
+<h4 id="5-已有-Kotlin-Android-技术栈"><a href="#5-已有-Kotlin-Android-技术栈" class="headerlink" title="5. 已有 Kotlin&#x2F;Android 技术栈"></a>5. 已有 Kotlin&#x2F;Android 技术栈</h4><p><strong>推荐</strong>: Kotlin Multiplatform (KMP)、Flutter</p>
+<h4 id="6-新团队或新项目"><a href="#6-新团队或新项目" class="headerlink" title="6. 新团队或新项目"></a>6. 新团队或新项目</h4><p><strong>推荐</strong>: Flutter（学习曲线适中，生态完善）</p>
+<h3 id="按性能要求选择"><a href="#按性能要求选择" class="headerlink" title="按性能要求选择"></a>按性能要求选择</h3><h4 id="1-高性能要求"><a href="#1-高性能要求" class="headerlink" title="1. 高性能要求"></a>1. 高性能要求</h4><p><strong>推荐</strong>: Flutter、React Native（新架构）、Kotlin Multiplatform (KMP)、Qt、.NET MAUI、ArkUI</p>
+<h4 id="2-中等性能要求"><a href="#2-中等性能要求" class="headerlink" title="2. 中等性能要求"></a>2. 中等性能要求</h4><p><strong>推荐</strong>: Tauri、uni-app、Taro、NativeScript</p>
+<h4 id="3-性能要求不高"><a href="#3-性能要求不高" class="headerlink" title="3. 性能要求不高"></a>3. 性能要求不高</h4><p><strong>推荐</strong>: Electron、Ionic</p>
+<h3 id="按包体积要求选择"><a href="#按包体积要求选择" class="headerlink" title="按包体积要求选择"></a>按包体积要求选择</h3><h4 id="1-包体积敏感"><a href="#1-包体积敏感" class="headerlink" title="1. 包体积敏感"></a>1. 包体积敏感</h4><p><strong>推荐</strong>: Tauri（&lt; 5MB）、uni-app&#x2F;Taro（10-30MB）</p>
+<h4 id="2-包体积不敏感"><a href="#2-包体积不敏感" class="headerlink" title="2. 包体积不敏感"></a>2. 包体积不敏感</h4><p><strong>推荐</strong>: Electron（100-200MB）、Qt（50-100MB）</p>
+<h3 id="按开发速度要求选择"><a href="#按开发速度要求选择" class="headerlink" title="按开发速度要求选择"></a>按开发速度要求选择</h3><h4 id="1-快速开发"><a href="#1-快速开发" class="headerlink" title="1. 快速开发"></a>1. 快速开发</h4><p><strong>推荐</strong>: uni-app、Taro、Electron、Ionic</p>
+<h4 id="2-平衡开发速度和性能"><a href="#2-平衡开发速度和性能" class="headerlink" title="2. 平衡开发速度和性能"></a>2. 平衡开发速度和性能</h4><p><strong>推荐</strong>: Flutter、React Native、Tauri</p>
+<h4 id="3-追求极致性能"><a href="#3-追求极致性能" class="headerlink" title="3. 追求极致性能"></a>3. 追求极致性能</h4><p><strong>推荐</strong>: Qt、.NET MAUI、ArkUI</p>
+<hr>
+<h2 id="技术趋势分析"><a href="#技术趋势分析" class="headerlink" title="技术趋势分析"></a>技术趋势分析</h2><h3 id="当前趋势（2024-2025）"><a href="#当前趋势（2024-2025）" class="headerlink" title="当前趋势（2024-2025）"></a>当前趋势（2024-2025）</h3><ol>
+<li><p><strong>Flutter 持续增长</strong></p>
+<ul>
+<li>Google 持续投入</li>
+<li>生态不断完善</li>
+<li>性能优化持续进行</li>
+<li>Web 和桌面支持改进</li>
+</ul>
+</li>
+<li><p><strong>React Native 新架构</strong></p>
+<ul>
+<li>Fabric 和 TurboModules 提升性能</li>
+<li>社区逐步迁移</li>
+<li>工具链不断完善</li>
+</ul>
+</li>
+<li><p><strong>Tauri 快速发展</strong></p>
+<ul>
+<li>包体积优势明显</li>
+<li>安全性受到关注</li>
+<li>生态逐步完善</li>
+<li>企业采用增加</li>
+</ul>
+</li>
+<li><p><strong>鸿蒙生态发展</strong></p>
+<ul>
+<li>鸿蒙原生开发工具完善</li>
+<li>跨平台框架支持增加</li>
+<li>开发者社区增长</li>
+</ul>
+</li>
+<li><p><strong>Web 技术栈整合</strong></p>
+<ul>
+<li>Web 框架性能提升</li>
+<li>跨平台框架基于 Web 技术</li>
+<li>开发效率提升</li>
+</ul>
+</li>
+</ol>
+<h3 id="未来展望"><a href="#未来展望" class="headerlink" title="未来展望"></a>未来展望</h3><ol>
+<li><p><strong>性能持续优化</strong></p>
+<ul>
+<li>编译时优化</li>
+<li>运行时优化</li>
+<li>新架构和新技术</li>
+</ul>
+</li>
+<li><p><strong>开发体验提升</strong></p>
+<ul>
+<li>更好的工具链</li>
+<li>更完善的文档</li>
+<li>更丰富的生态</li>
+</ul>
+</li>
+<li><p><strong>平台支持扩展</strong></p>
+<ul>
+<li>新平台支持</li>
+<li>现有平台优化</li>
+<li>统一开发体验</li>
+</ul>
+</li>
+<li><p><strong>企业级特性</strong></p>
+<ul>
+<li>更好的安全支持</li>
+<li>更好的性能监控</li>
+<li>更好的 DevOps 集成</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="参考资料-12"><a href="#参考资料-12" class="headerlink" title="参考资料"></a>参考资料</h2><h3 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h3><ol>
+<li><p><strong>Flutter</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9mbHV0dGVyLmRldi9kb2Nz">Flutter 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9mbHV0dGVyLmNuLw==">Flutter 中文网<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kYXJ0LmRldi9ndWlkZXM=">Dart 语言文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ib29rLmZsdXR0ZXJjaGluYS5jbHViLw==">Flutter 实战<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</li>
+<li><p><strong>React Native</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9yZWFjdG5hdGl2ZS5kZXYvZG9jcy9nZXR0aW5nLXN0YXJ0ZWQ=">React Native 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9yZWFjdG5hdGl2ZS5kZXYvZG9jcy90aGUtbmV3LWFyY2hpdGVjdHVyZS9sYW5kaW5nLXBhZ2U=">React Native 新架构<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9yZWFjdG5hdGl2ZS5jbi8=">React Native 中文网<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3JlYWN0LW5hdGl2ZS1jb21tdW5pdHk=">React Native 社区<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</li>
+<li><p><strong>Tauri</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly90YXVyaS5hcHAvdjEvZ3VpZGVzLw==">Tauri 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly90YXVyaS5hcHAvdjEvYXBpLw==">Tauri API 文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RhdXJpLWFwcHMvdGF1cmkvdHJlZS9kZXYvZXhhbXBsZXM=">Tauri 示例<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kb2MucnVzdC1sYW5nLm9yZy8=">Rust 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</li>
+<li><p><strong>Electron</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZWxlY3Ryb25qcy5vcmcvZG9jcy9sYXRlc3Q=">Electron 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZWxlY3Ryb25qcy5vcmcvZG9jcy9sYXRlc3QvdHV0b3JpYWwvc2VjdXJpdHk=">Electron 安全指南<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZWxlY3Ryb25qcy5vcmcvZG9jcy9sYXRlc3QvdHV0b3JpYWwvcGVyZm9ybWFuY2U=">Electron 最佳实践<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2VsZWN0cm9uL2VsZWN0cm9uLXF1aWNrLXN0YXJ0">Electron 应用示例<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</li>
+<li><p><strong>uni-app</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly91bmlhcHAuZGNsb3VkLm5ldC5jbi8=">uni-app 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9leHQuZGNsb3VkLm5ldC5jbi8=">uni-app 插件市场<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9hc2suZGNsb3VkLm5ldC5jbi8=">uni-app 社区<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RjbG91ZGlvL3VuaS1hcHA=">uni-app 示例<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</li>
+<li><p><strong>Taro</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly90YXJvLmpkLmNvbS9kb2NzLw==">Taro 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL05lcnZKUy90YXJvL3RyZWUvbWFzdGVyL2V4YW1wbGVz">Taro 示例<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL05lcnZKUy90YXJv">Taro 社区<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly90YXJvLXVpLmpkLmNvbS8=">Taro UI<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</li>
+<li><p><strong>Ionic</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9pb25pY2ZyYW1ld29yay5jb20vZG9jcw==">Ionic 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9jYXBhY2l0b3Jqcy5jb20vZG9jcw==">Capacitor 文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9pb25pY2ZyYW1ld29yay5jb20vZG9jcy9jb21wb25lbnRz">Ionic 组件<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</li>
+<li><p><strong>.NET MAUI</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9sZWFybi5taWNyb3NvZnQuY29tL3poLWNuL2RvdG5ldC9tYXVpLw==">.NET MAUI 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RvdG5ldC9tYXVpLXNhbXBsZXM=">.NET MAUI 示例<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</li>
+<li><p><strong>Qt</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kb2MucXQuaW8v">Qt 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kb2MucXQuaW8vcXQtNi9xdGV4YW1wbGVzYW5kdHV0b3JpYWxzLmh0bWw=">Qt 示例<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</li>
+<li><p><strong>NativeScript</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLm5hdGl2ZXNjcmlwdC5vcmcv">NativeScript 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</li>
+<li><p><strong>Kotlin Multiplatform (KMP)</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9rb3RsaW5sYW5nLm9yZy9kb2NzL211bHRpcGxhdGZvcm0uaHRtbA==">Kotlin Multiplatform 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9rb3RsaW5sYW5nLm9yZy9kb2NzL211bHRpcGxhdGZvcm0va290bGluLW11bHRpcGxhdGZvcm0tZmx1dHRlci5odG1s">Kotlin Multiplatform vs Flutter 官方对比<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0tvdGxpbi9rb3RsaW4tbXVsdGlwbGF0Zm9ybS1zYW1wbGVz">Kotlin Multiplatform 示例<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuamV0YnJhaW5zLmNvbS9scC9jb21wb3NlLW11bHRpcGxhdGZvcm0v">Compose Multiplatform<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9rb3RsaW5sYW5nLm9yZy9kb2NzL2hvbWUuaHRtbA==">Kotlin 官方文档<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</li>
+<li><p><strong>ArkUI（鸿蒙）</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIuaGFybW9ueW9zLmNvbS8=">鸿蒙开发者文档<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kZXZlbG9wZXIuaGFybW9ueW9zLmNvbS9jbi9kb2NzL2RvY3VtZW50YXRpb24vZG9jLWd1aWRlcy1WMy9hcmt1aS1vdmVydmlldy0wMDAwMDAxNTA0NzY0NzIxLVYz">ArkUI 开发指南<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</li>
+</ol>
+<h3 id="技术文章和教程"><a href="#技术文章和教程" class="headerlink" title="技术文章和教程"></a>技术文章和教程</h3><ol>
+<li><p><strong>跨平台开发对比</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuc2ltZm9ybS5jb20vYmxvZy9mbHV0dGVyLXZzLXJlYWN0LW5hdGl2ZS8=">Flutter vs React Native: 2024 对比<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly90YXVyaS5hcHAvdjEvZ3VpZGVzL2RldmVsb3BtZW50L2VsZWN0cm9uLWNvbXBhcmlzb24=">Electron vs Tauri: 性能对比<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZnJlZWNvZGVjYW1wLm9yZy9uZXdzL2Nyb3NzLXBsYXRmb3JtLWZyYW1ld29ya3Mv">跨平台框架选择指南<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</li>
+<li><p><strong>性能优化</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmZsdXR0ZXIuZGV2L3BlcmY=">Flutter 性能优化指南<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9yZWFjdG5hdGl2ZS5kZXYvZG9jcy9wZXJmb3JtYW5jZQ==">React Native 性能优化<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZWxlY3Ryb25qcy5vcmcvZG9jcy9sYXRlc3QvdHV0b3JpYWwvcGVyZm9ybWFuY2U=">Electron 性能优化<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</li>
+<li><p><strong>最佳实践</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9kb2NzLmZsdXR0ZXIuZGV2L2RldmVsb3BtZW50L2Jlc3QtcHJhY3RpY2Vz">Flutter 最佳实践<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9yZWFjdG5hdGl2ZS5kZXYvZG9jcy9jb250cmlidXRpbmc=">React Native 最佳实践<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZWxlY3Ryb25qcy5vcmcvZG9jcy9sYXRlc3QvdHV0b3JpYWwvc2VjdXJpdHk=">Electron 安全最佳实践<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</li>
+</ol>
+<h3 id="社区资源"><a href="#社区资源" class="headerlink" title="社区资源"></a>社区资源</h3><ol>
+<li><p><strong>GitHub 仓库</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZsdXR0ZXIvZmx1dHRlcg==">Flutter<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2ZhY2Vib29rL3JlYWN0LW5hdGl2ZQ==">React Native<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RhdXJpLWFwcHMvdGF1cmk=">Tauri<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2VsZWN0cm9uL2VsZWN0cm9u">Electron<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2RjbG91ZGlvL3VuaS1hcHA=">uni-app<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL05lcnZKUy90YXJv">Taro<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL0tvdGxpbi9rb3RsaW4tbXVsdGlwbGF0Zm9ybQ==">Kotlin Multiplatform<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</li>
+<li><p><strong>社区论坛</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9mbHV0dGVyLmNuL2NvbW11bml0eQ==">Flutter 中文社区<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9yZWFjdG5hdGl2ZS5jbi8=">React Native 中文社区<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9hc2suZGNsb3VkLm5ldC5jbi8=">uni-app 社区<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL05lcnZKUy90YXJvL2Rpc2N1c3Npb25z">Taro 社区<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</li>
+<li><p><strong>技术博客</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL2ZsdXR0ZXI=">Flutter 官方博客<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9yZWFjdG5hdGl2ZS5kZXYvYmxvZw==">React Native 官方博客<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly90YXVyaS5hcHAvYmxvZw==">Tauri 官方博客<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZWxlY3Ryb25qcy5vcmcvYmxvZw==">Electron 官方博客<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9hc2suZGNsb3VkLm5ldC5jbi9hcnRpY2xlLzM1NDg5">uni-app 官方博客<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</li>
+</ol>
+<h3 id="技术对比和分析"><a href="#技术对比和分析" class="headerlink" title="技术对比和分析"></a>技术对比和分析</h3><ol>
+<li><p><strong>性能基准测试</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9tZWRpdW0uY29tL2ZsdXR0ZXIvZmx1dHRlci12cy1yZWFjdC1uYXRpdmUtcGVyZm9ybWFuY2UtY29tcGFyaXNvbg==">Flutter vs React Native 性能对比<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly90YXVyaS5hcHAvdjEvZ3VpZGVzL2RldmVsb3BtZW50L2VsZWN0cm9uLWNvbXBhcmlzb24=">Electron vs Tauri 性能测试<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FsaWJhYmEvZmx1dHRlci1nbw==">跨平台框架性能基准<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</li>
+<li><p><strong>技术选型指南</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZnJlZWNvZGVjYW1wLm9yZy9uZXdzL2Nyb3NzLXBsYXRmb3JtLWZyYW1ld29ya3Mv">如何选择跨平台框架<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuc2ltZm9ybS5jb20vYmxvZy9mbHV0dGVyLXZzLXJlYWN0LW5hdGl2ZS8=">移动应用开发框架对比<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly90YXVyaS5hcHAvdjEvZ3VpZGVzL2RldmVsb3BtZW50L2VsZWN0cm9uLWNvbXBhcmlzb24=">桌面应用开发框架选择<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</li>
+<li><p><strong>行业报告</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuc3RhdGlzdGEuY29tL3RvcGljcy8xMDAyL21vYmlsZS1hcHAtZGV2ZWxvcG1lbnQv">2024 年移动开发趋势报告<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9pbnNpZ2h0cy5zdGFja292ZXJmbG93LmNvbS9zdXJ2ZXkv">跨平台开发框架使用情况调查<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</li>
+</ol>
+<h3 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h3><ol>
+<li><p><strong>在线课程</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9mbHV0dGVyLmRldi9sZWFybg==">Flutter 官方教程<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9yZWFjdG5hdGl2ZS5kZXYvZG9jcy9nZXR0aW5nLXN0YXJ0ZWQ=">React Native 官方教程<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly90YXVyaS5hcHAvdjEvZ3VpZGVzL2dldHRpbmctc3RhcnRlZC9iZWdpbm5pbmctdHV0b3JpYWw=">Tauri 快速入门<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuZWxlY3Ryb25qcy5vcmcvZG9jcy9sYXRlc3QvdHV0b3JpYWwvcXVpY2stc3RhcnQ=">Electron 快速入门<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</li>
+<li><p><strong>视频教程</strong></p>
+<ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9zcGFjZS5iaWxpYmlsaS5jb20vNDgwNDEwMTE5">Flutter 中文视频教程<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vYy9SZWFjdE5hdGl2ZQ==">React Native 实战教程<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vcmVzdWx0cz9zZWFyY2hfcXVlcnk9dGF1cmkrdHV0b3JpYWw=">Tauri 开发教程<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+</li>
+<li><p><strong>书籍推荐</strong></p>
+<ul>
+<li>《Flutter 实战》- 开源电子书</li>
+<li>《React Native 开发指南》- O&#39;Reilly</li>
+<li>《Electron 应用开发》- O&#39;Reilly</li>
+<li>《跨平台移动应用开发》- 机械工业出版社</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>本文档对当前主流的跨多端开发技术进行了全面调研和分析。通过对比不同技术方案的特点、优劣和适用场景，为技术选型提供了参考依据。</p>
+<h3 id="核心发现"><a href="#核心发现" class="headerlink" title="核心发现"></a>核心发现</h3><ol>
+<li><strong>移动端开发</strong>：Flutter、React Native 和 Kotlin Multiplatform 是主流选择，各有优势</li>
+<li><strong>桌面端开发</strong>：Tauri 和 Electron 是主要方案，Tauri 在包体积上有明显优势</li>
+<li><strong>小程序开发</strong>：uni-app 和 Taro 是主要方案，两者都支持微信小程序、支付宝小程序等主流小程序平台<ul>
+<li><strong>uni-app</strong>: 支持最全面，覆盖微信、支付宝、百度、字节跳动、QQ、快手、钉钉等</li>
+<li><strong>Taro</strong>: 支持主流小程序平台，适合 React 技术栈</li>
+</ul>
+</li>
+<li><strong>全平台开发</strong>：Flutter、uni-app&#x2F;Taro 和 Kotlin Multiplatform 提供了较好的解决方案</li>
+<li><strong>鸿蒙支持</strong>：uni-app、Taro 和 Flutter 都提供了不同程度的支持</li>
+<li><strong>原生性能</strong>：Kotlin Multiplatform、Flutter、React Native 等都能提供接近原生的性能</li>
+</ol>
+<h3 id="选型建议"><a href="#选型建议" class="headerlink" title="选型建议"></a>选型建议</h3><ul>
+<li><strong>新项目</strong>：优先考虑 Flutter，生态完善，性能优秀</li>
+<li><strong>已有 React 技术栈</strong>：选择 React Native 或 Taro</li>
+<li><strong>已有 Vue 技术栈</strong>：选择 uni-app 或 Taro</li>
+<li><strong>已有 Kotlin&#x2F;Android 技术栈</strong>：选择 Kotlin Multiplatform，可共享业务逻辑，UI 使用原生</li>
+<li><strong>桌面应用</strong>：包体积敏感选 Tauri，快速开发选 Electron</li>
+<li><strong>需要鸿蒙支持</strong>：优先选择 uni-app 或 Taro</li>
+<li><strong>需要原生 UI 体验</strong>：选择 Kotlin Multiplatform 或 React Native</li>
+<li><strong>需要小程序支持</strong>：<ul>
+<li>需要支持多个小程序平台（微信、支付宝等）→ 优先选择 uni-app</li>
+<li>已有 Vue 技术栈 → 选择 uni-app</li>
+<li>已有 React 技术栈 → 选择 Taro</li>
+<li>需要小程序 + App → uni-app 或 Taro</li>
+</ul>
+</li>
+</ul>
+<h3 id="未来展望-1"><a href="#未来展望-1" class="headerlink" title="未来展望"></a>未来展望</h3><p>跨平台开发技术将继续发展，性能优化、开发体验提升和平台支持扩展是主要方向。选择合适的技术方案，结合团队实际情况和项目需求，才能实现最佳的开发效果。</p>
+<hr>
+<p><strong>文档版本</strong>: v1.0<br><strong>最后更新</strong>: 2025-12-15<br><strong>维护者</strong>: 技术团队</p>
+<blockquote>
+<p>本文档将持续更新，欢迎反馈和建议。</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Kotlin-Multiplatform/" rel="tag"># Kotlin Multiplatform</a>
+              <a href="/tags/KMP/" rel="tag"># KMP</a>
+              <a href="/tags/%E6%8A%80%E6%9C%AF%E8%B0%83%E7%A0%94/" rel="tag"># 技术调研</a>
+              <a href="/tags/%E8%B7%A8%E5%B9%B3%E5%8F%B0/" rel="tag"># 跨平台</a>
+              <a href="/tags/%E7%A7%BB%E5%8A%A8%E5%BC%80%E5%8F%91/" rel="tag"># 移动开发</a>
+              <a href="/tags/%E6%A1%8C%E9%9D%A2%E5%BA%94%E7%94%A8/" rel="tag"># 桌面应用</a>
+              <a href="/tags/Flutter/" rel="tag"># Flutter</a>
+              <a href="/tags/React-Native/" rel="tag"># React Native</a>
+              <a href="/tags/Tauri/" rel="tag"># Tauri</a>
+              <a href="/tags/Electron/" rel="tag"># Electron</a>
+              <a href="/tags/uni-app/" rel="tag"># uni-app</a>
+              <a href="/tags/Taro/" rel="tag"># Taro</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/12/10/nginx-guide/" rel="prev" title="Nginx 使用指南 - 配置文件作用与生效机制">
+                  <i class="fa fa-angle-left"></i> Nginx 使用指南 - 配置文件作用与生效机制
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2025/12/18/my-hub-app-naming-summary/" rel="next" title="笔记: My Hub App 命名总结与品牌阐释">
+                  笔记: My Hub App 命名总结与品牌阐释 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2025 – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Zhifu-Tech</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <span class="exturl github-corner" data-url="aHR0cHM6Ly9naXRodWIuY29tL3poaWZ1LXRlY2gvemhpZnUtdGVjaA==" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></span>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+
+</body>
+</html>
